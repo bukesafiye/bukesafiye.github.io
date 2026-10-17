@@ -123,6 +123,7 @@ h1, h2, h3 { font-family: var(--display); line-height: 1.15; margin: 0 0 .5em; l
 .game-card:hover { transform: translateY(-3px); border-color: color-mix(in srgb, var(--card-accent) 45%, transparent); }
 .game-card.ghost { --card-accent: #3fe0f0; }
 .game-card.lost { --card-accent: #e4b462; }
+.game-card.alchemy { --card-accent: #c9a2ff; }
 .card-art {
   position: relative; aspect-ratio: 16 / 9; display: block; padding: 22px;
   background: radial-gradient(60% 70% at 50% 45%, color-mix(in srgb, var(--card-accent) 26%, transparent), transparent 75%), #0a0e11;
