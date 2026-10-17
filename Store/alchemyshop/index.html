@@ -26,7 +26,21 @@ og_image: /assets/img/alchemyshop-icon.png
       </div>
     </div>
     <div class="phone">
-      <img src="{{ '/assets/img/alchemyshop-icon.png' | relative_url }}" alt="Simyacının Dükkânı">
+      <img src="{{ '/assets/img/shots/alch-02-shop.jpg' | relative_url }}" alt="Simyacının Dükkânı dükkân ekranı">
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head"><h2>Ekranlar</h2></div>
+    <div class="shots">
+      {% assign shots = "alch-01-menu,alch-02-shop,alch-03-brew,alch-04-garden,alch-05-market" | split: "," %}
+      {% for s in shots %}
+      <figure>
+        <img src="{{ '/assets/img/shots/' | append: s | append: '.jpg' | relative_url }}" alt="Simyacının Dükkânı ekran görüntüsü" loading="lazy">
+      </figure>
+      {% endfor %}
     </div>
   </div>
 </section>
