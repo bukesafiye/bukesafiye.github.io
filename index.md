@@ -1,8 +1,5 @@
 # MiroGames
 
-**Lost & Found Office / Kayıp Eşya Bürosu**
-
-- [Privacy Policy / Gizlilik Politikası](privacy.html)
-- [Support / Destek](support.html)
+- [Lost & Found Office / Kayıp Eşya Bürosu](Store/lostfoundgame/)
 
 Contact / İletişim: bukesafiye@gmail.com
