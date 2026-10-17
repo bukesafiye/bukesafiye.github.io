@@ -105,6 +105,7 @@ h1, h2, h3 { font-family: var(--display); line-height: 1.15; margin: 0 0 .5em; l
 }
 .hero-art .icon-ghost { top: 10px; left: 10%; transform: rotate(-8deg); box-shadow: 0 24px 60px rgba(0, 0, 0, .6), 0 0 80px rgba(63, 224, 240, .35); }
 .hero-art .icon-lost { bottom: 0; right: 4%; transform: rotate(7deg); animation-delay: -3s; box-shadow: 0 24px 60px rgba(0, 0, 0, .6), 0 0 80px rgba(228, 180, 98, .3); }
+.hero-art .icon-alch { top: 0; right: 0; width: 150px; height: 150px; border-radius: 34px; transform: rotate(4deg); animation-delay: -1.5s; box-shadow: 0 24px 60px rgba(0, 0, 0, .6), 0 0 80px rgba(201, 162, 255, .3); }
 @keyframes float { 50% { translate: 0 -12px; } }
 .hero .lead { font-size: clamp(17px, 2vw, 20px); color: var(--muted); max-width: 52ch; margin: 0 0 32px; }
 .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; }
@@ -215,6 +216,7 @@ h1, h2, h3 { font-family: var(--display); line-height: 1.15; margin: 0 0 .5em; l
   .games, .game-hero-grid, .hero-grid { grid-template-columns: 1fr; }
   .hero-art { height: 240px; max-width: 420px; }
   .hero-art img { width: 140px; height: 140px; border-radius: 32px; }
+  .hero-art .icon-alch { width: 110px; height: 110px; border-radius: 26px; }
   .features { grid-template-columns: 1fr 1fr; }
   .facts { grid-template-columns: 1fr 1fr; }
   .phone { transform: none; width: min(260px, 70vw); }
