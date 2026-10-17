@@ -1,0 +1,91 @@
+---
+layout: default
+full: true
+theme: ghost
+title: GhostShift
+description: Night shift, 03:17. Follow the rules, spot the ghosts, survive until morning.
+icon: /assets/img/ghostshift-icon.png
+og_image: /assets/img/ghostshift-feature.jpg
+---
+<section class="game-hero">
+  <div class="wrap game-hero-grid">
+    <div>
+      <img class="game-logo tr" src="{{ '/assets/img/ghostshift-logo-tr.png' | relative_url }}" alt="Hayalet Vardiya">
+      <img class="game-logo en" src="{{ '/assets/img/ghostshift-logo-en.png' | relative_url }}" alt="GhostShift">
+      <p class="lead">
+        <span class="tr">Saat 03:17'de duran bir gece marketinde yeni tezgahtarsın. Patron sana bir kâğıt bıraktı: kurallar. Sorgulama, uygula.</span>
+        <span class="en">You're the new clerk at a night market where the clock is stuck at 03:17. The owner left you a sheet of paper: the rules. Don't question them, follow them.</span>
+      </p>
+      <ul class="chips">
+        <li><span class="tr">Ücretsiz</span><span class="en">Free</span></li>
+        <li><span class="tr">Reklamsız</span><span class="en">No ads</span></li>
+        <li><span class="tr">Çevrimdışı</span><span class="en">Offline</span></li>
+        <li>TR · EN</li>
+      </ul>
+      <div class="hero-actions">
+        <span class="btn primary soon"><span class="tr">Yakında Google Play'de</span><span class="en">Coming soon to Google Play</span></span>
+        <a class="btn" href="support.html"><span class="tr">Destek</span><span class="en">Support</span></a>
+      </div>
+    </div>
+    <div class="phone">
+      <img class="tr" src="{{ '/assets/img/shots/gs-tr-04_guest_2_red_hat.jpg' | relative_url }}" alt="Oyun içi ekran">
+      <img class="en" src="{{ '/assets/img/shots/gs-en-04_guest_2_red_hat.jpg' | relative_url }}" alt="Gameplay screen">
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head"><h2><span class="tr">Satarsın, reddedersin ya da arındırırsın</span><span class="en">Sell, reject or cleanse</span></h2></div>
+    <div class="features">
+      <div class="feature"><span class="num">01</span>
+        <b><span class="tr">Kurallara uy</span><span class="en">Follow the rules</span></b>
+        <span><span class="tr">Kırmızı şapkalıyı içeri alma, 03:00'ten sonra süt satma. Her gece kâğıda yeni kurallar eklenir.</span><span class="en">Turn away the man in the red hat, never sell milk after 03:00. New rules join the sheet every night.</span></span></div>
+      <div class="feature"><span class="num">02</span>
+        <b><span class="tr">Hayaletleri yakala</span><span class="en">Spot the ghosts</span></b>
+        <span><span class="tr">Simsiyah gözler, duvarda olmayan gölge, aynada görünmeyen yansıma, altı parmak…</span><span class="en">Pitch-black eyes, no shadow on the wall, no reflection in the mirror, six fingers…</span></span></div>
+      <div class="feature"><span class="num">03</span>
+        <b><span class="tr">20 gecelik hikâye</span><span class="en">A 20-night story</span></b>
+        <span><span class="tr">Önceki tezgahtar Selim'in günlüğünü sayfa sayfa aç, dükkanın sırrını çöz.</span><span class="en">Unlock the diary of Selim, the previous clerk, page by page and learn the store's secret.</span></span></div>
+      <div class="feature"><span class="num">04</span>
+        <b><span class="tr">Gece olayları</span><span class="en">Night events</span></b>
+        <span><span class="tr">Işıklar söner, telefon çalıp fısıldar (her zaman doğruyu söylemez), kapı çalar ama kimse girmez.</span><span class="en">The lights go out, the phone rings and whispers (not always the truth), the door chimes but nobody comes in.</span></span></div>
+      <div class="feature"><span class="num">05</span>
+        <b><span class="tr">Dükkân ve temalar</span><span class="en">Shop and themes</span></b>
+        <span><span class="tr">Seri yap, çarpanı büyüt; kazancınla ek süre, ekstra can, ipucu ve yeni temalar al.</span><span class="en">Build streaks, grow your multiplier, and spend your earnings on extra time, lives, hints and themes.</span></span></div>
+      <div class="feature"><span class="num">06</span>
+        <b><span class="tr">Günün ve Sonsuz Vardiya</span><span class="en">Daily and Endless shifts</span></b>
+        <span><span class="tr">Günde tek denemelik ortak vardiya; 20 gece bitince tek hatada biten sonsuz mod.</span><span class="en">One shared attempt a day, and an endless mode where one mistake ends the run.</span></span></div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head"><h2><span class="tr">Ekranlar</span><span class="en">Screens</span></h2></div>
+    <div class="shots">
+      {% assign shots = "04_guest_2_red_hat,04_anomaly_1_no_reflection,04_event_2_phone,07e_briefing_night20" | split: "," %}
+      {% for s in shots %}
+      <figure>
+        <img class="tr" src="{{ '/assets/img/shots/gs-tr-' | append: s | append: '.jpg' | relative_url }}" alt="Hayalet Vardiya ekran görüntüsü" loading="lazy">
+        <img class="en" src="{{ '/assets/img/shots/gs-en-' | append: s | append: '.jpg' | relative_url }}" alt="GhostShift screenshot" loading="lazy">
+      </figure>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <dl class="facts">
+      <div><dt><span class="tr">Tür</span><span class="en">Genre</span></dt><dd><span class="tr">Korku · Bulmaca</span><span class="en">Horror · Puzzle</span></dd></div>
+      <div><dt><span class="tr">Platform</span><span class="en">Platform</span></dt><dd>Android</dd></div>
+      <div><dt><span class="tr">Fiyat</span><span class="en">Price</span></dt><dd><span class="tr">Ücretsiz, reklamsız</span><span class="en">Free, no ads</span></dd></div>
+      <div><dt><span class="tr">Veri</span><span class="en">Data</span></dt><dd><a href="privacy.html"><span class="tr">Hiçbir veri toplanmaz</span><span class="en">No data collected</span></a></dd></div>
+    </dl>
+  </div>
+</section>
+
+<section class="section">
+  <p class="quote wrap"><span class="tr">Dikkatli bak. Kurallara güven. Sabaha çıkabilecek misin?</span><span class="en">Look closely. Trust the rules. Will you make it to morning?</span></p>
+</section>

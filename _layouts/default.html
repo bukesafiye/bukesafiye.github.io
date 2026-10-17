@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="tr" data-lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% if page.title %}{{ page.title }} · {% endif %}MiroGames</title>
+  <meta name="description" content="{{ page.description | default: site.description }}">
+  <meta property="og:title" content="{% if page.title %}{{ page.title }} · {% endif %}MiroGames">
+  <meta property="og:description" content="{{ page.description | default: site.description }}">
+  {% if page.og_image %}<meta property="og:image" content="{{ page.og_image | absolute_url }}">{% endif %}
+  <link rel="icon" href="{{ page.icon | default: '/assets/img/favicon.svg' | relative_url }}">
+  <meta name="theme-color" content="#07090c">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ '/assets/css/site.css' | relative_url }}">
+  <script>
+    // Language before first paint: saved choice, else the browser's language.
+    (function () {
+      var lang = null;
+      try { lang = localStorage.getItem('mg-lang'); } catch (e) {}
+      if (lang !== 'tr' && lang !== 'en') lang = (navigator.language || 'tr').toLowerCase().indexOf('tr') === 0 ? 'tr' : 'en';
+      document.documentElement.setAttribute('data-lang', lang);
+      document.documentElement.lang = lang;
+    })();
+  </script>
+</head>
+<body class="theme-{{ page.theme | default: 'studio' }}">
+  <header class="site-header">
+    <div class="wrap header-row">
+      <a class="brand" href="{{ '/' | relative_url }}" aria-label="MiroGames">
+        <img src="{{ '/assets/img/mirogames.png' | relative_url }}" alt="MiroGames" width="160" height="64">
+      </a>
+      <nav class="nav">
+        <a href="{{ '/#games' | relative_url }}"><span class="tr">Oyunlar</span><span class="en">Games</span></a>
+        <a href="{{ '/#contact' | relative_url }}"><span class="tr">İletişim</span><span class="en">Contact</span></a>
+        <div class="lang-toggle" role="group" aria-label="Language">
+          <button type="button" data-set-lang="tr">TR</button>
+          <button type="button" data-set-lang="en">EN</button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    {% if page.full %}
+      {{ content }}
+    {% else %}
+      <article class="doc wrap">
+        {% if page.back %}<a class="back-link" href="{{ page.back | relative_url }}">← <span class="tr">{{ page.back_tr }}</span><span class="en">{{ page.back_en }}</span></a>{% endif %}
+        {{ content }}
+      </article>
+    {% endif %}
+  </main>
+
+  <footer class="site-footer" id="contact">
+    <div class="wrap footer-row">
+      <div>
+        <img class="footer-logo" src="{{ '/assets/img/mirogames.png' | relative_url }}" alt="MiroGames" width="140" height="56">
+        <p class="muted"><span class="tr">Bağımsız küçük bir oyun stüdyosu.</span><span class="en">A tiny independent game studio.</span></p>
+      </div>
+      <div class="footer-links">
+        <a class="mail" href="mailto:bukesafiye@gmail.com">bukesafiye@gmail.com</a>
+        <span class="muted">© 2026 MiroGames</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var root = document.documentElement;
+      function mark() {
+        var lang = root.getAttribute('data-lang');
+        document.querySelectorAll('[data-set-lang]').forEach(function (b) {
+          b.setAttribute('aria-pressed', b.getAttribute('data-set-lang') === lang ? 'true' : 'false');
+        });
+      }
+      document.querySelectorAll('[data-set-lang]').forEach(function (b) {
+        b.addEventListener('click', function () {
+          var lang = b.getAttribute('data-set-lang');
+          root.setAttribute('data-lang', lang);
+          root.lang = lang;
+          try { localStorage.setItem('mg-lang', lang); } catch (e) {}
+          mark();
+        });
+      });
+      mark();
+    })();
+  </script>
+</body>
+</html>

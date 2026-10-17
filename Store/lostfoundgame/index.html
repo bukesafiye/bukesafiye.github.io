@@ -1,0 +1,90 @@
+---
+layout: default
+full: true
+theme: lost
+title: Lost & Found Office
+description: Return lost things to their owners and uncover the office's secret.
+icon: /assets/img/lostfound-icon.png
+---
+<section class="game-hero">
+  <div class="wrap game-hero-grid">
+    <div>
+      <img class="game-logo tr" src="{{ '/assets/img/lostfound-logo-tr.png' | relative_url }}" alt="Kayıp Eşya Bürosu">
+      <img class="game-logo en" src="{{ '/assets/img/lostfound-logo-en.png' | relative_url }}" alt="Lost &amp; Found Office">
+      <p class="lead">
+        <span class="tr">Eski büro sahibinden kalan gizemli bir mektupla Kayıp Eşya Bürosu artık senin. Doğru eşyayı doğru kişiye teslim et, itibarını büyüt ve bu sıcak, el çizimi dünyanın sırrını adım adım çöz.</span>
+        <span class="en">A mysterious letter from its former owner makes the Lost &amp; Found Office yours. Return the right item to the right person, grow your reputation and uncover the secret of this warm, hand-drawn world.</span>
+      </p>
+      <ul class="chips">
+        <li><span class="tr">Gizem</span><span class="en">Mystery</span></li>
+        <li><span class="tr">Simülasyon</span><span class="en">Simulation</span></li>
+        <li><span class="tr">Çevrimdışı</span><span class="en">Offline</span></li>
+        <li>TR · EN</li>
+      </ul>
+      <div class="hero-actions">
+        <span class="btn primary soon"><span class="tr">Yakında</span><span class="en">Coming soon</span></span>
+        <a class="btn" href="support.html"><span class="tr">Destek</span><span class="en">Support</span></a>
+      </div>
+    </div>
+    <div class="phone">
+      <img class="tr" src="{{ '/assets/img/shots/lf-tr-01.jpg' | relative_url }}" alt="Oyun içi ekran">
+      <img class="en" src="{{ '/assets/img/shots/lf-en-01.jpg' | relative_url }}" alt="Gameplay screen">
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head"><h2><span class="tr">Her eşyanın bir hikâyesi var</span><span class="en">Every object has a story</span></h2></div>
+    <div class="features">
+      <div class="feature"><span class="num">01</span>
+        <b><span class="tr">33 müşteri, 350+ eşya</span><span class="en">33 visitors, 350+ items</span></b>
+        <span><span class="tr">Kimi kaybettiği hatırasını arıyor, kimi bulduğu eşyayı teslim etmeye geliyor.</span><span class="en">Some are searching for a lost keepsake, others bring in something they found.</span></span></div>
+      <div class="feature"><span class="num">02</span>
+        <b><span class="tr">Gizemli vakalar</span><span class="en">Mysterious cases</span></b>
+        <span><span class="tr">Depo, araştırma masası ve ipucu panosuyla eşyaların izini sür.</span><span class="en">Track items down with the storage room, research desk and clue board.</span></span></div>
+      <div class="feature"><span class="num">03</span>
+        <b><span class="tr">Açık artırmalar</span><span class="en">Auctions</span></b>
+        <span><span class="tr">Sahibi gelmeyen eşyalar heyecanlı açık artırmalara çıkar.</span><span class="en">Items nobody claims go up for exciting auctions.</span></span></div>
+      <div class="feature"><span class="num">04</span>
+        <b><span class="tr">Ekibini kur</span><span class="en">Build your team</span></b>
+        <span><span class="tr">Resepsiyonist, araştırmacı, arşivci ve gezgin; her biri için gelişim ağacı.</span><span class="en">Receptionist, researcher, archivist and traveller, each with a skill tree.</span></span></div>
+      <div class="feature"><span class="num">05</span>
+        <b><span class="tr">Gizli odalar</span><span class="en">Hidden rooms</span></b>
+        <span><span class="tr">Hikâye ilerledikçe açılan gizli odalar ve Kıyıboyu Konağı.</span><span class="en">Hidden rooms and the Riverside Mansion open as the story unfolds.</span></span></div>
+      <div class="feature"><span class="num">06</span>
+        <b><span class="tr">Koleksiyon ve görevler</span><span class="en">Collection and goals</span></b>
+        <span><span class="tr">Koleksiyon kataloğu, günlük ve haftalık görevler, sürpriz günler.</span><span class="en">A collection catalogue, daily and weekly goals, surprise days.</span></span></div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head"><h2><span class="tr">Ekranlar</span><span class="en">Screens</span></h2></div>
+    <div class="shots">
+      {% assign shots = "01,02,03,04" | split: "," %}
+      {% for s in shots %}
+      <figure>
+        <img class="tr" src="{{ '/assets/img/shots/lf-tr-' | append: s | append: '.jpg' | relative_url }}" alt="Kayıp Eşya Bürosu ekran görüntüsü" loading="lazy">
+        <img class="en" src="{{ '/assets/img/shots/lf-en-' | append: s | append: '.jpg' | relative_url }}" alt="Lost &amp; Found Office screenshot" loading="lazy">
+      </figure>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <dl class="facts">
+      <div><dt><span class="tr">Tür</span><span class="en">Genre</span></dt><dd><span class="tr">Simülasyon · Gizem</span><span class="en">Simulation · Mystery</span></dd></div>
+      <div><dt><span class="tr">Yaş</span><span class="en">Age</span></dt><dd><span class="tr">Herkes</span><span class="en">Everyone</span></dd></div>
+      <div><dt><span class="tr">İnternet</span><span class="en">Internet</span></dt><dd><span class="tr">Gerekmez</span><span class="en">Not needed</span></dd></div>
+      <div><dt><span class="tr">Veri</span><span class="en">Data</span></dt><dd><a href="privacy.html"><span class="tr">Hiçbir veri toplanmaz</span><span class="en">No data collected</span></a></dd></div>
+    </dl>
+  </div>
+</section>
+
+<section class="section">
+  <p class="quote wrap"><span class="tr">Bazı şeyler kaybolmaz; yalnızca bulunacakları günü bekler.</span><span class="en">Some things are never lost; they only wait for the day they are found.</span></p>
+</section>
