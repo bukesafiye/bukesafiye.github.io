@@ -53,12 +53,19 @@ h1, h2, h3 { font-family: var(--display); line-height: 1.15; margin: 0 0 .5em; l
 .nav { display: flex; align-items: center; gap: 22px; font-weight: 500; font-size: 15px; }
 .nav > a { color: var(--text); opacity: .85; }
 .nav > a:hover { opacity: 1; text-decoration: none; color: var(--accent); }
-/* Game names in the header take each game's own accent colour; shown on wide screens only. */
-.nav > .nav-game { font-weight: 600; white-space: nowrap; opacity: 1; }
-.nav > .nav-game.ghost { color: #3fe0f0; }
-.nav > .nav-game.lost { color: #e4b462; }
-.nav > .nav-game.alch { color: #c9a2ff; }
-.nav > .nav-game:hover { opacity: .8; color: inherit; }
+/* Game names in the header: small pills in each game's own accent colour; shown on wide screens only. */
+.nav > .nav-game {
+  display: inline-flex; align-items: center; gap: 8px; padding: 6px 12px; border-radius: 999px;
+  color: var(--c); opacity: 1; font-weight: 600; font-size: 14px; white-space: nowrap; letter-spacing: .01em;
+  border: 1px solid color-mix(in srgb, var(--c) 35%, transparent);
+  background: color-mix(in srgb, var(--c) 9%, transparent);
+  transition: background .2s ease, border-color .2s ease;
+}
+.nav > .nav-game::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--c); box-shadow: 0 0 10px var(--c); }
+.nav > .nav-game:hover { color: var(--c); opacity: 1; background: color-mix(in srgb, var(--c) 20%, transparent); border-color: color-mix(in srgb, var(--c) 70%, transparent); }
+.nav > .nav-game.ghost { --c: #3fe0f0; }
+.nav > .nav-game.lost { --c: #e4b462; }
+.nav > .nav-game.alch { --c: #c9a2ff; }
 @media (max-width: 860px) { .nav > .nav-game { display: none; } }
 .lang-toggle { display: flex; border: 1px solid var(--line); border-radius: 999px; padding: 3px; }
 .lang-toggle button {
