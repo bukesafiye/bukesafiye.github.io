@@ -4,8 +4,8 @@ game: cuppa
 title: CUPPA
 description: Bounce off the walls, jump higher and drop the ball into colorful hoops.
 lead:
-  tr: "Ekranın soluna ya da sağına dokun, duvarlardan sek ve yüksel. Topu çemberin üstünden içeri düşür, art arda basketlerle Ateş Modu'nu yak ve her denemede değişen parkurda daha yükseğe çık."
-  en: "Tap left or right, bounce off the walls and climb. Drop the ball in from above the rim, chain baskets into Fire Mode and go higher on a course that changes every run."
+  tr: "Ekranın soluna ya da sağına dokun; kısa dokunuş küçük, basılı tutmak yüksek zıplatır. Duvarlardan sek, dönen çelik kollardan kaç ve topu çemberin üstünden içeri düşür. 8 dünyadan geçen 20.000 metrelik parkurda ne kadar yükseğe çıkabilirsin?"
+  en: "Tap left or right; a quick tap is a small hop, holding jumps higher. Bounce off the walls, dodge spinning steel arms and drop the ball in from above the rim. How high can you climb on a 20,000 m course through 8 worlds?"
 chips:
   - { tr: "Arcade", en: "Arcade" }
   - { tr: "Basketbol", en: "Basketball" }
@@ -15,18 +15,18 @@ chips:
 # google_play: https://play.google.com/store/apps/details?id=com.mirogames.cuppa
 features_title: { tr: "Sek, sıçra, basket at", en: "Bounce, jump, shoot" }
 features:
-  - title: { tr: "İki dokunuşlu kontrol", en: "Two-tap controls" }
-    text: { tr: "Sola dokun sola, sağa dokun sağa sıçra. Duvarlar seni hafifçe yukarı iter.", en: "Tap left to jump left, tap right to jump right. Walls give you a gentle push up." }
+  - title: { tr: "Basış gücü", en: "Press power" }
+    text: { tr: "Kısa dokunuş küçük zıplama, basılı tutmak daha yüksek. Yön dokunduğun taraf.", en: "A quick tap is a small hop, hold to jump higher. Tap the side you want to go." }
   - title: { tr: "Gerçek basket kuralı", en: "Real basket rule" }
-    text: { tr: "Top çemberin üstünden girmeli; alttan geçiş sayılmaz. Demirler serttir, top sekmez.", en: "The ball must drop in from above; passing up from below never counts. Rims are solid and don't bounce." }
+    text: { tr: "Top çemberin üstünden girmeli; alttan geçiş sayılmaz. Demirler serttir, top sekmez, içeri yuvarlanır.", en: "The ball must drop in from above; passing up from below never counts. Rims are solid: the ball doesn't bounce, it rolls in." }
+  - title: { tr: "8 dünya, 20.000 metre", en: "8 worlds, 20,000 m" }
+    text: { tr: "Şehir, orman, plaj, çöl, dağ, kış, uzay ve gece şehri; yükseldikçe daha hızlı dönen kollar ve daha çok diken.", en: "City, forest, beach, desert, mountain, winter, space and night city; faster arms and more spikes the higher you go." }
+  - title: { tr: "Güçlendirmeler", en: "Power-ups" }
+    text: { tr: "Yay, kanat, mıknatıs, kalkan, yavaş zaman ve Ateş Modu parkurda seni bekliyor.", en: "Springs, wings, magnets, shields, slow time and Fire Mode are waiting on the course." }
+  - title: { tr: "19 top", en: "19 balls" }
+    text: { tr: "Buz, Ateş, Kral, Şans, Karpuz, Ay ve dahası; her birinin kendi pasifi ve özel gücü var.", en: "Ice, Fire, King, Lucky, Watermelon, Moon and more; each with its own passive and special power." }
   - title: { tr: "Perfect Shot ve Ateş Modu", en: "Perfect Shot and Fire Mode" }
-    text: { tr: "Çembere değmeden gir, puanı ikiye katla. Art arda 5 basket Ateş Modu'nu başlatır.", en: "Swish without touching the rim for double points. Five in a row starts Fire Mode." }
-  - title: { tr: "Dönen engeller", en: "Spinning hazards" }
-    text: { tr: "Yükseldikçe daha hızlı dönen çelik kollar, dikenler ve yaylar yolunu keser.", en: "The higher you go, the faster the steel arms spin, with spikes and springs in your way." }
-  - title: { tr: "Macera ve Sonsuz Mod", en: "Adventure and Endless" }
-    text: { tr: "Macera'da her 100 m bir kontrol noktası; Sonsuz Mod'da tek can.", en: "A checkpoint every 100 m in Adventure; one life in Endless." }
-  - title: { tr: "Toplar ve görevler", en: "Balls and quests" }
-    text: { tr: "Buz, Ateş ve Manyetik topları aç; günlük görevlerle altın kazan.", en: "Unlock the Ice, Fire and Magnet balls; earn gold with daily quests." }
+    text: { tr: "Çembere değmeden gir, puanı ikiye katla. Art arda basketler Ateş Modu'nu başlatır.", en: "Swish without touching the rim for double points. Baskets in a row start Fire Mode." }
 # assets/img/shots/cuppa-tr-01.jpg ... cuppa-en-04.jpg (480x960); the first is shown in the phone frame
 shots: ["01", "02", "03", "04"]
 genre: { tr: "Arcade · Spor", en: "Arcade · Sports" }

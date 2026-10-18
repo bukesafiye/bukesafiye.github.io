@@ -60,8 +60,8 @@
   name: { tr: "CUPPA", en: "CUPPA" }
   tagline: { tr: "Sek, sıçra, basket at", en: "Bounce, jump, shoot" }
   summary:
-    tr: "Duvarlardan sek, dönen engelleri aş ve topu çemberin üstünden renkli potalara düşür."
-    en: "Bounce off the walls, get past spinning hazards and drop the ball into colorful hoops from above."
+    tr: "Duvarlardan sek, dönen çelik kolları aş ve topu çemberin üstünden potalara düşür. 8 dünya, 19 top, 20.000 metre."
+    en: "Bounce off the walls, get past spinning steel arms and drop the ball into the hoops from above. 8 worlds, 19 balls, 20,000 m."
   status: { tr: "Yakında · App Store & Google Play", en: "Coming soon · App Store & Google Play" }
   chips:
     - { tr: "Arcade", en: "Arcade" }
