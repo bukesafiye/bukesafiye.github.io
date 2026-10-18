@@ -116,12 +116,13 @@ h1, h2, h3 { font-family: var(--display); line-height: 1.15; margin: 0 0 .5em; l
 }
 .hero-grid { display: grid; grid-template-columns: 1.3fr .7fr; gap: 40px; align-items: center; }
 .hero h1 { font-size: clamp(36px, 6vw, 64px); max-width: 15ch; }
-/* App icons floating over a soft glow. */
-.hero-art { position: relative; height: 340px; }
-/* Icon size, tilt, float delay and glow come from _data/games.yml (hero). */
+/* App icons on a straight 2×2 grid, floating together over a soft glow. */
+.hero-art { --icon: 150px; display: grid; grid-template-columns: repeat(2, var(--icon)); gap: 28px; justify-content: center; }
+.hero-art a { display: block; }
+/* Each icon's glow color comes from _data/games.yml (glow). */
 .hero-art img {
-  position: absolute; width: var(--s, 150px); height: var(--s, 150px); border-radius: calc(var(--s, 150px) * .22);
-  transform: rotate(var(--r, 0deg)); animation: float 6s ease-in-out infinite; animation-delay: var(--d, 0s);
+  display: block; width: var(--icon); height: var(--icon); border-radius: calc(var(--icon) * .22);
+  animation: float 6s ease-in-out infinite;
   box-shadow: 0 24px 60px rgba(0, 0, 0, .6), 0 0 0 1px rgba(255, 255, 255, .08), 0 0 80px var(--g, transparent);
 }
 @keyframes float { 50% { translate: 0 -12px; } }
@@ -233,8 +234,7 @@ h1, h2, h3 { font-family: var(--display); line-height: 1.15; margin: 0 0 .5em; l
 /* ---- Small screens ---- */
 @media (max-width: 860px) {
   .games, .game-hero-grid, .hero-grid { grid-template-columns: 1fr; }
-  .hero-art { height: 240px; max-width: 420px; }
-  .hero-art img { width: calc(var(--s, 150px) * .74); height: calc(var(--s, 150px) * .74); }
+  .hero-art { --icon: min(120px, (100vw - 32px - 3 * 20px) / 4); grid-template-columns: repeat(4, var(--icon)); gap: 20px; justify-content: start; }
   .features { grid-template-columns: 1fr 1fr; }
   .facts { grid-template-columns: 1fr 1fr; }
   .phone { transform: none; width: min(260px, 70vw); }

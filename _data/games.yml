@@ -7,8 +7,6 @@
 # color     the game's accent: header dot, card glow, buttons on its pages
 # theme     optional extra palette for the game's pages (bg, surface, text...)
 # card_bg   optional background behind the logo on the home card
-# hero      floating icon in the home hero: position (top/left/right/bottom),
-#           size in px, rotate in deg, delay in s
 - slug: ghostshift
   name: { tr: "Hayalet Vardiya", en: "GhostShift" }
   tagline: { tr: "Gece vardiyası korku bulmacası", en: "Night-shift horror puzzle" }
@@ -24,7 +22,6 @@
   glow: "rgba(63, 224, 240, .35)"
   icon: /assets/img/ghostshift-icon.png
   logo: { tr: /assets/img/ghostshift-logo-tr.png, en: /assets/img/ghostshift-logo-en.png }
-  hero: { top: 10px, left: 10%, size: 190, rotate: -8, delay: 0 }
 
 - slug: lostfoundgame
   name: { tr: "Kayıp Eşya Bürosu", en: "Lost & Found Office" }
@@ -42,7 +39,6 @@
   card_bg: "radial-gradient(60% 70% at 50% 45%, rgba(228, 180, 98, .30), transparent 75%), #140e09"
   icon: /assets/img/lostfound-icon.png
   logo: { tr: /assets/img/lostfound-logo-tr.png, en: /assets/img/lostfound-logo-en.png }
-  hero: { bottom: 0, right: 4%, size: 190, rotate: 7, delay: -3 }
 
 - slug: alchemyshop
   name: { tr: "Simyacının Dükkânı", en: "Alchemist’s Shop" }
@@ -59,7 +55,6 @@
   glow: "rgba(201, 162, 255, .3)"
   icon: /assets/img/alchemyshop-potion.png
   logo: { tr: /assets/img/alchemyshop-logo.png, en: /assets/img/alchemyshop-logo-en.png }
-  hero: { top: 0, right: 0, size: 150, rotate: 4, delay: -1.5 }
 
 - slug: cuppa
   name: { tr: "CUPPA", en: "CUPPA" }
@@ -78,4 +73,3 @@
   card_bg: "radial-gradient(60% 70% at 50% 45%, rgba(110, 195, 250, .32), transparent 75%), #0a1420"
   icon: /assets/img/cuppa-icon.png
   logo: { tr: /assets/img/cuppa-logo.png, en: /assets/img/cuppa-logo.png }
-  hero: { bottom: 6px, left: 0, size: 130, rotate: -5, delay: -4.5 }

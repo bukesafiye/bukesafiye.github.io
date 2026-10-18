@@ -20,9 +20,9 @@ color theme are generated from `_data/games.yml`, so step 2 does most of the wor
    `slug`, `name`, `tagline`, `summary`, `status`, `chips` (all `{ tr, en }`), `color` (the game's
    accent from its icon/logo: header dot, card glow, buttons), `glow` (same color at ~.3 alpha),
    optional `theme` (`glow`, `bg`, `surface`, `surface_2`, `text`, `muted`, `button_text` for a
-   light accent), optional `card_bg`, `icon`, `logo: { tr, en }`, and `hero`
-   (`top|bottom` + `left|right`, `size`, `rotate`, `delay`). Place the hero icon so it does
-   not cover the others; check on desktop and on a 375 px wide screen.
+   light accent), optional `card_bg`, `icon`, and `logo: { tr, en }`.
+   The hero icons sit on a straight grid in list order (2×2 on desktop, one row on small
+   screens); check on desktop and on a 375 px wide screen.
 3. **`Store/<slug>/index.md`**: front matter only, `layout: game`, `game: <slug>`, `title`,
    `description`, then `lead`, `chips`, `features_title`, `features` (6 items: `title`, `text`),
    `shots`, `genre`, optional `age`, `internet`, `data_note`, `quote`, and `app_store` /

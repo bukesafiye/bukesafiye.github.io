@@ -21,8 +21,8 @@ description: MiroGames — small, strange, atmospheric games for your phone.
     </div>
     </div>
     <div class="hero-art">
-      {%- for g in site.data.games %}{% assign h = g.hero %}
-      <a href="{{ '/Store/' | append: g.slug | append: '/' | relative_url }}" aria-label="{{ g.name.en }}"><img src="{{ g.icon | relative_url }}" alt="" style="{% if h.top %}top: {{ h.top }};{% endif %}{% if h.bottom %}bottom: {{ h.bottom }};{% endif %}{% if h.left %}left: {{ h.left }};{% endif %}{% if h.right %}right: {{ h.right }};{% endif %} --s: {{ h.size | default: 150 }}px; --r: {{ h.rotate | default: 0 }}deg; --d: {{ h.delay | default: 0 }}s; --g: {{ g.glow | default: 'transparent' }}"></a>
+      {%- for g in site.data.games %}
+      <a href="{{ '/Store/' | append: g.slug | append: '/' | relative_url }}" aria-label="{{ g.name.en }}"><img src="{{ g.icon | relative_url }}" alt="" style="--g: {{ g.glow | default: 'transparent' }}"></a>
       {%- endfor %}
     </div>
   </div>
