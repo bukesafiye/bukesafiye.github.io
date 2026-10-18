@@ -13,7 +13,7 @@
   <link rel="icon" href="{{ page.icon | default: game.icon | default: '/assets/img/favicon.svg' | relative_url }}">
   <meta name="theme-color" content="#07090c">
   <link rel="preload" href="{{ '/assets/fonts/inter-latin-wght-normal.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="{{ '/assets/css/site.css' | relative_url }}">
+  <link rel="stylesheet" href="{{ '/assets/css/site.css' | relative_url }}?v={{ site.time | date: '%s' }}">
   <style>
     /* Per-game colors, generated from _data/games.yml */
     {%- for g in site.data.games %}
