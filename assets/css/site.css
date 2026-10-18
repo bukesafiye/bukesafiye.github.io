@@ -117,12 +117,12 @@ h1, h2, h3 { font-family: var(--display); line-height: 1.15; margin: 0 0 .5em; l
 }
 .hero-grid { display: grid; grid-template-columns: 1.3fr .7fr; gap: 40px; align-items: center; }
 .hero h1 { font-size: clamp(36px, 6vw, 64px); max-width: 15ch; }
-/* App icons on a straight 2×2 grid, floating together over a soft glow. */
-.hero-art { --icon: 150px; display: grid; grid-template-columns: repeat(2, var(--icon)); gap: 28px; justify-content: center; }
-.hero-art a { display: block; }
+/* App icons float together over a soft glow: 3 per row, the last row centred (3 + 2 for five games). */
+.hero-art { --gap: 24px; display: flex; flex-wrap: wrap; gap: var(--gap); justify-content: center; max-width: calc(3 * 140px + 2 * var(--gap)); margin: 0 auto; }
+.hero-art a { display: block; width: calc((100% - 2 * var(--gap)) / 3); }
 /* Each icon's glow color comes from _data/games.yml (glow). */
 .hero-art img {
-  display: block; width: var(--icon); height: var(--icon); border-radius: calc(var(--icon) * .22);
+  display: block; width: 100%; height: auto; aspect-ratio: 1; border-radius: 22%;
   animation: float 6s ease-in-out infinite;
   box-shadow: 0 24px 60px rgba(0, 0, 0, .6), 0 0 0 1px rgba(255, 255, 255, .08), 0 0 80px var(--g, transparent);
 }
@@ -235,7 +235,8 @@ h1, h2, h3 { font-family: var(--display); line-height: 1.15; margin: 0 0 .5em; l
 /* ---- Small screens ---- */
 @media (max-width: 860px) {
   .games, .game-hero-grid, .hero-grid { grid-template-columns: 1fr; }
-  .hero-art { --icon: min(120px, (100vw - 32px - 3 * 20px) / 4); grid-template-columns: repeat(4, var(--icon)); gap: 20px; justify-content: start; }
+  .hero-art { --gap: 14px; flex-wrap: nowrap; justify-content: start; max-width: none; margin: 0; }
+  .hero-art a { width: min(110px, (100vw - 32px - 4 * 14px) / 5); }
   .features { grid-template-columns: 1fr 1fr; }
   .facts { grid-template-columns: 1fr 1fr; }
   .phone { transform: none; width: min(260px, 70vw); }

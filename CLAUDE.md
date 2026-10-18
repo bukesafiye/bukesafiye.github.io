@@ -21,8 +21,9 @@ color theme are generated from `_data/games.yml`, so step 2 does most of the wor
    accent from its icon/logo: header dot, card glow, buttons), `glow` (same color at ~.3 alpha),
    optional `theme` (`glow`, `bg`, `surface`, `surface_2`, `text`, `muted`, `button_text` for a
    light accent), optional `card_bg`, `icon`, and `logo: { tr, en }`.
-   The hero icons sit on a straight grid in list order (2×2 on desktop, one row on small
-   screens); check on desktop and on a 375 px wide screen.
+   The hero icons sit in list order, three per row with the last row centred on desktop
+   (3 + 2 for five games) and in one row on small screens; check on desktop and on a
+   375 px wide screen.
 3. **`Store/<slug>/index.md`**: front matter only, `layout: game`, `game: <slug>`, `title`,
    `description`, then `lead`, `chips`, `features_title`, `features` (6 items: `title`, `text`),
    `shots`, `genre`, optional `age`, `internet`, `data_note`, `quote`, and `app_store` /
