@@ -21,9 +21,9 @@ description: MiroGames — small, strange, atmospheric games for your phone.
     </div>
     </div>
     <div class="hero-art">
-      <a href="{{ '/Store/ghostshift/' | relative_url }}" aria-label="GhostShift"><img class="icon-ghost" src="{{ '/assets/img/ghostshift-icon.png' | relative_url }}" alt=""></a>
-      <a href="{{ '/Store/lostfoundgame/' | relative_url }}" aria-label="Lost &amp; Found Office"><img class="icon-lost" src="{{ '/assets/img/lostfound-icon.png' | relative_url }}" alt=""></a>
-      <a href="{{ '/Store/alchemyshop/' | relative_url }}" aria-label="Simyacının Dükkânı"><img class="icon-alch" src="{{ '/assets/img/alchemyshop-potion.png' | relative_url }}" alt=""></a>
+      {%- for g in site.data.games %}{% assign h = g.hero %}
+      <a href="{{ '/Store/' | append: g.slug | append: '/' | relative_url }}" aria-label="{{ g.name.en }}"><img src="{{ g.icon | relative_url }}" alt="" style="{% if h.top %}top: {{ h.top }};{% endif %}{% if h.bottom %}bottom: {{ h.bottom }};{% endif %}{% if h.left %}left: {{ h.left }};{% endif %}{% if h.right %}right: {{ h.right }};{% endif %} --s: {{ h.size | default: 150 }}px; --r: {{ h.rotate | default: 0 }}deg; --d: {{ h.delay | default: 0 }}s; --g: {{ g.glow | default: 'transparent' }}"></a>
+      {%- endfor %}
     </div>
   </div>
 </section>
@@ -34,86 +34,39 @@ description: MiroGames — small, strange, atmospheric games for your phone.
       <h2><span class="tr">Oyunlar</span><span class="en">Games</span></h2>
     </div>
     <div class="games">
-      <article class="game-card ghost">
-        <a class="card-art" href="{{ '/Store/ghostshift/' | relative_url }}" aria-label="GhostShift">
-          <img class="tr" src="{{ '/assets/img/ghostshift-logo-tr.png' | relative_url }}" alt="Hayalet Vardiya" loading="lazy">
-          <img class="en" src="{{ '/assets/img/ghostshift-logo-en.png' | relative_url }}" alt="GhostShift" loading="lazy">
-          <span class="status"><span class="tr">Yakında · Google Play</span><span class="en">Coming soon · Google Play</span></span>
+      {%- for g in site.data.games %}
+      {%- assign url = '/Store/' | append: g.slug | append: '/' %}
+      <article class="game-card" style="--card-accent: {{ g.color }}">
+        <a class="card-art" href="{{ url | relative_url }}" aria-label="{{ g.name.en }}"{% if g.card_bg %} style="background: {{ g.card_bg }}"{% endif %}>
+          {%- if g.logo.tr == g.logo.en %}
+          <img src="{{ g.logo.tr | relative_url }}" alt="{{ g.name.en }}" loading="lazy">
+          {%- else %}
+          <img class="tr" src="{{ g.logo.tr | relative_url }}" alt="{{ g.name.tr }}" loading="lazy">
+          <img class="en" src="{{ g.logo.en | relative_url }}" alt="{{ g.name.en }}" loading="lazy">
+          {%- endif %}
+          <span class="status"><span class="tr">{{ g.status.tr }}</span><span class="en">{{ g.status.en }}</span></span>
         </a>
         <div class="card-body">
           <div class="card-title">
-            <img src="{{ '/assets/img/ghostshift-icon.png' | relative_url }}" alt="" width="48" height="48">
-            <h3><span class="tr">Hayalet Vardiya</span><span class="en">GhostShift</span><small><span class="tr">Gece vardiyası korku bulmacası</span><span class="en">Night-shift horror puzzle</span></small></h3>
+            <img src="{{ g.icon | relative_url }}" alt="" width="48" height="48">
+            <h3>{% if g.name.tr == g.name.en %}{{ g.name.tr }}{% else %}<span class="tr">{{ g.name.tr }}</span><span class="en">{{ g.name.en }}</span>{% endif %}<small><span class="tr">{{ g.tagline.tr }}</span><span class="en">{{ g.tagline.en }}</span></small></h3>
           </div>
           <p>
-            <span class="tr">Gece vardiyası, saat 03:17. Kurallara uy, hayaletleri yakala, sabaha çıkmaya çalış.</span>
-            <span class="en">Night shift, 03:17. Follow the rules, spot the ghosts, survive until morning.</span>
+            <span class="tr">{{ g.summary.tr }}</span>
+            <span class="en">{{ g.summary.en }}</span>
           </p>
           <ul class="chips">
-            <li><span class="tr">Korku</span><span class="en">Horror</span></li>
-            <li><span class="tr">Bulmaca</span><span class="en">Puzzle</span></li>
-            <li><span class="tr">20 gece</span><span class="en">20 nights</span></li>
+            {%- for c in g.chips %}
+            <li>{% if c.tr == c.en %}{{ c.tr }}{% else %}<span class="tr">{{ c.tr }}</span><span class="en">{{ c.en }}</span>{% endif %}</li>
+            {%- endfor %}
           </ul>
           <div class="card-links">
-            <a class="btn primary" href="{{ '/Store/ghostshift/' | relative_url }}"><span class="tr">Oyunu incele</span><span class="en">See the game</span></a>
-            <a class="btn" href="{{ '/Store/ghostshift/privacy.html' | relative_url }}"><span class="tr">Gizlilik</span><span class="en">Privacy</span></a>
+            <a class="btn primary" href="{{ url | relative_url }}"><span class="tr">Oyunu incele</span><span class="en">See the game</span></a>
+            <a class="btn" href="{{ url | append: 'privacy.html' | relative_url }}"><span class="tr">Gizlilik</span><span class="en">Privacy</span></a>
           </div>
         </div>
       </article>
-
-      <article class="game-card lost">
-        <a class="card-art" href="{{ '/Store/lostfoundgame/' | relative_url }}" aria-label="Lost &amp; Found Office">
-          <img class="tr" src="{{ '/assets/img/lostfound-logo-tr.png' | relative_url }}" alt="Kayıp Eşya Bürosu" loading="lazy">
-          <img class="en" src="{{ '/assets/img/lostfound-logo-en.png' | relative_url }}" alt="Lost &amp; Found Office" loading="lazy">
-          <span class="status"><span class="tr">Yakında</span><span class="en">Coming soon</span></span>
-        </a>
-        <div class="card-body">
-          <div class="card-title">
-            <img src="{{ '/assets/img/lostfound-icon.png' | relative_url }}" alt="" width="48" height="48">
-            <h3><span class="tr">Kayıp Eşya Bürosu</span><span class="en">Lost &amp; Found Office</span><small><span class="tr">Her eşyanın bir hikâyesi var</span><span class="en">Every object has a story</span></small></h3>
-          </div>
-          <p>
-            <span class="tr">Kayıp eşyaları sahiplerine kavuştur, büroyu büyüt ve eski sahibinden kalan sırrı çöz.</span>
-            <span class="en">Return lost things to their owners, grow the office and uncover the secret its former owner left behind.</span>
-          </p>
-          <ul class="chips">
-            <li><span class="tr">Gizem</span><span class="en">Mystery</span></li>
-            <li><span class="tr">Simülasyon</span><span class="en">Simulation</span></li>
-            <li><span class="tr">Rahat</span><span class="en">Cozy</span></li>
-          </ul>
-          <div class="card-links">
-            <a class="btn primary" href="{{ '/Store/lostfoundgame/' | relative_url }}"><span class="tr">Oyunu incele</span><span class="en">See the game</span></a>
-            <a class="btn" href="{{ '/Store/lostfoundgame/privacy.html' | relative_url }}"><span class="tr">Gizlilik</span><span class="en">Privacy</span></a>
-          </div>
-        </div>
-      </article>
-
-      <article class="game-card alchemy">
-        <a class="card-art" href="{{ '/Store/alchemyshop/' | relative_url }}" aria-label="Simyacının Dükkânı">
-          <img class="tr" src="{{ '/assets/img/alchemyshop-logo.png' | relative_url }}" alt="Simyacının Dükkânı" loading="lazy">
-          <img class="en" src="{{ '/assets/img/alchemyshop-logo-en.png' | relative_url }}" alt="Alchemist's Shop" loading="lazy">
-          <span class="status"><span class="tr">Yakında</span><span class="en">Coming soon</span></span>
-        </a>
-        <div class="card-body">
-          <div class="card-title">
-            <img src="{{ '/assets/img/alchemyshop-potion.png' | relative_url }}" alt="" width="48" height="48">
-            <h3><span class="tr">Simyacının Dükkânı</span><span class="en">Alchemist’s Shop</span><small><span class="tr">Her iksirin bir müşterisi var</span><span class="en">Every potion has a customer</span></small></h3>
-          </div>
-          <p>
-            <span class="tr">Müşterilerin siparişlerini hazırla, iksirleri üret, bahçeni büyüt ve pazarda ticaret yap.</span>
-            <span class="en">Fill customer orders, brew potions, grow your garden and trade at the market.</span>
-          </p>
-          <ul class="chips">
-            <li><span class="tr">Simülasyon</span><span class="en">Simulation</span></li>
-            <li><span class="tr">Yönetim</span><span class="en">Management</span></li>
-            <li><span class="tr">Reklamsız</span><span class="en">No ads</span></li>
-          </ul>
-          <div class="card-links">
-            <a class="btn primary" href="{{ '/Store/alchemyshop/' | relative_url }}"><span class="tr">Oyunu incele</span><span class="en">See the game</span></a>
-            <a class="btn" href="{{ '/Store/alchemyshop/privacy.html' | relative_url }}"><span class="tr">Gizlilik</span><span class="en">Privacy</span></a>
-          </div>
-        </div>
-      </article>
+      {%- endfor %}
     </div>
   </div>
 </section>

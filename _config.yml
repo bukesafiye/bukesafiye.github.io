@@ -1,3 +1,5 @@
 title: MiroGames
 description: Games by MiroGames
 theme: jekyll-theme-minimal
+exclude:
+  - CLAUDE.md

@@ -1,0 +1,81 @@
+# Every game on the site. The home page cards, the colored game links in the
+# header, the floating icons in the home hero and each game's color theme are
+# all generated from this list. See CLAUDE.md for how to add a new game.
+#
+# slug      folder under /Store/ and the theme name (theme-<slug>)
+# name      tr/en title; logo: tr/en image (same file for both is fine)
+# color     the game's accent: header dot, card glow, buttons on its pages
+# theme     optional extra palette for the game's pages (bg, surface, text...)
+# card_bg   optional background behind the logo on the home card
+# hero      floating icon in the home hero: position (top/left/right/bottom),
+#           size in px, rotate in deg, delay in s
+- slug: ghostshift
+  name: { tr: "Hayalet Vardiya", en: "GhostShift" }
+  tagline: { tr: "Gece vardiyası korku bulmacası", en: "Night-shift horror puzzle" }
+  summary:
+    tr: "Gece vardiyası, saat 03:17. Kurallara uy, hayaletleri yakala, sabaha çıkmaya çalış."
+    en: "Night shift, 03:17. Follow the rules, spot the ghosts, survive until morning."
+  status: { tr: "Yakında · Google Play", en: "Coming soon · Google Play" }
+  chips:
+    - { tr: "Korku", en: "Horror" }
+    - { tr: "Bulmaca", en: "Puzzle" }
+    - { tr: "20 gece", en: "20 nights" }
+  color: "#3fe0f0"
+  glow: "rgba(63, 224, 240, .35)"
+  icon: /assets/img/ghostshift-icon.png
+  logo: { tr: /assets/img/ghostshift-logo-tr.png, en: /assets/img/ghostshift-logo-en.png }
+  hero: { top: 10px, left: 10%, size: 190, rotate: -8, delay: 0 }
+
+- slug: lostfoundgame
+  name: { tr: "Kayıp Eşya Bürosu", en: "Lost & Found Office" }
+  tagline: { tr: "Her eşyanın bir hikâyesi var", en: "Every object has a story" }
+  summary:
+    tr: "Kayıp eşyaları sahiplerine kavuştur, büroyu büyüt ve eski sahibinden kalan sırrı çöz."
+    en: "Return lost things to their owners, grow the office and uncover the secret its former owner left behind."
+  status: { tr: "Yakında", en: "Coming soon" }
+  chips:
+    - { tr: "Gizem", en: "Mystery" }
+    - { tr: "Simülasyon", en: "Simulation" }
+    - { tr: "Rahat", en: "Cozy" }
+  color: "#e4b462"
+  glow: "rgba(228, 180, 98, .3)"
+  card_bg: "radial-gradient(60% 70% at 50% 45%, rgba(228, 180, 98, .30), transparent 75%), #140e09"
+  icon: /assets/img/lostfound-icon.png
+  logo: { tr: /assets/img/lostfound-logo-tr.png, en: /assets/img/lostfound-logo-en.png }
+  hero: { bottom: 0, right: 4%, size: 190, rotate: 7, delay: -3 }
+
+- slug: alchemyshop
+  name: { tr: "Simyacının Dükkânı", en: "Alchemist’s Shop" }
+  tagline: { tr: "Her iksirin bir müşterisi var", en: "Every potion has a customer" }
+  summary:
+    tr: "Müşterilerin siparişlerini hazırla, iksirleri üret, bahçeni büyüt ve pazarda ticaret yap."
+    en: "Fill customer orders, brew potions, grow your garden and trade at the market."
+  status: { tr: "Yakında", en: "Coming soon" }
+  chips:
+    - { tr: "Simülasyon", en: "Simulation" }
+    - { tr: "Yönetim", en: "Management" }
+    - { tr: "Reklamsız", en: "No ads" }
+  color: "#c9a2ff"
+  glow: "rgba(201, 162, 255, .3)"
+  icon: /assets/img/alchemyshop-potion.png
+  logo: { tr: /assets/img/alchemyshop-logo.png, en: /assets/img/alchemyshop-logo-en.png }
+  hero: { top: 0, right: 0, size: 150, rotate: 4, delay: -1.5 }
+
+- slug: cuppa
+  name: { tr: "CUPPA", en: "CUPPA" }
+  tagline: { tr: "Sek, sıçra, basket at", en: "Bounce, jump, shoot" }
+  summary:
+    tr: "Duvarlardan sek, dönen engelleri aş ve topu çemberin üstünden renkli potalara düşür."
+    en: "Bounce off the walls, get past spinning hazards and drop the ball into colorful hoops from above."
+  status: { tr: "Yakında · App Store & Google Play", en: "Coming soon · App Store & Google Play" }
+  chips:
+    - { tr: "Arcade", en: "Arcade" }
+    - { tr: "Basketbol", en: "Basketball" }
+    - { tr: "Reklamsız", en: "No ads" }
+  color: "#ffb83f"
+  glow: "rgba(255, 184, 63, .3)"
+  theme: { glow: "rgba(90, 180, 245, .28)", button_text: "#1c1206" }
+  card_bg: "radial-gradient(60% 70% at 50% 45%, rgba(110, 195, 250, .32), transparent 75%), #0a1420"
+  icon: /assets/img/cuppa-icon.png
+  logo: { tr: /assets/img/cuppa-logo.png, en: /assets/img/cuppa-logo.png }
+  hero: { bottom: 6px, left: 0, size: 130, rotate: -5, delay: -4.5 }

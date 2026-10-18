@@ -1,0 +1,93 @@
+---
+layout: default
+full: true
+---
+{%- comment -%}
+Standard game page. Content comes from the page's front matter (see
+Store/cuppa/index.md); names, logo, color and icon come from _data/games.yml.
+Every text field is { tr: "...", en: "..." }.
+{%- endcomment -%}
+{%- assign g = site.data.games | where: 'slug', page.game | first -%}
+{%- assign shot_dir = '/assets/img/shots/' | append: page.game -%}
+<section class="game-hero">
+  <div class="wrap game-hero-grid">
+    <div>
+      {%- if g.logo.tr == g.logo.en %}
+      <img class="game-logo" src="{{ g.logo.tr | relative_url }}" alt="{{ g.name.en }}">
+      {%- else %}
+      <img class="game-logo tr" src="{{ g.logo.tr | relative_url }}" alt="{{ g.name.tr }}">
+      <img class="game-logo en" src="{{ g.logo.en | relative_url }}" alt="{{ g.name.en }}">
+      {%- endif %}
+      <p class="lead">
+        <span class="tr">{{ page.lead.tr }}</span>
+        <span class="en">{{ page.lead.en }}</span>
+      </p>
+      <ul class="chips">
+        {%- for c in page.chips %}
+        <li>{% if c.tr == c.en %}{{ c.tr }}{% else %}<span class="tr">{{ c.tr }}</span><span class="en">{{ c.en }}</span>{% endif %}</li>
+        {%- endfor %}
+      </ul>
+      <div class="hero-actions">
+        {%- if page.app_store %}
+        <a class="btn primary" href="{{ page.app_store }}">App Store</a>
+        {%- endif %}
+        {%- if page.google_play %}
+        <a class="btn primary" href="{{ page.google_play }}">Google Play</a>
+        {%- endif %}
+        {%- unless page.app_store or page.google_play %}
+        <span class="btn primary soon"><span class="tr">{{ g.status.tr }}</span><span class="en">{{ g.status.en }}</span></span>
+        {%- endunless %}
+        <a class="btn" href="support.html"><span class="tr">Destek</span><span class="en">Support</span></a>
+      </div>
+    </div>
+    <div class="phone">
+      {%- assign first = page.shots | first %}
+      <img class="tr" src="{{ shot_dir | append: '-tr-' | append: first | append: '.jpg' | relative_url }}" alt="{{ g.name.tr }} oyun içi ekran">
+      <img class="en" src="{{ shot_dir | append: '-en-' | append: first | append: '.jpg' | relative_url }}" alt="{{ g.name.en }} gameplay screen">
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head"><h2><span class="tr">{{ page.features_title.tr }}</span><span class="en">{{ page.features_title.en }}</span></h2></div>
+    <div class="features">
+      {%- for f in page.features %}
+      <div class="feature"><span class="num">{% if forloop.index < 10 %}0{% endif %}{{ forloop.index }}</span>
+        <b><span class="tr">{{ f.title.tr }}</span><span class="en">{{ f.title.en }}</span></b>
+        <span><span class="tr">{{ f.text.tr }}</span><span class="en">{{ f.text.en }}</span></span></div>
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head"><h2><span class="tr">Ekranlar</span><span class="en">Screens</span></h2></div>
+    <div class="shots">
+      {%- for s in page.shots %}
+      <figure>
+        <img class="tr" src="{{ shot_dir | append: '-tr-' | append: s | append: '.jpg' | relative_url }}" alt="{{ g.name.tr }} ekran görüntüsü" loading="lazy">
+        <img class="en" src="{{ shot_dir | append: '-en-' | append: s | append: '.jpg' | relative_url }}" alt="{{ g.name.en }} screenshot" loading="lazy">
+      </figure>
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <dl class="facts">
+      <div><dt><span class="tr">Tür</span><span class="en">Genre</span></dt><dd><span class="tr">{{ page.genre.tr }}</span><span class="en">{{ page.genre.en }}</span></dd></div>
+      <div><dt><span class="tr">Yaş</span><span class="en">Age</span></dt><dd><span class="tr">{{ page.age.tr | default: 'Herkes' }}</span><span class="en">{{ page.age.en | default: 'Everyone' }}</span></dd></div>
+      <div><dt><span class="tr">İnternet</span><span class="en">Internet</span></dt><dd><span class="tr">{{ page.internet.tr | default: 'Gerekmez' }}</span><span class="en">{{ page.internet.en | default: 'Not needed' }}</span></dd></div>
+      <div><dt><span class="tr">Veri</span><span class="en">Data</span></dt><dd><a href="privacy.html"><span class="tr">{{ page.data_note.tr | default: 'Hiçbir veri toplanmaz' }}</span><span class="en">{{ page.data_note.en | default: 'No data collected' }}</span></a></dd></div>
+    </dl>
+  </div>
+</section>
+
+{%- if page.quote %}
+<section class="section">
+  <p class="quote wrap"><span class="tr">{{ page.quote.tr }}</span><span class="en">{{ page.quote.en }}</span></p>
+</section>
+{%- endif %}
