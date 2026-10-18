@@ -54,8 +54,9 @@ h1, h2, h3 { font-family: var(--display); line-height: 1.15; margin: 0 0 .5em; l
   backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--line);
 }
-.header-row { display: flex; align-items: center; justify-content: space-between; height: 68px; gap: 16px; }
-.brand img { height: 44px; width: auto; }
+.header-row { display: flex; align-items: center; justify-content: space-between; height: 76px; gap: 16px; }
+.brand { flex-shrink: 0; }
+.brand img { height: 56px; width: auto; }
 .nav { display: flex; align-items: center; gap: 22px; font-weight: 500; font-size: 15px; }
 .nav > a { color: var(--text); opacity: .85; }
 .nav > a:hover { opacity: 1; text-decoration: none; color: var(--accent); }
@@ -72,7 +73,7 @@ h1, h2, h3 { font-family: var(--display); line-height: 1.15; margin: 0 0 .5em; l
 .nav > .nav-game.ghost { --c: #3fe0f0; }
 .nav > .nav-game.lost { --c: #e4b462; }
 .nav > .nav-game.alch { --c: #c9a2ff; }
-@media (max-width: 860px) { .nav > .nav-game { display: none; } }
+@media (max-width: 1120px) { .nav > .nav-game { display: none; } }
 .lang-toggle { display: flex; border: 1px solid var(--line); border-radius: 999px; padding: 3px; }
 .lang-toggle button {
   font: 600 12px/1 var(--body); letter-spacing: .06em;
@@ -243,7 +244,7 @@ h1, h2, h3 { font-family: var(--display); line-height: 1.15; margin: 0 0 .5em; l
 @media (max-width: 560px) {
   .nav { gap: 14px; font-size: 14px; }
   .nav > a { display: none; }
-  .brand img { height: 36px; }
+  .brand img { height: 44px; }
   .features { grid-template-columns: 1fr; }
   .shots { grid-auto-columns: 62%; }
   .footer-links { align-items: flex-start; }
