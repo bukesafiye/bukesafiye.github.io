@@ -16,6 +16,8 @@ Dedektif Bros, MiroGames tarafından geliştirilmiştir. Oyunda hesap, reklam, a
 
 **Yerel ağ.** Çok oyunculu oyun için uygulama, aynı Wi‑Fi'daki cihazları bulmak ve onlarla doğrudan bağlantı kurmak üzere yerel ağ iznini ister. Oyun sırasında oyuncu adların, oyların, notların ve oyun durumu yalnızca aynı odadaki cihazlar arasında, yerel ağ üzerinden paylaşılır; internet üzerinden bir sunucuya gitmez. Bu izni vermezsen oyunu tek cihazda oynayabilirsin.
 
+**Kamera.** Bir odaya QR koduyla katılmak istersen uygulama kamerayı yalnızca QR kodunu okumak için açar. Görüntü kaydedilmez ve hiçbir yere gönderilmez; izni vermezsen 6 haneli kodu elle yazabilirsin.
+
 **Titreşim** yalnızca cihazındaki titreşim motorunu kullanır; hiçbir veri göndermez.
 
 Oyun 16 yaş ve üzeri içindir. Çocuklar dahil hiç kimseden bilerek bilgi toplamayız. Bu politika değişirse yeni hâli bu sayfada yayınlanır.
@@ -33,6 +35,8 @@ Dedektif Bros is made by MiroGames. The game has no accounts, no advertising, no
 **Stored on your device.** The name you use in the game, your language and sound/vibration settings, an unfinished investigation, how many times you have played each case, and the room code and player ID that let you return to an open room are kept only on your device. The room ID stops working when the room expires (2 hours). Everything is deleted when you remove the app.
 
 **Local network.** For multiplayer, the app asks for local network access to find devices on the same Wi‑Fi and connect to them directly. During a game, player names, votes, notes and the game state are shared only between the devices in the same room, over your local network; nothing goes to a server on the internet. If you don't grant this permission you can still play on a single device.
+
+**Camera.** If you join a room by QR code, the app opens the camera only to read that code. No image is stored or sent anywhere; without this permission you can type the 6-digit code instead.
 
 **Vibration** only uses your device's haptic motor and sends no data.
 
