@@ -4,6 +4,7 @@
 #
 # slug      folder under /Store/ and the theme name (theme-<slug>)
 # name      tr/en title; logo: tr/en image (same file for both is fine)
+# nav_name  optional shorter tr/en label for the header pill (long names overflow it)
 # color     the game's accent: header dot, card glow, buttons on its pages
 # theme     optional extra palette for the game's pages (bg, surface, text...)
 # card_bg   optional background behind the logo on the home card
@@ -91,3 +92,22 @@
   card_bg: "radial-gradient(60% 70% at 50% 45%, rgba(110, 200, 250, .34), transparent 75%), #0a1420"
   icon: /assets/img/hoplop-icon.png
   logo: { tr: /assets/img/hoplop-logo.png, en: /assets/img/hoplop-logo.png }
+
+- slug: firetrack
+  name: { tr: "Firetrack Müfettişleri", en: "Firetrack Inspectors" }
+  nav_name: { tr: "Firetrack", en: "Firetrack" }
+  tagline: { tr: "Birlikte sorgula, gizlice karar ver", en: "Interrogate together, decide in secret" }
+  summary:
+    tr: "Aynı Wi‑Fi'da 2–6 kişi bir dosyayı birlikte çözer: soruları oylayın, çelişkiyi kanıtla yakalayın, faili gizli oyla seçin."
+    en: "2–6 players on the same Wi‑Fi crack a case together: vote on questions, catch lies with evidence, name the culprit in a secret vote."
+  status: { tr: "Yakında · App Store & Google Play", en: "Coming soon · App Store & Google Play" }
+  chips:
+    - { tr: "Polisiye", en: "Detective" }
+    - { tr: "2–6 oyuncu", en: "2–6 players" }
+    - { tr: "Reklamsız", en: "No ads" }
+  color: "#d6a26a"
+  glow: "rgba(214, 162, 106, .3)"
+  theme: { glow: "rgba(120, 100, 190, .26)", bg: "#0a0c12", button_text: "#1c1206" }
+  card_bg: "radial-gradient(60% 70% at 50% 45%, rgba(214, 162, 106, .28), transparent 75%), #0d0b14"
+  icon: /assets/img/firetrack-icon.png
+  logo: { tr: /assets/img/firetrack-logo.png, en: /assets/img/firetrack-logo.png }

@@ -17,7 +17,7 @@ color theme are generated from `_data/games.yml`, so step 2 does most of the wor
    - `assets/img/shots/<slug>-tr-01.jpg` … and `<slug>-en-01.jpg` …: 480×960 JPG phone
      screenshots, the same set in both languages. `01` is shown in the phone frame.
 2. **`_data/games.yml`**: append an entry (copy the `cuppa` entry). Fields:
-   `slug`, `name`, `tagline`, `summary`, `status`, `chips` (all `{ tr, en }`), `color` (the game's
+   `slug`, `name`, optional `nav_name` (short header label for long names), `tagline`, `summary`, `status`, `chips` (all `{ tr, en }`), `color` (the game's
    accent from its icon/logo: header dot, card glow, buttons), `glow` (same color at ~.3 alpha),
    optional `theme` (`glow`, `bg`, `surface`, `surface_2`, `text`, `muted`, `button_text` for a
    light accent), optional `card_bg`, `icon`, and `logo: { tr, en }`.

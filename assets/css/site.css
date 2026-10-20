@@ -57,13 +57,13 @@ h1, h2, h3 { font-family: var(--display); line-height: 1.15; margin: 0 0 .5em; l
 .header-row { display: flex; align-items: center; justify-content: space-between; height: 76px; gap: 16px; }
 .brand { flex-shrink: 0; }
 .brand img { height: 56px; width: auto; }
-.nav { display: flex; align-items: center; gap: 22px; font-weight: 500; font-size: 15px; }
+.nav { display: flex; align-items: center; gap: 14px; font-weight: 500; font-size: 15px; }
 .nav > a { color: var(--text); opacity: .85; }
 .nav > a:hover { opacity: 1; text-decoration: none; color: var(--accent); }
 /* Game names in the header: small pills in each game's own accent colour; shown on wide screens only. */
 .nav > .nav-game {
-  display: inline-flex; align-items: center; gap: 8px; padding: 6px 12px; border-radius: 999px;
-  color: var(--c); opacity: 1; font-weight: 600; font-size: 14px; white-space: nowrap; letter-spacing: .01em;
+  display: inline-flex; align-items: center; gap: 8px; padding: 5px 10px; border-radius: 999px;
+  color: var(--c); opacity: 1; font-weight: 600; font-size: 13px; white-space: nowrap; letter-spacing: .01em;
   border: 1px solid color-mix(in srgb, var(--c) 35%, transparent);
   background: color-mix(in srgb, var(--c) 9%, transparent);
   transition: background .2s ease, border-color .2s ease;
@@ -73,7 +73,8 @@ h1, h2, h3 { font-family: var(--display); line-height: 1.15; margin: 0 0 .5em; l
 .nav > .nav-game.ghost { --c: #3fe0f0; }
 .nav > .nav-game.lost { --c: #e4b462; }
 .nav > .nav-game.alch { --c: #c9a2ff; }
-@media (max-width: 1120px) { .nav > .nav-game { display: none; } }
+/* Six games need ~980 px of pills: show them only where they fit next to the logo. */
+@media (max-width: 1279px) { .nav > .nav-game { display: none; } }
 .lang-toggle { display: flex; border: 1px solid var(--line); border-radius: 999px; padding: 3px; }
 .lang-toggle button {
   font: 600 12px/1 var(--body); letter-spacing: .06em;
@@ -117,7 +118,7 @@ h1, h2, h3 { font-family: var(--display); line-height: 1.15; margin: 0 0 .5em; l
 }
 .hero-grid { display: grid; grid-template-columns: 1.3fr .7fr; gap: 40px; align-items: center; }
 .hero h1 { font-size: clamp(36px, 6vw, 64px); max-width: 15ch; }
-/* App icons float together over a soft glow: 3 per row, the last row centred (3 + 2 for five games). */
+/* App icons float together over a soft glow: 3 per row, the last row centred (3 + 3 for six games). */
 .hero-art { --gap: 24px; display: flex; flex-wrap: wrap; gap: var(--gap); justify-content: center; max-width: calc(3 * 140px + 2 * var(--gap)); margin: 0 auto; }
 .hero-art a { display: block; width: calc((100% - 2 * var(--gap)) / 3); }
 /* Each icon's glow color comes from _data/games.yml (glow). */
@@ -236,7 +237,8 @@ h1, h2, h3 { font-family: var(--display); line-height: 1.15; margin: 0 0 .5em; l
 @media (max-width: 860px) {
   .games, .game-hero-grid, .hero-grid { grid-template-columns: 1fr; }
   .hero-art { --gap: 14px; flex-wrap: nowrap; justify-content: start; max-width: none; margin: 0; }
-  .hero-art a { width: min(110px, (100vw - 32px - 4 * 14px) / 5); }
+  /* One row on small screens, however many games: icons share the width, up to 110 px each. */
+  .hero-art a { flex: 1 1 0; min-width: 0; max-width: 110px; width: auto; }
   .features { grid-template-columns: 1fr 1fr; }
   .facts { grid-template-columns: 1fr 1fr; }
   .phone { transform: none; width: min(260px, 70vw); }

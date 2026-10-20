@@ -44,7 +44,7 @@
       <nav class="nav">
         <a href="{{ '/#games' | relative_url }}"><span class="tr">Oyunlar</span><span class="en">Games</span></a>
         {%- for g in site.data.games %}
-        <a class="nav-game" style="--c: {{ g.color }}" href="{{ '/Store/' | append: g.slug | append: '/' | relative_url }}">{% if g.name.tr == g.name.en %}{{ g.name.tr }}{% else %}<span class="tr">{{ g.name.tr }}</span><span class="en">{{ g.name.en }}</span>{% endif %}</a>
+        <a class="nav-game" style="--c: {{ g.color }}" href="{{ '/Store/' | append: g.slug | append: '/' | relative_url }}">{% assign label = g.nav_name | default: g.name %}{% if label.tr == label.en %}{{ label.tr }}{% else %}<span class="tr">{{ label.tr }}</span><span class="en">{{ label.en }}</span>{% endif %}</a>
         {%- endfor %}
         <a href="{{ '/#contact' | relative_url }}"><span class="tr">İletişim</span><span class="en">Contact</span></a>
         <div class="lang-toggle" role="group" aria-label="Language">
