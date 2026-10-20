@@ -1,7 +1,7 @@
 ---
 layout: game
-game: firetrack
-title: Firetrack Müfettişleri
+game: dedektifbros
+title: Dedektif Bros
 description: A local multiplayer detective game for 2–6 players on the same Wi‑Fi.
 lead:
   tr: "Bir oda aç, arkadaşların QR ya da 6 haneli kodla katılsın. Dosyayı birlikte okuyun, şüphelileri sorgulayın, en çok oy alan soruyu sorun. Cevaplardaki yalanı doğru kanıtla yakalayın; sonunda herkes faili gizlice seçer. Yanlış karar bir dedektife pahalıya patlayabilir."
@@ -25,7 +25,7 @@ features:
     text: { tr: "Üç vaka giderek zorlaşır. Bir vakayı tekrar oynadığınızda soru sırası, ayrıntılar ve kanıtlar değişir.", en: "Three cases that get harder. Replay one and the question order, the details and the evidence change." }
   - title: { tr: "Kopan oyuncuya bot", en: "Bots fill the gaps" }
     text: { tr: "İnternet ya da sunucu gerekmez; cihazlar aynı Wi‑Fi'da doğrudan konuşur. Bağlantısı kopanın yerine bot geçer, geri gelince rolünü alır.", en: "No internet or server needed; devices talk directly on the same Wi‑Fi. A bot steps in for anyone who drops and hands the role back when they return." }
-# assets/img/shots/firetrack-tr-01.jpg ... firetrack-en-04.jpg (480x960); the first is shown in the phone frame
+# assets/img/shots/dedektifbros-tr-01.jpg ... dedektifbros-en-04.jpg (480x960); the first is shown in the phone frame
 shots: ["01", "02", "03", "04"]
 genre: { tr: "Polisiye · Parti", en: "Detective · Party" }
 age: { tr: "16+", en: "16+" }

@@ -57,12 +57,12 @@ h1, h2, h3 { font-family: var(--display); line-height: 1.15; margin: 0 0 .5em; l
 .header-row { display: flex; align-items: center; justify-content: space-between; height: 76px; gap: 16px; }
 .brand { flex-shrink: 0; }
 .brand img { height: 56px; width: auto; }
-.nav { display: flex; align-items: center; gap: 14px; font-weight: 500; font-size: 15px; }
+.nav { display: flex; align-items: center; gap: 12px; font-weight: 500; font-size: 15px; }
 .nav > a { color: var(--text); opacity: .85; }
 .nav > a:hover { opacity: 1; text-decoration: none; color: var(--accent); }
 /* Game names in the header: small pills in each game's own accent colour; shown on wide screens only. */
 .nav > .nav-game {
-  display: inline-flex; align-items: center; gap: 8px; padding: 5px 10px; border-radius: 999px;
+  display: inline-flex; align-items: center; gap: 8px; padding: 5px 9px; border-radius: 999px;
   color: var(--c); opacity: 1; font-weight: 600; font-size: 13px; white-space: nowrap; letter-spacing: .01em;
   border: 1px solid color-mix(in srgb, var(--c) 35%, transparent);
   background: color-mix(in srgb, var(--c) 9%, transparent);
@@ -73,8 +73,8 @@ h1, h2, h3 { font-family: var(--display); line-height: 1.15; margin: 0 0 .5em; l
 .nav > .nav-game.ghost { --c: #3fe0f0; }
 .nav > .nav-game.lost { --c: #e4b462; }
 .nav > .nav-game.alch { --c: #c9a2ff; }
-/* Six games need ~980 px of pills: show them only where they fit next to the logo. */
-@media (max-width: 1279px) { .nav > .nav-game { display: none; } }
+/* Six games need ~1000 px of pills (1280 px fits only just): show them from 1340 px, with room for wider fonts. */
+@media (max-width: 1339px) { .nav > .nav-game { display: none; } }
 .lang-toggle { display: flex; border: 1px solid var(--line); border-radius: 999px; padding: 3px; }
 .lang-toggle button {
   font: 600 12px/1 var(--body); letter-spacing: .06em;
