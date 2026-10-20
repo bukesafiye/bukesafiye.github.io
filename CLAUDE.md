@@ -14,8 +14,9 @@ color theme are generated from `_data/games.yml`, so step 2 does most of the wor
    - `assets/img/<slug>-icon.png`: app icon, 256×256, square
    - `assets/img/<slug>-logo.png`: logo with a transparent background, trimmed, ~900 px wide.
      If the logo differs per language, add `<slug>-logo-tr.png` and `<slug>-logo-en.png`.
-   - `assets/img/shots/<slug>-tr-01.jpg` … and `<slug>-en-01.jpg` …: 480×960 JPG phone
-     screenshots, the same set in both languages. `01` is shown in the phone frame.
+   - `assets/img/shots/<slug>-tr-01.jpg` … and `<slug>-en-01.jpg` …: JPG phone screenshots,
+     the same set in both languages. `01` is shown in the phone frame. The frame and the
+     gallery are 9:16 and crop anything taller, so use 540×960 (9:16); 480×960 loses the top and bottom.
 2. **`_data/games.yml`**: append an entry (copy the `cuppa` entry). Fields:
    `slug`, `name`, optional `nav_name` (short header label for long names), `tagline`, `summary`, `status`, `chips` (all `{ tr, en }`), `color` (the game's
    accent from its icon/logo: header dot, card glow, buttons), `glow` (same color at ~.3 alpha),
