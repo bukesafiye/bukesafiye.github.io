@@ -2,33 +2,34 @@
 layout: game
 game: kafamatik
 title: Kafamatik
-description: Three brain games in one app — Matchstick Master, Balloon Puzzle and Safe Cracker.
+description: Four brain games in one app for kids and families — Matchstick Master, Balloon Puzzle, Safe Cracker and Pattern Train.
 lead:
-  tr: "Kafamatik üç farklı zekâ oyununu tek uygulamada toplar. Kibritleri taşıyarak yanlış eşitlikleri düzelt, balonları doğru sırayla patlat, ipuçlarını izleyerek kasanın 3 haneli şifresini bul. Her bölümden 3 yıldız toplayabilir misin?"
-  en: "Kafamatik puts three brain games in one app. Move matchsticks to fix wrong equations, pop balloons in the right order and follow the clues to crack a 3-digit safe code. Can you earn 3 stars on every level?"
+  tr: "Kafamatik dört zekâ oyununu tek uygulamada toplar. Kibritleri taşıyarak eşitlikleri düzelt, balonları doğru sırayla patlat, ipuçlarıyla kasanın şifresini bul ve trendeki deseni tamamla. Her gün yeni bir bulmaca, yıldızlar, rozetler ve okuma bilmeyen minikler için resimli oyunlar seni bekliyor."
+  en: "Kafamatik puts four brain games in one app. Move matchsticks to fix equations, pop balloons in the right order, follow the clues to crack the safe and complete the pattern train. A new puzzle every day, stars, badges and picture games even pre-readers can play."
 chips:
   - { tr: "Bulmaca", en: "Puzzle" }
-  - { tr: "Mantık", en: "Logic" }
+  - { tr: "3+ yaş", en: "Ages 3+" }
   - { tr: "Çevrimdışı", en: "Offline" }
-  - { tr: "Türkçe", en: "Turkish" }
+  - { tr: "TR · EN", en: "TR · EN" }
 # app_store: https://apps.apple.com/app/...      (shows a store button instead of "coming soon")
 # google_play: https://play.google.com/store/apps/details?id=com.mirogames.kafamatik
-features_title: { tr: "Üç oyun, tek kafa", en: "Three games, one brain" }
+features_title: { tr: "Dört oyun, tek kafa", en: "Four games, one brain" }
 features:
   - title: { tr: "Kibrit Ustası", en: "Matchstick Master" }
-    text: { tr: "Kibriti sürükle ya da önce kibrite sonra boş yere dokun. Tek hamlede eşitliği düzelt, kare bulmacalarını çöz.", en: "Drag a match, or tap it and then an empty spot. Fix the equation in one move and solve square puzzles." }
+    text: { tr: "Kibriti sürükle ya da önce kibrite sonra boş yere dokun. Eşitliği düzelt, kare bulmacalarını çöz. 9 bölüm.", en: "Drag a match, or tap it and then an empty spot. Fix the equation and solve square puzzles. 9 levels." }
   - title: { tr: "Balon Bulmaca", en: "Balloon Puzzle" }
-    text: { tr: "Sayıları sırayla, tersten ya da yalnızca çiftleri patlat. Üç canın var; hızlı ol, yanılma.", en: "Pop the numbers in order, backwards or only the even ones. You have three lives: be quick, don't slip." }
+    text: { tr: "Sayıları sırayla, tersten ya da yalnızca çiftleri patlat. Üç canın var; acele etme, dikkat et.", en: "Pop the numbers in order, backwards or only the even ones. You have three lives: take your time and look closely." }
   - title: { tr: "Şifre Kasası", en: "Safe Cracker" }
-    text: { tr: "Her tahminin kaç rakamı doğru yerde, kaçı yanlış yerde? İpuçlarını birleştir ve kasayı aç.", en: "How many digits of each guess are in the right place, how many in the wrong one? Combine the clues and open the safe." }
-  - title: { tr: "Yıldız topla", en: "Collect stars" }
-    text: { tr: "Daha az hamle, daha az ipucu, daha hızlı çözüm: her bölümden 3 yıldıza kadar kazan.", en: "Fewer moves, fewer hints, faster solves: earn up to 3 stars on every level." }
-  - title: { tr: "İpucu ve geri al", en: "Hints and undo" }
-    text: { tr: "Takıldığında ipucu al, hamleni geri al ya da bölümü baştan başlat.", en: "Stuck? Take a hint, undo a move or restart the level." }
-  - title: { tr: "Reklamsız ve çevrimdışı", en: "No ads, fully offline" }
-    text: { tr: "İnternet gerekmez, reklam ve satın alma yok. Her yaşa uygun.", en: "No internet needed, no ads, no purchases. Suitable for all ages." }
-# assets/img/shots/kafamatik-tr-01.jpg ... kafamatik-en-04.jpg (540x960); the first is shown in the phone frame
-shots: ["01", "02", "03", "04"]
-genre: { tr: "Bulmaca · Zekâ", en: "Puzzle · Brain" }
+    text: { tr: "Her tahminin kaç rakamı doğru yerde, kaçı yanlış yerde? İpuçlarını birleştir ve kasayı aç.", en: "How many digits of each guess are in the right spot, how many in the wrong one? Combine the clues and open the safe." }
+  - title: { tr: "Desen Treni", en: "Pattern Train" }
+    text: { tr: "Trendeki resimler sırayla tekrar ediyor. ❓ vagona hangi resim gelir? Okuma bilmeden oynanır.", en: "The pictures on the train repeat in order. Which one goes in the ❓ wagon? No reading needed." }
+  - title: { tr: "Günün Bulmacası ve rozetler", en: "Daily puzzle and badges" }
+    text: { tr: "Her gün yeni bir bulmaca, art arda günler için seri, yıldızlar ve kazanılacak 10 rozet.", en: "A new puzzle every day, a streak for days in a row, stars and 10 badges to win." }
+  - title: { tr: "Çocuklara uygun ve erişilebilir", en: "Kid-friendly and accessible" }
+    text: { tr: "Reklam, satın alma ve internet yok. Türkçe/İngilizce, karanlık mod, ses ve titreşim ayarları, büyük dokunma alanları.", en: "No ads, no purchases, no internet. English/Turkish, dark mode, sound and vibration settings, big touch targets." }
+# assets/img/shots/kafamatik-tr-01.jpg ... kafamatik-en-05.jpg (540x960); the first is shown in the phone frame
+shots: ["01", "02", "03", "04", "05"]
+genre: { tr: "Bulmaca · Zekâ · Aile", en: "Puzzle · Brain · Family" }
+age: { tr: "3+", en: "3+" }
 quote: { tr: "Kafana güveniyor musun?", en: "Do you trust your brain?" }
 ---
