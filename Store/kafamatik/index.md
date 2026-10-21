@@ -27,8 +27,8 @@ features:
     text: { tr: "Her gün yeni bir bulmaca, art arda günler için seri, yıldızlar ve kazanılacak 10 rozet.", en: "A new puzzle every day, a streak for days in a row, stars and 10 badges to win." }
   - title: { tr: "Çocuklara uygun ve erişilebilir", en: "Kid-friendly and accessible" }
     text: { tr: "Reklam, satın alma ve internet yok. Türkçe/İngilizce, karanlık mod, ses ve titreşim ayarları, büyük dokunma alanları.", en: "No ads, no purchases, no internet. English/Turkish, dark mode, sound and vibration settings, big touch targets." }
-# assets/img/shots/kafamatik-tr-01.jpg ... kafamatik-en-05.jpg (540x960); the first is shown in the phone frame
-shots: ["01", "02", "03", "04", "05"]
+# assets/img/shots/kafamatik-tr-01.jpg ... kafamatik-en-06.jpg (540x960); the first is shown in the phone frame
+shots: ["01", "02", "03", "04", "05", "06"]
 genre: { tr: "Bulmaca · Zekâ · Aile", en: "Puzzle · Brain · Family" }
 age: { tr: "3+", en: "3+" }
 quote: { tr: "Kafana güveniyor musun?", en: "Do you trust your brain?" }
