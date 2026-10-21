@@ -22,7 +22,7 @@ features:
   - title: { tr: "Şifre Kasası", en: "Safe Cracker" }
     text: { tr: "Her tahminin kaç rakamı doğru yerde, kaçı yanlış yerde? İpuçlarını birleştir ve kasayı aç.", en: "How many digits of each guess are in the right spot, how many in the wrong one? Combine the clues and open the safe." }
   - title: { tr: "Desen Treni", en: "Pattern Train" }
-    text: { tr: "Trendeki resimler sırayla tekrar ediyor. ❓ vagona hangi resim gelir? Okuma bilmeden oynanır.", en: "The pictures on the train repeat in order. Which one goes in the ❓ wagon? No reading needed." }
+    text: { tr: "Trendeki resimler sırayla tekrar ediyor. ❓ vagona hangi resim gelir? Yazı yok, yalnızca resimler.", en: "The pictures on the train repeat in order. Which one goes in the ❓ wagon? No text, just pictures." }
   - title: { tr: "Günün Bulmacası ve rozetler", en: "Daily puzzle and badges" }
     text: { tr: "Her gün yeni bir bulmaca, art arda günler için seri, yıldızlar ve kazanılacak 10 rozet.", en: "A new puzzle every day, a streak for days in a row, stars and 10 badges to win." }
   - title: { tr: "Sade ve erişilebilir", en: "Simple and accessible" }

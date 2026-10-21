@@ -79,7 +79,7 @@ Every text field is { tr: "...", en: "..." }.
   <div class="wrap">
     <dl class="facts">
       <div><dt><span class="tr">Tür</span><span class="en">Genre</span></dt><dd><span class="tr">{{ page.genre.tr }}</span><span class="en">{{ page.genre.en }}</span></dd></div>
-      <div><dt><span class="tr">Yaş</span><span class="en">Age</span></dt><dd><span class="tr">{{ page.age.tr | default: '13+' }}</span><span class="en">{{ page.age.en | default: '13+' }}</span></dd></div>
+      <div><dt><span class="tr">Yaş</span><span class="en">Age</span></dt><dd><span class="tr">{{ page.age.tr | default: 'Herkes' }}</span><span class="en">{{ page.age.en | default: 'Everyone' }}</span></dd></div>
       <div><dt><span class="tr">İnternet</span><span class="en">Internet</span></dt><dd><span class="tr">{{ page.internet.tr | default: 'Gerekmez' }}</span><span class="en">{{ page.internet.en | default: 'Not needed' }}</span></dd></div>
       <div><dt><span class="tr">Veri</span><span class="en">Data</span></dt><dd><a href="privacy.html"><span class="tr">{{ page.data_note.tr | default: 'Hiçbir veri toplanmaz' }}</span><span class="en">{{ page.data_note.en | default: 'No data collected' }}</span></a></dd></div>
     </dl>

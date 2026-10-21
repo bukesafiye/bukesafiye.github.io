@@ -15,7 +15,7 @@ Hayalet Vardiya, MiroGames tarafından geliştirilmiştir. Oyun hiçbir kişisel
 
 İlerlemen (açılan geceler, puanlar, cüzdan, satın alınan eşyalar) ve ayarların (dil, efektler, müzik, titreşim) yalnızca cihazında tutulur ve uygulamayı sildiğinde kaldırılır.
 
-Oyun 13 yaş ve üzeri için tasarlanmıştır ve 13 yaşından küçük çocuklara yönelik değildir. Çocuklar dahil hiç kimseden bilerek bilgi toplamayız. Bu politika değişirse yeni hâli bu sayfada yayınlanır.
+Çocuklar dahil hiç kimseden bilerek bilgi toplamayız. Bu politika değişirse yeni hâli bu sayfada yayınlanır.
 
 <p class="contact-line">İletişim: <a href="mailto:bukesafiye@gmail.com">bukesafiye@gmail.com</a></p>
 </div>
@@ -29,7 +29,7 @@ GhostShift is made by MiroGames. The game does not collect, store or share any p
 
 Your progress (unlocked nights, scores, wallet, purchased items) and settings (language, sound, music, vibration) are stored only on your device and are deleted when you remove the app.
 
-The game is designed for players aged 13 and over and is not directed at children under 13. We do not knowingly collect information from anyone, including children. If this policy changes, the new version will be published on this page.
+We do not knowingly collect information from anyone, including children. If this policy changes, the new version will be published on this page.
 
 <p class="contact-line">Contact: <a href="mailto:bukesafiye@gmail.com">bukesafiye@gmail.com</a></p>
 </div>
