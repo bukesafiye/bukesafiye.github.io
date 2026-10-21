@@ -22,7 +22,7 @@
   color: "#3fe0f0"
   glow: "rgba(63, 224, 240, .35)"
   icon: /assets/img/ghostshift-icon.png
-  logo: { tr: /assets/img/ghostshift-logo-tr.png, en: /assets/img/ghostshift-logo-en.png }
+  logo: { tr: /assets/img/ghostshift-logo-tr.webp, en: /assets/img/ghostshift-logo-en.webp }
 
 - slug: lostfoundgame
   name: { tr: "Kayıp Eşya Bürosu", en: "Lost & Found Office" }
@@ -39,7 +39,7 @@
   glow: "rgba(228, 180, 98, .3)"
   card_bg: "radial-gradient(60% 70% at 50% 45%, rgba(228, 180, 98, .30), transparent 75%), #140e09"
   icon: /assets/img/lostfound-icon.png
-  logo: { tr: /assets/img/lostfound-logo-tr.png, en: /assets/img/lostfound-logo-en.png }
+  logo: { tr: /assets/img/lostfound-logo-tr.webp, en: /assets/img/lostfound-logo-en.webp }
 
 - slug: alchemyshop
   name: { tr: "Simyacının Dükkânı", en: "Alchemist’s Shop" }
@@ -55,7 +55,7 @@
   color: "#c9a2ff"
   glow: "rgba(201, 162, 255, .3)"
   icon: /assets/img/alchemyshop-potion.png
-  logo: { tr: /assets/img/alchemyshop-logo.png, en: /assets/img/alchemyshop-logo-en.png }
+  logo: { tr: /assets/img/alchemyshop-logo.webp, en: /assets/img/alchemyshop-logo-en.webp }
 
 - slug: cuppa
   name: { tr: "CUPPA", en: "CUPPA" }
@@ -73,7 +73,7 @@
   theme: { glow: "rgba(90, 180, 245, .28)", button_text: "#1c1206" }
   card_bg: "radial-gradient(60% 70% at 50% 45%, rgba(110, 195, 250, .32), transparent 75%), #0a1420"
   icon: /assets/img/cuppa-icon.png
-  logo: { tr: /assets/img/cuppa-logo.png, en: /assets/img/cuppa-logo.png }
+  logo: { tr: /assets/img/cuppa-logo.webp, en: /assets/img/cuppa-logo.webp }
 
 - slug: hoplop
   name: { tr: "Hoplop", en: "Hoplop" }
@@ -91,7 +91,7 @@
   theme: { glow: "rgba(90, 190, 250, .28)", button_text: "#1c1206" }
   card_bg: "radial-gradient(60% 70% at 50% 45%, rgba(110, 200, 250, .34), transparent 75%), #0a1420"
   icon: /assets/img/hoplop-icon.png
-  logo: { tr: /assets/img/hoplop-logo.png, en: /assets/img/hoplop-logo.png }
+  logo: { tr: /assets/img/hoplop-logo.webp, en: /assets/img/hoplop-logo.webp }
 
 - slug: dedektifbros
   name: { tr: "Dedektif Bros", en: "Dedektif Bros" }
@@ -109,7 +109,7 @@
   theme: { glow: "rgba(60, 140, 255, .28)", button_text: "#1c1206" }
   card_bg: "radial-gradient(60% 70% at 50% 45%, rgba(70, 150, 255, .32), transparent 75%), #0a1226"
   icon: /assets/img/dedektifbros-icon.png
-  logo: { tr: /assets/img/dedektifbros-logo.png, en: /assets/img/dedektifbros-logo.png }
+  logo: { tr: /assets/img/dedektifbros-logo.webp, en: /assets/img/dedektifbros-logo.webp }
 
 - slug: kafamatik
   name: { tr: "Kafamatik", en: "Kafamatik" }
@@ -128,4 +128,4 @@
   theme: { glow: "rgba(60, 140, 255, .28)", button_text: "#1c1206" }
   card_bg: "radial-gradient(60% 70% at 50% 45%, rgba(40, 120, 230, .38), transparent 75%), #081f4b"
   icon: /assets/img/kafamatik-icon.png
-  logo: { tr: /assets/img/kafamatik-logo.png, en: /assets/img/kafamatik-logo.png }
+  logo: { tr: /assets/img/kafamatik-logo.webp, en: /assets/img/kafamatik-logo.webp }

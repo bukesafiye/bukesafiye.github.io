@@ -39,7 +39,7 @@
   <header class="site-header">
     <div class="wrap header-row">
       <a class="brand" href="{{ '/' | relative_url }}" aria-label="MiroGames">
-        <img src="{{ '/assets/img/mirogames.png' | relative_url }}" alt="MiroGames" width="160" height="64">
+        <img src="{{ '/assets/img/mirogames.webp' | relative_url }}" alt="MiroGames" width="160" height="64">
       </a>
       <nav class="nav">
         <a href="{{ '/#games' | relative_url }}"><span class="tr">Oyunlar</span><span class="en">Games</span></a>
@@ -69,7 +69,7 @@
   <footer class="site-footer" id="contact">
     <div class="wrap footer-row">
       <div>
-        <img class="footer-logo" src="{{ '/assets/img/mirogames.png' | relative_url }}" alt="MiroGames" width="140" height="56">
+        <img class="footer-logo" src="{{ '/assets/img/mirogames.webp' | relative_url }}" alt="MiroGames" width="140" height="56">
         <p class="muted"><span class="tr">Bağımsız küçük bir oyun stüdyosu.</span><span class="en">A tiny independent game studio.</span></p>
       </div>
       <div class="footer-links">
@@ -99,6 +99,9 @@
       });
       mark();
     })();
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function () { navigator.serviceWorker.register('{{ '/sw.js' | relative_url }}').catch(function () {}); });
+    }
   </script>
 </body>
 </html>

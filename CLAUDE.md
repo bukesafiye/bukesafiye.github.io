@@ -12,8 +12,9 @@ color theme are generated from `_data/games.yml`, so step 2 does most of the wor
 
 1. **Assets** (ask the user for anything missing; never invent store screenshots):
    - `assets/img/<slug>-icon.png`: app icon, 256×256, square
-   - `assets/img/<slug>-logo.png`: logo with a transparent background, trimmed, ~900 px wide.
-     If the logo differs per language, add `<slug>-logo-tr.png` and `<slug>-logo-en.png`.
+   - `assets/img/<slug>-logo.webp`: logo with a transparent background, trimmed, ~900 px wide,
+     made from the PNG with `cwebp -q 88 -alpha_q 100 -m 6 in.png -o out.webp` (PNG logos are ~1 MB).
+     If the logo differs per language, add `<slug>-logo-tr.webp` and `<slug>-logo-en.webp`.
    - `assets/img/shots/<slug>-tr-01.jpg` … and `<slug>-en-01.jpg` …: JPG phone screenshots,
      the same set in both languages. `01` is shown in the phone frame. The frame and the
      gallery are 9:16 and crop anything taller, so use 540×960 (9:16); 480×960 loses the top and bottom.
@@ -46,3 +47,10 @@ color theme are generated from `_data/games.yml`, so step 2 does most of the wor
 GhostShift, Lost & Found Office and Alchemist's Shop have hand-written `index.html` pages
 and their own `.theme-ghost` / `.theme-lost` CSS. They still read their card, header link and
 hero icon from `_data/games.yml`. New games use `layout: game`.
+
+## Caching
+
+GitHub Pages sends `max-age=600` and that can't be changed, so `sw.js` (a service worker,
+registered in `_layouts/default.html`) keeps `/assets/img/` and `/assets/fonts/` in the browser:
+a cached file is shown at once and refreshed in the background. A replaced image therefore
+shows on the visit after it is published. Bump `CACHE` in `sw.js` to drop every cached file.
