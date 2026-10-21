@@ -121,7 +121,7 @@
   chips:
     - { tr: "Bulmaca", en: "Puzzle" }
     - { tr: "4 oyun", en: "4 games" }
-    - { tr: "3+ yaş", en: "Ages 3+" }
+    - { tr: "13+ yaş", en: "Ages 13+" }
     - { tr: "Reklamsız", en: "No ads" }
   color: "#ffc93c"
   glow: "rgba(255, 201, 60, .3)"

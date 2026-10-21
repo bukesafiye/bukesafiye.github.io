@@ -14,7 +14,7 @@ Hoplop, MiroGames tarafından geliştirilmiştir. Oyun hiçbir kişisel veri top
 
 İlerlemen (Çay, Golf ve Kova parkurlarının puan ve yükseklik rekorları, altın, açılan ve seçili güçler, görevler, kontrol noktaları) ile dil, ses ve kontrol tercihlerin yalnızca cihazında tutulur ve uygulamayı sildiğinde kaldırılır. Titreşim yalnızca cihazındaki titreşim motorunu kullanır; hiçbir veri göndermez.
 
-Çocuklar dahil hiç kimseden bilerek bilgi toplamayız. Bu politika değişirse yeni hâli bu sayfada yayınlanır.
+Oyun 13 yaş ve üzeri için tasarlanmıştır ve 13 yaşından küçük çocuklara yönelik değildir. Çocuklar dahil hiç kimseden bilerek bilgi toplamayız. Bu politika değişirse yeni hâli bu sayfada yayınlanır.
 
 <p class="contact-line">İletişim: <a href="mailto:bukesafiye@gmail.com">bukesafiye@gmail.com</a></p>
 </div>
@@ -28,7 +28,7 @@ Hoplop is made by MiroGames. The game does not collect, store or share any perso
 
 Your progress (score and height records for the Tea, Golf and Bucket courses, gold, unlocked and equipped powers, quests, checkpoints) and your language, sound and control settings are stored only on your device and are deleted when you remove the app. Vibration only uses your device's haptic motor and sends no data.
 
-We do not knowingly collect information from anyone, including children. If this policy changes, the new version will be published on this page.
+The game is designed for players aged 13 and over and is not directed at children under 13. We do not knowingly collect information from anyone, including children. If this policy changes, the new version will be published on this page.
 
 <p class="contact-line">Contact: <a href="mailto:bukesafiye@gmail.com">bukesafiye@gmail.com</a></p>
 </div>
