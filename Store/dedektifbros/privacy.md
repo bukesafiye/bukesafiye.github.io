@@ -8,7 +8,7 @@ back_en: Dedektif Bros
 <div class="tr" markdown="1">
 # Gizlilik Politikası — Dedektif Bros
 
-*Son güncelleme: 20 Ekim 2026*
+*Son güncelleme: 22 Ekim 2026*
 
 Dedektif Bros (“uygulama”), MiroGames tarafından geliştirilen, internet bağlantısı gerektirmeyen bir polisiye oyunudur. Bu metin, uygulamanın hangi bilgileri nasıl kullandığını açıklar.
 
@@ -24,14 +24,14 @@ Girdiğin dedektif adı, dil ve ses ayarları, kayıtlı oyun ilerlemesi ve oyna
 
 Çok oyunculu modda uygulama, aynı Wi‑Fi ağındaki cihazları bulmak ve bağlamak için yerel ağı kullanır. Oyun sırasında oyuncu adları, soru oyları, defter notları ve final oyları yalnızca odadaki cihazlar arasında doğrudan aktarılır; internete veya bize gönderilmez. Oda kapandığında bu veriler diğer cihazlarda tutulmaz.
 
-## Kamera
+## QR kod
 
-Kamera yalnızca odaya katılmak için host’un ekranındaki QR kodu okumak üzere, senin iznin ve isteğinle kullanılır. Görüntü kaydedilmez, saklanmaz ve hiçbir yere gönderilmez. İzin vermezsen 6 haneli oda kodunu elle yazabilirsin.
+Dedektif Bros kameraya erişmez. Odaya katılmak için host’un ekranındaki QR kodu telefonunun kendi kamera uygulamasıyla okutabilir ya da 6 haneli oda kodunu elle yazabilirsin.
 
 ## İzinler
 
-- **iPhone:** Yerel Ağ (aynı Wi‑Fi'daki odaları bulmak için), Kamera (QR kod için).
-- **Android:** CAMERA (QR kod), INTERNET, ACCESS_NETWORK_STATE ve ACCESS_WIFI_STATE (yalnızca yerel ağ bağlantısı için), CHANGE_WIFI_MULTICAST_STATE (aynı ağdaki odaları bulmak için) ve Android 13 ve sonrasında NEARBY_WIFI_DEVICES (konum için kullanılmaz).
+- **iPhone:** Yerel Ağ (aynı Wi‑Fi'daki odaları bulmak için).
+- **Android:** INTERNET, ACCESS_NETWORK_STATE ve ACCESS_WIFI_STATE (yalnızca yerel ağ bağlantısı için), CHANGE_WIFI_MULTICAST_STATE (aynı ağdaki odaları bulmak için) ve Android 13 ve sonrasında NEARBY_WIFI_DEVICES (konum için kullanılmaz).
 
 ## Çocuklar
 
@@ -51,7 +51,7 @@ Bu politika değişirse güncel metin bu sayfada ve uygulama içinde yayımlanı
 <div class="en" markdown="1">
 # Privacy Policy — Dedektif Bros
 
-*Last updated: October 20, 2026*
+*Last updated: October 22, 2026*
 
 Dedektif Bros (“the app”) is a detective game developed by MiroGames that works without an internet connection. This page explains what information the app uses and how.
 
@@ -67,14 +67,14 @@ The detective name you enter, your language and sound settings, saved game progr
 
 In multiplayer mode the app uses your local network to find and connect devices on the same Wi‑Fi. During a game, player names, question votes, notebook notes and final votes are exchanged directly between the devices in the room; they are not sent to the internet or to us. They are not kept on other devices once the room closes.
 
-## Camera
+## QR code
 
-The camera is used only when you choose to scan the QR code on the host’s screen to join a room, and only with your permission. Images are not recorded, stored or sent anywhere. Without this permission you can type the 6-digit room code instead.
+Dedektif Bros does not access the camera. To join a room, scan the QR code on the host’s screen with your phone’s own camera app, or type the 6-digit room code.
 
 ## Permissions
 
-- **iPhone:** Local Network (to find rooms on the same Wi‑Fi), Camera (for the QR code).
-- **Android:** CAMERA (QR code), INTERNET, ACCESS_NETWORK_STATE and ACCESS_WIFI_STATE (local network connections only), CHANGE_WIFI_MULTICAST_STATE (to find rooms on the same network) and, on Android 13 and later, NEARBY_WIFI_DEVICES (never used for location).
+- **iPhone:** Local Network (to find rooms on the same Wi‑Fi).
+- **Android:** INTERNET, ACCESS_NETWORK_STATE and ACCESS_WIFI_STATE (local network connections only), CHANGE_WIFI_MULTICAST_STATE (to find rooms on the same network) and, on Android 13 and later, NEARBY_WIFI_DEVICES (never used for location).
 
 ## Children
 

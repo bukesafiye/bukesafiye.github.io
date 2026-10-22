@@ -14,7 +14,7 @@ Dedektif Bros ile ilgili bir sorun mu yaşıyorsun? Aşağıdaki çözümleri de
 
 **Arkadaşlarım odamı bulamıyor.** Tüm cihazlar aynı Wi‑Fi ağında olmalı. iPhone’da **Ayarlar → Gizlilik ve Güvenlik → Yerel Ağ** altında Dedektif Bros’a izin ver; Android’de uygulama izinlerinden “Yakındaki cihazlar” iznini ver. Misafir ağları ve bazı kurumsal ağlar cihazların birbirini görmesini engelleyebilir; o durumda bir telefonun kişisel erişim noktasını kullanın.
 
-**QR kod okunmuyor.** Kamera iznini Ayarlar’dan aç ya da QR yerine 6 haneli oda kodunu kullan.
+**QR kod okunmuyor.** QR’ı telefonun kendi kamera uygulamasıyla okut ya da 6 haneli oda kodunu kullan.
 
 **Bağlantım koptu.** Uygulamayı yeniden aç; aynı odaya kendi koltuğuna geri dönersin. Sen yokken rolünü bir bot üstlenir.
 
@@ -36,7 +36,7 @@ Having trouble with Dedektif Bros? Try the fixes below; if they don’t help, wr
 
 **My friends can’t find my room.** All devices must be on the same Wi‑Fi network. On iPhone, allow Dedektif Bros under **Settings → Privacy & Security → Local Network**; on Android, allow the “Nearby devices” permission in the app’s permissions. Guest networks and some corporate networks stop devices from seeing each other; in that case, use one phone’s personal hotspot.
 
-**The QR code won’t scan.** Turn on camera access in Settings, or use the 6-digit room code instead.
+**The QR code won’t scan.** Scan it with your phone’s own camera app, or use the 6-digit room code instead.
 
 **I got disconnected.** Reopen the app and you’ll return to your own seat in the same room. A bot plays your role while you’re away.
 
