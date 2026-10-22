@@ -1,6 +1,6 @@
 ---
 title: Simyacının Dükkânı — Privacy
-theme: studio
+theme: alchemyshop
 icon: /assets/img/alchemyshop-icon.png
 back: /Store/alchemyshop/
 back_tr: Simyacının Dükkânı

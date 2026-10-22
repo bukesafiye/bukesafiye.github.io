@@ -57,6 +57,7 @@
     - { tr: "Reklamsız", en: "No ads" }
   color: "#c9a2ff"
   glow: "rgba(201, 162, 255, .3)"
+  theme: { glow: "rgba(150, 100, 230, .28)" }
   icon: /assets/img/alchemyshop-potion.png
   logo: { tr: /assets/img/alchemyshop-logo.webp, en: /assets/img/alchemyshop-logo-en.webp }
 
