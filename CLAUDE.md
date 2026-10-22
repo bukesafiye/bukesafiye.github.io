@@ -7,7 +7,7 @@ Commit as `bukesafiye <bukesafiye@gmail.com>`.
 ## Adding a new game
 
 When the user says "yeni oyun ekle" / "add a new game", do **all** of the steps below.
-The home page card, the colored link in the header, the floating hero icon and the game's
+The home page card, the game's entry in the header's "Oyunlar" dropdown (and the colored pill shown on its own pages), the floating hero icon and the game's
 color theme are generated from `_data/games.yml`, so step 2 does most of the work.
 
 1. **Assets** (ask the user for anything missing; never invent store screenshots):

@@ -58,30 +58,66 @@ h1, h2, h3 { font-family: var(--display); line-height: 1.15; margin: 0 0 .5em; l
 .brand { flex-shrink: 0; }
 .brand img { height: 56px; width: auto; }
 .nav { display: flex; align-items: center; gap: 12px; font-weight: 500; font-size: 15px; }
-.nav > a { color: var(--text); opacity: .85; }
-.nav > a:hover { opacity: 1; text-decoration: none; color: var(--accent); }
-/* Game names in the header: small pills in each game's own accent colour; shown on wide screens only. */
-.nav > .nav-game {
-  display: inline-flex; align-items: center; gap: 8px; padding: 5px 9px; border-radius: 999px;
-  color: var(--c); opacity: 1; font-weight: 600; font-size: 13px; white-space: nowrap; letter-spacing: .01em;
+.nav-left { margin-right: auto; }
+.nav-link { color: var(--text); opacity: .85; white-space: nowrap; }
+.nav-link:hover { opacity: 1; text-decoration: none; color: var(--accent); }
+/* Pill buttons that open a dropdown (games, language). */
+.nav-pill {
+  display: inline-flex; align-items: center; gap: 8px; height: 42px; padding: 0 16px;
+  font: 600 15px/1 var(--body); color: var(--text); cursor: pointer; white-space: nowrap;
+  background: color-mix(in srgb, var(--surface-2) 70%, transparent);
+  border: 1px solid color-mix(in srgb, var(--accent) 35%, var(--line)); border-radius: 999px;
+  transition: border-color .2s ease, background .2s ease;
+}
+.nav-pill:hover, .dropdown.open > .nav-pill { border-color: color-mix(in srgb, var(--accent) 75%, transparent); background: color-mix(in srgb, var(--accent) 10%, var(--surface-2)); }
+.nav-pill .chev { transition: transform .2s ease; opacity: .8; }
+.dropdown.open > .nav-pill .chev { transform: rotate(180deg); }
+.lang-pill { color: var(--accent); padding: 0 14px; font-size: 14px; letter-spacing: .06em; }
+.dropdown { position: relative; }
+.menu {
+  position: absolute; top: calc(100% + 12px); left: 0; z-index: 20;
+  padding: 12px; border-radius: 16px;
+  background: color-mix(in srgb, var(--surface) 97%, var(--accent) 3%);
+  backdrop-filter: blur(18px);
+  border: 1px solid color-mix(in srgb, var(--accent) 25%, var(--line));
+  box-shadow: 0 18px 50px rgba(0, 0, 0, .5);
+}
+.menu[hidden] { display: none; }
+/* Games: two columns, each game with its own colored dot. */
+.games-menu { display: grid; grid-template-columns: repeat(2, minmax(200px, 1fr)); column-gap: 14px; }
+.menu-game {
+  display: flex; align-items: center; gap: 14px; padding: 13px 16px; border-radius: 10px;
+  color: var(--text); font-size: 15px; font-weight: 500; white-space: nowrap;
+  border-bottom: 1px solid var(--line);
+}
+.menu-game::before { content: ""; flex: none; width: 10px; height: 10px; border-radius: 50%; background: var(--c); box-shadow: 0 0 10px color-mix(in srgb, var(--c) 70%, transparent); }
+.menu-game:hover { text-decoration: none; color: var(--c); background: color-mix(in srgb, var(--c) 8%, transparent); }
+.menu-game.is-current { color: var(--c); background: color-mix(in srgb, var(--c) 12%, transparent); border-color: transparent; }
+.lang-menu { left: auto; right: 0; display: flex; flex-direction: column; min-width: 150px; padding: 8px; }
+.lang-menu button {
+  font: 500 15px/1 var(--body); color: var(--text); background: none; border: 0; border-radius: 8px;
+  padding: 11px 12px; text-align: left; cursor: pointer;
+}
+.lang-menu button:hover { background: var(--accent-soft); }
+.lang-menu button[aria-pressed="true"] { color: var(--accent); font-weight: 600; }
+/* The game whose pages we are on, next to the Games button. */
+.nav-game {
+  display: inline-flex; align-items: center; gap: 10px; height: 42px; padding: 0 18px; border-radius: 999px;
+  color: var(--c); font-weight: 600; font-size: 15px; white-space: nowrap;
   border: 1px solid color-mix(in srgb, var(--c) 35%, transparent);
   background: color-mix(in srgb, var(--c) 9%, transparent);
-  transition: background .2s ease, border-color .2s ease;
 }
-.nav > .nav-game::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--c); box-shadow: 0 0 10px var(--c); }
-.nav > .nav-game:hover { color: var(--c); opacity: 1; background: color-mix(in srgb, var(--c) 20%, transparent); border-color: color-mix(in srgb, var(--c) 70%, transparent); }
-.nav > .nav-game.ghost { --c: #3fe0f0; }
-.nav > .nav-game.lost { --c: #e4b462; }
-.nav > .nav-game.alch { --c: #c9a2ff; }
-/* Six games need ~1000 px of pills (1280 px fits only just): show them from 1340 px, with room for wider fonts. */
-@media (max-width: 1339px) { .nav > .nav-game { display: none; } }
-.lang-toggle { display: flex; border: 1px solid var(--line); border-radius: 999px; padding: 3px; }
-.lang-toggle button {
-  font: 600 12px/1 var(--body); letter-spacing: .06em;
-  color: var(--muted); background: none; border: 0; border-radius: 999px;
-  padding: 7px 11px; cursor: pointer;
+.nav-game::before { content: ""; width: 9px; height: 9px; border-radius: 50%; background: var(--c); box-shadow: 0 0 10px var(--c); }
+.nav-game:hover { text-decoration: none; background: color-mix(in srgb, var(--c) 18%, transparent); border-color: color-mix(in srgb, var(--c) 70%, transparent); }
+.nav-cta {
+  display: inline-flex; align-items: center; gap: 10px; height: 46px; padding: 0 20px 0 24px; border-radius: 999px;
+  color: var(--text); font-weight: 600; font-size: 15px; white-space: nowrap;
+  border: 1.5px solid var(--accent);
+  background: color-mix(in srgb, var(--accent) 8%, transparent);
+  box-shadow: 0 0 18px color-mix(in srgb, var(--accent) 35%, transparent), inset 0 0 12px color-mix(in srgb, var(--accent) 12%, transparent);
+  transition: background .2s ease, transform .15s ease;
 }
-.lang-toggle button[aria-pressed="true"] { background: var(--accent); color: #031012; }
+.nav-cta:hover { text-decoration: none; background: color-mix(in srgb, var(--accent) 18%, transparent); transform: translateY(-1px); }
 
 /* ---- Buttons and chips ---- */
 .btn {
@@ -244,14 +280,27 @@ h1, h2, h3 { font-family: var(--display); line-height: 1.15; margin: 0 0 .5em; l
   .phone { transform: none; width: min(260px, 70vw); }
   .hero { padding: 64px 0 48px; }
 }
+@media (max-width: 960px) {
+  .nav-link { display: none; }
+}
+@media (max-width: 720px) {
+  .nav-left > .nav-game { display: none; }
+}
 @media (max-width: 560px) {
-  .nav { gap: 14px; font-size: 14px; }
-  .nav > a { display: none; }
+  .header-row { gap: 8px; }
+  .nav { gap: 8px; font-size: 14px; }
+  .nav-pill { height: 38px; padding: 0 12px; font-size: 14px; }
+  .nav-cta { height: 38px; padding: 0 12px 0 14px; font-size: 14px; gap: 6px; }
+  .dropdown:not(:has(.lang-menu)) { position: static; }
+  .games-menu { left: 16px; right: 16px; top: calc(100% + 4px); grid-template-columns: 1fr; }
   .brand img { height: 44px; }
   .features { grid-template-columns: 1fr; }
   .shots { grid-auto-columns: 62%; }
   .footer-links { align-items: flex-start; }
   .contact-card { padding: 24px; }
+}
+@media (max-width: 480px) {
+  .nav-cta { display: none; }
 }
 @media (prefers-reduced-motion: reduce) {
   * { transition: none !important; animation: none !important; scroll-behavior: auto !important; }

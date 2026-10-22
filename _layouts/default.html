@@ -41,16 +41,46 @@
       <a class="brand" href="{{ '/' | relative_url }}" aria-label="MiroGames">
         <img src="{{ '/assets/img/mirogames.webp' | relative_url }}" alt="MiroGames" width="160" height="64">
       </a>
-      <nav class="nav">
-        <a href="{{ '/#games' | relative_url }}"><span class="tr">Oyunlar</span><span class="en">Games</span></a>
-        {%- for g in site.data.games %}
-        <a class="nav-game" style="--c: {{ g.color }}" href="{{ '/Store/' | append: g.slug | append: '/' | relative_url }}">{% assign label = g.nav_name | default: g.name %}{% if label.tr == label.en %}{{ label.tr }}{% else %}<span class="tr">{{ label.tr }}</span><span class="en">{{ label.en }}</span>{% endif %}</a>
-        {%- endfor %}
-        <a href="{{ '/#contact' | relative_url }}"><span class="tr">İletişim</span><span class="en">Contact</span></a>
-        <div class="lang-toggle" role="group" aria-label="Language">
-          <button type="button" data-set-lang="tr">TR</button>
-          <button type="button" data-set-lang="en">EN</button>
+      {%- comment -%} The game whose pages we are on (game page, privacy, support), if any. {%- endcomment -%}
+      {%- assign current = nil -%}
+      {%- for g in site.data.games -%}
+        {%- assign prefix = '/Store/' | append: g.slug | append: '/' -%}
+        {%- if page.url contains prefix %}{% assign current = g %}{% endif -%}
+      {%- endfor %}
+      <nav class="nav nav-left">
+        <div class="dropdown" data-dropdown>
+          <button type="button" class="nav-pill" aria-expanded="false" aria-controls="games-menu">
+            <span class="tr">Oyunlar</span><span class="en">Games</span>
+            <svg class="chev" width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="menu games-menu" id="games-menu" hidden>
+            {%- for g in site.data.games %}
+            <a class="menu-game{% if current and current.slug == g.slug %} is-current{% endif %}" style="--c: {{ g.color }}" href="{{ '/Store/' | append: g.slug | append: '/' | relative_url }}"{% if current and current.slug == g.slug %} aria-current="page"{% endif %}>{% if g.name.tr == g.name.en %}{{ g.name.tr }}{% else %}<span class="tr">{{ g.name.tr }}</span><span class="en">{{ g.name.en }}</span>{% endif %}</a>
+            {%- endfor %}
+          </div>
         </div>
+        {%- if current %}
+        {% assign label = current.nav_name | default: current.name %}
+        <a class="nav-game" style="--c: {{ current.color }}" href="{{ '/Store/' | append: current.slug | append: '/' | relative_url }}">{% if label.tr == label.en %}{{ label.tr }}{% else %}<span class="tr">{{ label.tr }}</span><span class="en">{{ label.en }}</span>{% endif %}</a>
+        {%- endif %}
+      </nav>
+      <nav class="nav nav-right">
+        <a class="nav-link" href="{{ '/#contact' | relative_url }}"><span class="tr">İletişim</span><span class="en">Contact</span></a>
+        <div class="dropdown" data-dropdown>
+          <button type="button" class="nav-pill lang-pill" aria-expanded="false" aria-controls="lang-menu" aria-label="Language / Dil">
+            <span class="tr">TR</span><span class="en">EN</span>
+            <svg class="chev" width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="menu lang-menu" id="lang-menu" hidden>
+            <button type="button" data-set-lang="tr">Türkçe</button>
+            <button type="button" data-set-lang="en">English</button>
+          </div>
+        </div>
+        {%- if current %}
+        <a class="nav-cta" href="{{ '/Store/' | append: current.slug | append: '/' | relative_url }}"><span class="tr">Oyuna Git</span><span class="en">Go to Game</span><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M5 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        {%- else %}
+        <a class="nav-cta" href="{{ '/#games' | relative_url }}"><span class="tr">Oyunları Keşfet</span><span class="en">Explore Games</span><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M5 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        {%- endif %}
       </nav>
     </div>
   </header>
@@ -95,9 +125,34 @@
           root.lang = lang;
           try { localStorage.setItem('mg-lang', lang); } catch (e) {}
           mark();
+          closeAll();
         });
       });
       mark();
+
+      // Header dropdowns (games, language): one open at a time; outside click or Escape closes.
+      var drops = document.querySelectorAll('[data-dropdown]');
+      function setOpen(d, open) {
+        d.querySelector('button').setAttribute('aria-expanded', open ? 'true' : 'false');
+        d.querySelector('.menu').hidden = !open;
+        d.classList.toggle('open', open);
+      }
+      function closeAll(except) { drops.forEach(function (d) { if (d !== except) setOpen(d, false); }); }
+      drops.forEach(function (d) {
+        d.querySelector('button').addEventListener('click', function (e) {
+          e.stopPropagation();
+          var open = !d.classList.contains('open');
+          closeAll(d);
+          setOpen(d, open);
+        });
+      });
+      document.addEventListener('click', function (e) { if (!e.target.closest('[data-dropdown]')) closeAll(); });
+      document.addEventListener('keydown', function (e) {
+        if (e.key !== 'Escape') return;
+        var open = document.querySelector('[data-dropdown].open');
+        closeAll();
+        if (open) open.querySelector('button').focus();
+      });
     })();
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', function () { navigator.serviceWorker.register('{{ '/sw.js' | relative_url }}').catch(function () {}); });
