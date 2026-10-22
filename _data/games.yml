@@ -5,7 +5,8 @@
 # slug      folder under /Store/ and the theme name (theme-<slug>)
 # name      tr/en title; logo: tr/en image (same file for both is fine)
 # nav_name  optional shorter tr/en label for the header pill (long names overflow it)
-# color     the game's accent: header dot, card glow, buttons on its pages
+# color     the game's accent: card glow, buttons on its pages
+# dot       the game's own hue in the header menu and pill; keep every game's dot distinct
 # theme     optional extra palette for the game's pages (bg, surface, text...)
 # card_bg   optional background behind the logo on the home card
 - slug: ghostshift
@@ -20,6 +21,7 @@
     - { tr: "Bulmaca", en: "Puzzle" }
     - { tr: "20 gece", en: "20 nights" }
   color: "#3fe0f0"
+  dot: "#3fe0f0"
   glow: "rgba(63, 224, 240, .35)"
   icon: /assets/img/ghostshift-icon.png
   logo: { tr: /assets/img/ghostshift-logo-tr.webp, en: /assets/img/ghostshift-logo-en.webp }
@@ -36,6 +38,7 @@
     - { tr: "Simülasyon", en: "Simulation" }
     - { tr: "Rahat", en: "Cozy" }
   color: "#e4b462"
+  dot: "#e4b462"
   glow: "rgba(228, 180, 98, .3)"
   card_bg: "radial-gradient(60% 70% at 50% 45%, rgba(228, 180, 98, .30), transparent 75%), #140e09"
   icon: /assets/img/lostfound-icon.png
@@ -53,6 +56,7 @@
     - { tr: "Yönetim", en: "Management" }
     - { tr: "Reklamsız", en: "No ads" }
   color: "#c9a2ff"
+  dot: "#c9a2ff"
   glow: "rgba(201, 162, 255, .3)"
   icon: /assets/img/alchemyshop-potion.png
   logo: { tr: /assets/img/alchemyshop-logo.webp, en: /assets/img/alchemyshop-logo-en.webp }
@@ -69,6 +73,7 @@
     - { tr: "Basketbol", en: "Basketball" }
     - { tr: "Reklamsız", en: "No ads" }
   color: "#ffb83f"
+  dot: "#ff7a3d"
   glow: "rgba(255, 184, 63, .3)"
   theme: { glow: "rgba(90, 180, 245, .28)", button_text: "#1c1206" }
   card_bg: "radial-gradient(60% 70% at 50% 45%, rgba(110, 195, 250, .32), transparent 75%), #0a1420"
@@ -87,6 +92,7 @@
     - { tr: "3 parkur", en: "3 courses" }
     - { tr: "Reklamsız", en: "No ads" }
   color: "#ff9f1c"
+  dot: "#ff5b6e"
   glow: "rgba(255, 159, 28, .3)"
   theme: { glow: "rgba(90, 190, 250, .28)", button_text: "#1c1206" }
   card_bg: "radial-gradient(60% 70% at 50% 45%, rgba(110, 200, 250, .34), transparent 75%), #0a1420"
@@ -105,6 +111,7 @@
     - { tr: "2–6 oyuncu", en: "2–6 players" }
     - { tr: "Reklamsız", en: "No ads" }
   color: "#ffc23a"
+  dot: "#5b8cff"
   glow: "rgba(255, 194, 58, .3)"
   theme: { glow: "rgba(60, 140, 255, .28)", button_text: "#1c1206" }
   card_bg: "radial-gradient(60% 70% at 50% 45%, rgba(70, 150, 255, .32), transparent 75%), #0a1226"
@@ -124,6 +131,7 @@
     - { tr: "13+ yaş", en: "Ages 13+" }
     - { tr: "Reklamsız", en: "No ads" }
   color: "#ffc93c"
+  dot: "#ff7ec4"
   glow: "rgba(255, 201, 60, .3)"
   theme: { glow: "rgba(60, 140, 255, .28)", button_text: "#1c1206" }
   card_bg: "radial-gradient(60% 70% at 50% 45%, rgba(40, 120, 230, .38), transparent 75%), #081f4b"
@@ -142,6 +150,7 @@
     - { tr: "Birleştirme", en: "Merge" }
     - { tr: "Reklamsız", en: "No ads" }
   color: "#f8c86b"
+  dot: "#9be86a"
   glow: "rgba(248, 200, 107, .3)"
   theme: { glow: "rgba(101, 220, 249, .28)", button_text: "#1c1206" }
   card_bg: "radial-gradient(60% 70% at 50% 45%, rgba(56, 100, 190, .40), transparent 75%), #091026"

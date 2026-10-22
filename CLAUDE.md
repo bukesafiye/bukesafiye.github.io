@@ -20,7 +20,8 @@ color theme are generated from `_data/games.yml`, so step 2 does most of the wor
      gallery are 9:16 and crop anything taller, so use 540×960 (9:16); 480×960 loses the top and bottom.
 2. **`_data/games.yml`**: append an entry (copy the `cuppa` entry). Fields:
    `slug`, `name`, optional `nav_name` (short header label for long names), `tagline`, `summary`, `status`, `chips` (all `{ tr, en }`), `color` (the game's
-   accent from its icon/logo: header dot, card glow, buttons), `glow` (same color at ~.3 alpha),
+   accent from its icon/logo: card glow, buttons), `dot` (the game's hue in the header menu; pick one
+   no other game uses), `glow` (same color at ~.3 alpha),
    optional `theme` (`glow`, `bg`, `surface`, `surface_2`, `text`, `muted`, `button_text` for a
    light accent), optional `card_bg`, `icon`, and `logo: { tr, en }`.
    The hero icons sit in list order, three per row with the last row centred on desktop
