@@ -11,8 +11,7 @@ chips:
   - { tr: "Çevrimdışı", en: "Offline" }
   - { tr: "TR · EN", en: "TR · EN" }
   - { tr: "Reklamsız", en: "No ads" }
-# app_store: https://apps.apple.com/app/...      (shows a store button instead of "coming soon")
-# google_play: https://play.google.com/store/apps/details?id=com.mirogames.linestank
+# Store links go in _data/games.yml (google_play: https://play.google.com/store/apps/details?id=com.mirogames.linestank, app_store: ...)
 features_title: { tr: "Birleştir, geliştir, savun", en: "Merge, evolve, defend" }
 features:
   - title: { tr: "Serbest yerleşim", en: "Free placement" }

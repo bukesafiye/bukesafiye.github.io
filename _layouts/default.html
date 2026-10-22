@@ -55,13 +55,13 @@
           </button>
           <div class="menu games-menu" id="games-menu" hidden>
             {%- for g in site.data.games %}
-            <a class="menu-game{% if current and current.slug == g.slug %} is-current{% endif %}" style="--c: {{ g.dot | default: g.color }}" href="{{ '/Store/' | append: g.slug | append: '/' | relative_url }}"{% if current and current.slug == g.slug %} aria-current="page"{% endif %}>{% if g.name.tr == g.name.en %}{{ g.name.tr }}{% else %}<span class="tr">{{ g.name.tr }}</span><span class="en">{{ g.name.en }}</span>{% endif %}</a>
+            <a class="menu-game{% if current and current.slug == g.slug %} is-current{% endif %}" style="--c: {{ g.color }}" href="{{ '/Store/' | append: g.slug | append: '/' | relative_url }}"{% if current and current.slug == g.slug %} aria-current="page"{% endif %}>{% if g.name.tr == g.name.en %}{{ g.name.tr }}{% else %}<span class="tr">{{ g.name.tr }}</span><span class="en">{{ g.name.en }}</span>{% endif %}</a>
             {%- endfor %}
           </div>
         </div>
         {%- if current %}
         {% assign label = current.nav_name | default: current.name %}
-        <a class="nav-game" style="--c: {{ current.dot | default: current.color }}" href="{{ '/Store/' | append: current.slug | append: '/' | relative_url }}">{% if label.tr == label.en %}{{ label.tr }}{% else %}<span class="tr">{{ label.tr }}</span><span class="en">{{ label.en }}</span>{% endif %}</a>
+        <a class="nav-game" style="--c: {{ current.color }}" href="{{ '/Store/' | append: current.slug | append: '/' | relative_url }}">{% if label.tr == label.en %}{{ label.tr }}{% else %}<span class="tr">{{ label.tr }}</span><span class="en">{{ label.en }}</span>{% endif %}</a>
         {%- endif %}
       </nav>
       <nav class="nav nav-right">
@@ -153,6 +153,23 @@
         closeAll();
         if (open) open.querySelector('button').focus();
       });
+    })();
+    // Store QR codes (see _includes/store.html): drawn from data-qr only when a page has a store link.
+    (function () {
+      var boxes = document.querySelectorAll('[data-qr]');
+      if (!boxes.length) return;
+      var s = document.createElement('script');
+      s.src = '{{ '/assets/js/qrcode.js' | relative_url }}';
+      s.onload = function () {
+        boxes.forEach(function (el, i) {
+          var url = new URL(el.getAttribute('data-qr'), location.href).href;
+          var qr = qrcode(0, 'M');
+          qr.addData(url);
+          qr.make();
+          el.innerHTML = qr.createSvgTag({ cellSize: 4, margin: 0, scalable: true, alt: { text: url, id: 'qr-desc-' + i } });
+        });
+      };
+      document.head.appendChild(s);
     })();
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', function () { navigator.serviceWorker.register('{{ '/sw.js' | relative_url }}').catch(function () {}); });

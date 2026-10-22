@@ -7,6 +7,7 @@ description: Müşterilerin siparişlerini hazırla, iksirleri üret, bahçeni b
 icon: /assets/img/alchemyshop-icon.png
 og_image: /assets/img/alchemyshop-icon.png
 ---
+{%- assign g = site.data.games | where: 'slug', 'alchemyshop' | first -%}
 <section class="game-hero">
   <div class="wrap game-hero-grid">
     <div>
@@ -22,9 +23,13 @@ og_image: /assets/img/alchemyshop-icon.png
         <li>TR</li>
       </ul>
       <div class="hero-actions">
+        {%- include store.html game=g %}
+        {%- unless g.app_store or g.google_play %}
         <span class="btn primary soon"><span class="tr">Yakında App Store'da</span><span class="en">Coming soon to the App Store</span></span>
+        {%- endunless %}
         <a class="btn" href="support.html"><span class="tr">Destek</span><span class="en">Support</span></a>
       </div>
+      {%- include store.html game=g part='qr' %}
     </div>
     <div class="phone">
       <img src="{{ '/assets/img/shots/alch-02-shop.jpg' | relative_url }}" alt="Simyacının Dükkânı dükkân ekranı">

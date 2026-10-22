@@ -11,8 +11,7 @@ chips:
   - { tr: "3 parkur", en: "3 courses" }
   - { tr: "Çevrimdışı", en: "Offline" }
   - { tr: "TR · EN", en: "TR · EN" }
-# app_store: https://apps.apple.com/app/...      (shows a store button instead of "coming soon")
-# google_play: https://play.google.com/store/apps/details?id=com.mirogames.hoplop
+# Store links go in _data/games.yml (google_play: https://play.google.com/store/apps/details?id=com.mirogames.hoplop, app_store: ...)
 features_title: { tr: "Zıpla, sek, hedefe düşür", en: "Hop, bounce, plop it in" }
 features:
   - title: { tr: "Üç parkur", en: "Three courses" }

@@ -1,0 +1,63 @@
+{%- comment -%}
+Smart store link: /Store/<slug>/indir/. The QR code on a game page points here, so a
+printed code never changes. On open it sends iPhone/iPad to the App Store, Android to
+Google Play, and everything else (desktop, or a store the game isn't on yet) to the
+game's page. Links come from google_play / app_store in _data/games.yml.
+GitHub Pages can't redirect on the server, so the script below does it.
+{%- endcomment -%}
+{%- assign g = site.data.games | where: 'slug', page.game | first -%}
+{%- assign home = '/Store/' | append: g.slug | append: '/' | relative_url -%}
+<!doctype html>
+<html lang="tr" data-lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>{{ g.name.tr }} · MiroGames</title>
+  <link rel="canonical" href="{{ home }}">
+  <script>
+    (function () {
+      var apple = {{ g.app_store | default: '' | jsonify }};
+      var play = {{ g.google_play | default: '' | jsonify }};
+      var ua = navigator.userAgent || '';
+      // iPadOS reports itself as a Mac; a Mac with a touch screen is an iPad.
+      var ios = /iPhone|iPad|iPod/.test(ua) || (/Macintosh/.test(ua) && navigator.maxTouchPoints > 1);
+      var android = /Android/i.test(ua);
+      var target = (ios && apple) || (android && play) || {{ home | jsonify }};
+      location.replace(target);
+      var lang = (navigator.language || 'tr').toLowerCase().indexOf('tr') === 0 ? 'tr' : 'en';
+      document.documentElement.setAttribute('data-lang', lang);
+      document.documentElement.lang = lang;
+    })();
+  </script>
+  <style>
+    :root { color-scheme: dark; --c: {{ g.color }}; }
+    body { margin: 0; min-height: 100vh; display: grid; place-items: center; background: #07090c; color: #e8eef0;
+      font: 16px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif; text-align: center; padding: 24px; box-sizing: border-box; }
+    img { width: 96px; height: 96px; border-radius: 22px; }
+    h1 { font-size: 22px; margin: 16px 0 6px; }
+    p { margin: 0 0 20px; color: #8e9ea5; }
+    .links { display: flex; flex-direction: column; gap: 10px; max-width: 280px; margin: 0 auto; }
+    a { display: block; padding: 13px 18px; border-radius: 12px; font-weight: 600; text-decoration: none;
+      color: #041214; background: var(--c); }
+    a.plain { color: #e8eef0; background: #121a1f; border: 1px solid rgba(255, 255, 255, .08); }
+    [data-lang="tr"] .en, [data-lang="en"] .tr { display: none; }
+  </style>
+</head>
+<body>
+  <main>
+    <img src="{{ g.icon | relative_url }}" alt="">
+    <h1><span class="tr">{{ g.name.tr }}</span><span class="en">{{ g.name.en }}</span></h1>
+    <p><span class="tr">Mağazaya yönlendiriliyorsun…</span><span class="en">Taking you to the store…</span></p>
+    <div class="links">
+      {%- if g.app_store %}
+      <a href="{{ g.app_store }}">App Store</a>
+      {%- endif %}
+      {%- if g.google_play %}
+      <a href="{{ g.google_play }}">Google Play</a>
+      {%- endif %}
+      <a class="plain" href="{{ home }}"><span class="tr">Oyunun sayfası</span><span class="en">Game page</span></a>
+    </div>
+  </main>
+</body>
+</html>

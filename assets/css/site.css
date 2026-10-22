@@ -133,6 +133,17 @@ h1, h2, h3 { font-family: var(--display); line-height: 1.15; margin: 0 0 .5em; l
 .theme-lost .btn.primary { color: #1c1206; }
 .btn.soon { cursor: default; opacity: .9; }
 .btn.soon:hover { transform: none; }
+/* Store QR codes next to the store buttons; wide screens only (on a phone the button is enough). */
+.store-qr { display: flex; align-items: center; gap: 14px; margin-top: 22px; }
+.store-qr figure { margin: 0; text-align: center; }
+.store-qr .qr {
+  width: 112px; height: 112px; padding: 9px; border-radius: 14px; background: #fff;
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--accent) 45%, transparent), 0 10px 30px rgba(0, 0, 0, .35);
+}
+.store-qr .qr svg { display: block; width: 100%; height: 100%; }
+.store-qr figcaption { margin-top: 7px; font-size: 12px; font-weight: 600; color: var(--muted); letter-spacing: .02em; }
+.store-qr p { margin: 0 0 22px; max-width: 16ch; font-size: 14px; color: var(--muted); }
+@media (max-width: 860px) { .store-qr { display: none; } }
 .chips { display: flex; flex-wrap: wrap; gap: 8px; padding: 0; margin: 0; list-style: none; }
 .chips li {
   font-size: 13px; font-weight: 500; color: var(--text);

@@ -6,6 +6,7 @@ title: Lost & Found Office
 description: Return lost things to their owners and uncover the office's secret.
 icon: /assets/img/lostfound-icon.png
 ---
+{%- assign g = site.data.games | where: 'slug', 'lostfoundgame' | first -%}
 <section class="game-hero">
   <div class="wrap game-hero-grid">
     <div>
@@ -22,9 +23,13 @@ icon: /assets/img/lostfound-icon.png
         <li>TR · EN</li>
       </ul>
       <div class="hero-actions">
+        {%- include store.html game=g %}
+        {%- unless g.app_store or g.google_play %}
         <span class="btn primary soon"><span class="tr">Yakında</span><span class="en">Coming soon</span></span>
+        {%- endunless %}
         <a class="btn" href="support.html"><span class="tr">Destek</span><span class="en">Support</span></a>
       </div>
+      {%- include store.html game=g part='qr' %}
     </div>
     <div class="phone">
       <img class="tr" src="{{ '/assets/img/shots/lf-tr-01.jpg' | relative_url }}" alt="Oyun içi ekran">

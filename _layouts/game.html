@@ -28,17 +28,13 @@ Every text field is { tr: "...", en: "..." }.
         {%- endfor %}
       </ul>
       <div class="hero-actions">
-        {%- if page.app_store %}
-        <a class="btn primary" href="{{ page.app_store }}">App Store</a>
-        {%- endif %}
-        {%- if page.google_play %}
-        <a class="btn primary" href="{{ page.google_play }}">Google Play</a>
-        {%- endif %}
-        {%- unless page.app_store or page.google_play %}
+        {%- include store.html game=g %}
+        {%- unless g.app_store or g.google_play %}
         <span class="btn primary soon"><span class="tr">{{ g.status.tr }}</span><span class="en">{{ g.status.en }}</span></span>
         {%- endunless %}
         <a class="btn" href="support.html"><span class="tr">Destek</span><span class="en">Support</span></a>
       </div>
+      {%- include store.html game=g part='qr' %}
     </div>
     <div class="phone">
       {%- assign first = page.shots | first %}

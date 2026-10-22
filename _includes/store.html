@@ -1,0 +1,25 @@
+{%- comment -%}
+Store buttons and QR codes for one game.
+  {% include store.html game=g %}            buttons (inside .hero-actions)
+  {% include store.html game=g part='qr' %}  QR card (after .hero-actions)
+Links come from the game's google_play / app_store in _data/games.yml. With no link the include renders nothing,
+so the page keeps its "coming soon" button. The QR code points to /Store/<slug>/indir/
+(_layouts/store-redirect.html), which picks the store for the phone. It is drawn by
+/assets/js/qrcode.js and only shown on wide screens (on a phone, the button is enough).
+{%- endcomment -%}
+{%- assign play = include.game.google_play -%}
+{%- assign apple = include.game.app_store -%}
+{%- if include.part != 'qr' %}
+{%- if apple %}
+<a class="btn primary" href="{{ apple }}">App Store</a>
+{%- endif %}
+{%- if play %}
+<a class="btn primary" href="{{ play }}">Google Play</a>
+{%- endif %}
+{%- elsif play or apple %}
+{%- comment -%} One QR for both stores: /indir/ sends each phone to its own store. {%- endcomment -%}
+<div class="store-qr">
+  <figure><div class="qr" data-qr="{{ '/Store/' | append: include.game.slug | append: '/indir/' | relative_url }}"></div><figcaption>{% if apple %}App Store{% endif %}{% if apple and play %} · {% endif %}{% if play %}Google Play{% endif %}</figcaption></figure>
+  <p><span class="tr">İndirmek için telefonunla okut</span><span class="en">Scan with your phone to download</span></p>
+</div>
+{%- endif %}

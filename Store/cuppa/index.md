@@ -11,8 +11,7 @@ chips:
   - { tr: "Basketbol", en: "Basketball" }
   - { tr: "Çevrimdışı", en: "Offline" }
   - { tr: "TR · EN", en: "TR · EN" }
-# app_store: https://apps.apple.com/app/...      (shows a store button instead of "coming soon")
-# google_play: https://play.google.com/store/apps/details?id=com.mirogames.cuppa
+# Store links go in _data/games.yml (google_play: https://play.google.com/store/apps/details?id=com.mirogames.cuppa, app_store: ...)
 features_title: { tr: "Sek, sıçra, basket at", en: "Bounce, jump, shoot" }
 features:
   - title: { tr: "Basış gücü", en: "Press power" }

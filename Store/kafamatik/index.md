@@ -11,8 +11,7 @@ chips:
   - { tr: "13+ yaş", en: "Ages 13+" }
   - { tr: "Çevrimdışı", en: "Offline" }
   - { tr: "TR · EN", en: "TR · EN" }
-# app_store: https://apps.apple.com/app/...      (shows a store button instead of "coming soon")
-# google_play: https://play.google.com/store/apps/details?id=com.mirogames.kafamatik
+# Store links go in _data/games.yml (google_play: https://play.google.com/store/apps/details?id=com.mirogames.kafamatik, app_store: ...)
 features_title: { tr: "Dört oyun, tek kafa", en: "Four games, one brain" }
 features:
   - title: { tr: "Kibrit Ustası", en: "Matchstick Master" }

@@ -20,17 +20,22 @@ color theme are generated from `_data/games.yml`, so step 2 does most of the wor
      gallery are 9:16 and crop anything taller, so use 540×960 (9:16); 480×960 loses the top and bottom.
 2. **`_data/games.yml`**: append an entry (copy the `cuppa` entry). Fields:
    `slug`, `name`, optional `nav_name` (short header label for long names), `tagline`, `summary`, `status`, `chips` (all `{ tr, en }`), `color` (the game's
-   accent from its icon/logo: card glow, buttons), `dot` (the game's hue in the header menu; pick one
-   no other game uses), `glow` (same color at ~.3 alpha),
+   accent from its icon/logo: header dot, card glow, buttons; pick a hue no other game uses), `glow` (same color at ~.3 alpha),
    optional `theme` (`glow`, `bg`, `surface`, `surface_2`, `text`, `muted`, `button_text` for a
-   light accent), optional `card_bg`, `icon`, and `logo: { tr, en }`.
+   light accent), optional `card_bg`, `icon`, and `logo: { tr, en }`. Once the game is live, add
+   `google_play` / `app_store` URLs: every game page (old hand-written ones too) then shows store
+   buttons and, on wide screens, one QR code (`_includes/store.html`, drawn by `/assets/js/qrcode.js`,
+   MIT, see `assets/js/qrcode-LICENSE.txt`). The QR points to `/Store/<slug>/indir/`
+   (`_layouts/store-redirect.html`), which sends iPhone/iPad to the App Store, Android to Google Play
+   and anything else to the game page; that URL never changes, so it is safe to print. A new game
+   needs `Store/<slug>/indir/index.html` too (copy another game's, change `game:`). Only add a link after it opens publicly; a QR to a
+   404 store page is worse than "coming soon".
    The hero icons sit in list order, three per row with the last row centred on desktop
    (3 + 2 for five games) and in one row on small screens; check on desktop and on a
    375 px wide screen.
 3. **`Store/<slug>/index.md`**: front matter only, `layout: game`, `game: <slug>`, `title`,
    `description`, then `lead`, `chips`, `features_title`, `features` (6 items: `title`, `text`),
-   `shots`, `genre`, optional `age`, `internet`, `data_note`, `quote`, and `app_store` /
-   `google_play` URLs once the game is live (they replace the "coming soon" button).
+   `shots`, `genre`, optional `age`, `internet`, `data_note`, `quote` (store links live in games.yml).
    Copy `Store/cuppa/index.md`.
 4. **`Store/<slug>/privacy.md` and `support.md`**: copy CUPPA's, set `game: <slug>` and `back`,
    and rewrite the text for this game in both languages: what is stored on the device, whether
