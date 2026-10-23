@@ -5,7 +5,7 @@ layout: null
 // GitHub Pages only lets the browser cache files for 10 minutes; this works around that.
 // Stale-while-revalidate: a cached file is shown at once and quietly refreshed in the
 // background, so a replaced screenshot appears on the visit after it is published.
-var CACHE = 'mg-assets-v1';
+var CACHE = 'mg-assets-v2';
 
 self.addEventListener('install', function () { self.skipWaiting(); });
 

@@ -117,14 +117,14 @@
 
 - slug: kafamatik
   name: { tr: "Kafamatik", en: "Kafamatik" }
-  tagline: { tr: "Dört zekâ oyunu, tek uygulama", en: "Four brain games, one app" }
+  tagline: { tr: "Beş zekâ oyunu, tek uygulama", en: "Five brain games, one app" }
   summary:
-    tr: "Kibritleri taşı, balonları sırayla patlat, kasanın şifresini çöz, desen trenini tamamla. Her gün yeni bir bulmaca, Türkçe ve İngilizce."
-    en: "Move matchsticks, pop balloons in order, crack the safe and finish the pattern train. A new puzzle every day, in English and Turkish."
+    tr: "Kibritleri taşı, balonları sırayla patlat, kasanın şifresini çöz, desen trenini tamamla, mahallenin gizemini çöz. Her gün yeni bir bulmaca, Türkçe ve İngilizce."
+    en: "Move matchsticks, pop balloons in order, crack the safe, finish the pattern train and solve the neighbourhood mystery. A new puzzle every day, in English and Turkish."
   status: { tr: "Yakında · App Store & Google Play", en: "Coming soon · App Store & Google Play" }
   chips:
     - { tr: "Bulmaca", en: "Puzzle" }
-    - { tr: "4 oyun", en: "4 games" }
+    - { tr: "5 oyun", en: "5 games" }
     - { tr: "13+ yaş", en: "Ages 13+" }
     - { tr: "Reklamsız", en: "No ads" }
   color: "#ff7ec4"
