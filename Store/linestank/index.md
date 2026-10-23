@@ -29,5 +29,6 @@ features:
 # assets/img/shots/linestank-tr-01.jpg ... linestank-en-05.jpg (540x960); the first is shown in the phone frame
 shots: ["01", "02", "03", "04", "05"]
 genre: { tr: "Kule savunma · Strateji · Birleştirme", en: "Tower defense · Strategy · Merge" }
+age: { tr: "3+ (PEGI 3)", en: "3+ (PEGI 3)" }
 quote: { tr: "Hattı sen tutacaksın.", en: "The line is yours to hold." }
 ---
