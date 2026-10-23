@@ -1,4 +1,5 @@
 ---
+layout: default
 title: LineStank — Support
 game: linestank
 back: /Store/linestank/
@@ -22,7 +23,7 @@ Soru, hata ya da önerilerin için **[bukesafiye@gmail.com](mailto:bukesafiye@gm
 
 **Bölümü kaybettim, ne olur?** Aynı bölümü istediğin kadar tekrar oynayabilirsin. Kalıcı tank geliştirmelerin korunur.
 
-**İlerlemem nerede saklanıyor?** Yalnızca cihazında. Oyunu silersen ilerleme de silinir.
+**İlerlemem nerede saklanıyor?** Yalnızca cihazında. Oyunu silersen ilerleme de silinir; cihaz yedeğin (Android yedeklemesi veya iCloud) açıksa yeni cihazda yedekten geri gelebilir.
 
 **Dili nasıl değiştiririm?** Sağ üstteki ⚙️ Ayarlar'a dokun, **Dil** bölümünden Türkçe veya English seç. Ses, müzik ve titreşim de buradadır.
 
@@ -46,7 +47,7 @@ Questions, bugs or ideas? Write to **[bukesafiye@gmail.com](mailto:bukesafiye@gm
 
 **I lost a stage. What now?** Replay it as often as you like. Your permanent tank upgrades are kept.
 
-**Where is my progress saved?** Only on your device. Uninstalling the game deletes it.
+**Where is my progress saved?** Only on your device. Uninstalling the game deletes it; if your device backup (Android backup or iCloud) is on, it may come back from that backup on a new device.
 
 **How do I change the language?** Tap ⚙️ Settings at the top right and pick English or Türkçe under **Language**. Sound, music and vibration are there too.
 
