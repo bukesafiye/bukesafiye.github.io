@@ -2,30 +2,30 @@
 layout: game
 game: kafamatik
 title: Kafamatik
-description: Five brain games in one app — Matchstick Master, Balloon Puzzle, Safe Cracker, Pattern Train and Neighbourhood Detective.
+description: Many brain games in one app — Matchstick Master, Neighbourhood Detective, Pipe Master, Bridges, Safe Cracker, Lights Out and more.
 lead:
-  tr: "Kafamatik beş zekâ oyununu tek uygulamada toplar. Kibritleri taşıyarak eşitlikleri düzelt, balonları doğru sırayla patlat, ipuçlarıyla kasanın şifresini bul, trendeki deseni tamamla ve dedektif defterinle mahallenin gizemlerini çöz. Her gün yeni bir bulmaca, yıldızlar ve rozetler seni bekliyor."
-  en: "Kafamatik puts five brain games in one app. Move matchsticks to fix equations, pop balloons in the right order, follow the clues to crack the safe, complete the pattern train and solve neighbourhood mysteries with your detective's notebook. A new puzzle every day, stars and badges."
+  tr: "Kafamatik birbirinden farklı zekâ oyunlarını tek uygulamada toplar. Kibritleri taşıyarak eşitlikleri düzelt, dedektif defterinle mahallenin gizemlerini çöz, boruları döndürüp suyu akıt, adaları köprülerle bağla, ipuçlarıyla kasanın şifresini bul. Her gün yeni bir bulmaca, yıldızlar ve rozetler seni bekliyor."
+  en: "Kafamatik puts all kinds of brain games in one app. Move matchsticks to fix equations, solve neighbourhood mysteries with your detective's notebook, turn the pipes to let the water flow, bridge the islands and follow the clues to crack the safe. A new puzzle every day, stars and badges."
 chips:
   - { tr: "Bulmaca", en: "Puzzle" }
   - { tr: "13+ yaş", en: "Ages 13+" }
   - { tr: "Çevrimdışı", en: "Offline" }
   - { tr: "TR · EN", en: "TR · EN" }
 # Store links go in _data/games.yml (google_play: https://play.google.com/store/apps/details?id=com.mirogames.kafamatik, app_store: ...)
-features_title: { tr: "Beş oyun, tek kafa", en: "Five games, one brain" }
+features_title: { tr: "Klasik oyunlar", en: "The classics" }
 features:
   - title: { tr: "Mahalle Dedektifi", en: "Neighbourhood Detective" }
     text: { tr: "Yeni! Kim, nerede, elinde ne vardı? İpuçlarını dedektif defterinde birleştir ve suçluyu bul. 20 vaka.", en: "New! Who was where, holding what? Connect the clues in your detective's notebook and find the culprit. 20 cases." }
   - title: { tr: "Kibrit Ustası", en: "Matchstick Master" }
     text: { tr: "Kibriti sürükle ya da önce kibrite sonra boş yere dokun. Eşitliği düzelt, kare bulmacalarını çöz. 19 bölüm.", en: "Drag a match, or tap it and then an empty spot. Fix the equation and solve square puzzles. 19 levels." }
   - title: { tr: "Balon Bulmaca", en: "Balloon Puzzle" }
-    text: { tr: "Sayıları sırayla, tersten, çiftleri ya da 40'tan 60'a patlat; hafıza, renk ve işlem balonları da var. 19 bölüm.", en: "Pop numbers in order, backwards, evens only or from 40 to 60, plus memory, colour and maths balloons. 19 levels." }
+    text: { tr: "Sayıları sırayla, tersten, çiftleri ya da 40'tan 60'a patlat; hafıza, renk ve işlem balonları da var. Balonları renkli ya da renksiz seç. 19 bölüm.", en: "Pop numbers in order, backwards, evens only or from 40 to 60, plus memory, colour and maths balloons, in colourful or plain style. 19 levels." }
   - title: { tr: "Şifre Kasası", en: "Safe Cracker" }
     text: { tr: "3'ten 7 haneye 25 kasa. “Son rakam çift” gibi ipuçlarını birleştir ve kasayı aç.", en: "25 safes from 3 to 7 digits. Combine clues like “The last digit is even” and open the safe." }
   - title: { tr: "Desen Treni", en: "Pattern Train" }
     text: { tr: "Trendeki resimler sırayla tekrar ediyor. ❓ vagona hangi resim gelir? Yazı yok, yalnızca resimler.", en: "The pictures on the train repeat in order. Which one goes in the ❓ wagon? No text, just pictures." }
   - title: { tr: "Günün Bulmacası, sade tasarım", en: "Daily puzzle, simple design" }
-    text: { tr: "Her gün yeni bir bulmaca, seri, yıldızlar ve 11 rozet. Reklam, satın alma ve internet yok; karanlık mod ve büyük dokunma alanları.", en: "A new puzzle every day, streaks, stars and 11 badges. No ads, purchases or internet; dark mode and big touch targets." }
+    text: { tr: "Her gün yeni bir bulmaca, seri, yıldızlar ve rozetler. Her oyunun ilk bölümünde adım adım anlatım. Reklam, satın alma ve internet yok; karanlık mod ve büyük dokunma alanları.", en: "A new puzzle every day, streaks, stars and badges. A step-by-step guide in the first level of every game. No ads, purchases or internet; dark mode and big touch targets." }
 # New games in the app (icons: assets/img/kafamatik/<id>.webp, copied from the game's www/assets/icons/)
 mini_games_title: { tr: "Yeni oyunlar", en: "New games" }
 mini_games_note:
