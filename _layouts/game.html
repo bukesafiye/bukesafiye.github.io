@@ -67,7 +67,7 @@ Every text field is { tr: "...", en: "..." }.
     <div class="minis">
       {%- for m in page.mini_games %}
       <div class="mini">
-        <img src="{{ m.icon | relative_url }}" alt="" width="72" height="72" loading="lazy">
+        <img src="{{ m.icon | relative_url }}" alt="{{ m.name.tr }} / {{ m.name.en }}" width="72" height="72" loading="lazy">
         <div>
           <b><span class="tr">{{ m.name.tr }}</span><span class="en">{{ m.name.en }}</span></b>
           <p><span class="tr">{{ m.text.tr }}</span><span class="en">{{ m.text.en }}</span></p>
@@ -85,9 +85,10 @@ Every text field is { tr: "...", en: "..." }.
     <div class="section-head"><h2><span class="tr">Ekranlar</span><span class="en">Screens</span></h2></div>
     <div class="shots">
       {%- for s in page.shots %}
+      {%- assign alt = page.shot_alts[forloop.index0] %}
       <figure>
-        <img class="tr" src="{{ shot_dir | append: '-tr-' | append: s | append: '.jpg' | relative_url }}" alt="{{ g.name.tr }} ekran görüntüsü" loading="lazy">
-        <img class="en" src="{{ shot_dir | append: '-en-' | append: s | append: '.jpg' | relative_url }}" alt="{{ g.name.en }} screenshot" loading="lazy">
+        <img class="tr" src="{{ shot_dir | append: '-tr-' | append: s | append: '.jpg' | relative_url }}" alt="{% if alt %}{{ alt.tr }}{% else %}{{ g.name.tr }} ekran görüntüsü{% endif %}" loading="lazy">
+        <img class="en" src="{{ shot_dir | append: '-en-' | append: s | append: '.jpg' | relative_url }}" alt="{% if alt %}{{ alt.en }}{% else %}{{ g.name.en }} screenshot{% endif %}" loading="lazy">
       </figure>
       {%- endfor %}
     </div>
@@ -110,3 +111,28 @@ Every text field is { tr: "...", en: "..." }.
   <p class="quote wrap"><span class="tr">{{ page.quote.tr }}</span><span class="en">{{ page.quote.en }}</span></p>
 </section>
 {%- endif %}
+
+{%- comment -%} Structured data for search engines (schema.org MobileApplication). {%- endcomment -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "MobileApplication",
+  "name": {{ g.name.en | jsonify }},
+  "alternateName": {{ g.name.tr | jsonify }},
+  "description": {{ page.description | jsonify }},
+  "url": {{ page.url | absolute_url | jsonify }},
+  "image": {{ g.icon | absolute_url | jsonify }},
+  "applicationCategory": "GameApplication",
+  "operatingSystem": "Android, iOS",
+  "inLanguage": ["tr", "en"],
+  "genre": {{ page.genre.en | jsonify }},
+  {%- if page.age %}
+  "contentRating": {{ page.age.en | jsonify }},
+  {%- endif %}
+  {%- if page.mini_games %}
+  "hasPart": [{% for m in page.mini_games %}{"@type": "VideoGame", "name": {{ m.name.en | jsonify }}, "alternateName": {{ m.name.tr | jsonify }}, "description": {{ m.text.en | jsonify }}}{% unless forloop.last %}, {% endunless %}{% endfor %}],
+  {%- endif %}
+  "screenshot": [{% for s in page.shots %}{{ shot_dir | append: '-en-' | append: s | append: '.jpg' | absolute_url | jsonify }}{% unless forloop.last %}, {% endunless %}{% endfor %}],
+  "author": {"@type": "Organization", "name": "MiroGames", "url": {{ '/' | absolute_url | jsonify }}}
+}
+</script>

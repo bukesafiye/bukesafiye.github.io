@@ -10,6 +10,13 @@
   <meta property="og:title" content="{% if page.title %}{{ page.title }} · {% endif %}MiroGames">
   <meta property="og:description" content="{{ page.description | default: site.description }}">
   {% assign og = page.og_image | default: game.icon %}{% if og %}<meta property="og:image" content="{{ og | absolute_url }}">{% endif %}
+  <link rel="canonical" href="{{ page.url | absolute_url }}">
+  <meta property="og:url" content="{{ page.url | absolute_url }}">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="MiroGames">
+  <meta property="og:locale" content="tr_TR">
+  <meta property="og:locale:alternate" content="en_US">
+  <meta name="twitter:card" content="summary">
   <link rel="icon" type="image/png" href="{{ page.icon | default: game.icon | default: '/assets/img/favicon.png' | relative_url }}">
   <link rel="apple-touch-icon" href="{{ '/assets/img/apple-touch-icon.png' | relative_url }}">
   <meta name="theme-color" content="#07090c">
