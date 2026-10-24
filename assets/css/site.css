@@ -251,6 +251,17 @@ h1, h2, h3 { font-family: var(--display); line-height: 1.15; margin: 0 0 .5em; l
 .feature span { color: var(--muted); font-size: 15px; }
 .feature .num { color: var(--accent); font: 700 13px/1 var(--display); letter-spacing: .1em; margin-bottom: 10px; display: block; }
 
+/* Optional "games inside the app" grid (page.mini_games), e.g. Kafamatik's new games */
+.minis { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.mini { display: grid; grid-template-columns: 72px 1fr; gap: 16px; align-items: start; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 18px; }
+.mini img { width: 72px; height: 72px; border-radius: 16px; display: block; }
+.mini b { display: block; font-family: var(--display); font-size: 17px; margin-bottom: 4px; color: var(--text); }
+.mini p { margin: 0; color: var(--muted); font-size: 15px; }
+.mini small { display: inline-block; margin-top: 8px; color: var(--accent); font: 700 12px/1 var(--display); letter-spacing: .08em; text-transform: uppercase; }
+.minis-note { color: var(--muted); margin: -12px 0 24px; max-width: 760px; }
+@media (max-width: 960px) { .minis { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 640px) { .minis { grid-template-columns: 1fr; } .mini { grid-template-columns: 60px 1fr; padding: 16px; } .mini img { width: 60px; height: 60px; border-radius: 14px; } }
+
 .shots { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(200px, 1fr); gap: 18px; overflow-x: auto; padding: 6px 2px 18px; scroll-snap-type: x mandatory; }
 .shots figure { margin: 0; scroll-snap-align: start; }
 .shots img { border-radius: 18px; border: 1px solid var(--line); aspect-ratio: 9 / 16; object-fit: cover; width: 100%; background: var(--surface); }

@@ -57,6 +57,29 @@ Every text field is { tr: "...", en: "..." }.
   </div>
 </section>
 
+{%- if page.mini_games %}
+<section class="section">
+  <div class="wrap">
+    <div class="section-head"><h2><span class="tr">{{ page.mini_games_title.tr }}</span><span class="en">{{ page.mini_games_title.en }}</span></h2></div>
+    {%- if page.mini_games_note %}
+    <p class="minis-note"><span class="tr">{{ page.mini_games_note.tr }}</span><span class="en">{{ page.mini_games_note.en }}</span></p>
+    {%- endif %}
+    <div class="minis">
+      {%- for m in page.mini_games %}
+      <div class="mini">
+        <img src="{{ m.icon | relative_url }}" alt="" width="72" height="72" loading="lazy">
+        <div>
+          <b><span class="tr">{{ m.name.tr }}</span><span class="en">{{ m.name.en }}</span></b>
+          <p><span class="tr">{{ m.text.tr }}</span><span class="en">{{ m.text.en }}</span></p>
+          {%- if m.levels %}<small><span class="tr">{{ m.levels }} bölüm</span><span class="en">{{ m.levels }} levels</span></small>{% endif %}
+        </div>
+      </div>
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+{%- endif %}
+
 <section class="section">
   <div class="wrap">
     <div class="section-head"><h2><span class="tr">Ekranlar</span><span class="en">Screens</span></h2></div>
