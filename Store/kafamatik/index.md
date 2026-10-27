@@ -25,7 +25,7 @@ features:
   - title: { tr: "Desen Treni", en: "Pattern Train" }
     text: { tr: "Trendeki resimler sırayla tekrar ediyor. ❓ vagona hangi resim gelir? Yazı yok, yalnızca resimler.", en: "The pictures on the train repeat in order. Which one goes in the ❓ wagon? No text, just pictures." }
   - title: { tr: "Günün Bulmacası, sade tasarım", en: "Daily puzzle, simple design" }
-    text: { tr: "Her gün yeni bir bulmaca, seri, yıldızlar ve rozetler. Her oyunun ilk bölümünde adım adım anlatım. Reklam, satın alma ve internet yok; karanlık mod ve büyük dokunma alanları.", en: "A new puzzle every day, streaks, stars and badges. A step-by-step guide in the first level of every game. No ads, purchases or internet; dark mode and big touch targets." }
+    text: { tr: "Her gün yeni bir bulmaca, seri, yıldızlar ve rozetler. Her oyunun ilk bölümünde adım adım anlatım. Reklam ve satın alma yok, internet gerekmez; Android'de isteğe bağlı Play Oyunlar ile bulut kayıt ve başarımlar. Karanlık mod ve büyük dokunma alanları.", en: "A new puzzle every day, streaks, stars and badges. A step-by-step guide in the first level of every game. No ads or purchases and no internet needed; optional Play Games cloud save and achievements on Android. Dark mode and big touch targets." }
 # Every game in the app, in home-screen order (www/js/app.js HOME_FIRST) (icons: assets/img/kafamatik/<id>.webp, copied from the game's www/assets/icons/)
 mini_games_title: { tr: "Oyunlar", en: "Games" }
 mini_games_note:
