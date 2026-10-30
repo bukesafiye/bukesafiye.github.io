@@ -152,20 +152,20 @@
   icon: /assets/img/linestank-icon.png
   logo: { tr: /assets/img/linestank-logo.webp, en: /assets/img/linestank-logo.webp }
 
-- slug: scraplab
-  name: { tr: "Scrap Lab", en: "Scrap Lab" }
+- slug: robogallery
+  name: { tr: "RoboGallery", en: "RoboGallery" }
   tagline: { tr: "Kır, topla, üret, sergile", en: "Smash, collect, build, display" }
   summary:
-    tr: "Hurdaları kır, robot parçalarını topla, 22 eşsiz robot üret ve kendi teknoloji müzende sergile. 3 farklı hurdalık, 36 parça, günlük görevler, ekipman yükseltmeleri ve otomatik fabrika bandı."
-    en: "Smash scrap, collect robot parts, build 22 unique robots and show them off in your own tech museum. 3 scrapyards, 36 parts, daily missions, equipment upgrades and an automated factory belt."
+    tr: "Hurdaları kır, robot parçalarını topla, 32 eşsiz robot üret ve kendi teknoloji müzende sergile. 3 farklı hurdalık, 36 parça, günlük görevler, ekipman yükseltmeleri ve otomatik fabrika bandı."
+    en: "Smash scrap, collect robot parts, build 32 unique robots and show them off in your own tech museum. 3 scrapyards, 36 parts, daily missions, equipment upgrades and an automated factory belt."
   status: { tr: "Yakında", en: "Coming soon" }
   chips:
     - { tr: "Simülasyon", en: "Simulation" }
     - { tr: "Koleksiyon", en: "Collection" }
-    - { tr: "22 robot", en: "22 robots" }
+    - { tr: "32 robot", en: "32 robots" }
   color: "#ffc21a"
   glow: "rgba(255, 194, 26, .3)"
   theme: { glow: "rgba(60, 170, 255, .28)", button_text: "#1c1206" }
   card_bg: "radial-gradient(60% 70% at 50% 45%, rgba(255, 170, 40, .30), transparent 75%), #0a1426"
-  icon: /assets/img/scraplab-icon.png
-  logo: { tr: /assets/img/scraplab-logo.webp, en: /assets/img/scraplab-logo.webp }
+  icon: /assets/img/robogallery-icon.png
+  logo: { tr: /assets/img/robogallery-logo.webp, en: /assets/img/robogallery-logo.webp }

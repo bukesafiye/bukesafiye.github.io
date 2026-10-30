@@ -1,13 +1,13 @@
 ---
 layout: default
-title: Scrap Lab — Support
-game: scraplab
-back: /Store/scraplab/
-back_tr: Scrap Lab
-back_en: Scrap Lab
+title: RoboGallery — Support
+game: robogallery
+back: /Store/robogallery/
+back_tr: RoboGallery
+back_en: RoboGallery
 ---
 <div class="tr" markdown="1">
-# Destek — Scrap Lab
+# Destek — RoboGallery
 
 Soru, hata ya da önerilerin için **[bukesafiye@gmail.com](mailto:bukesafiye@gmail.com)** adresine yazabilirsin. Lütfen cihaz modelini ve oyun sürümünü de ekle.
 
@@ -21,11 +21,11 @@ Soru, hata ya da önerilerin için **[bukesafiye@gmail.com](mailto:bukesafiye@gm
 
 **İlerlemem nerede saklanıyor?** Yalnızca cihazında. Oyunu silersen ilerleme de silinir; cihaz yedeğin (Android yedeklemesi veya iCloud) açıksa yeni cihazda yedekten geri gelebilir.
 
-**İnternet gerekiyor mu?** Hayır, Scrap Lab tamamen çevrimdışı oynanır.
+**İnternet gerekiyor mu?** Hayır, RoboGallery tamamen çevrimdışı oynanır.
 </div>
 
 <div class="en" markdown="1">
-# Support — Scrap Lab
+# Support — RoboGallery
 
 Questions, bugs or ideas? Write to **[bukesafiye@gmail.com](mailto:bukesafiye@gmail.com)**. Please add your device model and the game version.
 
@@ -39,5 +39,5 @@ Questions, bugs or ideas? Write to **[bukesafiye@gmail.com](mailto:bukesafiye@gm
 
 **Where is my progress saved?** Only on your device. Uninstalling the game deletes it; if your device backup (Android backup or iCloud) is on, it may come back from that backup on a new device.
 
-**Do I need the internet?** No, Scrap Lab plays fully offline.
+**Do I need the internet?** No, RoboGallery plays fully offline.
 </div>
