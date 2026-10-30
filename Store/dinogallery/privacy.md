@@ -11,7 +11,9 @@ back_en: DinoGallery
 
 *Son güncelleme: Ekim 2026*
 
-DinoGallery, MiroGames tarafından geliştirilmiştir. Oyun hiçbir kişisel veri toplamaz, saklamaz veya paylaşmaz. Oyunda hesap, analiz, reklam, takip, gerçek parayla uygulama içi satın alma ve internet bağlantısı yoktur. Oyundaki "satın alma"lar yalnızca oyun içi altınla yapılır.
+DinoGallery, MiroGames tarafından geliştirilmiştir. Oyun hiçbir kişisel veri toplamaz, saklamaz veya paylaşmaz. Oyunda hesap, analiz, reklam, takip ve gerçek parayla uygulama içi satın alma yoktur; oyun internetsiz oynanır. Oyundaki "satın alma"lar yalnızca oyun içi altınla yapılır.
+
+Oyun açılışta yeni sürüm olup olmadığını mağazaya sorar: Android'de Google Play'in kendi güncelleme servisi, iPhone'da App Store sürüm sorgusu kullanılır. Bu sorguda yalnızca uygulamanın kimliği ve cihazın ülke kodu gider; kişisel bilgi ya da oyun ilerlemen gönderilmez. Uygun bir anda mağazanın kendi puanlama penceresi gösterilebilir; puan verip vermemek tamamen sana kalmıştır.
 
 İlerlemen (altın, seviye, aletlerin ve yükseltmeleri, açılan kazı ocakları, toplanan fosil parçaları, birleştirilen dinozorlar, müze vitrini ve görevler) ile ayarların (ses ve titreşim) yalnızca cihazında, uygulamanın yerel depolamasında tutulur ve uygulamayı sildiğinde kaldırılır. Sesler uygulamanın içinde üretilir; titreşim yalnızca cihazındaki titreşim motorunu kullanır. Hiçbir veri bize ya da başka birine gönderilmez. Oyun kamera, konum, mikrofon, rehber ya da başka bir izin istemez.
 
@@ -27,7 +29,9 @@ Cihazının kendi yedekleme özelliği (Android yedeklemesi veya iCloud) açıks
 
 *Last updated: October 2026*
 
-DinoGallery is made by MiroGames. The game does not collect, store or share any personal data. It has no accounts, no analytics, no advertising, no tracking, no real-money in-app purchases and no network connection. Everything you "buy" in the game is paid for with in-game gold only.
+DinoGallery is made by MiroGames. The game does not collect, store or share any personal data. It has no accounts, no analytics, no advertising, no tracking and no real-money in-app purchases, and it plays offline. Everything you "buy" in the game is paid for with in-game gold only.
+
+When it starts, the game asks the store whether a newer version exists: on Android it uses Google Play's own update service, on iPhone an App Store version lookup. Only the app's identifier and your device's country code are sent; no personal information or game progress. At a suitable moment the store's own rating prompt may appear; rating is entirely up to you.
 
 Your progress (gold, level, tools and their upgrades, unlocked dig sites, collected fossil parts, assembled dinosaurs, your museum showcase and missions) and your settings (sound and vibration) are stored only on your device, in the app's local storage, and are deleted when you remove the app. Sounds are generated inside the app; vibration only uses your device's haptic motor. No data is sent to us or anyone else. The game does not ask for camera, location, microphone, contacts or any other permission.
 
