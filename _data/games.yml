@@ -174,13 +174,13 @@
   name: { tr: "DinoGallery", en: "DinoGallery" }
   tagline: { tr: "Kaz, topla, birleştir, sergile", en: "Dig, collect, assemble, exhibit" }
   summary:
-    tr: "Fosil kayalarını kır, dinozor kemiklerini topla, 24 dinozor iskeleti birleştir ve kendi doğa tarihi müzende sergile. 5 kazı ocağı, 40 fosil parçası, günlük görevler ve kazı aletleri."
-    en: "Break fossil rocks, collect dinosaur bones, assemble 24 dinosaur skeletons and exhibit them in your own natural history museum. 5 dig sites, 40 fossil parts, daily missions and digging tools."
+    tr: "Fosil kayalarını kır, dinozor kemiklerini topla, 70 dinozor iskeleti birleştir ve kendi doğa tarihi müzende sergile. 5 kazı ocağı, 60 fosil parçası, günlük görevler ve kazı aletleri."
+    en: "Break fossil rocks, collect dinosaur bones, assemble 70 dinosaur skeletons and exhibit them in your own natural history museum. 5 dig sites, 60 fossil parts, daily missions and digging tools."
   status: { tr: "Yakında", en: "Coming soon" }
   chips:
     - { tr: "Simülasyon", en: "Simulation" }
     - { tr: "Koleksiyon", en: "Collection" }
-    - { tr: "24 dinozor", en: "24 dinosaurs" }
+    - { tr: "70 dinozor", en: "70 dinosaurs" }
   color: "#e8913a"
   glow: "rgba(232, 145, 58, .3)"
   theme: { glow: "rgba(232, 145, 58, .28)", button_text: "#1c1206" }
