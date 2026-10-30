@@ -36,11 +36,13 @@ Every text field is { tr: "...", en: "..." }.
       </div>
       {%- include store.html game=g part='qr' %}
     </div>
+    {%- if page.shots.size > 0 %}
     <div class="phone">
       {%- assign first = page.shots | first %}
       <img class="tr" src="{{ shot_dir | append: '-tr-' | append: first | append: '.jpg' | relative_url }}" alt="{{ g.name.tr }} oyun içi ekran">
       <img class="en" src="{{ shot_dir | append: '-en-' | append: first | append: '.jpg' | relative_url }}" alt="{{ g.name.en }} gameplay screen">
     </div>
+    {%- endif %}
   </div>
 </section>
 
@@ -80,6 +82,7 @@ Every text field is { tr: "...", en: "..." }.
 </section>
 {%- endif %}
 
+{%- if page.shots.size > 0 %}
 <section class="section">
   <div class="wrap">
     <div class="section-head"><h2><span class="tr">Ekranlar</span><span class="en">Screens</span></h2></div>
@@ -94,6 +97,7 @@ Every text field is { tr: "...", en: "..." }.
     </div>
   </div>
 </section>
+{%- endif %}
 
 <section class="section">
   <div class="wrap">
