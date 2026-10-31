@@ -32,13 +32,14 @@ Test builds last 90 days; TestFlight lets you know when a new one is out.
 </div>
 
 <ul class="dev-games beta-games">
-  {%- for g in site.data.games %}{% if g.testflight %}
+  {%- assign beta_games = site.data.games | where_exp: "g", "g.testflight" | sort: "beta" %}
+  {%- for g in beta_games %}
   {%- assign url = '/Store/' | append: g.slug | append: '/' %}
   <li style="--c: {{ g.color }}">
     <a class="dev-game" href="{{ url | relative_url }}"><img src="{{ g.icon | relative_url }}" alt="" width="40" height="40" loading="lazy">{% if g.name.tr == g.name.en %}{{ g.name.tr }}{% else %}<span class="tr">{{ g.name.tr }}</span><span class="en">{{ g.name.en }}</span>{% endif %}</a>
     <a class="btn" href="{{ g.testflight }}" rel="noopener"><span class="tr">TestFlight'ta katıl</span><span class="en">Join on TestFlight</span></a>
   </li>
-  {%- endif %}{% endfor %}
+  {%- endfor %}
 </ul>
 
 <p class="contact-line"><span class="tr">Android'de mi oynuyorsun? Oyunlar Google Play'e de geliyor; soruların için:</span><span class="en">Playing on Android? The games are coming to Google Play too; questions:</span> <a href="mailto:bukesafiye@gmail.com">bukesafiye@gmail.com</a></p>
