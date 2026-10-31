@@ -25,6 +25,7 @@
   color: "#3fe0f0"
   glow: "rgba(63, 224, 240, .35)"
   icon: /assets/img/ghostshift-icon.png
+  testflight: https://testflight.apple.com/join/mzVxaaKa
   logo: { tr: /assets/img/ghostshift-logo-tr.webp, en: /assets/img/ghostshift-logo-en.webp }
 
 - slug: lostfoundgame
@@ -42,6 +43,7 @@
   glow: "rgba(228, 180, 98, .3)"
   card_bg: "radial-gradient(60% 70% at 50% 45%, rgba(228, 180, 98, .30), transparent 75%), #140e09"
   icon: /assets/img/lostfound-icon.png
+  testflight: https://testflight.apple.com/join/HSjSM5at
   logo: { tr: /assets/img/lostfound-logo-tr.webp, en: /assets/img/lostfound-logo-en.webp }
 
 - slug: alchemyshop
@@ -59,6 +61,7 @@
   glow: "rgba(201, 162, 255, .3)"
   theme: { glow: "rgba(150, 100, 230, .28)" }
   icon: /assets/img/alchemyshop-potion.png
+  testflight: https://testflight.apple.com/join/1Yh37113
   logo: { tr: /assets/img/alchemyshop-logo.webp, en: /assets/img/alchemyshop-logo-en.webp }
 
 - slug: cuppa
@@ -77,6 +80,7 @@
   theme: { glow: "rgba(90, 180, 245, .28)", button_text: "#1c1206" }
   card_bg: "radial-gradient(60% 70% at 50% 45%, rgba(110, 195, 250, .32), transparent 75%), #0a1420"
   icon: /assets/img/cuppa-icon.png
+  testflight: https://testflight.apple.com/join/5CHhqN9Q
   logo: { tr: /assets/img/cuppa-logo.webp, en: /assets/img/cuppa-logo.webp }
 
 - slug: hoplop
@@ -95,6 +99,7 @@
   theme: { glow: "rgba(90, 190, 250, .28)", button_text: "#1c1206" }
   card_bg: "radial-gradient(60% 70% at 50% 45%, rgba(110, 200, 250, .34), transparent 75%), #0a1420"
   icon: /assets/img/hoplop-icon.png
+  testflight: https://testflight.apple.com/join/5auptxrx
   logo: { tr: /assets/img/hoplop-logo.webp, en: /assets/img/hoplop-logo.webp }
 
 - slug: dedektifbros
@@ -113,6 +118,7 @@
   theme: { glow: "rgba(60, 140, 255, .28)", button_text: "#1c1206" }
   card_bg: "radial-gradient(60% 70% at 50% 45%, rgba(70, 150, 255, .32), transparent 75%), #0a1226"
   icon: /assets/img/dedektifbros-icon.png
+  testflight: https://testflight.apple.com/join/StEhQSc7
   logo: { tr: /assets/img/dedektifbros-logo.webp, en: /assets/img/dedektifbros-logo.webp }
 
 - slug: kafamatik
@@ -132,6 +138,7 @@
   theme: { glow: "rgba(60, 140, 255, .28)", button_text: "#1c1206" }
   card_bg: "radial-gradient(60% 70% at 50% 45%, rgba(40, 120, 230, .38), transparent 75%), #081f4b"
   icon: /assets/img/kafamatik-icon.png
+  testflight: https://testflight.apple.com/join/X72RPvKQ
   logo: { tr: /assets/img/kafamatik-logo.webp, en: /assets/img/kafamatik-logo.webp }
 
 - slug: linestank
@@ -150,6 +157,7 @@
   theme: { glow: "rgba(101, 220, 249, .28)", button_text: "#1c1206" }
   card_bg: "radial-gradient(60% 70% at 50% 45%, rgba(56, 100, 190, .40), transparent 75%), #091026"
   icon: /assets/img/linestank-icon.png
+  testflight: https://testflight.apple.com/join/Uq4zgg1J
   logo: { tr: /assets/img/linestank-logo.webp, en: /assets/img/linestank-logo.webp }
 
 - slug: robogallery
@@ -168,6 +176,7 @@
   theme: { glow: "rgba(60, 170, 255, .28)", button_text: "#1c1206" }
   card_bg: "radial-gradient(60% 70% at 50% 45%, rgba(255, 170, 40, .30), transparent 75%), #0a1426"
   icon: /assets/img/robogallery-icon.png
+  testflight: https://testflight.apple.com/join/FzdX67Gr
   logo: { tr: /assets/img/robogallery-logo.webp, en: /assets/img/robogallery-logo.webp }
 
 - slug: dinogallery
@@ -186,4 +195,5 @@
   theme: { glow: "rgba(232, 145, 58, .28)", button_text: "#1c1206" }
   card_bg: "radial-gradient(60% 70% at 50% 45%, rgba(232, 145, 58, .30), transparent 75%), #1a120b"
   icon: /assets/img/dinogallery-icon.png
+  testflight: https://testflight.apple.com/join/gTMMaBnb
   logo: { tr: /assets/img/dinogallery-logo.webp, en: /assets/img/dinogallery-logo.webp }
