@@ -8,9 +8,11 @@ back_en: CUPPA
 <div class="tr" markdown="1">
 # Gizlilik Politikası — CUPPA
 
-*Son güncelleme: Ekim 2026*
+*Son güncelleme: Kasım 2026*
 
 CUPPA, MiroGames tarafından geliştirilmiştir. MiroGames hiçbir kişisel veri toplamaz, saklamaz veya paylaşmaz. Oyunda analiz, reklam, takip ve uygulama içi satın alma yoktur; oyun internetsiz oynanır.
+
+Oyun açılışta yeni sürüm olup olmadığını mağazaya sorar: Android'de Google Play'in kendi güncelleme servisi, iPhone'da App Store sürüm sorgusu kullanılır. Bu sorguda yalnızca uygulamanın kimliği ve cihazın ülke kodu gider; kişisel bilgi ya da oyun ilerlemen gönderilmez. Uygun bir anda mağazanın kendi puanlama penceresi gösterilebilir; puan verip vermemek tamamen sana kalmıştır.
 
 İlerlemen (puan ve yükseklik rekorları, altın, açılan ve seçili toplar, görevler, kontrol noktaları) ve dil tercihin yalnızca cihazında tutulur ve uygulamayı sildiğinde kaldırılır. Titreşim yalnızca cihazındaki titreşim motorunu kullanır; hiçbir veri göndermez.
 
@@ -30,9 +32,11 @@ CUPPA, MiroGames tarafından geliştirilmiştir. MiroGames hiçbir kişisel veri
 <div class="en" markdown="1">
 # Privacy Policy — CUPPA
 
-*Last updated: October 2026*
+*Last updated: November 2026*
 
 CUPPA is made by MiroGames. MiroGames does not collect, store or share any personal data. The game has no analytics, no advertising, no tracking and no in-app purchases, and it plays offline.
+
+When it starts, the game asks the store whether a newer version exists: on Android it uses Google Play's own update service, on iPhone an App Store version lookup. Only the app's identifier and your device's country code are sent; no personal information or game progress. At a suitable moment the store's own rating prompt may appear; rating is entirely up to you.
 
 Your progress (score and height records, gold, unlocked and equipped balls, quests, checkpoints) and your language choice are stored only on your device and are deleted when you remove the app. Vibration only uses your device's haptic motor and sends no data.
 

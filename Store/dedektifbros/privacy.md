@@ -8,13 +8,15 @@ back_en: Dedektif Bros
 <div class="tr" markdown="1">
 # Gizlilik Politikası — Dedektif Bros
 
-*Son güncelleme: 22 Ekim 2026*
+*Son güncelleme: 1 Kasım 2026*
 
 Dedektif Bros (“uygulama”), MiroGames tarafından geliştirilen, internet bağlantısı gerektirmeyen bir polisiye oyunudur. Bu metin, uygulamanın hangi bilgileri nasıl kullandığını açıklar.
 
 ## Topladığımız veriler
 
 Uygulama kişisel veri toplamaz. Hesap açma, giriş yapma, reklam, analiz ya da izleme (tracking) yoktur. Uygulama hiçbir sunucumuza veya üçüncü taraf sunucusuna veri göndermez; yazı tipleri dahil her şey uygulamanın içindedir.
+
+Oyun açılışta yeni sürüm olup olmadığını mağazaya sorar: Android'de Google Play'in kendi güncelleme servisi, iPhone'da App Store sürüm sorgusu kullanılır. Bu sorguda yalnızca uygulamanın kimliği ve cihazın ülke kodu gider; kişisel bilgi ya da oyun ilerlemen gönderilmez. Uygun bir anda mağazanın kendi puanlama penceresi gösterilebilir; puan verip vermemek tamamen sana kalmıştır.
 
 ## Cihazında saklananlar
 
@@ -51,13 +53,15 @@ Bu politika değişirse güncel metin bu sayfada ve uygulama içinde yayımlanı
 <div class="en" markdown="1">
 # Privacy Policy — Dedektif Bros
 
-*Last updated: October 22, 2026*
+*Last updated: November 1, 2026*
 
 Dedektif Bros (“the app”) is a detective game developed by MiroGames that works without an internet connection. This page explains what information the app uses and how.
 
 ## Data we collect
 
 The app does not collect personal data. There are no accounts, sign-ins, ads, analytics or tracking. The app does not send any data to our servers or to third-party servers; everything, including fonts, is bundled with the app.
+
+When it starts, the game asks the store whether a newer version exists: on Android it uses Google Play's own update service, on iPhone an App Store version lookup. Only the app's identifier and your device's country code are sent; no personal information or game progress. At a suitable moment the store's own rating prompt may appear; rating is entirely up to you.
 
 ## Stored on your device
 

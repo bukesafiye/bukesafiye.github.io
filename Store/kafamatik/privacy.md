@@ -8,9 +8,11 @@ back_en: Kafamatik
 <div class="tr" markdown="1">
 # Gizlilik Politikası — Kafamatik
 
-*Son güncelleme: Ekim 2026*
+*Son güncelleme: Kasım 2026*
 
-Kafamatik, MiroGames tarafından geliştirilmiştir. Oyun hiçbir kişisel veri toplamaz, saklamaz veya paylaşmaz. Oyunda kendi hesap sistemimiz, analiz, reklam, takip ve uygulama içi satın alma yoktur; aşağıda anlatılan isteğe bağlı Google Play Oyunlar dışında internet bağlantısı kullanılmaz.
+Kafamatik, MiroGames tarafından geliştirilmiştir. Oyun hiçbir kişisel veri toplamaz, saklamaz veya paylaşmaz. Oyunda kendi hesap sistemimiz, analiz, reklam, takip ve uygulama içi satın alma yoktur; aşağıda anlatılan sürüm kontrolü ve isteğe bağlı Google Play Oyunlar dışında internet bağlantısı kullanılmaz.
+
+Oyun açılışta yeni sürüm olup olmadığını mağazaya sorar: Android'de Google Play'in kendi güncelleme servisi, iPhone'da App Store sürüm sorgusu kullanılır. Bu sorguda yalnızca uygulamanın kimliği ve cihazın ülke kodu gider; kişisel bilgi ya da oyun ilerlemen gönderilmez. Uygun bir anda mağazanın kendi puanlama penceresi gösterilebilir; puan verip vermemek tamamen sana kalmıştır.
 
 İlerlemen (yıldızlar, bitirilen bölümler, en iyi süreler, günlük bulmaca kayıtları ve rozetler) ile ayarların (dil, ses, müzik, titreşim, tema ve kibrit görünümü) yalnızca cihazında tutulur ve uygulamayı sildiğinde kaldırılır. Sesler uygulamanın içinde üretilir; titreşim yalnızca cihazındaki titreşim motorunu kullanır. Play Oyunlar'da oturum açmadığın sürece hiçbir veri gönderilmez.
 
@@ -24,9 +26,11 @@ Oyun 13 yaş ve üzeri için tasarlanmıştır ve 13 yaşından küçük çocukl
 <div class="en" markdown="1">
 # Privacy Policy — Kafamatik
 
-*Last updated: October 2026*
+*Last updated: November 2026*
 
-Kafamatik is made by MiroGames. The game does not collect, store or share any personal data. It has no accounts of its own, no analytics, no advertising, no tracking and no in-app purchases, and it uses no network connection apart from the optional Google Play Games described below.
+Kafamatik is made by MiroGames. The game does not collect, store or share any personal data. It has no accounts of its own, no analytics, no advertising, no tracking and no in-app purchases, and it uses no network connection apart from the version check and the optional Google Play Games described below.
+
+When it starts, the game asks the store whether a newer version exists: on Android it uses Google Play's own update service, on iPhone an App Store version lookup. Only the app's identifier and your device's country code are sent; no personal information or game progress. At a suitable moment the store's own rating prompt may appear; rating is entirely up to you.
 
 Your progress (stars, finished levels, best times, daily puzzle records and badges) and your settings (language, sound, music, vibration, theme and matchstick style) are stored only on your device and are deleted when you remove the app. Sounds are generated inside the app; vibration only uses your device's haptic motor. Unless you sign in to Play Games, no data is sent anywhere.
 
