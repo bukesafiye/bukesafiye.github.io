@@ -14,7 +14,7 @@ Nokta Savaşı ile ilgili bir sorun mu yaşıyorsun? Aşağıdaki çözümleri d
 
 **Arkadaşım odamı bulamıyor.** İki telefon da aynı Wi‑Fi ağında olmalı. iPhone'da **Ayarlar → Gizlilik ve Güvenlik → Yerel Ağ** altında Nokta Savaşı'na izin ver. Misafir ağları ve bazı kurumsal ağlar cihazların birbirini görmesini engelleyebilir; o durumda bir telefonun kişisel erişim noktasını kullanın.
 
-**QR kod okunmuyor.** QR'ı telefonun kendi kamera uygulamasıyla okut ya da 6 haneli oda kodunu elle gir.
+**QR kod okunmuyor.** **QR okutarak katıl**'a dokun ve QR'ı çerçeveye getir; kamera izni kapalıysa iPhone'da Ayarlar → Nokta Savaşı → Kamera'yı aç. Telefonun kendi kamera uygulamasıyla da okutabilir ya da 6 haneli oda kodunu elle girebilirsin.
 
 **Maç başlamıyor.** Katılan oyuncu **Hazırım**'a basmalı; ardından oda sahibi **Maçı başlat**'a basar.
 
@@ -34,7 +34,7 @@ Having trouble with Dot War? Try the fixes below; if they don't help, write to *
 
 **My friend can't find my room.** Both phones must be on the same Wi‑Fi network. On iPhone, allow Dot War under **Settings → Privacy & Security → Local Network**. Guest networks and some corporate networks stop devices from seeing each other; in that case, use one phone's personal hotspot.
 
-**The QR code won't scan.** Scan it with your phone's own camera app, or type the 6-digit room code.
+**The QR code won't scan.** Tap **Join by scanning QR** and fit the QR in the frame; if camera access is off, turn on Settings → Dot War → Camera on iPhone. You can also use your phone's own camera app, or type the 6-digit room code.
 
 **The match won't start.** The player who joined taps **I'm ready**, then the host taps **Start match**.
 

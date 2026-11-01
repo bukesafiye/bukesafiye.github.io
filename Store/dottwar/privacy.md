@@ -8,7 +8,7 @@ back_en: Dot War
 <div class="tr" markdown="1">
 # Gizlilik Politikası — Nokta Savaşı
 
-*Son güncelleme: 1 Kasım 2026*
+*Son güncelleme: 2 Kasım 2026*
 
 Nokta Savaşı (“uygulama”), MiroGames tarafından geliştirilen, internet bağlantısı gerektirmeyen bir strateji oyunudur. Bu metin, uygulamanın hangi bilgileri nasıl kullandığını açıklar.
 
@@ -28,12 +28,12 @@ Wi‑Fi maçında uygulama, aynı Wi‑Fi ağındaki telefonu oda koduyla bulmak
 
 ## QR kod
 
-Nokta Savaşı kameraya erişmez. Odaya katılmak için oda sahibinin ekranındaki QR kodu telefonunun kendi kamera uygulamasıyla okutabilir ya da 6 haneli oda kodunu elle yazabilirsin.
+Odaya katılırken **QR okutarak katıl**'a dokunursan uygulama, oda sahibinin ekranındaki QR kodu okumak için kamerayı açar. Görüntü yalnızca cihazında, o anda işlenir; kaydedilmez, saklanmaz ve hiçbir yere gönderilmez. Kamera yalnızca bu ekran açıkken çalışır ve iznini istediğin zaman telefonunun ayarlarından kapatabilirsin. İstersen QR'ı telefonunun kendi kamera uygulamasıyla okutabilir ya da 6 haneli oda kodunu elle yazabilirsin.
 
 ## İzinler
 
-- **iPhone:** Yerel Ağ (aynı Wi‑Fi'daki odayı bulmak için; yalnızca Wi‑Fi maçında istenir).
-- **Android:** INTERNET, ACCESS_NETWORK_STATE ve ACCESS_WIFI_STATE (yalnızca yerel ağ bağlantısı için), CHANGE_WIFI_MULTICAST_STATE (aynı ağdaki odayı bulmak için) ve VIBRATE (titreşim; Ayarlar'dan kapatılabilir).
+- **iPhone:** Yerel Ağ (aynı Wi‑Fi'daki odayı bulmak için; yalnızca Wi‑Fi maçında istenir) ve Kamera (yalnızca QR okutarak katılırken).
+- **Android:** INTERNET, ACCESS_NETWORK_STATE ve ACCESS_WIFI_STATE (yalnızca yerel ağ bağlantısı için), CHANGE_WIFI_MULTICAST_STATE (aynı ağdaki odayı bulmak için) VIBRATE (titreşim; Ayarlar'dan kapatılabilir) ve CAMERA (yalnızca QR okutarak katılırken).
 
 ## Çocuklar
 
@@ -53,7 +53,7 @@ Bu politika değişirse güncel metin bu sayfada yayımlanır ve tarih güncelle
 <div class="en" markdown="1">
 # Privacy Policy — Dot War
 
-*Last updated: November 1, 2026*
+*Last updated: November 2, 2026*
 
 Dot War (Nokta Savaşı, “the app”) is a strategy game developed by MiroGames that works without an internet connection. This page explains what information the app uses and how.
 
@@ -73,12 +73,12 @@ In a Wi‑Fi match the app uses your local network to find the other phone on th
 
 ## QR code
 
-Dot War does not access the camera. To join a room, scan the QR code on the host's screen with your phone's own camera app, or type the 6-digit room code.
+If you tap **Join by scanning QR**, the app opens the camera to read the QR code on the host's screen. The image is processed only on your device, in real time; it is never saved, stored or sent anywhere. The camera runs only while that screen is open, and you can turn the permission off in your phone's settings at any time. You can also scan the QR with your phone's own camera app, or type the 6-digit room code.
 
 ## Permissions
 
-- **iPhone:** Local Network (to find the room on the same Wi‑Fi; asked only for Wi‑Fi matches).
-- **Android:** INTERNET, ACCESS_NETWORK_STATE and ACCESS_WIFI_STATE (local network connections only), CHANGE_WIFI_MULTICAST_STATE (to find the room on the same network) and VIBRATE (vibration; can be turned off in Settings).
+- **iPhone:** Local Network (to find the room on the same Wi‑Fi; asked only for Wi‑Fi matches) and Camera (only when joining by scanning a QR code).
+- **Android:** INTERNET, ACCESS_NETWORK_STATE and ACCESS_WIFI_STATE (local network connections only), CHANGE_WIFI_MULTICAST_STATE (to find the room on the same network) VIBRATE (vibration; can be turned off in Settings) and CAMERA (only when joining by scanning a QR code).
 
 ## Children
 
