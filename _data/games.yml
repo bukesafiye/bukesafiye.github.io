@@ -207,3 +207,21 @@
   testflight: https://testflight.apple.com/join/gTMMaBnb
   beta: 4
   logo: { tr: /assets/img/dinogallery-logo.webp, en: /assets/img/dinogallery-logo.webp }
+
+- slug: dottwar
+  name: { tr: "Nokta Savaşı", en: "Dot War" }
+  tagline: { tr: "Dama kadar kolay, satranç kadar taktiksel", en: "Easy as checkers, tactical as chess" }
+  summary:
+    tr: "7×7 noktalı tahtada komutanını koru, rakibinkini ele geçir. 12 bölümlük macera, bilgisayara karşı ya da aynı cihazda klasik maç, taktik bulmacalar ve aynı Wi‑Fi'daki arkadaşınla QR ya da kodla düello."
+    en: "Guard your commander and capture theirs on a 7×7 board of dots. A 12-level adventure, classic matches against the computer or on one device, tactical puzzles and Wi‑Fi duels with a friend via QR or code."
+  status: { tr: "Yakında · App Store & Google Play", en: "Coming soon · App Store & Google Play" }
+  chips:
+    - { tr: "Strateji", en: "Strategy" }
+    - { tr: "1–2 oyuncu", en: "1–2 players" }
+    - { tr: "Reklamsız", en: "No ads" }
+  color: "#6b7bff"
+  glow: "rgba(107, 123, 255, .3)"
+  theme: { glow: "rgba(226, 182, 90, .26)", button_text: "#1c1206" }
+  card_bg: "radial-gradient(60% 70% at 50% 45%, rgba(226, 182, 90, .28), transparent 75%), #080e1e"
+  icon: /assets/img/dottwar-icon.png
+  logo: { tr: /assets/img/dottwar-logo-tr.webp, en: /assets/img/dottwar-logo-en.webp }
