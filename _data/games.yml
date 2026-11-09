@@ -169,16 +169,17 @@
   logo: { tr: /assets/img/linestank-logo.webp, en: /assets/img/linestank-logo.webp }
 
 - slug: robogallery
-  name: { tr: "RoboGallery", en: "RoboGallery" }
-  tagline: { tr: "Kır, topla, üret, sergile", en: "Smash, collect, build, display" }
+  name: { tr: "Müze Atölyesi: Fosil & Robot", en: "Museum Workshop: Dino & Robot" }
+  nav_name: { tr: "Müze Atölyesi", en: "Museum Workshop" }
+  tagline: { tr: "İki müze, tek atölye", en: "Two museums, one workshop" }
   summary:
-    tr: "Hurdaları kır, robot parçalarını topla, 32 eşsiz robot üret ve kendi teknoloji müzende sergile. 3 farklı hurdalık, 36 parça, günlük görevler, ekipman yükseltmeleri ve otomatik fabrika bandı."
-    en: "Smash scrap, collect robot parts, build 32 unique robots and show them off in your own tech museum. 3 scrapyards, 36 parts, daily missions, equipment upgrades and an automated factory belt."
+    tr: "Fosil kayalarından 102 dinozor iskeleti birleştir, hurdalardan 55 robot üret ve iki müzeni ayrı ayrı büyüt. Reklam yok, internet gerekmez."
+    en: "Assemble 102 dinosaur skeletons from fossil rocks, build 55 robots from scrap and grow two museums side by side. No ads, no internet needed."
   status: { tr: "Yakında", en: "Coming soon" }
   chips:
     - { tr: "Simülasyon", en: "Simulation" }
     - { tr: "Koleksiyon", en: "Collection" }
-    - { tr: "32 robot", en: "32 robots" }
+    - { tr: "102 dinozor · 55 robot", en: "102 dinos · 55 robots" }
   color: "#ffc21a"
   glow: "rgba(255, 194, 26, .3)"
   theme: { glow: "rgba(60, 170, 255, .28)", button_text: "#1c1206" }
