@@ -1,10 +1,9 @@
 ---
 layout: default
 title: DinoGallery — Privacy
-game: dinogallery
-back: /Store/dinogallery/
-back_tr: DinoGallery
-back_en: DinoGallery
+back: /
+back_tr: MiroGames
+back_en: MiroGames
 ---
 <div class="tr" markdown="1">
 # Gizlilik Politikası — DinoGallery

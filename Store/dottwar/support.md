@@ -1,9 +1,8 @@
 ---
 title: Nokta Savaşı — Support
-game: dottwar
-back: /Store/dottwar/
-back_tr: Nokta Savaşı
-back_en: Dot War
+back: /
+back_tr: MiroGames
+back_en: MiroGames
 ---
 <div class="tr" markdown="1">
 # Destek — Nokta Savaşı
