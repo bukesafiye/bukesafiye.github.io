@@ -1,9 +1,9 @@
 ---
 title: Hoplop — Privacy
 game: hoplop
-back: /Store/hoplop/
-back_tr: Hoplop
-back_en: Hoplop
+back: /
+back_tr: MiroGames
+back_en: MiroGames
 ---
 <div class="tr" markdown="1">
 # Gizlilik Politikası — Hoplop
