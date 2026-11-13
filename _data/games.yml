@@ -113,7 +113,7 @@
   summary:
     tr: "Kibritleri taşı, vezirleri barıştır, mahallenin gizemini çöz, gizli kelimeleri bul, boruları döndür, adaları köprüle, kasanın şifresini bul; lambalar, mıknatıslar, farklar, gölgeler ve daha fazlası. Her gün yeni bir bulmaca, Türkçe ve İngilizce."
     en: "Move matchsticks, make peace among the queens, solve the neighbourhood mystery, find hidden words, turn the pipes, bridge the islands, crack the safe; plus lamps, magnets, differences, shadows and more. A new puzzle every day, in English and Turkish."
-  status: { tr: "Yakında · App Store & Google Play", en: "Coming soon · App Store & Google Play" }
+  status: { tr: "Google Play'de · App Store yakında", en: "On Google Play · App Store coming soon" }
   chips:
     - { tr: "Bulmaca", en: "Puzzle" }
     - { tr: "Çok oyunlu", en: "Many games" }
@@ -124,6 +124,7 @@
   theme: { glow: "rgba(60, 140, 255, .28)", button_text: "#1c1206" }
   card_bg: "radial-gradient(60% 70% at 50% 45%, rgba(40, 120, 230, .38), transparent 75%), #081f4b"
   icon: /assets/img/kafamatik-icon.png
+  google_play: https://play.google.com/store/apps/details?id=com.mirogames.kafamatik
   testflight: https://testflight.apple.com/join/X72RPvKQ
   beta: 3
   logo: { tr: /assets/img/kafamatik-logo.webp, en: /assets/img/kafamatik-logo.webp }
