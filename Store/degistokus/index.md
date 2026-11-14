@@ -25,7 +25,13 @@ features:
     text: { tr: "Teslimi iki taraf da onaylayınca takas tamamlanır; ardından birbirinizi değerlendirirsiniz.", en: "The swap completes when both sides confirm the hand-over; then you rate each other." }
   - title: { tr: "Telefonla güvenli giriş", en: "Safe phone sign-in" }
     text: { tr: "SMS koduyla giriş, şifre yok. Telefon numaran diğer kullanıcılara gösterilmez.", en: "Sign in with an SMS code, no password. Your phone number is never shown to other users." }
-shots: []
+# assets/img/shots/degistokus-tr-01.jpg ... -04.jpg (540x960, iOS simulator); the app is Turkish-only, so en = tr
+shots: ["01", "02", "03", "04"]
+shot_alts:
+  - { tr: "Keşfet: yakınındaki ilanlar ve sana özel takaslar", en: "Discover: listings near you and swaps picked for you" }
+  - { tr: "Ürün detayı", en: "Item details" }
+  - { tr: "Takas tekliflerim", en: "My swap offers" }
+  - { tr: "Takas teklifi: anlaşma sağlandı", en: "Swap offer: deal agreed" }
 genre: { tr: "Takas / alışveriş", en: "Swapping / shopping" }
 age: { tr: "18+", en: "18+" }
 internet: { tr: "Gerekir", en: "Required" }
