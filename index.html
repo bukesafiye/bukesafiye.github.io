@@ -35,41 +35,26 @@ description: MiroGames — small, strange, atmospheric games for your phone.
     </div>
     <div class="games">
       {%- for g in site.data.games %}
-      {%- assign url = '/Store/' | append: g.slug | append: '/' %}
-      <article class="game-card" style="--card-accent: {{ g.color }}">
-        <a class="card-art" href="{{ url | relative_url }}" aria-label="{{ g.name.en }}"{% if g.card_bg %} style="background: {{ g.card_bg }}"{% endif %}>
-          {%- if g.logo.tr == g.logo.en %}
-          <img src="{{ g.logo.tr | relative_url }}" alt="{{ g.name.en }}" loading="lazy">
-          {%- else %}
-          <img class="tr" src="{{ g.logo.tr | relative_url }}" alt="{{ g.name.tr }}" loading="lazy">
-          <img class="en" src="{{ g.logo.en | relative_url }}" alt="{{ g.name.en }}" loading="lazy">
-          {%- endif %}
-          <span class="status"><span class="tr">{{ g.status.tr }}</span><span class="en">{{ g.status.en }}</span></span>
-        </a>
-        <div class="card-body">
-          <div class="card-title">
-            <img src="{{ g.icon | relative_url }}" alt="" width="48" height="48">
-            <h3>{% if g.name.tr == g.name.en %}{{ g.name.tr }}{% else %}<span class="tr">{{ g.name.tr }}</span><span class="en">{{ g.name.en }}</span>{% endif %}<small><span class="tr">{{ g.tagline.tr }}</span><span class="en">{{ g.tagline.en }}</span></small></h3>
-          </div>
-          <p>
-            <span class="tr">{{ g.summary.tr }}</span>
-            <span class="en">{{ g.summary.en }}</span>
-          </p>
-          <ul class="chips">
-            {%- for c in g.chips %}
-            <li>{% if c.tr == c.en %}{{ c.tr }}{% else %}<span class="tr">{{ c.tr }}</span><span class="en">{{ c.en }}</span>{% endif %}</li>
-            {%- endfor %}
-          </ul>
-          <div class="card-links">
-            <a class="btn primary" href="{{ url | relative_url }}"><span class="tr">Oyunu incele</span><span class="en">See the game</span></a>
-            <a class="btn" href="{{ url | append: 'privacy.html' | relative_url }}"><span class="tr">Gizlilik</span><span class="en">Privacy</span></a>
-          </div>
-        </div>
-      </article>
+      {%- include card.html item=g %}
       {%- endfor %}
     </div>
   </div>
 </section>
+
+{%- if site.data.apps.size > 0 %}
+<section class="section" id="apps">
+  <div class="wrap">
+    <div class="section-head">
+      <h2><span class="tr">Uygulamalar</span><span class="en">Apps</span></h2>
+    </div>
+    <div class="games">
+      {%- for g in site.data.apps %}
+      {%- include card.html item=g kind='app' %}
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+{%- endif %}
 
 <section class="section">
   <div class="wrap">

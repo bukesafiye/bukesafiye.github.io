@@ -1,0 +1,24 @@
+# Apps (not games) on the site: the "Uygulamalar / Apps" section on the home
+# page and the apps group in the header menu. Same fields as games.yml; app
+# pages live under /Store/<slug>/ and use `layout: game` too.
+#
+# privacy   false while the app has no published privacy page on this site:
+#           hides the "Gizlilik / Privacy" links for it
+- slug: degistokus
+  name: { tr: "DeğişTokuş", en: "DeğişTokuş" }
+  tagline: { tr: "Eşyalar değişsin, hikâyeler devam etsin", en: "Swap things, keep their stories going" }
+  summary:
+    tr: "Kullanmadığın eşyaları yakınındaki insanlarla takas et: ilan ver, teklif al, anlaş, mesajlaş ve teslimi iki taraf birlikte onaylasın."
+    en: "Swap the things you no longer use with people nearby: list an item, get offers, agree, chat, and confirm the hand-over together."
+  status: { tr: "Yakında", en: "Coming soon" }
+  chips:
+    - { tr: "Takas", en: "Swap" }
+    - { tr: "Topluluk", en: "Community" }
+    - { tr: "Ücretsiz", en: "Free" }
+  color: "#9dbf96"
+  glow: "rgba(157, 191, 150, .3)"
+  theme: { glow: "rgba(157, 191, 150, .26)", button_text: "#103b2e" }
+  card_bg: "radial-gradient(60% 70% at 50% 45%, rgba(157, 191, 150, .28), transparent 75%), #0a1f18"
+  icon: /assets/img/degistokus-icon.png
+  logo: { tr: /assets/img/degistokus-logo.webp, en: /assets/img/degistokus-logo.webp }
+  privacy: false

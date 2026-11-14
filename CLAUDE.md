@@ -48,6 +48,15 @@ color theme are generated from `_data/games.yml`, so step 2 does most of the wor
 6. Commit and push to `main`, then open the live pages and confirm they load
    (`/Store/<slug>/`, `/Store/<slug>/privacy.html`, `/Store/<slug>/support.html`).
 
+## Apps (Uygulamalar)
+
+Non-game apps live in `_data/apps.yml` (same fields as `games.yml`, plus `privacy: false` while
+the app has no published privacy page here, which hides its "Gizlilik" links). They get their own
+"Uygulamalar / Apps" section on the home page (`#apps`), a group at the bottom of the header's games
+menu, and a page at `/Store/<slug>/` with `layout: game` (no hero icon, not listed on /beta/ or
+/developers.html). Home page cards for both come from `_includes/card.html`.
+Current apps: DeğişTokuş (`degistokus`).
+
 ## Older pages
 
 GhostShift, Lost & Found Office and Alchemist's Shop have hand-written `index.html` pages

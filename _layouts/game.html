@@ -4,10 +4,11 @@ full: true
 ---
 {%- comment -%}
 Standard game page. Content comes from the page's front matter (see
-Store/cuppa/index.md); names, logo, color and icon come from _data/games.yml.
+Store/cuppa/index.md); names, logo, color and icon come from _data/games.yml (apps: _data/apps.yml).
 Every text field is { tr: "...", en: "..." }.
 {%- endcomment -%}
-{%- assign g = site.data.games | where: 'slug', page.game | first -%}
+{%- assign all_items = site.data.games | concat: site.data.apps -%}
+{%- assign g = all_items | where: 'slug', page.game | first -%}
 {%- assign shot_dir = '/assets/img/shots/' | append: page.game -%}
 <section class="game-hero">
   <div class="wrap game-hero-grid">
@@ -105,7 +106,7 @@ Every text field is { tr: "...", en: "..." }.
       <div><dt><span class="tr">Tür</span><span class="en">Genre</span></dt><dd><span class="tr">{{ page.genre.tr }}</span><span class="en">{{ page.genre.en }}</span></dd></div>
       <div><dt><span class="tr">Yaş</span><span class="en">Age</span></dt><dd><span class="tr">{{ page.age.tr | default: 'Herkes' }}</span><span class="en">{{ page.age.en | default: 'Everyone' }}</span></dd></div>
       <div><dt><span class="tr">İnternet</span><span class="en">Internet</span></dt><dd><span class="tr">{{ page.internet.tr | default: 'Gerekmez' }}</span><span class="en">{{ page.internet.en | default: 'Not needed' }}</span></dd></div>
-      <div><dt><span class="tr">Veri</span><span class="en">Data</span></dt><dd><a href="privacy.html"><span class="tr">{{ page.data_note.tr | default: 'Hiçbir veri toplanmaz' }}</span><span class="en">{{ page.data_note.en | default: 'No data collected' }}</span></a></dd></div>
+      <div><dt><span class="tr">Veri</span><span class="en">Data</span></dt><dd>{% unless g.privacy == false %}<a href="privacy.html">{% endunless %}<span class="tr">{{ page.data_note.tr | default: 'Hiçbir veri toplanmaz' }}</span><span class="en">{{ page.data_note.en | default: 'No data collected' }}</span>{% unless g.privacy == false %}</a>{% endunless %}</dd></div>
     </dl>
   </div>
 </section>
@@ -126,9 +127,9 @@ Every text field is { tr: "...", en: "..." }.
   "description": {{ page.description | jsonify }},
   "url": {{ page.url | absolute_url | jsonify }},
   "image": {{ g.icon | absolute_url | jsonify }},
-  "applicationCategory": "GameApplication",
+  "applicationCategory": {{ page.app_category | default: 'GameApplication' | jsonify }},
   "operatingSystem": "Android, iOS",
-  "inLanguage": ["tr", "en"],
+  "inLanguage": {{ page.languages | default: "tr,en" | split: "," | jsonify }},
   "genre": {{ page.genre.en | jsonify }},
   {%- if page.age %}
   "contentRating": {{ page.age.en | jsonify }},

@@ -1,4 +1,6 @@
-{%- if page.game %}{% assign game = site.data.games | where: 'slug', page.game | first %}{% endif -%}
+{%- comment -%} Games and apps share the same fields, theme and /Store/<slug>/ pages. {%- endcomment -%}
+{%- assign all_items = site.data.games | concat: site.data.apps -%}
+{%- if page.game %}{% assign game = all_items | where: 'slug', page.game | first %}{% endif -%}
 {%- assign theme = page.theme | default: page.game | default: 'studio' -%}
 <!doctype html>
 <html lang="tr" data-lang="tr">
@@ -23,8 +25,8 @@
   <link rel="preload" href="{{ '/assets/fonts/inter-latin-wght-normal.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="{{ '/assets/css/site.css' | relative_url }}?v={{ site.time | date: '%s' }}">
   <style>
-    /* Per-game colors, generated from _data/games.yml */
-    {%- for g in site.data.games %}
+    /* Per-game colors, generated from _data/games.yml and _data/apps.yml */
+    {%- for g in all_items %}
     .theme-{{ g.slug }} { --accent: {{ g.color }}; --accent-soft: color-mix(in srgb, {{ g.color }} 14%, transparent);{% if g.theme.glow %} --glow: {{ g.theme.glow }};{% endif %}{% if g.theme.bg %} --bg: {{ g.theme.bg }};{% endif %}{% if g.theme.surface %} --surface: {{ g.theme.surface }};{% endif %}{% if g.theme.surface_2 %} --surface-2: {{ g.theme.surface_2 }};{% endif %}{% if g.theme.text %} --text: {{ g.theme.text }};{% endif %}{% if g.theme.muted %} --muted: {{ g.theme.muted }};{% endif %} }
     {%- if g.theme.button_text %}
     .theme-{{ g.slug }} .btn.primary { color: {{ g.theme.button_text }}; }
@@ -50,7 +52,7 @@
       </a>
       {%- comment -%} The game whose pages we are on (game page, privacy, support), if any. {%- endcomment -%}
       {%- assign current = nil -%}
-      {%- for g in site.data.games -%}
+      {%- for g in all_items -%}
         {%- assign prefix = '/Store/' | append: g.slug | append: '/' -%}
         {%- if page.url contains prefix %}{% assign current = g %}{% endif -%}
       {%- endfor %}
@@ -64,6 +66,12 @@
             {%- for g in site.data.games %}
             <a class="menu-game{% if current and current.slug == g.slug %} is-current{% endif %}" style="--c: {{ g.color }}" href="{{ '/Store/' | append: g.slug | append: '/' | relative_url }}"{% if current and current.slug == g.slug %} aria-current="page"{% endif %}>{% if g.name.tr == g.name.en %}{{ g.name.tr }}{% else %}<span class="tr">{{ g.name.tr }}</span><span class="en">{{ g.name.en }}</span>{% endif %}</a>
             {%- endfor %}
+            {%- if site.data.apps.size > 0 %}
+            <p class="menu-heading"><span class="tr">Uygulamalar</span><span class="en">Apps</span></p>
+            {%- for g in site.data.apps %}
+            <a class="menu-game{% if current and current.slug == g.slug %} is-current{% endif %}" style="--c: {{ g.color }}" href="{{ '/Store/' | append: g.slug | append: '/' | relative_url }}"{% if current and current.slug == g.slug %} aria-current="page"{% endif %}>{% if g.name.tr == g.name.en %}{{ g.name.tr }}{% else %}<span class="tr">{{ g.name.tr }}</span><span class="en">{{ g.name.en }}</span>{% endif %}</a>
+            {%- endfor %}
+            {%- endif %}
           </div>
         </div>
         {%- if current %}
@@ -72,6 +80,9 @@
         {%- endif %}
       </nav>
       <nav class="nav nav-right">
+        {%- if site.data.apps.size > 0 %}
+        <a class="nav-link" href="{{ '/#apps' | relative_url }}"><span class="tr">Uygulamalar</span><span class="en">Apps</span></a>
+        {%- endif %}
         <a class="nav-link" href="{{ '/#contact' | relative_url }}"><span class="tr">İletişim</span><span class="en">Contact</span></a>
         <div class="dropdown" data-dropdown>
           <button type="button" class="nav-pill lang-pill" aria-expanded="false" aria-controls="lang-menu" aria-label="Language / Dil">
@@ -84,7 +95,8 @@
           </div>
         </div>
         {%- if current %}
-        <a class="nav-cta" href="{{ '/Store/' | append: current.slug | append: '/' | relative_url }}"><span class="tr">Oyuna Git</span><span class="en">Go to Game</span><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M5 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        {%- assign current_app = site.data.apps | where: 'slug', current.slug | first %}
+        <a class="nav-cta" href="{{ '/Store/' | append: current.slug | append: '/' | relative_url }}">{% if current_app %}<span class="tr">Uygulamaya Git</span><span class="en">Go to App</span>{% else %}<span class="tr">Oyuna Git</span><span class="en">Go to Game</span>{% endif %}<svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M5 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         {%- else %}
         <a class="nav-cta" href="{{ '/#games' | relative_url }}"><span class="tr">Oyunları Keşfet</span><span class="en">Explore Games</span><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M5 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         {%- endif %}
@@ -113,7 +125,9 @@
         <nav class="footer-nav" aria-label="MiroGames">
           {%- if current %}
           {%- assign base = '/Store/' | append: current.slug | append: '/' %}
+          {%- unless current.privacy == false %}
           <a href="{{ base | append: 'privacy.html' | relative_url }}"><span class="tr">Gizlilik</span><span class="en">Privacy</span></a>
+          {%- endunless %}
           <a href="{{ base | append: 'support.html' | relative_url }}"><span class="tr">Destek</span><span class="en">Support</span></a>
           {%- else %}
           <a href="{{ '/developers.html#privacy' | relative_url }}"><span class="tr">Gizlilik</span><span class="en">Privacy</span></a>

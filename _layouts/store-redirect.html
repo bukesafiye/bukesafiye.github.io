@@ -5,7 +5,7 @@ Google Play, and everything else (desktop, or a store the game isn't on yet) to 
 game's page. Links come from google_play / app_store in _data/games.yml.
 GitHub Pages can't redirect on the server, so the script below does it.
 {%- endcomment -%}
-{%- assign g = site.data.games | where: 'slug', page.game | first -%}
+{%- assign g = site.data.games | concat: site.data.apps | where: 'slug', page.game | first -%}
 {%- assign home = '/Store/' | append: g.slug | append: '/' | relative_url -%}
 <!doctype html>
 <html lang="tr" data-lang="tr">

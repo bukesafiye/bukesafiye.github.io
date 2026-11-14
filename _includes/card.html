@@ -1,0 +1,43 @@
+{%- comment -%}
+Home page card for one game or app (index.html):
+  {% include card.html item=g %}             a game from _data/games.yml
+  {% include card.html item=g kind='app' %}  an app from _data/apps.yml
+{%- endcomment -%}
+{%- assign g = include.item %}
+{%- assign url = '/Store/' | append: g.slug | append: '/' %}
+<article class="game-card" style="--card-accent: {{ g.color }}">
+  <a class="card-art" href="{{ url | relative_url }}" aria-label="{{ g.name.en }}"{% if g.card_bg %} style="background: {{ g.card_bg }}"{% endif %}>
+    {%- if g.logo.tr == g.logo.en %}
+    <img src="{{ g.logo.tr | relative_url }}" alt="{{ g.name.en }}" loading="lazy">
+    {%- else %}
+    <img class="tr" src="{{ g.logo.tr | relative_url }}" alt="{{ g.name.tr }}" loading="lazy">
+    <img class="en" src="{{ g.logo.en | relative_url }}" alt="{{ g.name.en }}" loading="lazy">
+    {%- endif %}
+    <span class="status"><span class="tr">{{ g.status.tr }}</span><span class="en">{{ g.status.en }}</span></span>
+  </a>
+  <div class="card-body">
+    <div class="card-title">
+      <img src="{{ g.icon | relative_url }}" alt="" width="48" height="48">
+      <h3>{% if g.name.tr == g.name.en %}{{ g.name.tr }}{% else %}<span class="tr">{{ g.name.tr }}</span><span class="en">{{ g.name.en }}</span>{% endif %}<small><span class="tr">{{ g.tagline.tr }}</span><span class="en">{{ g.tagline.en }}</span></small></h3>
+    </div>
+    <p>
+      <span class="tr">{{ g.summary.tr }}</span>
+      <span class="en">{{ g.summary.en }}</span>
+    </p>
+    <ul class="chips">
+      {%- for c in g.chips %}
+      <li>{% if c.tr == c.en %}{{ c.tr }}{% else %}<span class="tr">{{ c.tr }}</span><span class="en">{{ c.en }}</span>{% endif %}</li>
+      {%- endfor %}
+    </ul>
+    <div class="card-links">
+      {%- if include.kind == 'app' %}
+      <a class="btn primary" href="{{ url | relative_url }}"><span class="tr">Uygulamayı incele</span><span class="en">See the app</span></a>
+      {%- else %}
+      <a class="btn primary" href="{{ url | relative_url }}"><span class="tr">Oyunu incele</span><span class="en">See the game</span></a>
+      {%- endif %}
+      {%- unless g.privacy == false %}
+      <a class="btn" href="{{ url | append: 'privacy.html' | relative_url }}"><span class="tr">Gizlilik</span><span class="en">Privacy</span></a>
+      {%- endunless %}
+    </div>
+  </div>
+</article>
