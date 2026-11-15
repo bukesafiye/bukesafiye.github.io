@@ -64,12 +64,14 @@
           </button>
           <div class="menu games-menu" id="games-menu" hidden>
             {%- for g in site.data.games %}
-            <a class="menu-game{% if current and current.slug == g.slug %} is-current{% endif %}" style="--c: {{ g.color }}" href="{{ '/Store/' | append: g.slug | append: '/' | relative_url }}"{% if current and current.slug == g.slug %} aria-current="page"{% endif %}>{% if g.name.tr == g.name.en %}{{ g.name.tr }}{% else %}<span class="tr">{{ g.name.tr }}</span><span class="en">{{ g.name.en }}</span>{% endif %}</a>
+            {%- assign gl = g.nav_name | default: g.name -%}
+            <a class="menu-game{% if current and current.slug == g.slug %} is-current{% endif %}" style="--c: {{ g.color }}" href="{{ '/Store/' | append: g.slug | append: '/' | relative_url }}"{% if current and current.slug == g.slug %} aria-current="page"{% endif %}>{% if gl.tr == gl.en %}{{ gl.tr }}{% else %}<span class="tr">{{ gl.tr }}</span><span class="en">{{ gl.en }}</span>{% endif %}</a>
             {%- endfor %}
             {%- if site.data.apps.size > 0 %}
             <p class="menu-heading"><span class="tr">Uygulamalar</span><span class="en">Apps</span></p>
             {%- for g in site.data.apps %}
-            <a class="menu-game{% if current and current.slug == g.slug %} is-current{% endif %}" style="--c: {{ g.color }}" href="{{ '/Store/' | append: g.slug | append: '/' | relative_url }}"{% if current and current.slug == g.slug %} aria-current="page"{% endif %}>{% if g.name.tr == g.name.en %}{{ g.name.tr }}{% else %}<span class="tr">{{ g.name.tr }}</span><span class="en">{{ g.name.en }}</span>{% endif %}</a>
+            {%- assign gl = g.nav_name | default: g.name -%}
+            <a class="menu-game{% if current and current.slug == g.slug %} is-current{% endif %}" style="--c: {{ g.color }}" href="{{ '/Store/' | append: g.slug | append: '/' | relative_url }}"{% if current and current.slug == g.slug %} aria-current="page"{% endif %}>{% if gl.tr == gl.en %}{{ gl.tr }}{% else %}<span class="tr">{{ gl.tr }}</span><span class="en">{{ gl.en }}</span>{% endif %}</a>
             {%- endfor %}
             {%- endif %}
           </div>
