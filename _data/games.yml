@@ -17,7 +17,7 @@
   summary:
     tr: "Gece vardiyası, saat 03:17. Kurallara uy, hayaletleri yakala, sabaha çıkmaya çalış."
     en: "Night shift, 03:17. Follow the rules, spot the ghosts, survive until morning."
-  status: { tr: "Yakında · Google Play", en: "Coming soon · Google Play" }
+  status: { tr: "Google Play'de", en: "On Google Play" }
   chips:
     - { tr: "Korku", en: "Horror" }
     - { tr: "Bulmaca", en: "Puzzle" }
@@ -25,6 +25,7 @@
   color: "#3fe0f0"
   glow: "rgba(63, 224, 240, .35)"
   icon: /assets/img/ghostshift-icon.png
+  google_play: https://play.google.com/store/apps/details?id=com.mirogames.ghostshift
   testflight: https://testflight.apple.com/join/mzVxaaKa
   beta: 9
   logo: { tr: /assets/img/ghostshift-logo-tr.webp, en: /assets/img/ghostshift-logo-en.webp }
@@ -73,7 +74,7 @@
   summary:
     tr: "Duvarlardan sek, dönen çelik kolları aş ve topu çemberin üstünden potalara düşür. 8 dünya, 19 top, 20.000 metre."
     en: "Bounce off the walls, get past spinning steel arms and drop the ball into the hoops from above. 8 worlds, 19 balls, 20,000 m."
-  status: { tr: "Yakında · App Store & Google Play", en: "Coming soon · App Store & Google Play" }
+  status: { tr: "Google Play'de", en: "On Google Play" }
   chips:
     - { tr: "Arcade", en: "Arcade" }
     - { tr: "Basketbol", en: "Basketball" }
@@ -83,6 +84,7 @@
   theme: { glow: "rgba(90, 180, 245, .28)", button_text: "#1c1206" }
   card_bg: "radial-gradient(60% 70% at 50% 45%, rgba(110, 195, 250, .32), transparent 75%), #0a1420"
   icon: /assets/img/cuppa-icon.png
+  google_play: https://play.google.com/store/apps/details?id=com.mirogames.cuppa
   testflight: https://testflight.apple.com/join/5CHhqN9Q
   beta: 1
   logo: { tr: /assets/img/cuppa-logo.webp, en: /assets/img/cuppa-logo.webp }
