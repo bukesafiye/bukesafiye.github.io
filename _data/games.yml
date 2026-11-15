@@ -158,7 +158,7 @@
   summary:
     tr: "Fosil kayalarından 102 dinozor iskeleti birleştir, hurdalardan 55 robot üret ve iki müzeni ayrı ayrı büyüt. Reklam yok, internet gerekmez."
     en: "Assemble 102 dinosaur skeletons from fossil rocks, build 55 robots from scrap and grow two museums side by side. No ads, no internet needed."
-  status: { tr: "Yakında", en: "Coming soon" }
+  status: { tr: "Google Play'de", en: "On Google Play" }
   chips:
     - { tr: "Simülasyon", en: "Simulation" }
     - { tr: "Koleksiyon", en: "Collection" }
@@ -168,6 +168,7 @@
   theme: { glow: "rgba(60, 170, 255, .28)", button_text: "#1c1206" }
   card_bg: "radial-gradient(60% 70% at 50% 45%, rgba(255, 170, 40, .30), transparent 75%), #0a1426"
   icon: /assets/img/robogallery-icon.png
+  google_play: https://play.google.com/store/apps/details?id=com.mirogames.robogallery
   testflight: https://testflight.apple.com/join/FzdX67Gr
   beta: 2
   logo: { tr: /assets/img/robogallery-logo.webp, en: /assets/img/robogallery-logo.webp }
