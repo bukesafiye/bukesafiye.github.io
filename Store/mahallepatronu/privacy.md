@@ -1,9 +1,9 @@
 ---
 title: Mahalle Patronu (Neighboss) — Privacy
-theme: studio
-back: /
-back_tr: MiroGames
-back_en: MiroGames
+game: mahallepatronu
+back: /Store/mahallepatronu/
+back_tr: Mahalle Patronu
+back_en: Neighboss
 ---
 <div class="tr" markdown="1">
 # Gizlilik Politikası — Mahalle Patronu

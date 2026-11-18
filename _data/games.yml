@@ -173,3 +173,21 @@
   testflight: https://testflight.apple.com/join/FzdX67Gr
   beta: 2
   logo: { tr: /assets/img/robogallery-logo.webp, en: /assets/img/robogallery-logo.webp }
+
+- slug: mahallepatronu
+  name: { tr: "Mahalle Patronu", en: "Neighboss" }
+  tagline: { tr: "Tezgâhtan şehir zincirine", en: "From market stall to city chain" }
+  summary:
+    tr: "Seyyar tezgâhla başla, dükkân aç, şube kur, mahallenin patronu ol. 20'den fazla meslek, 40 şehir; ortak hal piyasası, ihale ve sohbet."
+    en: "Start with a market stall, open shops, add branches and become the boss of the neighbourhood. 20+ trades, 40 cities; a shared market, tenders and chat."
+  status: { tr: "Yakında", en: "Coming soon" }
+  chips:
+    - { tr: "Simülasyon", en: "Simulation" }
+    - { tr: "Ekonomi", en: "Economy" }
+    - { tr: "Online", en: "Online" }
+  color: "#ff5a5f"
+  glow: "rgba(255, 90, 95, .3)"
+  theme: { glow: "rgba(226, 174, 74, .26)", button_text: "#1c1206" }
+  card_bg: "radial-gradient(60% 70% at 50% 45%, rgba(226, 120, 60, .38), transparent 75%), #2a0a0e"
+  icon: /assets/img/mahallepatronu-icon.png
+  logo: { tr: /assets/img/mahallepatronu-icon.png, en: /assets/img/mahallepatronu-icon.png }
