@@ -137,7 +137,7 @@
   summary:
     tr: "Yolun kenarına tank kur, aynı tankları birleştirip saldırı ya da savunma koluna evrimleştir, iki kıvrımlı rotadan gelen düşmanları üsse ulaşmadan durdur. 4 dünya, 32 bölüm."
     en: "Place tanks beside the road, merge identical ones and evolve them into attack or defense forms, and stop enemies on two winding routes before they reach your base. 4 worlds, 32 stages."
-  status: { tr: "Yakında · App Store & Google Play", en: "Coming soon · App Store & Google Play" }
+  status: { tr: "Google Play'de", en: "On Google Play" }
   chips:
     - { tr: "Kule savunma", en: "Tower defense" }
     - { tr: "Birleştirme", en: "Merge" }
@@ -147,6 +147,7 @@
   theme: { glow: "rgba(101, 220, 249, .28)", button_text: "#1c1206" }
   card_bg: "radial-gradient(60% 70% at 50% 45%, rgba(56, 100, 190, .40), transparent 75%), #091026"
   icon: /assets/img/linestank-icon.png
+  google_play: https://play.google.com/store/apps/details?id=com.mirogames.linestank
   testflight: https://testflight.apple.com/join/Uq4zgg1J
   beta: 6
   logo: { tr: /assets/img/linestank-logo.webp, en: /assets/img/linestank-logo.webp }
