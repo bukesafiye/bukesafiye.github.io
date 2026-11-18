@@ -22,3 +22,20 @@
   icon: /assets/img/degistokus-icon.png
   logo: { tr: /assets/img/degistokus-logo.webp, en: /assets/img/degistokus-logo.webp }
   privacy: false
+- slug: elisin
+  name: { tr: "Elisin", en: "Elisin" }
+  tagline: { tr: "Her ilmek bir hikâye", en: "Every stitch tells a story" }
+  summary:
+    tr: "Tığ işi ve şiş örgüsü için reklamsız örgü defteri: sıra sıra tarifler, tekrar sayacı ve ölçüne göre kazak planı."
+    en: "An ad-free notebook for crochet and knitting: row-by-row patterns, a repeat counter and a sweater plan for your size."
+  status: { tr: "Yakında", en: "Coming soon" }
+  chips:
+    - { tr: "Örgü", en: "Knitting" }
+    - { tr: "Tığ işi", en: "Crochet" }
+    - { tr: "Ücretsiz", en: "Free" }
+  color: "#e3b8a4"
+  glow: "rgba(227, 184, 164, .3)"
+  theme: { glow: "rgba(227, 184, 164, .26)", button_text: "#3a2a22" }
+  card_bg: "radial-gradient(60% 70% at 50% 45%, rgba(227, 184, 164, .26), transparent 75%), #1f1a17"
+  icon: /assets/img/elisin-icon.png
+  logo: { tr: /assets/img/elisin-logo.webp, en: /assets/img/elisin-logo.webp }
