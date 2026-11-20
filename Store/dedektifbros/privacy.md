@@ -8,7 +8,7 @@ back_en: Dedektif Bros
 <div class="tr" markdown="1">
 # Gizlilik Politikası — Dedektif Bros
 
-*Son güncelleme: 1 Kasım 2026*
+*Son güncelleme: 21 Kasım 2026*
 
 Dedektif Bros (“uygulama”), MiroGames tarafından geliştirilen, internet bağlantısı gerektirmeyen bir polisiye oyunudur. Bu metin, uygulamanın hangi bilgileri nasıl kullandığını açıklar.
 
@@ -16,7 +16,7 @@ Dedektif Bros (“uygulama”), MiroGames tarafından geliştirilen, internet ba
 
 Uygulama kişisel veri toplamaz. Hesap açma, giriş yapma, reklam, analiz ya da izleme (tracking) yoktur. Uygulama hiçbir sunucumuza veya üçüncü taraf sunucusuna veri göndermez; yazı tipleri dahil her şey uygulamanın içindedir.
 
-Oyun açılışta yeni sürüm olup olmadığını mağazaya sorar: Android'de Google Play'in kendi güncelleme servisi, iPhone'da App Store sürüm sorgusu kullanılır. Bu sorguda yalnızca uygulamanın kimliği ve cihazın ülke kodu gider; kişisel bilgi ya da oyun ilerlemen gönderilmez. Uygun bir anda mağazanın kendi puanlama penceresi gösterilebilir; puan verip vermemek tamamen sana kalmıştır.
+Sürüm kontrolü: Dedektif Bros'un internete çıktığı tek an budur. Açılışta Google Play'e (Android) ya da App Store'a (iPhone) yeni sürüm olup olmadığını sorar; giden tek şey uygulamanın kimliği ve ülke kodundur, dedektif adın, notların ya da vaka ilerlemen gönderilmez. Çözülen bir vakadan sonra mağazanın kendi puan penceresi açılabilir; puan vermek senin tercihin.
 
 ## Cihazında saklananlar
 
@@ -53,7 +53,7 @@ Bu politika değişirse güncel metin bu sayfada ve uygulama içinde yayımlanı
 <div class="en" markdown="1">
 # Privacy Policy — Dedektif Bros
 
-*Last updated: November 1, 2026*
+*Last updated: November 21, 2026*
 
 Dedektif Bros (“the app”) is a detective game developed by MiroGames that works without an internet connection. This page explains what information the app uses and how.
 
@@ -61,7 +61,7 @@ Dedektif Bros (“the app”) is a detective game developed by MiroGames that wo
 
 The app does not collect personal data. There are no accounts, sign-ins, ads, analytics or tracking. The app does not send any data to our servers or to third-party servers; everything, including fonts, is bundled with the app.
 
-When it starts, the game asks the store whether a newer version exists: on Android it uses Google Play's own update service, on iPhone an App Store version lookup. Only the app's identifier and your device's country code are sent; no personal information or game progress. At a suitable moment the store's own rating prompt may appear; rating is entirely up to you.
+Version check: this is the only moment Dedektif Bros goes online. On launch it asks Google Play (Android) or the App Store (iPhone) whether a newer version is available, sending only the app's identifier and your country code; your detective name, notes and case progress are never sent. After a solved case the store's own rating sheet may appear; whether you rate is your choice.
 
 ## Stored on your device
 

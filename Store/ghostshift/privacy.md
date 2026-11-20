@@ -13,11 +13,11 @@ back_en: GhostShift
 
 Hayalet Vardiya, MiroGames tarafından geliştirilmiştir. Oyun hiçbir kişisel veri toplamaz, saklamaz veya paylaşmaz. Oyunda hesap, analiz, reklam, uygulama içi satın alma yoktur; oyun internetsiz oynanır.
 
-Oyun açılışta yeni sürüm olup olmadığını mağazaya sorar: Android'de Google Play'in kendi güncelleme servisi, iPhone'da App Store sürüm sorgusu kullanılır. Bu sorguda yalnızca uygulamanın kimliği ve cihazın ülke kodu gider; kişisel bilgi ya da oyun ilerlemen gönderilmez. Uygun bir anda mağazanın kendi puanlama penceresi gösterilebilir; puan verip vermemek tamamen sana kalmıştır.
+Oyunu açtığında Hayalet Vardiya mağazadan güncelleme olup olmadığını kontrol eder (Android'de Google Play güncelleme servisi, iPhone'da App Store sorgusu). Bu kontrolde yalnızca oyunun uygulama kimliği ve ülke kodun gider; geceler, puanlar ya da cüzdan bilgin asla gönderilmez. İyi geçen bir vardiyanın ardından mağaza puanlama penceresini önerebilir; görmezden gelmek hiçbir şeyi değiştirmez.
 
 İlerlemen (açılan geceler, puanlar, cüzdan, satın alınan eşyalar) ve ayarların (dil, efektler, müzik, titreşim) yalnızca cihazında tutulur ve uygulamayı sildiğinde kaldırılır.
 
-Çocuklar dahil hiç kimseden bilerek bilgi toplamayız. Bu politika değişirse yeni hâli bu sayfada yayınlanır.
+Hayalet Vardiya hafif korku öğeleri içerir, gençler ve yetişkinler içindir; çocuklardan ya da başka kimseden bilerek veri toplamayız. Politikadaki güncellemeler bu sayfada duyurulur.
 
 <p class="contact-line">İletişim: <a href="mailto:bukesafiye@gmail.com">bukesafiye@gmail.com</a></p>
 </div>
@@ -29,11 +29,11 @@ Oyun açılışta yeni sürüm olup olmadığını mağazaya sorar: Android'de G
 
 GhostShift is made by MiroGames. The game does not collect, store or share any personal data. It has no accounts, no analytics, no advertising, no in-app purchases; the game plays offline.
 
-When it starts, the game asks the store whether a newer version exists: on Android it uses Google Play's own update service, on iPhone an App Store version lookup. Only the app's identifier and your device's country code are sent; no personal information or game progress. At a suitable moment the store's own rating prompt may appear; rating is entirely up to you.
+When you open it, GhostShift checks with the store for an update (Google Play's update service on Android, an App Store lookup on iPhone). Only the game's app identifier and your country code travel with that check, never your nights, scores or wallet. After a good shift the store may offer its rating prompt; ignoring it changes nothing.
 
 Your progress (unlocked nights, scores, wallet, purchased items) and settings (language, sound, music, vibration) are stored only on your device and are deleted when you remove the app.
 
-We do not knowingly collect information from anyone, including children. If this policy changes, the new version will be published on this page.
+GhostShift has mild horror themes and is meant for teens and adults; we never knowingly gather data from children or anyone else. Updates to this policy will be posted here.
 
 <p class="contact-line">Contact: <a href="mailto:bukesafiye@gmail.com">bukesafiye@gmail.com</a></p>
 </div>

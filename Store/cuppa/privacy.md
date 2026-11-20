@@ -12,7 +12,7 @@ back_en: CUPPA
 
 CUPPA, MiroGames tarafından geliştirilmiştir. MiroGames hiçbir kişisel veri toplamaz, saklamaz veya paylaşmaz. Oyunda analiz, reklam, takip ve uygulama içi satın alma yoktur; oyun internetsiz oynanır.
 
-Oyun açılışta yeni sürüm olup olmadığını mağazaya sorar: Android'de Google Play'in kendi güncelleme servisi, iPhone'da App Store sürüm sorgusu kullanılır. Bu sorguda yalnızca uygulamanın kimliği ve cihazın ülke kodu gider; kişisel bilgi ya da oyun ilerlemen gönderilmez. Uygun bir anda mağazanın kendi puanlama penceresi gösterilebilir; puan verip vermemek tamamen sana kalmıştır.
+Güncelleme kontrolü: CUPPA her açıldığında mağazasına yeni bir sürüm çıkıp çıkmadığını sorar; Android'de Google Play güncelleme servisiyle, iPhone'da App Store sorgusuyla. Bu istekte yalnızca CUPPA'nın uygulama kimliği ve ülke kodun bulunur; skorların ya da seninle ilgili bir bilgi gitmez. Yeni bir rekordan sonra mağaza kendi puanlama penceresini gösterebilir; puan verebilir ya da kapatıp geçebilirsin.
 
 İlerlemen (puan ve yükseklik rekorları, altın, açılan ve seçili toplar, görevler, kontrol noktaları) ve dil tercihin yalnızca cihazında tutulur ve uygulamayı sildiğinde kaldırılır. Titreşim yalnızca cihazındaki titreşim motorunu kullanır; hiçbir veri göndermez.
 
@@ -24,7 +24,7 @@ Oyun açılışta yeni sürüm olup olmadığını mağazaya sorar: Android'de G
 2. **Google Play Oyunlar verileri (Android):** [play.google.com/games/profile](https://play.google.com/games/profile) adresine git veya Play Oyunlar uygulamasında *Profil → Ayarlar → Hesabı ve verileri sil* yolunu izle. Yalnızca CUPPA'yı silmek için oyun listesinden CUPPA'yı seçip verilerini sil. Bu işlem CUPPA'ya ait skorları, başarıları ve bulut kaydını Google'ın sunucularından kaldırır.
 3. Yardım istersen [bukesafiye@gmail.com](mailto:bukesafiye@gmail.com) adresine yaz. MiroGames bu verileri kendi sunucularında saklamadığı için ek bir saklama süresi yoktur; Google'daki silme süreleri Google'ın politikalarına tabidir.
 
-Çocuklar dahil hiç kimseden bilerek bilgi toplamayız. Bu politika değişirse yeni hâli bu sayfada yayınlanır.
+CUPPA her yaştan oyuncu için bir oyundur; hiçbir veri toplamadığı için çocuklardan da veri toplamaz. Bu politikada ileride bir değişiklik olursa yeni tarihle bu sayfada yer alır.
 
 <p class="contact-line">İletişim: <a href="mailto:bukesafiye@gmail.com">bukesafiye@gmail.com</a></p>
 </div>
@@ -36,7 +36,7 @@ Oyun açılışta yeni sürüm olup olmadığını mağazaya sorar: Android'de G
 
 CUPPA is made by MiroGames. MiroGames does not collect, store or share any personal data. The game has no analytics, no advertising, no tracking and no in-app purchases, and it plays offline.
 
-When it starts, the game asks the store whether a newer version exists: on Android it uses Google Play's own update service, on iPhone an App Store version lookup. Only the app's identifier and your device's country code are sent; no personal information or game progress. At a suitable moment the store's own rating prompt may appear; rating is entirely up to you.
+Checking for updates: each time CUPPA opens, it asks its store whether a newer build is out, using Google Play's update service on Android or an App Store lookup on iPhone. That request carries only CUPPA's app ID and your country code, never your scores or anything about you. After a new record the store may show its own rating window; you can rate or simply close it.
 
 Your progress (score and height records, gold, unlocked and equipped balls, quests, checkpoints) and your language choice are stored only on your device and are deleted when you remove the app. Vibration only uses your device's haptic motor and sends no data.
 
@@ -48,7 +48,7 @@ Your progress (score and height records, gold, unlocked and equipped balls, ques
 2. **Google Play Games data (Android):** Go to [play.google.com/games/profile](https://play.google.com/games/profile) or, in the Play Games app, open *Profile → Settings → Delete account and data*. To delete only CUPPA, pick CUPPA from your games and delete its data. This removes CUPPA's scores, achievements and cloud save from Google's servers.
 3. If you need help, email [bukesafiye@gmail.com](mailto:bukesafiye@gmail.com). MiroGames does not keep this data on its own servers, so there is no extra retention period; deletion at Google follows Google's policies.
 
-We do not knowingly collect information from anyone, including children. If this policy changes, the new version will be published on this page.
+CUPPA is a game for all ages, and because it collects nothing, it collects nothing from children either. Any future change to this policy will appear on this page with a new date.
 
 <p class="contact-line">Contact: <a href="mailto:bukesafiye@gmail.com">bukesafiye@gmail.com</a></p>
 </div>

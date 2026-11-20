@@ -13,11 +13,11 @@ back_en: Lost & Found Office
 
 Kayıp Eşya Bürosu, MiroGames tarafından geliştirilmiştir. Oyun hiçbir kişisel veri toplamaz, saklamaz veya paylaşmaz. Oyunda hesap, analiz, reklam yoktur; oyun internetsiz oynanır.
 
-Oyun açılışta yeni sürüm olup olmadığını mağazaya sorar: Android'de Google Play'in kendi güncelleme servisi, iPhone'da App Store sürüm sorgusu kullanılır. Bu sorguda yalnızca uygulamanın kimliği ve cihazın ülke kodu gider; kişisel bilgi ya da oyun ilerlemen gönderilmez. Uygun bir anda mağazanın kendi puanlama penceresi gösterilebilir; puan verip vermemek tamamen sana kalmıştır.
+Büronun dış dünyayla tek bağlantısı açılıştaki sürüm kontrolüdür: Android'de Google Play güncelleme servisi, iPhone'da App Store sorgusu. Bu kontrol uygulamanın kimliği ve ülke kodun dışında hiçbir şey göndermez; kayıt dosyaların ya da seninle ilgili bir bilgi gitmez. Tezgâhta iyi geçen bir günün ardından mağazanın kendi puanlama penceresi çıkabilir; puan vermek isteğe bağlıdır.
 
 Kayıt dosyaların ve ayarların (dil, ses seviyesi) yalnızca cihazında tutulur ve uygulamayı sildiğinde kaldırılır.
 
-Oyun 13 yaş ve üzeri için tasarlanmıştır ve 13 yaşından küçük çocuklara yönelik değildir. Çocuklar dahil hiç kimseden bilerek bilgi toplamayız. Bu politika değişirse yeni hâli bu sayfada yayınlanır.
+Kayıp Eşya Bürosu 13 yaş ve üzeri oyuncular için yapılmıştır, daha küçük çocuklara yönelik değildir. Çocuklar dahil kimsenin bilgisi bilerek toplanmaz. Bu politika güncellenirse yeni metin bu sayfanın yerini alır.
 
 <p class="contact-line">İletişim: <a href="mailto:bukesafiye@gmail.com">bukesafiye@gmail.com</a></p>
 </div>
@@ -29,11 +29,11 @@ Oyun 13 yaş ve üzeri için tasarlanmıştır ve 13 yaşından küçük çocukl
 
 Lost & Found Office is made by MiroGames. The game does not collect, store or share any personal data. It has no accounts, no analytics, no advertising; the game plays offline.
 
-When it starts, the game asks the store whether a newer version exists: on Android it uses Google Play's own update service, on iPhone an App Store version lookup. Only the app's identifier and your device's country code are sent; no personal information or game progress. At a suitable moment the store's own rating prompt may appear; rating is entirely up to you.
+The office's only link to the outside world is a version check at start-up: Google Play's update service on Android, an App Store lookup on iPhone. It sends nothing but the app's identifier and your country code; your save files and anything about you stay put. After a good day at the counter the store's own rating window may pop up; rating is optional.
 
 Your save files and settings (language, sound levels) are stored only on your device and are deleted when you remove the app.
 
-The game is designed for players aged 13 and over and is not directed at children under 13. We do not knowingly collect information from anyone, including children. If this policy changes, the new version will be published on this page.
+Lost & Found Office is made for players aged 13 and up and is not aimed at younger children. No one's information is knowingly collected, children's included. Should this policy be revised, the revised text will replace this page.
 
 <p class="contact-line">Contact: <a href="mailto:bukesafiye@gmail.com">bukesafiye@gmail.com</a></p>
 </div>
