@@ -10,6 +10,17 @@ back_en: Home
 <h1><span class="tr">Test rehberi</span><span class="en">Testing guide</span></h1>
 <p><span class="tr">Oyunlarımızı mağazaya çıkmadan önce dene ve bize yardım et. Telefonunu seç, adımları sırayla izle.</span><span class="en">Try our games before they reach the stores and help us make them better. Pick your phone and follow the steps.</span></p>
 
+<div class="test-tabs" role="tablist" aria-label="Platform">
+  <button type="button" role="tab" id="tab-ios" aria-controls="panel-ios" aria-selected="true" data-tab="ios">
+    <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M16.4 12.6c0-2.5 2-3.7 2.1-3.8-1.2-1.7-3-1.9-3.6-2-1.5-.2-3 .9-3.7.9-.8 0-2-.9-3.2-.9-1.7 0-3.2 1-4 2.4-1.7 3-.4 7.4 1.2 9.8.8 1.2 1.8 2.5 3 2.4 1.2 0 1.7-.8 3.1-.8 1.5 0 1.9.8 3.2.8s2.1-1.2 2.9-2.4c.9-1.4 1.3-2.7 1.3-2.8 0 0-2.4-1-2.4-3.6zM14 5.3c.7-.8 1.1-1.9 1-3-1 0-2.1.7-2.8 1.5-.6.7-1.2 1.8-1 2.9 1 .1 2.1-.6 2.8-1.4z"/></svg>
+    iOS
+  </button>
+  <button type="button" role="tab" id="tab-android" aria-controls="panel-android" aria-selected="false" data-tab="android" tabindex="-1">
+    <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M17.6 9.5l1.7-3a.4.4 0 0 0-.7-.4l-1.8 3A10.6 10.6 0 0 0 12 8.2c-1.7 0-3.3.3-4.8.9l-1.8-3a.4.4 0 0 0-.7.4l1.7 3A9.6 9.6 0 0 0 1.5 17h21a9.6 9.6 0 0 0-4.9-7.5zM7 14.4a1 1 0 1 1 0-2 1 1 0 0 1 0 2zm10 0a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/></svg>
+    Android
+  </button>
+</div>
+
 {%- comment -%} Featured tests: per platform, a left and a right column. iOS: every TestFlight game in beta order, 1st on the right, 2nd on the left, then alternating; wide screens show them all in the page gutters, narrower screens only the first three above the tabs. {%- endcomment %}
 <aside class="test-promos" aria-label="Öne çıkan testler / Featured tests">
   <div class="promo-set" data-for="android">
@@ -36,19 +47,12 @@ back_en: Home
   </div>
 </aside>
 
-<div class="test-tabs" role="tablist" aria-label="Platform">
-  <button type="button" role="tab" id="tab-ios" aria-controls="panel-ios" aria-selected="true" data-tab="ios">
-    <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M16.4 12.6c0-2.5 2-3.7 2.1-3.8-1.2-1.7-3-1.9-3.6-2-1.5-.2-3 .9-3.7.9-.8 0-2-.9-3.2-.9-1.7 0-3.2 1-4 2.4-1.7 3-.4 7.4 1.2 9.8.8 1.2 1.8 2.5 3 2.4 1.2 0 1.7-.8 3.1-.8 1.5 0 1.9.8 3.2.8s2.1-1.2 2.9-2.4c.9-1.4 1.3-2.7 1.3-2.8 0 0-2.4-1-2.4-3.6zM14 5.3c.7-.8 1.1-1.9 1-3-1 0-2.1.7-2.8 1.5-.6.7-1.2 1.8-1 2.9 1 .1 2.1-.6 2.8-1.4z"/></svg>
-    iOS
-  </button>
-  <button type="button" role="tab" id="tab-android" aria-controls="panel-android" aria-selected="false" data-tab="android" tabindex="-1">
-    <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M17.6 9.5l1.7-3a.4.4 0 0 0-.7-.4l-1.8 3A10.6 10.6 0 0 0 12 8.2c-1.7 0-3.3.3-4.8.9l-1.8-3a.4.4 0 0 0-.7.4l1.7 3A9.6 9.6 0 0 0 1.5 17h21a9.6 9.6 0 0 0-4.9-7.5zM7 14.4a1 1 0 1 1 0-2 1 1 0 0 1 0 2zm10 0a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/></svg>
-    Android
-  </button>
-</div>
-
 <section class="test-panel" role="tabpanel" id="panel-ios" aria-labelledby="tab-ios">
-  <ol class="test-steps">
+  <div class="steps-notice" id="notice-ios" role="status" hidden>
+    <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 7v6M12 16.5v.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
+    <p><b><span class="tr">Önce aşağıdaki adımları oku.</span><span class="en">Read the steps below first.</span></b> <span class="tr">Adımları sırayla izle; <strong data-notice-game></strong> için katılma linki adımların altındaki listede işaretli.</span><span class="en">Follow them in order; the join link for <strong data-notice-game></strong> is marked in the list under the steps.</span></p>
+  </div>
+  <ol class="test-steps" id="steps-ios">
     <li>
       <h3><span class="tr">TestFlight'ı kur</span><span class="en">Install TestFlight</span></h3>
       <p><span class="tr">iPhone ya da iPad'inde App Store'dan Apple'ın ücretsiz <b>TestFlight</b> uygulamasını indir.</span><span class="en">On your iPhone or iPad, get Apple's free <b>TestFlight</b> app from the App Store.</span></p>
@@ -77,7 +81,7 @@ back_en: Home
     {%- assign beta_games = site.data.games | where_exp: "g", "g.testflight" | sort: "beta" %}
     {%- for g in beta_games %}
     {%- assign url = '/Store/' | append: g.slug | append: '/' %}
-    <li style="--c: {{ g.color }}">
+    <li style="--c: {{ g.color }}" data-slug="{{ g.slug }}">
       <a class="dev-game" href="{{ url | relative_url }}"><img src="{{ g.icon | relative_url }}" alt="" width="40" height="40" loading="lazy">{% if g.name.tr == g.name.en %}{{ g.name.tr }}{% else %}<span class="tr">{{ g.name.tr }}</span><span class="en">{{ g.name.en }}</span>{% endif %}</a>
       <a class="btn" href="{{ g.testflight }}" rel="noopener"><span class="tr">TestFlight'ta katıl</span><span class="en">Join on TestFlight</span></a>
     </li>
@@ -86,7 +90,11 @@ back_en: Home
 </section>
 
 <section class="test-panel" role="tabpanel" id="panel-android" aria-labelledby="tab-android" hidden>
-  <ol class="test-steps">
+  <div class="steps-notice" id="notice-android" role="status" hidden>
+    <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 7v6M12 16.5v.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
+    <p><b><span class="tr">Önce aşağıdaki adımları oku.</span><span class="en">Read the steps below first.</span></b> <span class="tr">Adımları sırayla izle; <strong data-notice-game></strong> için katılma linki adımların altındaki listede işaretli.</span><span class="en">Follow them in order; the join link for <strong data-notice-game></strong> is marked in the list under the steps.</span></p>
+  </div>
+  <ol class="test-steps" id="steps-android">
     <li class="has-shot">
       <div class="step-text">
         <h3><span class="tr">Gmail adresini bize gönder</span><span class="en">Send us your Gmail address</span></h3>
@@ -128,7 +136,7 @@ back_en: Home
     {%- assign test_games = test_pool | where_exp: "g", "g.play_test" | sort: "beta", "last" %}
     {%- for g in test_games %}
     {%- assign url = '/Store/' | append: g.slug | append: '/' %}
-    <li style="--c: {{ g.color }}">
+    <li style="--c: {{ g.color }}" data-slug="{{ g.slug }}">
       {% if g.page == false %}<span class="dev-game"><img src="{{ g.icon | relative_url }}" alt="" width="40" height="40" loading="lazy">{% if g.name.tr == g.name.en %}{{ g.name.tr }}{% else %}<span class="tr">{{ g.name.tr }}</span><span class="en">{{ g.name.en }}</span>{% endif %}</span>{% else %}<a class="dev-game" href="{{ url | relative_url }}"><img src="{{ g.icon | relative_url }}" alt="" width="40" height="40" loading="lazy">{% if g.name.tr == g.name.en %}{{ g.name.tr }}{% else %}<span class="tr">{{ g.name.tr }}</span><span class="en">{{ g.name.en }}</span>{% endif %}</a>{% endif %}
       <a class="btn" href="https://play.google.com/apps/testing/{{ g.play_test }}" rel="noopener"><span class="tr">Teste katıl</span><span class="en">Join the test</span></a>
     </li>
@@ -141,7 +149,7 @@ back_en: Home
     {%- assign live_games = site.data.games | where_exp: "g", "g.google_play" | sort: "beta" %}
     {%- for g in live_games %}
     {%- assign url = '/Store/' | append: g.slug | append: '/' %}
-    <li style="--c: {{ g.color }}">
+    <li style="--c: {{ g.color }}" data-slug="{{ g.slug }}">
       <a class="dev-game" href="{{ url | relative_url }}"><img src="{{ g.icon | relative_url }}" alt="" width="40" height="40" loading="lazy">{% if g.name.tr == g.name.en %}{{ g.name.tr }}{% else %}<span class="tr">{{ g.name.tr }}</span><span class="en">{{ g.name.en }}</span>{% endif %}</a>
       <a class="btn" href="{{ g.google_play }}" rel="noopener"><span class="tr">Google Play'de aç</span><span class="en">Open on Google Play</span></a>
     </li>
@@ -181,6 +189,22 @@ back_en: Home
     var start = location.hash.slice(1);
     if (start !== 'ios' && start !== 'android') start = /android/i.test(navigator.userAgent) ? 'android' : 'ios';
     show(start);
+    // Card "Join the test" buttons: read the steps first. Scroll to them and mark the game in the list below the steps.
+    document.querySelectorAll('[data-goto-steps]').forEach(function (b) {
+      b.addEventListener('click', function (e) {
+        e.preventDefault();
+        var platform = b.getAttribute('data-goto-steps'), steps = document.getElementById('steps-' + platform);
+        show(platform);
+        document.querySelectorAll('.dev-games li.is-picked').forEach(function (li) { li.classList.remove('is-picked'); });
+        var row = document.querySelector('#panel-' + platform + ' .dev-games li[data-slug="' + b.getAttribute('data-slug') + '"]');
+        if (row) row.classList.add('is-picked');
+        var notice = document.getElementById('notice-' + platform), name = b.getAttribute('data-name-' + (document.documentElement.getAttribute('data-lang') === 'en' ? 'en' : 'tr'));
+        notice.querySelectorAll('[data-notice-game]').forEach(function (el) { el.textContent = name; });
+        notice.hidden = false;
+        steps.classList.remove('flash'); void steps.offsetWidth; steps.classList.add('flash');
+        notice.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
     // Gutter columns are absolutely positioned: keep the footer below the tallest one.
     var doc = document.querySelector('article.doc');
     function fit() {

@@ -404,3 +404,15 @@ html:not([data-platform="ios"]) .promo-set[data-for="ios"], html[data-platform="
 .promo-badge.is-live { color: #3ddc84; background: rgba(61, 220, 132, .14); }
 .promo-badge.is-live .dot { background: #3ddc84; animation: none; }
 @media (min-width: 1360px) { .promo-col-title { display: block; } }
+.test-steps { scroll-margin-top: 90px; }
+.test-steps.flash li { animation: steps-flash 1.6s ease-out; }
+@keyframes steps-flash { 0%, 30% { border-color: var(--accent); box-shadow: 0 0 0 2px var(--accent-soft); } 100% { border-color: var(--line); box-shadow: none; } }
+.dev-games li.is-picked { border-color: var(--c); box-shadow: 0 0 0 2px color-mix(in srgb, var(--c) 45%, transparent), 0 10px 30px -10px var(--c); }
+.dev-games li.is-picked .btn { background: var(--c); color: #fff; border-color: transparent; }
+@media (prefers-reduced-motion: reduce) { .test-steps.flash li { animation: none; } }
+.steps-notice { display: flex; gap: 12px; align-items: flex-start; margin: 0 0 14px; padding: 16px 18px; border-radius: 14px; background: color-mix(in srgb, #ffb020 14%, var(--surface)); border: 1px solid color-mix(in srgb, #ffb020 55%, transparent); color: #ffcf6b; scroll-margin-top: 90px; animation: notice-in .35s ease-out; }
+.steps-notice[hidden] { display: none; }
+.steps-notice svg { flex: none; margin-top: 2px; }
+.doc .steps-notice p { margin: 0; color: var(--text); }
+.steps-notice b { color: #ffcf6b; }
+@keyframes notice-in { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: none; } }

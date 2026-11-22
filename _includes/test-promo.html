@@ -1,4 +1,4 @@
-{%- comment -%} One featured card on /test/. include.g = game, include.platform = android|ios, include.extra = shown only in the wide-screen gutters, include.live = public on Google Play (badge and button open the store page). {%- endcomment -%}
+{%- comment -%} One featured card on /test/. include.g = game, include.platform = android|ios, include.extra = shown only in the wide-screen gutters, include.live = public on Google Play (badge and button open the store page). Test buttons scroll to the steps first and mark the game in the list under them; the real join link is there. {%- endcomment -%}
 {%- assign g = include.g -%}
 {%- if include.platform == "ios" %}{% assign href = g.testflight %}{% else %}{% assign pkg = g.play_test | default: g.google_play | split: 'id=' | last | split: '&' | first %}{% assign href = "https://play.google.com/apps/testing/" | append: pkg %}{% endif -%}
 {%- if include.live %}{% assign href = g.google_play %}{% endif -%}
@@ -11,5 +11,9 @@
     {%- elsif g.logo.tr == g.logo.en %}<img src="{{ g.logo.tr | relative_url }}" alt="{{ g.name.tr }}" loading="lazy">{% else %}<img class="tr" src="{{ g.logo.tr | relative_url }}" alt="{{ g.name.tr }}" loading="lazy"><img class="en" src="{{ g.logo.en | relative_url }}" alt="{{ g.name.en }}" loading="lazy">{% endif -%}
   {% if g.page == false %}</span>{% else %}</a>{% endif %}
   {% if g.tagline %}<p class="promo-tag"><span class="tr">{{ g.tagline.tr }}</span><span class="en">{{ g.tagline.en }}</span></p>{% endif %}
-  <a class="btn primary promo-btn" href="{{ href }}" rel="noopener">{% if include.live %}<span class="tr">Google Play'de aç</span><span class="en">Open on Google Play</span>{% else %}<span class="tr">Teste katıl</span><span class="en">Join the test</span> <small>{% if include.platform == "ios" %}iOS{% else %}Android{% endif %}</small>{% endif %}</a>
+  {%- if include.live %}
+  <a class="btn primary promo-btn" href="{{ href }}" rel="noopener"><span class="tr">Google Play'de aç</span><span class="en">Open on Google Play</span></a>
+  {%- else %}
+  <a class="btn primary promo-btn" href="#steps-{{ include.platform }}" data-goto-steps="{{ include.platform }}" data-slug="{{ g.slug }}" data-name-tr="{{ g.name.tr }}" data-name-en="{{ g.name.en }}"><span class="tr">Teste katıl</span><span class="en">Join the test</span> <small><span class="tr">↓ önce adımlar</span><span class="en">↓ steps first</span></small></a>
+  {%- endif %}
 </div>
