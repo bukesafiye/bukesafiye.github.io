@@ -27,7 +27,7 @@
   icon: /assets/img/ghostshift-icon.png
   google_play: https://play.google.com/store/apps/details?id=com.mirogames.ghostshift
   testflight: https://testflight.apple.com/join/mzVxaaKa
-  beta: 9
+  beta: 8
   logo: { tr: /assets/img/ghostshift-logo-tr.webp, en: /assets/img/ghostshift-logo-en.webp }
 
 - slug: lostfoundgame
@@ -47,7 +47,7 @@
   icon: /assets/img/lostfound-icon.png
   google_play: https://play.google.com/store/apps/details?id=com.mirogames.lostfoundoffice
   testflight: https://testflight.apple.com/join/HSjSM5at
-  beta: 8
+  beta: 7
   logo: { tr: /assets/img/lostfound-logo-tr.webp, en: /assets/img/lostfound-logo-en.webp }
 
 - slug: alchemyshop
@@ -66,7 +66,7 @@
   theme: { glow: "rgba(150, 100, 230, .28)" }
   icon: /assets/img/alchemyshop-potion.png
   testflight: https://testflight.apple.com/join/1Yh37113
-  beta: 10
+  beta: 9
   logo: { tr: /assets/img/alchemyshop-logo.webp, en: /assets/img/alchemyshop-logo-en.webp }
 
 - slug: cuppa
@@ -87,7 +87,7 @@
   icon: /assets/img/cuppa-icon.png
   google_play: https://play.google.com/store/apps/details?id=com.mirogames.cuppa
   testflight: https://testflight.apple.com/join/5CHhqN9Q
-  beta: 1
+  beta: 3
   logo: { tr: /assets/img/cuppa-logo.webp, en: /assets/img/cuppa-logo.webp }
 
 - slug: dedektifbros
@@ -107,7 +107,7 @@
   card_bg: "radial-gradient(60% 70% at 50% 45%, rgba(70, 150, 255, .32), transparent 75%), #0a1226"
   icon: /assets/img/dedektifbros-icon.png
   testflight: https://testflight.apple.com/join/StEhQSc7
-  beta: 7
+  beta: 6
   logo: { tr: /assets/img/dedektifbros-logo.webp, en: /assets/img/dedektifbros-logo.webp }
 
 - slug: kafamatik
@@ -129,7 +129,7 @@
   icon: /assets/img/kafamatik-icon.png
   google_play: https://play.google.com/store/apps/details?id=com.mirogames.kafamatik
   testflight: https://testflight.apple.com/join/X72RPvKQ
-  beta: 3
+  beta: 1
   logo: { tr: /assets/img/kafamatik-logo.webp, en: /assets/img/kafamatik-logo.webp }
 
 - slug: linestank
@@ -150,7 +150,7 @@
   icon: /assets/img/linestank-icon.png
   google_play: https://play.google.com/store/apps/details?id=com.mirogames.linestank
   testflight: https://testflight.apple.com/join/Uq4zgg1J
-  beta: 6
+  beta: 5
   logo: { tr: /assets/img/linestank-logo.webp, en: /assets/img/linestank-logo.webp }
 
 - slug: robogallery
@@ -172,7 +172,7 @@
   icon: /assets/img/robogallery-icon.png
   google_play: https://play.google.com/store/apps/details?id=com.mirogames.robogallery
   testflight: https://testflight.apple.com/join/FzdX67Gr
-  beta: 2
+  beta: 4
   logo: { tr: /assets/img/robogallery-logo.webp, en: /assets/img/robogallery-logo.webp }
 
 - slug: mahallepatronu
@@ -193,4 +193,4 @@
   icon: /assets/img/mahallepatronu-icon.png
   logo: { tr: /assets/img/mahallepatronu-logo-tr.webp, en: /assets/img/mahallepatronu-logo-en.webp }
   testflight: https://testflight.apple.com/join/9nTwMHXt
-  beta: 11
+  beta: 2
