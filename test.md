@@ -106,7 +106,7 @@ back_en: Home
     <li class="has-shot">
       <div class="step-text">
         <h3><span class="tr">Test linkini aç ve test kullanıcısı ol</span><span class="en">Open the test link and become a tester</span></h3>
-        <p><span class="tr">Listeye eklendiğini haber verdiğimizde, aşağıdan oyunun <b>Teste katıl</b> düğmesine dokun. Açılan sayfada aynı Gmail hesabıyla oturum açık olmalı; <b>Test kullanıcısı ol</b>'a dokun.</span><span class="en">Once we tell you you're on the list, tap the game's <b>Join the test</b> button below. Make sure you're signed in with the same Gmail account, then tap <b>Become a tester</b>.</span></p>
+        <p><span class="tr">Mail adresini eklememizden sonra sayfanın en altında linkler var, oraya git. Listeye eklendiğini haber verdiğimizde, aşağıdan oyunun <b>Teste katıl</b> düğmesine dokun. Açılan sayfada aynı Gmail hesabıyla oturum açık olmalı; <b>Test kullanıcısı ol</b>'a dokun.</span><span class="en">After we add your email, the links are at the very bottom of this page; go there. Once we tell you you're on the list, tap the game's <b>Join the test</b> button below. Make sure you're signed in with the same Gmail account, then tap <b>Become a tester</b>.</span></p>
       </div>
       <img class="shot shot-photo" src="{{ '/assets/img/test-android-optin.webp' | relative_url }}" width="760" height="718" alt="Google Play: Become a tester" loading="lazy">
     </li>
