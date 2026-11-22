@@ -416,3 +416,9 @@ html:not([data-platform="ios"]) .promo-set[data-for="ios"], html[data-platform="
 .doc .steps-notice p { margin: 0; color: var(--text); }
 .steps-notice b { color: #ffcf6b; }
 @keyframes notice-in { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: none; } }
+/* Game rows with a join button (/beta/, /test/): long names wrap inside, the button stays on the same line */
+.beta-games li { flex-wrap: nowrap; }
+.beta-games .dev-game { flex: 1 1 auto; min-width: 0; line-height: 1.25; }
+.beta-games .dev-game img { flex: none; }
+.beta-games .btn { flex: none; white-space: nowrap; }
+@media (max-width: 380px) { .beta-games li { padding: 12px; gap: 10px; } .beta-games .btn { padding-inline: 14px; } }
