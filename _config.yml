@@ -4,3 +4,9 @@ description: Games by MiroGames
 theme: jekyll-theme-minimal
 exclude:
   - CLAUDE.md
+# Google AdSense. Ads appear only where _includes/ad.html is placed, and only
+# once `slot` holds the ad unit's data-ad-slot number (AdSense > Ads > By ad unit).
+# While it is empty, a local build (jekyll build) shows a dashed placeholder instead.
+adsense:
+  client: ca-pub-1648548945212282
+  slot: "8620323986"

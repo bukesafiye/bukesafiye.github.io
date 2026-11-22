@@ -159,6 +159,8 @@ back_en: Home
 
 <p class="contact-line"><span class="tr">Takıldığın bir adım mı var? Yaz:</span><span class="en">Stuck on a step? Write to us:</span> <a href="mailto:bukesafiye@gmail.com">bukesafiye@gmail.com</a></p>
 
+{% include ad.html inline=true %}
+
 <script>
   (function () {
     var tabs = Array.prototype.slice.call(document.querySelectorAll('.test-tabs [role="tab"]'));

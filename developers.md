@@ -24,6 +24,9 @@ Our developer name on Google Play is **MiroGamesStudio**.
 
 <p class="contact-line"><span class="tr">İletişim ve destek:</span><span class="en">Contact and support:</span> <a href="mailto:bukesafiye@gmail.com">bukesafiye@gmail.com</a></p>
 
+<h2 id="ads"><span class="tr">Bu sitede reklamlar</span><span class="en">Ads on this site</span></h2>
+<p><span class="tr">Bu web sitesinde Google AdSense reklamları gösterilir. Google ve iş ortakları, reklamları senin bu ve diğer sitelere yaptığın ziyaretlere göre seçmek için çerez kullanabilir. Kişiselleştirilmiş reklamları <a href="https://adssettings.google.com" rel="noopener">Google Reklam Ayarları</a>'ndan kapatabilirsin; ayrıntılar <a href="https://policies.google.com/technologies/ads" rel="noopener">Google'ın reklam politikasında</a>. Bu yalnızca web sitesi için geçerli: oyunlarımızda reklam yok.</span><span class="en">This website shows Google AdSense ads. Google and its partners may use cookies to choose ads based on your visits to this and other sites. You can turn off personalised ads in <a href="https://adssettings.google.com" rel="noopener">Google Ad Settings</a>; details are in <a href="https://policies.google.com/technologies/ads" rel="noopener">Google's advertising policy</a>. This applies to the website only: our games have no ads.</span></p>
+
 <h2 id="privacy"><span class="tr">Oyunlar: gizlilik ve destek</span><span class="en">Games: privacy and support</span></h2>
 <p><span class="tr">Her oyunun kendi gizlilik politikası ve destek sayfası var. Mağazalarda da bu adresler kullanılır.</span><span class="en">Every game has its own privacy policy and support page. The stores use these same addresses.</span></p>
 <ul class="dev-games">

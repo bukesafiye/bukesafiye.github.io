@@ -422,3 +422,13 @@ html:not([data-platform="ios"]) .promo-set[data-for="ios"], html[data-platform="
 .beta-games .dev-game img { flex: none; }
 .beta-games .btn { flex: none; white-space: nowrap; }
 @media (max-width: 380px) { .beta-games li { padding: 12px; gap: 10px; } .beta-games .btn { padding-inline: 14px; } }
+
+/* Manually placed AdSense units (_includes/ad.html) */
+/* Until AdSense fills the unit (site not approved yet, no ad to show) the slot takes no space and shows no label. */
+.ad-slot { margin: 0 auto; text-align: center; }
+.ad-slot:has(ins[data-ad-status="filled"]), .ad-slot:has(.ad-placeholder) { margin: 40px auto; }
+.doc .ad-slot:has(ins[data-ad-status="filled"]), .doc .ad-slot:has(.ad-placeholder) { margin: 40px 0 0; }
+.ad-label { display: none; margin: 0 0 6px; font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.ad-slot:has(ins[data-ad-status="filled"]) .ad-label, .ad-slot:has(.ad-placeholder) .ad-label { display: block; }
+ins.adsbygoogle[data-ad-status="unfilled"] { display: none !important; }
+.ad-placeholder { display: grid; place-items: center; min-height: 120px; border: 2px dashed var(--line); border-radius: 12px; color: var(--muted); font-size: 13px; }

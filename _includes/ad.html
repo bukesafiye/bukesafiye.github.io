@@ -1,0 +1,17 @@
+{%- comment -%}
+  One manually placed AdSense unit (see `adsense` in _config.yml). Never put it next to
+  join / install / store buttons: accidental clicks break AdSense policy.
+  include.inline = true inside a text page (.doc), otherwise it gets its own section.
+{%- endcomment -%}
+{%- assign slot = site.adsense.slot | strip -%}
+{%- if slot != "" or jekyll.environment == "development" %}
+<div class="ad-slot{% unless include.inline %} wrap{% endunless %}">
+  <p class="ad-label"><span class="tr">Reklam</span><span class="en">Advertisement</span></p>
+  {%- if slot != "" %}
+  <ins class="adsbygoogle" style="display:block" data-ad-client="{{ site.adsense.client }}" data-ad-slot="{{ slot }}" data-ad-format="auto" data-full-width-responsive="true"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  {%- else %}
+  <div class="ad-placeholder">AdSense — slot</div>
+  {%- endif %}
+</div>
+{%- endif %}
