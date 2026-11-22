@@ -1,0 +1,15 @@
+{%- comment -%} One featured card on /test/. include.g = game, include.platform = android|ios, include.extra = shown only in the wide-screen gutters, include.live = public on Google Play (badge and button open the store page). {%- endcomment -%}
+{%- assign g = include.g -%}
+{%- if include.platform == "ios" %}{% assign href = g.testflight %}{% else %}{% assign pkg = g.play_test | default: g.google_play | split: 'id=' | last | split: '&' | first %}{% assign href = "https://play.google.com/apps/testing/" | append: pkg %}{% endif -%}
+{%- if include.live %}{% assign href = g.google_play %}{% endif -%}
+{%- assign page_url = '/Store/' | append: g.slug | append: '/' | relative_url -%}
+
+<div class="promo{% if include.extra %} promo-extra{% endif %}" style="--c: {{ g.color }}; --promo-bg: {{ g.card_bg | default: 'radial-gradient(60% 70% at 50% 45%, color-mix(in srgb, ' | append: g.color | append: ' 26%, transparent), transparent 75%), #0b1216' }}">
+  {% if include.live %}<span class="promo-badge is-live"><span class="dot"></span><span class="tr">Google Play'de</span><span class="en">On Google Play</span></span>{% else %}<span class="promo-badge"><span class="dot"></span><span class="tr">Şimdi testte</span><span class="en">Testing now</span></span>{% endif %}
+  {% if g.page == false %}<span class="promo-logo">{% else %}<a class="promo-logo" href="{{ page_url }}">{% endif %}
+    {%- if g.logo == nil %}<img class="promo-icon" src="{{ g.icon | relative_url }}" alt="{{ g.name.tr }}" loading="lazy"><span class="promo-name">{% if g.name.tr == g.name.en %}{{ g.name.tr }}{% else %}<span class="tr">{{ g.name.tr }}</span><span class="en">{{ g.name.en }}</span>{% endif %}</span>
+    {%- elsif g.logo.tr == g.logo.en %}<img src="{{ g.logo.tr | relative_url }}" alt="{{ g.name.tr }}" loading="lazy">{% else %}<img class="tr" src="{{ g.logo.tr | relative_url }}" alt="{{ g.name.tr }}" loading="lazy"><img class="en" src="{{ g.logo.en | relative_url }}" alt="{{ g.name.en }}" loading="lazy">{% endif -%}
+  {% if g.page == false %}</span>{% else %}</a>{% endif %}
+  {% if g.tagline %}<p class="promo-tag"><span class="tr">{{ g.tagline.tr }}</span><span class="en">{{ g.tagline.en }}</span></p>{% endif %}
+  <a class="btn primary promo-btn" href="{{ href }}" rel="noopener">{% if include.live %}<span class="tr">Google Play'de aç</span><span class="en">Open on Google Play</span>{% else %}<span class="tr">Teste katıl</span><span class="en">Join the test</span> <small>{% if include.platform == "ios" %}iOS{% else %}Android{% endif %}</small>{% endif %}</a>
+</div>

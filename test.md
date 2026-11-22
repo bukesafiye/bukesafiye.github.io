@@ -10,6 +10,32 @@ back_en: Home
 <h1><span class="tr">Test rehberi</span><span class="en">Testing guide</span></h1>
 <p><span class="tr">Oyunlarımızı mağazaya çıkmadan önce dene ve bize yardım et. Telefonunu seç, adımları sırayla izle.</span><span class="en">Try our games before they reach the stores and help us make them better. Pick your phone and follow the steps.</span></p>
 
+{%- comment -%} Featured tests: per platform, a left and a right column. iOS: every TestFlight game in beta order, 1st on the right, 2nd on the left, then alternating; wide screens show them all in the page gutters, narrower screens only the first three above the tabs. {%- endcomment %}
+<aside class="test-promos" aria-label="Öne çıkan testler / Featured tests">
+  <div class="promo-set" data-for="android">
+    {%- assign and_pool = site.data.games | concat: site.data.apps | concat: site.data.test_only | sort: "beta", "last" %}
+    <div class="promo-col promo-left">
+      <p class="promo-col-title"><span class="tr">Testte</span><span class="en">In testing</span></p>
+      {%- assign n = 0 %}
+      {%- for g in and_pool %}{% if g.play_test %}{% assign n = n | plus: 1 %}{% if n > 2 %}{% include test-promo.html g=g platform="android" extra=true %}{% else %}{% include test-promo.html g=g platform="android" %}{% endif %}{% endif %}{% endfor %}
+    </div>
+    <div class="promo-col promo-right">
+      <p class="promo-col-title"><span class="tr">Google Play'de yayında</span><span class="en">Live on Google Play</span></p>
+      {%- assign n = 0 %}
+      {%- for g in and_pool %}{% if g.google_play %}{% assign n = n | plus: 1 %}{% if n > 2 %}{% include test-promo.html g=g platform="android" live=true extra=true %}{% else %}{% include test-promo.html g=g platform="android" live=true %}{% endif %}{% endif %}{% endfor %}
+    </div>
+  </div>
+  <div class="promo-set" data-for="ios">
+    {%- assign tf = site.data.games | where_exp: "g", "g.testflight" | sort: "beta" %}
+    <div class="promo-col promo-left">
+      {%- for g in tf %}{% assign m = forloop.index | modulo: 2 %}{% if m == 0 %}{% if forloop.index > 3 %}{% include test-promo.html g=g platform="ios" extra=true %}{% else %}{% include test-promo.html g=g platform="ios" %}{% endif %}{% endif %}{% endfor %}
+    </div>
+    <div class="promo-col promo-right">
+      {%- for g in tf %}{% assign m = forloop.index | modulo: 2 %}{% if m == 1 %}{% if forloop.index > 3 %}{% include test-promo.html g=g platform="ios" extra=true %}{% else %}{% include test-promo.html g=g platform="ios" %}{% endif %}{% endif %}{% endfor %}
+    </div>
+  </div>
+</aside>
+
 <div class="test-tabs" role="tablist" aria-label="Platform">
   <button type="button" role="tab" id="tab-ios" aria-controls="panel-ios" aria-selected="true" data-tab="ios">
     <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M16.4 12.6c0-2.5 2-3.7 2.1-3.8-1.2-1.7-3-1.9-3.6-2-1.5-.2-3 .9-3.7.9-.8 0-2-.9-3.2-.9-1.7 0-3.2 1-4 2.4-1.7 3-.4 7.4 1.2 9.8.8 1.2 1.8 2.5 3 2.4 1.2 0 1.7-.8 3.1-.8 1.5 0 1.9.8 3.2.8s2.1-1.2 2.9-2.4c.9-1.4 1.3-2.7 1.3-2.8 0 0-2.4-1-2.4-3.6zM14 5.3c.7-.8 1.1-1.9 1-3-1 0-2.1.7-2.8 1.5-.6.7-1.2 1.8-1 2.9 1 .1 2.1-.6 2.8-1.4z"/></svg>
@@ -136,6 +162,7 @@ back_en: Home
         document.getElementById(t.getAttribute('aria-controls')).hidden = !on;
         if (on && focus) t.focus();
       });
+      document.documentElement.setAttribute('data-platform', name);
     }
     tabs.forEach(function (t, i) {
       t.addEventListener('click', function () {
@@ -154,5 +181,21 @@ back_en: Home
     var start = location.hash.slice(1);
     if (start !== 'ios' && start !== 'android') start = /android/i.test(navigator.userAgent) ? 'android' : 'ios';
     show(start);
+    // Gutter columns are absolutely positioned: keep the footer below the tallest one.
+    var doc = document.querySelector('article.doc');
+    function fit() {
+      if (!doc) return;
+      doc.style.minHeight = '';
+      var bottom = 0;
+      document.querySelectorAll('.promo-col').forEach(function (c) {
+        if (getComputedStyle(c).position === 'absolute' && c.offsetParent) bottom = Math.max(bottom, c.getBoundingClientRect().bottom + scrollY);
+      });
+      var top = doc.getBoundingClientRect().top + scrollY;
+      if (bottom > top + doc.offsetHeight) doc.style.minHeight = (bottom - top + 40) + 'px';
+    }
+    window.addEventListener('load', fit);
+    window.addEventListener('resize', fit);
+    tabs.forEach(function (t) { t.addEventListener('click', fit); });
+    fit();
   })();
 </script>
