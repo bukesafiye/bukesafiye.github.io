@@ -1,8 +1,55 @@
-{%- comment -%} Google Analytics 4. One copy for every Jekyll layout; the static Dedektif Bros file-room pages carry the same snippet inline. {%- endcomment -%}
+{%- comment -%}
+Google Analytics 4. One copy for every Jekyll layout; the static Dedektif Bros file-room pages carry
+the page-view snippet inline (no click tracking there).
+Every link click sends an event: test_link_click on /test/, link_click everywhere else, with
+link_type (what the link is), link_area (where on the page), game (slug), platform (the /test/ tab),
+link_url and link_text. These params are registered as custom dimensions in GA (Admin > Custom definitions).
+{%- endcomment -%}
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-PBZ9MYG2RH"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'G-PBZ9MYG2RH');
+  </script>
+  <script>
+    (function () {
+      function slugOf(path) { var m = /^\/Store\/([^/]+)\//.exec(path || ''); return m ? m[1] : ''; }
+      function track(e) {
+        var a = e.target.closest && e.target.closest('a[href]');
+        if (!a || typeof gtag !== 'function' || (e.type === 'auxclick' && e.button !== 1)) return;
+        var href = a.getAttribute('href'), url = a.href, local = a.host === location.host;
+        var type = a.hasAttribute('data-goto-steps') ? 'promo_join'
+          : /testflight\.apple\.com/.test(url) ? 'testflight_join'
+          : /apps\.apple\.com\/app\/testflight/.test(url) ? 'testflight_app'
+          : /play\.google\.com\/apps\/testing/.test(url) ? 'play_test_join'
+          : /play\.google\.com\/store/.test(url) ? 'google_play'
+          : /apps\.apple\.com/.test(url) ? 'app_store'
+          : /^mailto:/.test(href) ? 'email'
+          : !local ? 'outbound'
+          : /\/indir\/$/.test(a.pathname) ? 'store_redirect'
+          : /\/privacy\.html$/.test(a.pathname) ? 'privacy'
+          : /\/support\.html$/.test(a.pathname) ? 'support'
+          : /^\/Store\/[^/]+\/$/.test(a.pathname) ? 'game_page'
+          : a.pathname === location.pathname && a.hash ? 'anchor'
+          : 'internal';
+        var area = a.closest('.dropdown-menu, [data-dropdown]') ? 'menu'
+          : a.closest('.site-header') ? 'header' : a.closest('.site-footer') ? 'footer'
+          : a.closest('.test-promos') ? 'promo' : a.closest('.test-steps') ? 'steps'
+          : a.closest('.dev-games') ? 'list' : a.closest('.game-card') ? 'card'
+          : a.closest('.game-hero') || (a.closest('.hero-actions') && slugOf(location.pathname)) ? 'game_hero' : a.closest('.hero') ? 'hero' : a.closest('.back-link') ? 'back' : 'page';
+        var holder = a.closest('[data-slug]'), row = a.closest('li, .game-card');
+        var rowGame = row && row.querySelector('a[href^="/Store/"]');
+        var game = (holder && holder.getAttribute('data-slug')) || (rowGame && slugOf(rowGame.getAttribute('href'))) || (local && slugOf(a.pathname)) || slugOf(location.pathname);
+        var onTest = location.pathname.replace(/index\.html$/, '') === '/test/';
+        gtag('event', onTest ? 'test_link_click' : 'link_click', {
+          link_type: type, link_area: area, game: game,
+          platform: document.documentElement.getAttribute('data-platform') || '',
+          link_url: url, link_text: (a.innerText || a.textContent || '').replace(/\s+/g, ' ').trim().slice(0, 100),
+          transport_type: 'beacon'
+        });
+      }
+      document.addEventListener('click', track, true);
+      document.addEventListener('auxclick', track, true);
+    })();
   </script>

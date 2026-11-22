@@ -207,34 +207,6 @@ back_en: Home
         notice.scrollIntoView({ behavior: 'smooth', block: 'start' });
       });
     });
-    // Analytics: every link on this page (and the promo "Join the test" buttons) sends test_link_click
-    // with what kind of link it is, which game, which platform tab and where on the page it sits.
-    function track(e) {
-      var a = e.target.closest && e.target.closest('a[href]');
-      if (!a || typeof gtag !== 'function' || (e.type === 'auxclick' && e.button !== 1)) return;
-      var href = a.getAttribute('href'), url = a.href;
-      var type = a.hasAttribute('data-goto-steps') ? 'promo_join'
-        : /testflight\.apple\.com/.test(url) ? 'testflight_join'
-        : /apps\.apple\.com\/app\/testflight/.test(url) ? 'testflight_app'
-        : /play\.google\.com\/apps\/testing/.test(url) ? 'play_test_join'
-        : /play\.google\.com\/store/.test(url) ? 'google_play'
-        : /apps\.apple\.com/.test(url) ? 'app_store'
-        : /^mailto:/.test(href) ? 'email'
-        : /\/Store\/[^/]+\/?$/.test(a.pathname) && a.host === location.host ? 'game_page'
-        : a.host === location.host ? 'internal' : 'outbound';
-      var area = a.closest('.site-header') ? 'header' : a.closest('footer') ? 'footer'
-        : a.closest('.test-promos') ? 'promo' : a.closest('.test-steps') ? 'steps'
-        : a.closest('.dev-games') ? 'list' : 'page';
-      var holder = a.closest('[data-slug]');
-      gtag('event', 'test_link_click', {
-        link_type: type, link_area: area, game: holder ? holder.getAttribute('data-slug') : '',
-        platform: document.documentElement.getAttribute('data-platform') || '',
-        link_url: url, link_text: (a.innerText || a.textContent || '').replace(/\s+/g, ' ').trim().slice(0, 100),
-        transport_type: 'beacon'
-      });
-    }
-    document.addEventListener('click', track, true);
-    document.addEventListener('auxclick', track, true);
     // Gutter columns are absolutely positioned: keep the footer below the tallest one.
     var doc = document.querySelector('article.doc');
     function fit() {
