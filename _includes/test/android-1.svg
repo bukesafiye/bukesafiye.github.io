@@ -1,0 +1,31 @@
+<svg class="shot" viewBox="0 0 180 340" width="150" height="283" aria-hidden="true" focusable="false" font-family="Inter, system-ui, sans-serif">
+  <rect x="2" y="2" width="176" height="336" rx="24" fill="#1b2328" stroke="#33414a" stroke-width="2"/>
+  <rect x="10" y="10" width="160" height="320" rx="17" fill="#f6f8f9"/>
+  <circle cx="90" cy="20" r="3.5" fill="#1b2328"/>
+  <rect x="10" y="30" width="160" height="30" fill="#eef1f3"/>
+  <text class="tr" x="22" y="49" font-size="10" fill="#202124" font-weight="700" text-anchor="start">Yeni e-posta</text>
+  <text class="en" x="22" y="49" font-size="10" fill="#202124" font-weight="700" text-anchor="start">New email</text>
+  <path d="M146 40l14 5-14 5 3-5z" fill="#0b57d0"/>
+  <text class="tr" x="22" y="78" font-size="7" fill="#5f6368" font-weight="400" text-anchor="start">Kime</text>
+  <text class="en" x="22" y="78" font-size="7" fill="#5f6368" font-weight="400" text-anchor="start">To</text>
+  <text x="22" y="90" font-size="8.5" fill="#202124" font-weight="400" text-anchor="start">bukesafiye@gmail.com</text>
+  <rect x="22" y="97" width="136" height="1" fill="#dadce0"/>
+  <text class="tr" x="22" y="112" font-size="7" fill="#5f6368" font-weight="400" text-anchor="start">Konu</text>
+  <text class="en" x="22" y="112" font-size="7" fill="#5f6368" font-weight="400" text-anchor="start">Subject</text>
+  <text x="22" y="124" font-size="8.5" fill="#202124" font-weight="400" text-anchor="start">Android test</text>
+  <rect x="22" y="131" width="136" height="1" fill="#dadce0"/>
+  <rect x="20" y="144" width="140" height="40" rx="8" fill="#e6f4ea" stroke="#34a853"/>
+  <text class="tr" x="30" y="159" font-size="7.5" fill="#137333" font-weight="400" text-anchor="start">Gmail adresim:</text>
+  <text class="en" x="30" y="159" font-size="7.5" fill="#137333" font-weight="400" text-anchor="start">My Gmail:</text>
+  <text class="tr" x="30" y="174" font-size="9" fill="#137333" font-weight="700" text-anchor="start">ornek@gmail.com</text>
+  <text class="en" x="30" y="174" font-size="9" fill="#137333" font-weight="700" text-anchor="start">you@gmail.com</text>
+  <rect x="22" y="200" width="136" height="4" rx="2" fill="#dadce0"/>
+  <rect x="22" y="210" width="120" height="4" rx="2" fill="#dadce0"/>
+  <rect x="22" y="220" width="128" height="4" rx="2" fill="#dadce0"/>
+  <rect x="22" y="230" width="90" height="4" rx="2" fill="#dadce0"/>
+  <rect x="100" y="286" width="58" height="26" rx="13" fill="#0b57d0"/>
+  <text class="tr" x="129" y="303" font-size="9" fill="#fff" font-weight="700" text-anchor="middle">Gönder</text>
+  <text class="en" x="129" y="303" font-size="9" fill="#fff" font-weight="700" text-anchor="middle">Send</text>
+  <circle cx="146" cy="299" r="13" fill="#2fd6c9" opacity=".35"/>
+  <circle cx="146" cy="299" r="5" fill="#2fd6c9"/>
+</svg>

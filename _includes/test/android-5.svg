@@ -1,0 +1,32 @@
+<svg class="shot" viewBox="0 0 180 340" width="150" height="283" aria-hidden="true" focusable="false" font-family="Inter, system-ui, sans-serif">
+  <rect x="2" y="2" width="176" height="336" rx="24" fill="#1b2328" stroke="#33414a" stroke-width="2"/>
+  <rect x="10" y="10" width="160" height="320" rx="17" fill="#f6f8f9"/>
+  <circle cx="90" cy="20" r="3.5" fill="#1b2328"/>
+  <defs><linearGradient id="g5" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2fd6c9"/><stop offset="1" stop-color="#7a5cff"/></linearGradient></defs>
+  <rect x="22" y="34" width="26" height="26" rx="7" fill="url(#g5)"/>
+  <text class="tr" x="56" y="46" font-size="9" fill="#202124" font-weight="700" text-anchor="start">Oyunun adı</text>
+  <text class="en" x="56" y="46" font-size="9" fill="#202124" font-weight="700" text-anchor="start">Game name</text>
+  <text x="56" y="58" font-size="7" fill="#01875f" font-weight="600" text-anchor="start">MiroGamesStudio</text>
+  <rect x="22" y="72" width="136" height="1" fill="#dadce0"/>
+  <text class="tr" x="22" y="92" font-size="9" fill="#202124" font-weight="700" text-anchor="start">Geliştiriciye özel</text>
+  <text class="en" x="22" y="92" font-size="9" fill="#202124" font-weight="700" text-anchor="start">Private feedback</text>
+  <text class="tr" x="22" y="104" font-size="9" fill="#202124" font-weight="700" text-anchor="start">geri bildirim</text>
+  <text class="en" x="22" y="104" font-size="9" fill="#202124" font-weight="700" text-anchor="start">to the developer</text>
+  <rect x="22" y="116" width="136" height="76" rx="8" fill="#fff" stroke="#9aa0a6"/>
+  <text class="tr" x="30" y="134" font-size="7.5" fill="#202124" font-weight="400" text-anchor="start">3. bölümde bir düğme</text>
+  <text class="en" x="30" y="134" font-size="7.5" fill="#202124" font-weight="400" text-anchor="start">A button is off the</text>
+  <text class="tr" x="30" y="145" font-size="7.5" fill="#202124" font-weight="400" text-anchor="start">ekrandan taşıyor.</text>
+  <text class="en" x="30" y="145" font-size="7.5" fill="#202124" font-weight="400" text-anchor="start">screen on level 3.</text>
+  <rect x="94" y="138" width="1" height="10" fill="#0b57d0"/>
+  <rect x="100" y="202" width="58" height="26" rx="13" fill="#0b57d0"/>
+  <text class="tr" x="129" y="219" font-size="9" fill="#fff" font-weight="700" text-anchor="middle">Gönder</text>
+  <text class="en" x="129" y="219" font-size="9" fill="#fff" font-weight="700" text-anchor="middle">Submit</text>
+  <circle cx="146" cy="215" r="13" fill="#2fd6c9" opacity=".35"/>
+  <circle cx="146" cy="215" r="5" fill="#2fd6c9"/>
+  <rect x="22" y="246" width="136" height="1" fill="#dadce0"/>
+  <rect x="22" y="262" width="22" height="16" rx="3" fill="none" stroke="#5f6368" stroke-width="1.4"/><path d="M23 263l10 8 10-8" fill="none" stroke="#5f6368" stroke-width="1.4"/>
+  <text class="tr" x="52" y="270" font-size="7.5" fill="#5f6368" font-weight="400" text-anchor="start">ya da ekran görüntüsünü</text>
+  <text class="en" x="52" y="270" font-size="7.5" fill="#5f6368" font-weight="400" text-anchor="start">or email a screenshot</text>
+  <text class="tr" x="52" y="281" font-size="7.5" fill="#5f6368" font-weight="400" text-anchor="start">e-postayla gönder</text>
+  <text class="en" x="52" y="281" font-size="7.5" fill="#5f6368" font-weight="400" text-anchor="start">to us</text>
+</svg>

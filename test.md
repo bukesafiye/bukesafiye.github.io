@@ -61,26 +61,37 @@ back_en: Home
 
 <section class="test-panel" role="tabpanel" id="panel-android" aria-labelledby="tab-android" hidden>
   <ol class="test-steps">
-    <li>
-      <h3><span class="tr">Gmail adresini bize gönder</span><span class="en">Send us your Gmail address</span></h3>
-      <p><span class="tr">Google Play kapalı testine yalnızca listeye eklenen hesaplar girebilir. Telefonunda Play Store'da kullandığın <b>Gmail adresini</b> bize yaz; seni test listesine ekleyelim.</span><span class="en">Only accounts on our list can join a Google Play closed test. Send us the <b>Gmail address</b> you use in the Play Store on your phone and we'll add you to the testers list.</span></p>
-      <a class="btn" href="mailto:bukesafiye@gmail.com?subject=Android%20test"><span class="tr">E-posta gönder</span><span class="en">Send email</span></a>
+    <li class="has-shot">
+      <div class="step-text">
+        <h3><span class="tr">Gmail adresini bize gönder</span><span class="en">Send us your Gmail address</span></h3>
+        <p><span class="tr">Google Play kapalı testine yalnızca listeye eklenen hesaplar girebilir. Telefonunda Play Store'da kullandığın <b>Gmail adresini</b> bize yaz; seni test listesine ekleyelim.</span><span class="en">Only accounts on our list can join a Google Play closed test. Send us the <b>Gmail address</b> you use in the Play Store on your phone and we'll add you to the testers list.</span></p>
+        <a class="btn" href="mailto:bukesafiye@gmail.com?subject=Android%20test"><span class="tr">E-posta gönder</span><span class="en">Send email</span></a>
+      </div>
+      {% include test/android-1.svg %}
     </li>
-    <li>
-      <h3><span class="tr">Test linkini aç ve test kullanıcısı ol</span><span class="en">Open the test link and become a tester</span></h3>
-      <p><span class="tr">Listeye eklendiğini haber verdiğimizde, aşağıdan oyunun <b>Teste katıl</b> düğmesine dokun. Açılan sayfada aynı Gmail hesabıyla oturum açık olmalı; <b>Test kullanıcısı ol</b>'a dokun.</span><span class="en">Once we tell you you're on the list, tap the game's <b>Join the test</b> button below. Make sure you're signed in with the same Gmail account, then tap <b>Become a tester</b>.</span></p>
+    <li class="has-shot">
+      <div class="step-text">
+        <h3><span class="tr">Test linkini aç ve test kullanıcısı ol</span><span class="en">Open the test link and become a tester</span></h3>
+        <p><span class="tr">Listeye eklendiğini haber verdiğimizde, aşağıdan oyunun <b>Teste katıl</b> düğmesine dokun. Açılan sayfada aynı Gmail hesabıyla oturum açık olmalı; <b>Test kullanıcısı ol</b>'a dokun.</span><span class="en">Once we tell you you're on the list, tap the game's <b>Join the test</b> button below. Make sure you're signed in with the same Gmail account, then tap <b>Become a tester</b>.</span></p>
+      </div>
+      <img class="shot shot-photo" src="{{ '/assets/img/test-android-optin.webp' | relative_url }}" width="760" height="718" alt="Google Play: Become a tester" loading="lazy">
     </li>
-    <li>
-      <h3><span class="tr">Google Play'den yükle</span><span class="en">Install from Google Play</span></h3>
-      <p><span class="tr">Aynı sayfadaki <b>Google Play'den indir</b> linkine dokun ve oyunu her zamanki gibi yükle. Oyunun sayfasında "test sürümü" yazar. Mağaza sayfası birkaç dakika içinde açılmazsa biraz bekleyip tekrar dene.</span><span class="en">Tap <b>Download it on Google Play</b> on the same page and install the game as usual. Its store page will say you're a tester. If the page doesn't open yet, wait a few minutes and try again.</span></p>
+    <li class="has-shot">
+      <div class="step-text">
+        <h3><span class="tr">Google Play'den yükle</span><span class="en">Install from Google Play</span></h3>
+        <p><span class="tr">Aynı sayfadaki <b>Google Play'den indir</b> linkine dokun ve oyunu her zamanki gibi yükle. Oyunun sayfasında "test sürümü" yazar. Mağaza sayfası birkaç dakika içinde açılmazsa biraz bekleyip tekrar dene.</span><span class="en">Tap <b>Download it on Google Play</b> on the same page and install the game as usual. Its store page will say you're a tester. If the page doesn't open yet, wait a few minutes and try again.</span></p>
+      </div>
+      <div class="shot-stack">
+        <img class="shot-photo" src="{{ '/assets/img/test-android-download.webp' | relative_url }}" width="760" height="609" alt="Google Play: download it on Google Play" loading="lazy">
+        <img class="shot-photo" src="{{ '/assets/img/test-android-install.webp' | relative_url }}" width="600" height="555" alt="Google Play: Install" loading="lazy">
+      </div>
     </li>
-    <li>
-      <h3><span class="tr">14 gün yüklü tut, sık sık oyna</span><span class="en">Keep it for 14 days and play often</span></h3>
-      <p><span class="tr">Google, oyunu herkese açmamız için test kullanıcılarının oyunu <b>en az 14 gün</b> kesintisiz yüklü tutmasını istiyor. Lütfen bu sürede silme ve mümkünse her gün kısa bir süre aç.</span><span class="en">Google asks testers to keep the game installed for <b>at least 14 days</b> in a row before we can release it to everyone. Please don't uninstall it during that time and open it briefly every day if you can.</span></p>
-    </li>
-    <li>
-      <h3><span class="tr">Geri bildirim gönder</span><span class="en">Send feedback</span></h3>
-      <p><span class="tr">Oyunun Play Store sayfasındaki <b>Geliştiriciye özel geri bildirim</b> alanına yazabilir ya da hataları ekran görüntüsüyle e-postayla gönderebilirsin. Güncellemeler Play Store üzerinden kendiliğinden gelir.</span><span class="en">Write in the <b>Private feedback to the developer</b> box on the game's Play Store page, or email us bugs with a screenshot. Updates arrive through the Play Store as usual.</span></p>
+    <li class="has-shot">
+      <div class="step-text">
+        <h3><span class="tr">Geri bildirim gönder</span><span class="en">Send feedback</span></h3>
+        <p><span class="tr">Oyunun Play Store sayfasındaki <b>Geliştiriciye özel geri bildirim</b> alanına yazabilir ya da hataları ekran görüntüsüyle e-postayla gönderebilirsin. Güncellemeler Play Store üzerinden kendiliğinden gelir.</span><span class="en">Write in the <b>Private feedback to the developer</b> box on the game's Play Store page, or email us bugs with a screenshot. Updates arrive through the Play Store as usual.</span></p>
+      </div>
+      {% include test/android-5.svg %}
     </li>
   </ol>
 

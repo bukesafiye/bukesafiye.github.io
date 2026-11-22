@@ -355,3 +355,14 @@ h1, h2, h3 { font-family: var(--display); line-height: 1.15; margin: 0 0 .5em; l
   .test-steps li { padding: 16px 16px 16px 58px; }
   .test-steps li::before { left: 14px; top: 16px; width: 30px; height: 30px; font-size: 15px; }
 }
+.test-steps li.has-shot { display: grid; grid-template-columns: 1fr auto; gap: 20px; align-items: start; }
+.test-steps .shot { width: 150px; height: auto; display: block; filter: drop-shadow(0 10px 24px rgba(0, 0, 0, .35)); }
+@media (max-width: 600px) {
+  .test-steps li.has-shot { grid-template-columns: 1fr; }
+  .test-steps .shot { justify-self: center; width: 160px; }
+}
+.test-steps .shot-photo { width: 260px; border-radius: 12px; border: 1px solid var(--line); filter: none; }
+@media (max-width: 600px) { .test-steps .shot-photo { width: 100%; max-width: 380px; } }
+.test-steps .shot-stack { display: grid; gap: 10px; width: 260px; }
+.test-steps .shot-stack .shot-photo { width: 100%; height: auto; display: block; border-radius: 12px; border: 1px solid var(--line); }
+@media (max-width: 600px) { .test-steps .shot-stack { width: 100%; max-width: 380px; justify-self: center; } }
