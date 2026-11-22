@@ -15,6 +15,7 @@ GitHub Pages can't redirect on the server, so the script below does it.
   <meta name="robots" content="noindex">
   <title>{{ g.name.tr }} · MiroGames</title>
   <link rel="canonical" href="{{ home }}">
+{% include analytics.html %}
   <script>
     (function () {
       var apple = {{ g.app_store | default: '' | jsonify }};
@@ -24,7 +25,12 @@ GitHub Pages can't redirect on the server, so the script below does it.
       var ios = /iPhone|iPad|iPod/.test(ua) || (/Macintosh/.test(ua) && navigator.maxTouchPoints > 1);
       var android = /Android/i.test(ua);
       var target = (ios && apple) || (android && play) || {{ home | jsonify }};
-      location.replace(target);
+      // Count the scan/click (game + where it went) before leaving; go anyway after 800 ms.
+      var store = target === apple ? 'app_store' : target === play ? 'google_play' : 'game_page';
+      var gone = false;
+      function go() { if (!gone) { gone = true; location.replace(target); } }
+      gtag('event', 'store_redirect', { game: {{ g.slug | jsonify }}, store: store, transport_type: 'beacon', event_callback: go });
+      setTimeout(go, 800);
       var lang = (navigator.language || 'tr').toLowerCase().indexOf('tr') === 0 ? 'tr' : 'en';
       document.documentElement.setAttribute('data-lang', lang);
       document.documentElement.lang = lang;
