@@ -11,6 +11,8 @@
 # card_bg   optional background behind the logo on the home card
 # google_play / app_store  store URLs once the game is live: they replace the
 #           "coming soon" button on its page with store buttons and QR codes
+# play_test Android package while the game is only in Google Play closed testing
+#           (not public yet): listed under "in testing" on /test/
 - slug: ghostshift
   name: { tr: "Hayalet Vardiya", en: "GhostShift" }
   tagline: { tr: "Gece vardiyası korku bulmacası", en: "Night-shift horror puzzle" }
@@ -66,6 +68,7 @@
   theme: { glow: "rgba(150, 100, 230, .28)" }
   icon: /assets/img/alchemyshop-potion.png
   testflight: https://testflight.apple.com/join/1Yh37113
+  play_test: com.mirogames.simyacininDukkani
   beta: 9
   logo: { tr: /assets/img/alchemyshop-logo.webp, en: /assets/img/alchemyshop-logo-en.webp }
 
@@ -107,6 +110,7 @@
   card_bg: "radial-gradient(60% 70% at 50% 45%, rgba(70, 150, 255, .32), transparent 75%), #0a1226"
   icon: /assets/img/dedektifbros-icon.png
   testflight: https://testflight.apple.com/join/StEhQSc7
+  play_test: com.mirogames.dedektifbros
   beta: 6
   logo: { tr: /assets/img/dedektifbros-logo.webp, en: /assets/img/dedektifbros-logo.webp }
 
@@ -193,4 +197,5 @@
   icon: /assets/img/mahallepatronu-icon.png
   logo: { tr: /assets/img/mahallepatronu-logo-tr.webp, en: /assets/img/mahallepatronu-logo-en.webp }
   testflight: https://testflight.apple.com/join/9nTwMHXt
+  play_test: com.mirogames.mahallepatronu
   beta: 2

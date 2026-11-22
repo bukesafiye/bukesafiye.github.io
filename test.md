@@ -95,15 +95,29 @@ back_en: Home
     </li>
   </ol>
 
-  <h2><span class="tr">Google Play testindeki oyunlar</span><span class="en">Games in Google Play testing</span></h2>
+  <h2><span class="tr">Testteki oyunlar</span><span class="en">Games in testing</span></h2>
+  <p><span class="tr">Henüz herkese açık değil; yukarıdaki adımlarla teste katılabilirsin.</span><span class="en">Not public yet; join the test with the steps above.</span></p>
   <ul class="dev-games beta-games">
-    {%- assign play_games = site.data.games | where_exp: "g", "g.google_play" | sort: "beta" %}
-    {%- for g in play_games %}
+    {%- assign test_pool = site.data.games | concat: site.data.apps | concat: site.data.test_only %}
+    {%- assign test_games = test_pool | where_exp: "g", "g.play_test" | sort: "beta", "last" %}
+    {%- for g in test_games %}
     {%- assign url = '/Store/' | append: g.slug | append: '/' %}
-    {%- assign pkg = g.google_play | split: 'id=' | last | split: '&' | first %}
+    <li style="--c: {{ g.color }}">
+      {% if g.page == false %}<span class="dev-game"><img src="{{ g.icon | relative_url }}" alt="" width="40" height="40" loading="lazy">{% if g.name.tr == g.name.en %}{{ g.name.tr }}{% else %}<span class="tr">{{ g.name.tr }}</span><span class="en">{{ g.name.en }}</span>{% endif %}</span>{% else %}<a class="dev-game" href="{{ url | relative_url }}"><img src="{{ g.icon | relative_url }}" alt="" width="40" height="40" loading="lazy">{% if g.name.tr == g.name.en %}{{ g.name.tr }}{% else %}<span class="tr">{{ g.name.tr }}</span><span class="en">{{ g.name.en }}</span>{% endif %}</a>{% endif %}
+      <a class="btn" href="https://play.google.com/apps/testing/{{ g.play_test }}" rel="noopener"><span class="tr">Teste katıl</span><span class="en">Join the test</span></a>
+    </li>
+    {%- endfor %}
+  </ul>
+
+  <h2><span class="tr">Google Play'de yayında</span><span class="en">Live on Google Play</span></h2>
+  <p><span class="tr">Bu oyunlar herkese açık; test listesine girmeden doğrudan indirebilirsin.</span><span class="en">These games are public; download them straight away, no tester list needed.</span></p>
+  <ul class="dev-games beta-games">
+    {%- assign live_games = site.data.games | where_exp: "g", "g.google_play" | sort: "beta" %}
+    {%- for g in live_games %}
+    {%- assign url = '/Store/' | append: g.slug | append: '/' %}
     <li style="--c: {{ g.color }}">
       <a class="dev-game" href="{{ url | relative_url }}"><img src="{{ g.icon | relative_url }}" alt="" width="40" height="40" loading="lazy">{% if g.name.tr == g.name.en %}{{ g.name.tr }}{% else %}<span class="tr">{{ g.name.tr }}</span><span class="en">{{ g.name.en }}</span>{% endif %}</a>
-      <a class="btn" href="https://play.google.com/apps/testing/{{ pkg }}" rel="noopener"><span class="tr">Teste katıl</span><span class="en">Join the test</span></a>
+      <a class="btn" href="{{ g.google_play }}" rel="noopener"><span class="tr">Google Play'de aç</span><span class="en">Open on Google Play</span></a>
     </li>
     {%- endfor %}
   </ul>

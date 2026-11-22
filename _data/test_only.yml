@@ -1,0 +1,9 @@
+# Games in Google Play closed testing that have no page on the site yet.
+# Listed only under "in testing" on /test/ (no link). Once the game gets its
+# own entry in games.yml (with play_test), remove it from here.
+- slug: dottwar
+  name: { tr: "Nokta Savaşı", en: "Dot War" }
+  color: "#f2b632"
+  icon: /assets/img/dottwar-icon.png
+  play_test: com.mirogames.dottwar
+  page: false
