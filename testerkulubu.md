@@ -94,6 +94,11 @@ o dosyadaki tk_ayar / tk_rozet ile aynı olmalı.
   .tk-mail-kod li::before { content: counter(m); min-width: 1.6em; text-align: right; color: var(--muted, #8a9399); font-variant-numeric: tabular-nums; }
   .tk-mail-eski { opacity: .7; }
   .tk-form-ac { display: none; }
+  .tk-katla { all: unset; cursor: pointer; display: inline-flex; align-items: center; gap: 10px; font: inherit; color: inherit; }
+  .tk-katla:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; border-radius: 6px; }
+  .tk-katla .tk-ok { flex-shrink: 0; padding: 4px; width: 30px; height: 30px; border-radius: 50%; border: 1px solid var(--line); color: var(--muted); transition: transform .2s ease, color .2s; transform: rotate(180deg); }
+  .tk-katla:hover .tk-ok { color: var(--accent); border-color: var(--accent); }
+  #basvur.tk-kapali .tk-katla .tk-ok { transform: rotate(0deg); }
   #basvur.tk-kapali .tk-form-ac { display: inline-flex; }
   #basvur.tk-kapali > form, #basvur.tk-kapali > p.muted { display: none; }
   .tk-uyg-alt { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--line); }
@@ -211,7 +216,7 @@ o dosyadaki tk_ayar / tk_rozet ile aynı olmalı.
 </section>
 
 <section class="tk-section tk-kapali" id="basvur">
-  <h2><span class="tr">Uygulamanı ekle</span><span class="en">Add your app</span></h2>
+  <h2 class="tk-katla-bas"><button type="button" class="tk-katla" id="tkKatla" aria-controls="tkBasvuru" aria-expanded="false"><span class="tr">Uygulamanı ekle</span><span class="en">Add your app</span><svg class="tk-ok" width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button></h2>
   <p class="muted"><span class="tr">Formu doldur, ekip onaylayınca listeye girer. Mail adresin ve şifren hesabın olur: sonra aynı bilgilerle girip başvuranların mail adreslerini görürsün. İlk 3 uygulaman için kredi gerekmez.</span><span class="en">Fill in the form; it goes live once approved. Your email and password become your account: sign in later to see applicants' email addresses. Your first 3 apps need no credits.</span></p>
   <button type="button" class="btn tk-form-ac" id="tkFormAc"><span class="tr">Formu aç</span><span class="en">Open the form</span></button>
   <form id="tkBasvuru" class="tk-box tk-form" autocomplete="on">
@@ -313,7 +318,9 @@ o dosyadaki tk_ayar / tk_rozet ile aynı olmalı.
   (function () {
     var b = document.getElementById('basvur');
     if (!b) return;
-    function kapat(on) { b.classList.toggle('tk-kapali', on); }
+    var ok = document.getElementById('tkKatla');
+    function kapat(on) { b.classList.toggle('tk-kapali', on); if (ok) ok.setAttribute('aria-expanded', on ? 'false' : 'true'); }
+    if (ok) ok.addEventListener('click', function () { kapat(!b.classList.contains('tk-kapali')); });
     // Form varsayılan olarak kapalı; yalnız "Uygulamanı ekle" bağlantısı (ya da #basvur adresi) ya da "Formu aç" açar
     if (location.hash === '#basvur') kapat(false);
     document.addEventListener('click', function (e) {
