@@ -197,5 +197,6 @@
   icon: /assets/img/mahallepatronu-icon.png
   logo: { tr: /assets/img/mahallepatronu-logo-tr.webp, en: /assets/img/mahallepatronu-logo-en.webp }
   testflight: https://testflight.apple.com/join/9nTwMHXt
+  web: https://mahallepatronu.vercel.app/   # tarayıcıda oynanır (paylaşım sayfası /mahalle/)
   play_test: com.mirogames.mahallepatronu
   beta: 2

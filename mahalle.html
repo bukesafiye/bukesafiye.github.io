@@ -1,0 +1,98 @@
+---
+layout: null
+permalink: /mahalle/
+sitemap: false
+---
+{%- comment -%}
+Mahalle Patronu paylaşım linki (Twitter vb.): bukesafiye.github.io/mahalle/
+Herkes hemen dener: "Hemen oyna" tarayıcıda açar (games.yml → web). iPhone/iPad'de ayrıca TestFlight (herkese açık
+davet linki, listeye eklenmek gerekmez). Android kapalı testi liste istediği için burada yalnız tarayıcı; Play'de açık
+test / yayın açılınca games.yml'e google_play eklenince "Android'e kur" kendiliğinden çıkar.
+Twitter önizlemesi: summary_large_image + assets/img/mahallepatronu-paylas.jpg (1200×630).
+{%- endcomment -%}
+{%- assign g = site.data.games | where: 'slug', 'mahallepatronu' | first -%}
+{%- assign gorsel = '/assets/img/mahallepatronu-paylas.jpg' | absolute_url -%}
+<!doctype html>
+<html lang="tr" data-lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>{{ g.name.tr }} · Hemen oyna</title>
+  <meta name="description" content="{{ g.summary.tr }}">
+  <meta property="og:title" content="{{ g.name.tr }} · Hemen oyna">
+  <meta property="og:description" content="Tezgâhtan şehir zincirine: dükkân aç, şube kur, mahallenin patronu ol. Tarayıcıda hemen oyna ya da iPhone'a kur.">
+  <meta property="og:image" content="{{ gorsel }}">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:url" content="{{ page.url | absolute_url }}">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="MiroGames">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ g.name.tr }} · Hemen oyna">
+  <meta name="twitter:description" content="Dükkân aç, şube kur, mahallenin patronu ol. Tarayıcıda hemen oyna ya da iPhone'a kur.">
+  <meta name="twitter:image" content="{{ gorsel }}">
+  <link rel="icon" type="image/png" href="{{ g.icon | relative_url }}">
+  <link rel="preload" as="image" href="{{ g.logo.tr | relative_url }}">
+{% include analytics.html %}
+  <style>
+    :root { color-scheme: dark; --c: {{ g.color }}; --altin: #e2ae4a; }
+    * { box-sizing: border-box; }
+    body { margin: 0; min-height: 100svh; display: grid; place-items: center; padding: 28px 18px calc(28px + env(safe-area-inset-bottom));
+      background: radial-gradient(60% 55% at 50% 30%, rgba(226, 120, 60, .42), transparent 75%), #1c0709; color: #fff3df;
+      font: 16px/1.5 -apple-system, "Segoe UI", system-ui, sans-serif; text-align: center; }
+    main { width: 100%; max-width: 420px; }
+    .logo { width: min(100%, 360px); height: auto; filter: drop-shadow(0 14px 30px rgba(0, 0, 0, .45)); }
+    .logo.en, [data-lang="en"] .logo.tr { display: none; }
+    [data-lang="en"] .logo.en { display: inline; }
+    h1 { font-size: 20px; margin: 10px 0 4px; font-weight: 800; }
+    p { margin: 0 0 20px; color: #d9c3a8; font-size: 15px; }
+    .dugmeler { display: flex; flex-direction: column; gap: 10px; }
+    a.d { display: flex; align-items: center; justify-content: center; gap: 10px; min-height: 52px; padding: 12px 18px; border-radius: 14px;
+      font-weight: 800; font-size: 17px; text-decoration: none; color: #1c1206; background: var(--c); box-shadow: 0 10px 30px -10px var(--c); }
+    a.d.ikinci { color: #fff3df; background: rgba(255, 255, 255, .07); border: 1px solid rgba(255, 255, 255, .14); box-shadow: none; }
+    a.d small { font-weight: 600; opacity: .75; font-size: 13px; }
+    .not { margin: 16px 0 0; font-size: 13px; color: #b9a38b; }
+    .not a { color: inherit; }
+    [hidden] { display: none !important; }
+    [data-lang="tr"] .en, [data-lang="en"] .tr { display: none; }
+  </style>
+</head>
+<body>
+  <main>
+    <img class="logo tr" src="{{ g.logo.tr | relative_url }}" alt="{{ g.name.tr }}" width="900" height="498">
+    <img class="logo en" src="{{ g.logo.en | relative_url }}" alt="{{ g.name.en }}" width="900" height="498">
+    <h1><span class="tr">{{ g.tagline.tr }}</span><span class="en">{{ g.tagline.en }}</span></h1>
+    <p><span class="tr">{{ g.summary.tr }}</span><span class="en">{{ g.summary.en }}</span></p>
+    <div class="dugmeler">
+      <a class="d" id="oyna" href="{{ g.web }}" rel="noopener">▶ <span class="tr">Hemen oyna</span><span class="en">Play now</span>
+        <small><span class="tr">· tarayıcıda, kurulum yok</span><span class="en">· in your browser, no install</span></small></a>
+      {%- if g.testflight %}
+      <a class="d ikinci" id="ios" href="{{ g.testflight }}" rel="noopener" hidden> <span class="tr">iPhone'a kur</span><span class="en">Install on iPhone</span>
+        <small>· TestFlight</small></a>
+      {%- endif %}
+      {%- if g.google_play %}
+      <a class="d ikinci" id="android" href="{{ g.google_play }}" rel="noopener" hidden><span class="tr">Android'e kur</span><span class="en">Install on Android</span>
+        <small>· Google Play</small></a>
+      {%- endif %}
+    </div>
+    <p class="not" id="ios-not" hidden><span class="tr">iPhone'a kurmak için önce App Store'dan ücretsiz <a href="https://apps.apple.com/app/testflight/id899247664" rel="noopener">TestFlight</a> uygulamasını indir, sonra "iPhone'a kur"a dokun.</span><span class="en">To install on iPhone, first get the free <a href="https://apps.apple.com/app/testflight/id899247664" rel="noopener">TestFlight</a> app from the App Store, then tap "Install on iPhone".</span></p>
+    {%- unless g.google_play %}
+    <p class="not" id="android-not" hidden><span class="tr">Android uygulaması yakında; şimdilik tarayıcıdan oynayabilirsin, ilerlemen kaydedilir.</span><span class="en">The Android app is coming soon; play in your browser for now, your progress is saved.</span></p>
+    {%- endunless %}
+    <p class="not"><a href="{{ '/Store/mahallepatronu/' | relative_url }}"><span class="tr">Oyun hakkında</span><span class="en">About the game</span></a> · <a href="{{ '/test/' | relative_url }}"><span class="tr">Test rehberi</span><span class="en">Testing guide</span></a> · MiroGames</p>
+  </main>
+  <script>
+    (function () {
+      var ua = navigator.userAgent || '';
+      var ios = /iPhone|iPad|iPod/.test(ua) || (/Macintosh/.test(ua) && navigator.maxTouchPoints > 1);  // iPadOS kendini Mac gösterir
+      var android = /Android/i.test(ua);
+      var goster = function (id) { var el = document.getElementById(id); if (el) el.hidden = false; };
+      if (ios) { goster('ios'); goster('ios-not'); }
+      if (android) { goster('android'); goster('android-not'); }
+      var lang = (navigator.language || 'tr').toLowerCase().indexOf('tr') === 0 ? 'tr' : 'en';
+      document.documentElement.setAttribute('data-lang', lang);
+      document.documentElement.lang = lang;
+    })();
+  </script>
+</body>
+</html>
