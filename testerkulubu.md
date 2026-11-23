@@ -7,7 +7,7 @@ back: /
 back_tr: Ana sayfa
 back_en: Home
 # Telegram grubu açılınca linki buraya yaz; boşken katıl düğmesi gösterilmez.
-telegram: ""
+telegram: "https://t.me/testerkulubu"
 ---
 {%- comment -%}
 Tester Kulübü: MiroGames'ten ayrı bir ürün (karşılıklı uygulama testi). Veritabanı Mahalle Patronu'nun Supabase
