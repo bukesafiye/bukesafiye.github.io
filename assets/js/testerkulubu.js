@@ -27,7 +27,9 @@
     tk_gmail_botta: ['Bu mail adresi Telegram botunda kayıtlı. Botta /websifre yazıp şifre belirle, sonra buradan gir.', 'This email is registered in the Telegram bot. Type /websifre there to set a password, then sign in here.'],
     tk_engelli: ['Hesabın kısıtlı.', 'Your account is restricted.'],
     tk_sifre_gerekli: ['Bu mail adresi bir uygulama sahibine ait; şifreni de yaz.', 'This email belongs to an app owner; enter your password too.'],
-    tk_mail_dogrula: ['Bu mail adresiyle daha önce test etmişsin. Uygulama eklemek için şifreni maile gelecek linkle belirlemen gerekiyor (bu özellik çok yakında).', 'You tested with this email before. To add an app, set your password via a link sent to your email (coming very soon).'],
+    tk_mail_dogrula: ['Bu mail adresiyle daha önce test etmişsin. Uygulama eklemek için önce aşağıdaki Hesabım bölümünden "Şifre belirle" ile mailine gelen bağlantıdan şifreni belirle.', 'You tested with this email before. To add an app, first set your password from "Set password" under My account below, using the link sent to your email.'],
+    tk_mail_kapali: ['Mail ile şifre belirleme çok yakında açılıyor. Şimdilik Telegram grubumuzdan (t.me/testerkulubu) yazabilirsin.', 'Setting a password by email is coming very soon. For now, message us in the Telegram group (t.me/testerkulubu).'],
+    tk_kod_gecersiz: ['Bu bağlantının süresi dolmuş ya da kullanılmış. Yeni bir bağlantı iste.', 'This link has expired or was already used. Request a new one.'],
     tk_soru_az: ['En az 3 kontrol sorusu gerekiyor.', 'At least 3 check questions are required.'],
     tk_link_gecersiz: ['Link geçersiz: Android için https://play.google.com/apps/testing/…, iPhone için https://testflight.apple.com/join/… olmalı.', 'Invalid link: Android needs https://play.google.com/apps/testing/…, iPhone needs https://testflight.apple.com/join/…'],
     tk_ad_gecersiz: ['Uygulama adı 2–48 karakter olmalı.', 'App name must be 2–48 characters.'],
@@ -267,8 +269,42 @@
     if (e.target.classList.contains('tk-yoklama')) { e.preventDefault(); yoklamaGonder(e.target); }
   });
 
+  // --- Şifre belirle / şifremi unuttum (maile tek kullanımlık bağlantı) ---------------------------
+  function sifreAc(kod) {
+    var k = $('tkSifre'); k.hidden = false;
+    $('tkSifreIsteForm').hidden = !!kod; $('tkSifreBelirleForm').hidden = !kod;
+    k.dataset.kod = kod || '';
+    k.scrollIntoView({ block: 'center' });
+  }
+  function sifreIste(e) {
+    e.preventDefault();
+    var f = e.target, kutu = $('tkSifreSonuc');
+    api({ is: 'sifre_iste', gmail: f.gmail.value.trim() }).then(function (r) {
+      if (r.hata) { mesaj(kutu, hataMetni(r.hata), 'hata'); return; }
+      mesaj(kutu, '📬 ' + t('Bu adres kayıtlıysa mailine bir bağlantı gönderdik. Gelmezse gereksiz (spam) klasörüne de bak; bağlantı 1 saat geçerli.', 'If this address is registered, we sent a link to your email. Check your spam folder too; the link is valid for 1 hour.'), 'tamam');
+    });
+  }
+  function sifreBelirle(e) {
+    e.preventDefault();
+    var f = e.target, kutu = $('tkSifreSonuc');
+    api({ is: 'sifre_belirle', kod: $('tkSifre').dataset.kod, sifre: f.sifre.value }).then(function (r) {
+      if (!r.jeton) { mesaj(kutu, hataMetni(r.hata), 'hata'); return; }
+      jetonYaz(r.jeton); f.sifre.value = '';
+      try { history.replaceState(null, '', location.pathname + '#hesabim'); } catch (x) { /* eski tarayıcı */ }
+      $('tkSifre').hidden = true;
+      mesaj($('tkGirisSonuc'), '');
+      hesapCiz();
+      mesaj($('tkKatilSonuc'), '');
+    });
+  }
+
   function basla() {
     if (!$('tkListe')) return;
+    $('tkSifreUnuttum').onclick = function () { sifreAc(''); };
+    $('tkSifreIsteForm').onsubmit = sifreIste;
+    $('tkSifreBelirleForm').onsubmit = sifreBelirle;
+    var kod = new URLSearchParams(location.search).get('sifre');
+    if (kod) setTimeout(function () { sifreAc(kod); }, 300);
     for (var i = 0; i < 3; i++) soruSatiri();
     $('tkPlAndroid').onchange = $('tkPlIos').onchange = platformGoster;
     platformGoster();

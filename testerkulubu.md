@@ -77,6 +77,8 @@ o dosyadaki tk_ayar / tk_rozet ile aynı olmalı.
   .tk-yoklama { display: grid; gap: 8px; margin-top: 10px; }
   .tk-yoklama p { color: var(--text) !important; }
   #tkGiris { margin-top: 14px; }
+  #tkSifre { margin-top: 14px; }
+  .tk-link-dugme { margin-top: 10px; padding: 0; border: 0; background: none; color: var(--accent); font: 500 14px/1.4 var(--body); cursor: pointer; text-decoration: underline; }
   @media (max-width: 520px) { .tk-kart { flex-direction: column; align-items: stretch; } .tk-soru { grid-template-columns: 1fr; } }
   @media (max-width: 640px) { .tk-vs { grid-template-columns: 1fr; } .tk-hero .tk-lead { font-size: 17px; } }
 </style>
@@ -200,6 +202,20 @@ o dosyadaki tk_ayar / tk_rozet ile aynı olmalı.
       <button type="submit" class="btn primary"><span class="tr">Devam et</span><span class="en">Continue</span></button>
     </form>
     <div id="tkGirisSonuc"></div>
+    <button type="button" class="tk-link-dugme" id="tkSifreUnuttum"><span class="tr">Şifre belirle / şifremi unuttum</span><span class="en">Set / forgot password</span></button>
+  </div>
+  <div id="tkSifre" class="tk-box tk-form" hidden>
+    <form id="tkSifreIsteForm">
+      <p><span class="tr">Mail adresini yaz; şifreni belirlemen için bir bağlantı gönderelim.</span><span class="en">Enter your email and we'll send you a link to set your password.</span></p>
+      <label><span class="tr">Mail adresin</span><span class="en">Your email</span><input name="gmail" type="email" required autocomplete="email"></label>
+      <button type="submit" class="btn primary"><span class="tr">Bağlantı gönder</span><span class="en">Send link</span></button>
+    </form>
+    <form id="tkSifreBelirleForm" hidden>
+      <p><b><span class="tr">Yeni şifreni belirle</span><span class="en">Set your new password</span></b></p>
+      <label><span class="tr">Şifre (en az 6 karakter)</span><span class="en">Password (min. 6 characters)</span><input name="sifre" type="password" required minlength="6" autocomplete="new-password"></label>
+      <button type="submit" class="btn primary"><span class="tr">Kaydet</span><span class="en">Save</span></button>
+    </form>
+    <div id="tkSifreSonuc"></div>
   </div>
 </section>
 
