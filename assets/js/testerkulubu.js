@@ -205,6 +205,10 @@
       if (bekleyenKatilim) { var b = bekleyenKatilim; bekleyenKatilim = null; katil(b.id, b.ad); }
     });
   }
+  // Mail adresleri alt alta, numaralı; eklenenler soluk. Kopyala düğmesi ayrıca virgüllü tek satırı kopyalar.
+  function mailListe(mailler, eski) {
+    return '<ol class="tk-mail-kod' + (eski ? ' tk-mail-eski' : '') + '">' + mailler.map(function (m) { return '<li>' + esc(m) + '</li>'; }).join('') + '</ol>';
+  }
   var DURUM = { bekliyor: ['⏳ Onay bekliyor', '⏳ Awaiting approval'], onayli: ['🟢 Testte', '🟢 In testing'], red: ['❌ Reddedildi', '❌ Rejected'], kapali: ['⚪ Kapalı', '⚪ Closed'] };
 
   function hesapCiz() {
@@ -228,14 +232,14 @@
         if (bek.length) {
           var bl = bek.map(function (p) { return esc(p.mail); }).join(', ');
           var son = Math.max.apply(null, bek.map(function (p) { return p.no; }));
-          html += '<p class="tk-mailler">⏳ ' + t('Listeye eklenmeyi bekleyen', 'Waiting to be added') + ' (' + bek.length + '):</p><code class="tk-mail-kod">' + bl + '</code>' +
+          html += '<p class="tk-mailler">⏳ ' + t('Listeye eklenmeyi bekleyen', 'Waiting to be added') + ' (' + bek.length + '):</p>' + mailListe(bek.map(function (p) { return p.mail; }), false) +
             '<button type="button" class="btn tk-kopyala" data-kopya="' + bl + '">' + t('Listeyi kopyala', 'Copy list') + '</button> ' +
             '<button type="button" class="btn primary" data-play-son="' + son + '">✅ ' + t('Hepsini ekledim', 'I added them all') + '</button>' +
             '<small class="muted">' + t('Play Console → Hesabı yönetme → Test kullanıcısı grupları → Kapalı Tester Grubu → yapıştır → Kaydet.', 'Play Console → Manage account → Tester lists → Kapalı Tester Grubu → paste → Save.') + '</small>';
         } else {
           html += '<p class="muted">✅ ' + t('Bekleyen adres yok.', 'Nothing waiting.') + '</p>';
         }
-        if (ekl.length) html += '<p class="tk-mailler">✅ ' + t('Listeye eklenenler', 'Added') + ' (' + ekl.length + '):</p><code class="tk-mail-kod">' + ekl.map(function (p) { return esc(p.mail); }).join(', ') + '</code>';
+        if (ekl.length) html += '<p class="tk-mailler">✅ ' + t('Listeye eklenenler', 'Added') + ' (' + ekl.length + '):</p>' + mailListe(ekl.map(function (p) { return p.mail; }), true);
         html += '</div></div>';
       }
 
@@ -250,14 +254,14 @@
                   : a.platform === 'ios' ? t('App Store Connect → TestFlight → Harici test grubuna ekle.', 'Add to App Store Connect → TestFlight → external group.') : '';
           if (a.basvuranlar.length) {
             var liste = a.basvuranlar.map(esc).join(', ');
-            html += '<p class="tk-mailler">🆕 ' + t('Yeni başvuranlar', 'New applicants') + ' (' + a.basvuranlar.length + '):</p><code class="tk-mail-kod">' + liste + '</code>' +
+            html += '<p class="tk-mailler">🆕 ' + t('Yeni başvuranlar', 'New applicants') + ' (' + a.basvuranlar.length + '):</p>' + mailListe(a.basvuranlar, false) +
               '<button type="button" class="btn tk-kopyala" data-kopya="' + liste + '">' + t('Listeyi kopyala', 'Copy list') + '</button> ' +
               '<button type="button" class="btn primary" data-liste-eklendi="' + esc(a.id) + '">✅ ' + t('Ekledim', 'Added') + '</button>' +
               (yer ? '<small class="muted">' + yer + ' ' + t('Sonra "Ekledim"e bas; adresler aşağıya iner.', 'Then tap "Added"; they move below.') + '</small>' : '');
           } else {
             html += '<p class="muted">' + t(ekl.length ? 'Yeni başvuran yok.' : 'Henüz başvuran yok.', ekl.length ? 'No new applicants.' : 'No applicants yet.') + '</p>';
           }
-          if (ekl.length) html += '<p class="tk-mailler">✅ ' + t('Listeye eklenenler', 'Already added') + ' (' + ekl.length + '):</p><code class="tk-mail-kod tk-mail-eski">' + ekl.map(esc).join(', ') + '</code>';
+          if (ekl.length) html += '<p class="tk-mailler">✅ ' + t('Listeye eklenenler', 'Already added') + ' (' + ekl.length + '):</p>' + mailListe(ekl, true);
           html += '</div></div>';
         });
       }
@@ -305,15 +309,14 @@
   function hemenIndir(btn) {
     var kart = btn.closest('.tk-kart > div');
     if (!kart) return;
-    var yeniKod = kart.querySelector('.tk-mail-kod:not(.tk-mail-eski)');
-    var yeni = yeniKod ? yeniKod.textContent.split(', ').filter(Boolean) : [];
-    var eskiKod = kart.querySelector('.tk-mail-eski');
-    var eski = eskiKod ? eskiKod.textContent.split(', ').filter(Boolean) : [];
+    function oku(sec) { return Array.prototype.map.call(kart.querySelectorAll(sec + ' li'), function (li) { return li.textContent; }); }
+    var yeni = oku('.tk-mail-kod:not(.tk-mail-eski)');
+    var eski = oku('.tk-mail-eski');
     var hepsi = eski.concat(yeni.filter(function (m) { return eski.indexOf(m) < 0; }));
     Array.prototype.slice.call(kart.querySelectorAll('.tk-mailler, .tk-mail-kod, .tk-kopyala, [data-liste-eklendi], [data-play-son], small.muted, p.muted'))
       .forEach(function (el) { el.remove(); });
     kart.insertAdjacentHTML('beforeend', '<p class="muted">' + t('Yeni başvuran yok.', 'No new applicants.') + '</p>' +
-      '<p class="tk-mailler">✅ ' + t('Listeye eklenenler', 'Already added') + ' (' + hepsi.length + '):</p><code class="tk-mail-kod tk-mail-eski">' + hepsi.map(esc).join(', ') + '</code>');
+      '<p class="tk-mailler">✅ ' + t('Listeye eklenenler', 'Already added') + ' (' + hepsi.length + '):</p>' + mailListe(hepsi, true));
   }
 
   // --- olaylar -----------------------------------------------------------------------------------

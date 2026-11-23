@@ -61,8 +61,11 @@ o dosyadaki tk_ayar / tk_rozet ile aynı olmalı.
   .tk-kart .btn { flex-shrink: 0; }
   .tk-uyg { display: block; }
   .tk-mailler { margin: 10px 0 4px !important; color: var(--text) !important; }
-  .tk-mail-kod { display: block; padding: 10px 12px; border-radius: 10px; background: var(--bg); border: 1px solid var(--line); font-size: 13px; word-break: break-all; margin-bottom: 8px; }
-  .tk-mail-eski { opacity: .6; user-select: text; }
+  .tk-mail-kod { list-style: none; counter-reset: m; margin: 0 0 10px; padding: 4px 0; border-radius: 10px; background: var(--bg); border: 1px solid var(--line); font: 500 14px/1.4 ui-monospace, SFMono-Regular, Menlo, monospace; max-height: 320px; overflow: auto; }
+  .tk-mail-kod li { counter-increment: m; display: flex; gap: 10px; padding: 7px 12px; word-break: break-all; }
+  .tk-mail-kod li + li { border-top: 1px solid var(--line); }
+  .tk-mail-kod li::before { content: counter(m); min-width: 1.6em; text-align: right; color: var(--muted, #8a9399); font-variant-numeric: tabular-nums; }
+  .tk-mail-eski { opacity: .7; }
   .tk-form-ac { display: none; }
   #basvur.tk-kapali .tk-form-ac { display: inline-flex; }
   #basvur.tk-kapali > form, #basvur.tk-kapali > p.muted { display: none; }
