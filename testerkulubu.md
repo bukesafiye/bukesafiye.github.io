@@ -78,6 +78,14 @@ o dosyadaki tk_ayar / tk_rozet ile aynı olmalı.
   .tk-eylem .btn, .tk-kopyala { display: inline-flex; align-items: center; gap: 8px; }
   .tk-kopyala.is-ok { color: #3ecf8e; border-color: color-mix(in srgb, #3ecf8e 45%, transparent); }
   .tk-ipucu-alt { display: block; margin-top: 8px; font-size: 12.5px; }
+  .tk-mail-satir { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 12px; flex: 1; }
+  .tk-etiketler { display: inline-flex; flex-wrap: wrap; gap: 4px; font-family: var(--body); }
+  .tk-etiket { display: inline-block; padding: 1px 8px; border-radius: 999px; font: 600 11.5px/1.6 var(--body); color: var(--text); background: color-mix(in srgb, var(--accent) 16%, transparent); }
+  .tk-etiket-yok { font: 400 12px var(--body); color: var(--muted); }
+  .tk-tablo { width: 100%; border-collapse: collapse; font-size: 14px; }
+  .tk-tablo th { text-align: left; font-size: 12px; text-transform: uppercase; letter-spacing: .05em; color: var(--muted); padding: 4px 8px 8px; }
+  .tk-tablo td { padding: 9px 8px; border-top: 1px solid var(--line); vertical-align: top; word-break: break-word; }
+  .tk-tablo td:nth-child(2), .tk-tablo td:nth-child(3), .tk-tablo th:nth-child(2), .tk-tablo th:nth-child(3) { text-align: right; width: 64px; }
   .tk-mail-kod { list-style: none; counter-reset: m; margin: 0 0 10px; padding: 4px 0; border-radius: 10px; background: var(--bg); border: 1px solid var(--line); font: 500 14px/1.4 ui-monospace, SFMono-Regular, Menlo, monospace; max-height: 320px; overflow: auto; }
   .tk-mail-kod li { counter-increment: m; display: flex; gap: 10px; padding: 7px 12px; word-break: break-all; }
   .tk-mail-kod li + li { border-top: 1px solid var(--line); }

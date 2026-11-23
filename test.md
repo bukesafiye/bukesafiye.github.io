@@ -230,6 +230,27 @@ back_en: Home
       if (!btn) return;
       card.addEventListener('click', function (e) { if (!e.target.closest('a, button')) btn.click(); });
     });
+    // Kişi sayımı için tarayıcıya özel rastgele kimlik (çerez / parmak izi yok). Mail yalnız kişi kendisi yazdıysa bilinir.
+    var API = 'https://wgcrjolzmyvdtunnypgs.supabase.co/functions/v1/tk-web';
+    function sakla(k, v) { try { if (v === undefined) return localStorage.getItem(k); localStorage.setItem(k, v); } catch (e) { return null; } }
+    var ziyaretci = sakla('mg-ziyaretci');
+    if (!ziyaretci || !/^[a-z0-9-]{8,64}$/.test(ziyaretci)) {
+      ziyaretci = (window.crypto && crypto.randomUUID) ? crypto.randomUUID() : 'z' + Math.random().toString(36).slice(2) + Date.now().toString(36);
+      sakla('mg-ziyaretci', ziyaretci);
+    }
+    function bilinenMail() { return sakla('mg-test-mail') || sakla('tk-mail') || null; }
+    // TestFlight / Play "katıl" tıklaması: sayfadan çıkışı bekletmeden arka planda bildirilir
+    document.querySelectorAll('#panel-ios .dev-games li a.btn, #panel-android .dev-games li a.btn[href*="apps/testing"]').forEach(function (a) {
+      a.addEventListener('click', function () {
+        var li = a.closest('li');
+        var govde = JSON.stringify({ is: 'rehber_tik', oyun: li.getAttribute('data-slug'), ad: (function (el) { var tr = el.querySelector('.tr'); return (tr || el).textContent.trim(); })(li.querySelector('.dev-game') || li),
+          platform: a.closest('#panel-ios') ? 'ios' : 'android', ziyaretci: ziyaretci, mail: bilinenMail() });
+        try {
+          if (!(navigator.sendBeacon && navigator.sendBeacon(API, new Blob([govde], { type: 'text/plain' }))))
+            fetch(API, { method: 'POST', body: govde, keepalive: true, headers: { 'Content-Type': 'text/plain' } });
+        } catch (e) {}
+      });
+    });
     // Android 1. adım: mail adresi Tester Kulübü API'sine gider, yöneticiye bildirilir, Play'deki ortak test listesine eklenir.
     var pf = document.getElementById('play-testci');
     if (pf) pf.addEventListener('submit', function (e) {
@@ -243,10 +264,11 @@ back_en: Home
       btn.disabled = true;
       var eski = btn.innerHTML;
       btn.textContent = en ? 'Adding…' : 'Ekleniyor…';
-      fetch('https://wgcrjolzmyvdtunnypgs.supabase.co/functions/v1/tk-web', {
-        method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ is: 'play_testci', gmail: mail })
+      fetch(API, {
+        method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ is: 'play_testci', gmail: mail, ziyaretci: ziyaretci })
       }).then(function (r) { return r.json(); }).then(function (j) {
         if (j.tamam) {
+          sakla('mg-test-mail', mail);
           pf.hidden = true;
           if (j.yeni) yaz('Aldık! ' + mail + ' adresini test listesine ekleyince aşağıdaki "Teste katıl" linkleri çalışır. Genelde 15 dakika içinde.', 'Got it! Once ' + mail + ' is on the test list, the "Join the test" links below will work. Usually within 15 minutes.');
           else yaz(mail + ' zaten listemizde. Aşağıdan "Teste katıl"a dokunabilirsin.', mail + ' is already on our list. Tap "Join the test" below.');

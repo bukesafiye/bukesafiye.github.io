@@ -206,8 +206,14 @@
     });
   }
   // Mail adresleri alt alta, numaralı; eklenenler soluk. Kopyala düğmesi ayrıca virgüllü tek satırı kopyalar.
+  // mailler: metin ya da { mail, tikladi: [oyun adları] } (rehberde "katıl"a bastığı oyunlar etiket olarak görünür)
   function mailListe(mailler, eski) {
-    return '<ol class="tk-mail-kod' + (eski ? ' tk-mail-eski' : '') + '">' + mailler.map(function (m) { return '<li>' + esc(m) + '</li>'; }).join('') + '</ol>';
+    return '<ol class="tk-mail-kod' + (eski ? ' tk-mail-eski' : '') + '">' + mailler.map(function (m) {
+      if (typeof m === 'string') return '<li>' + esc(m) + '</li>';
+      var et = (m.tikladi || []).map(function (o) { return '<span class="tk-etiket">' + esc(o) + '</span>'; }).join('');
+      return '<li><span class="tk-mail-satir"><span>' + esc(m.mail) + '</span>' +
+        (et ? '<span class="tk-etiketler">' + et + '</span>' : '<span class="tk-etiketler tk-etiket-yok">' + t('Henüz katıl’a basmadı', 'No join click yet') + '</span>') + '</span></li>';
+    }).join('') + '</ol>';
   }
   var DURUM = { bekliyor: ['Onay bekliyor', 'Awaiting approval'], onayli: ['Testte', 'In testing'], red: ['Reddedildi', 'Rejected'], kapali: ['Kapalı', 'Closed'] };
   var IKON_KOPYA = '<svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M5 15V6.5A2.5 2.5 0 0 1 7.5 4H15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>';
@@ -238,15 +244,27 @@
         if (bek.length) {
           var bl = bek.map(function (p) { return esc(p.mail); }).join(', ');
           var son = Math.max.apply(null, bek.map(function (p) { return p.no; }));
-          html += grupBas(t('Listeye eklenmeyi bekleyen', 'Waiting to be added'), bek.length, 'bekle') + mailListe(bek.map(function (p) { return p.mail; }), false) +
+          html += grupBas(t('Listeye eklenmeyi bekleyen', 'Waiting to be added'), bek.length, 'bekle') + mailListe(bek, false) +
             '<div class="tk-eylem">' + kopyaDugme(bl) +
             '<button type="button" class="btn primary" data-play-son="' + son + '">' + IKON_TAMAM + '<span>' + t('Hepsini ekledim', 'I added them all') + '</span></button></div>' +
             '<small class="muted tk-ipucu-alt">' + t('Play Console → Hesabı yönetme → Test kullanıcısı grupları → Kapalı Tester Grubu → yapıştır → Kaydet.', 'Play Console → Manage account → Tester lists → Kapalı Tester Grubu → paste → Save.') + '</small>';
         } else {
           html += '<p class="tk-bos">' + t('Bekleyen adres yok.', 'Nothing waiting.') + '</p>';
         }
-        if (ekl.length) html += grupBas(t('Listeye eklenenler', 'Added'), ekl.length, 'eski') + mailListe(ekl.map(function (p) { return p.mail; }), true);
+        if (ekl.length) html += grupBas(t('Listeye eklenenler', 'Added'), ekl.length, 'eski') + mailListe(ekl, true);
         html += '</div></div>';
+      }
+
+      if (r.rehber_tik && r.rehber_tik.length) {
+        // Test rehberindeki "TestFlight'ta katıl" / "Teste katıl" tıklamaları: farklı kişi ve toplam tıklama
+        html += '<h3>' + t('Test rehberi tıklamaları', 'Testing guide clicks') + '</h3><div class="tk-kart tk-uyg"><div><table class="tk-tablo"><thead><tr><th>' +
+          t('Oyun', 'Game') + '</th><th>' + t('Kişi', 'People') + '</th><th>' + t('Tıklama', 'Clicks') + '</th><th>' + t('Bilinen mail', 'Known email') + '</th></tr></thead><tbody>' +
+          r.rehber_tik.map(function (x) {
+            return '<tr><td>' + esc(x.ad || x.oyun) + ' <span class="tk-etiket">' + (x.platform === 'ios' ? 'iPhone' : 'Android') + '</span></td><td><b>' + x.kisi + '</b></td><td>' + x.tiklama + '</td><td>' +
+              (x.mailler.length ? x.mailler.map(esc).join('<br>') : '<span class="muted">—</span>') + '</td></tr>';
+          }).join('') + '</tbody></table><small class="muted tk-ipucu-alt">' +
+          t('Kişi: aynı tarayıcıdan gelen tıklamalar bir kişi sayılır. Mail yalnız kişi rehberde ya da kulüpte kendi yazdıysa görünür.', 'People: clicks from the same browser count once. Email shows only if the person typed it in the guide or the club.') +
+          '</small></div></div>';
       }
 
       if (r.uygulamalar.length) {
@@ -314,7 +332,7 @@
   function hemenIndir(btn) {
     var kart = btn.closest('.tk-kart > div');
     if (!kart) return;
-    function oku(sec) { return Array.prototype.map.call(kart.querySelectorAll(sec + ' li'), function (li) { return li.textContent; }); }
+    function oku(sec) { return Array.prototype.map.call(kart.querySelectorAll(sec + ' li'), function (li) { var m = li.querySelector('.tk-mail-satir > span'); return (m || li).textContent; }); }
     var yeni = oku('.tk-mail-kod:not(.tk-mail-eski)');
     var eski = oku('.tk-mail-eski');
     var hepsi = eski.concat(yeni.filter(function (m) { return eski.indexOf(m) < 0; }));
