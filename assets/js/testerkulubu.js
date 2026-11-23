@@ -3,13 +3,15 @@
 (function () {
   'use strict';
   var API = 'https://wgcrjolzmyvdtunnypgs.supabase.co/functions/v1/tk-web';
-  var JETON = 'tk-jeton';
+  var JETON = 'tk-jeton', MAIL = 'tk-mail';
 
   // --- yardımcılar -----------------------------------------------------------------------------
   function $(id) { return document.getElementById(id); }
   function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
   function t(tr, en) { return '<span class="tr">' + tr + '</span><span class="en">' + (en || tr) + '</span>'; }
   function jetonAl() { try { return localStorage.getItem(JETON); } catch (e) { return null; } }
+  function mailAl() { try { return localStorage.getItem(MAIL); } catch (e) { return null; } }
+  function mailYaz(m) { try { m ? localStorage.setItem(MAIL, m) : localStorage.removeItem(MAIL); } catch (e) { /* özel pencere */ } }
   function jetonYaz(j) { try { j ? localStorage.setItem(JETON, j) : localStorage.removeItem(JETON); } catch (e) { /* özel pencere */ } }
 
   function api(veri) {
@@ -62,7 +64,7 @@
     var kutu = $('tkListe');
     api({ is: 'liste' }).then(function (r) {
       if (!r.uygulamalar) { mesaj(kutu, hataMetni(r.hata)); return; }
-      var gruplar = [['android', '🤖 Android'], ['ios', '🍏 iPhone']];
+      var gruplar = [['android', '🤖 Android'], ['ios', '🍏 iPhone'], ['web', '🌐 Web']];
       var html = '';
       gruplar.forEach(function (g) {
         var liste = r.uygulamalar.filter(function (a) { return a.platform === g[0]; });
@@ -85,6 +87,10 @@
   // --- Teste katıl: giriş yoksa yalnız mail adresi sor --------------------------------------------------
   var bekleyenKatilim = null;
   function katil(id, ad) {
+    if (!jetonAl() && mailAl()) {   // mail bir kez yazıldı: her "Teste katıl" doğrudan bu adrese eklenir
+      katilSonuc(id, api({ is: 'katil_gmail', gmail: mailAl(), uygulama: id }));
+      return;
+    }
     if (!jetonAl()) { bekleyenKatilim = { id: id, ad: ad }; girisAc(t('<b>' + esc(ad) + '</b> testine katılmak için mail adresini yaz. Şifre gerekmez.', 'Enter your email to join <b>' + esc(ad) + '</b>. No password needed.'), true); return; }
     katilSonuc(id, api({ is: 'katil', jeton: jetonAl(), uygulama: id }));
   }
@@ -93,16 +99,18 @@
       if (r.hata === 'oturum') { jetonYaz(null); return katil(id, ''); }
       if (r.jeton) jetonYaz(r.jeton);
       var kutu = $('tkKatilSonuc');
-      if (r.hata) { mesaj(kutu, hataMetni(r.hata), 'hata'); kutu.scrollIntoView({ block: 'center' }); return; }
+      var kim = mailAl() && !jetonAl() ? '<br><small class="muted">' + esc(mailAl()) + ' · <button type="button" class="tk-link-dugme" data-mail-degistir="1">' + t('farklı mail', 'different email') + '</button></small>' : '';
+      if (r.hata) { mesaj(kutu, hataMetni(r.hata) + kim, 'hata'); kutu.scrollIntoView({ block: 'center' }); return; }
       mesaj(kutu, '🎉 ' + t('<b>' + esc(r.ad) + '</b> testine katıldın!', 'You joined <b>' + esc(r.ad) + '</b>!') + '<br>' +
         (r.platform === 'android'
           ? t('Geliştirici mail adresini (' + esc(r.gmail) + ') test listesine ekleyecek. Sonra bu linkten katılıp kur:', 'The developer will add your email (' + esc(r.gmail) + ') to the tester list. Then join and install here:')
+          : r.platform === 'web' ? t('Tarayıcıda aç ve oyna:', 'Open and play in your browser:')
           : t('TestFlight linkinden kur:', 'Install from TestFlight:')) +
         ' <a href="' + esc(r.link) + '" target="_blank" rel="noopener">' + t('Test linkini aç', 'Open test link') + ' ↗</a><br>' +
         (r.oturum_yok
           ? (r.telegram ? t('Günün sorusu her sabah Telegram botundan gelecek.', 'Your daily question will come from the Telegram bot each morning.')
                         : t('Günün sorusunu cevaplamak için <b>Hesabım</b> bölümünden mail adresin ve şifrenle gir.', 'Sign in under <b>My account</b> with your email and password to answer the daily question.'))
-          : t('Her gün aşağıdaki <b>Hesabım</b> bölümünden günün sorusunu cevapla; 14 gün = +1 kredi.', 'Answer the daily question under <b>My account</b> below; 14 days = +1 credit.')), 'tamam');
+          : t('Her gün aşağıdaki <b>Hesabım</b> bölümünden günün sorusunu cevapla; 14 gün = +1 kredi.', 'Answer the daily question under <b>My account</b> below; 14 days = +1 credit.')) + kim, 'tamam');
       kutu.scrollIntoView({ block: 'center' });
       listeCiz(); hesapCiz();
     });
@@ -119,6 +127,7 @@
   function platformGoster() {
     $('tkLinkAndroid').hidden = !$('tkPlAndroid').checked;
     $('tkLinkIos').hidden = !$('tkPlIos').checked;
+    $('tkLinkWeb').hidden = !$('tkPlWeb').checked;
   }
   function basvur(e) {
     e.preventDefault();
@@ -126,12 +135,13 @@
     var platformlar = [];
     if ($('tkPlAndroid').checked) platformlar.push('android');
     if ($('tkPlIos').checked) platformlar.push('ios');
+    if ($('tkPlWeb').checked) platformlar.push('web');
     var sorular = Array.prototype.map.call(document.querySelectorAll('#tkSorular .tk-soru'), function (s) {
       var i = s.querySelectorAll('input'); return { soru: i[0].value.trim(), cevap: i[1].value.trim() };
     }).filter(function (s) { return s.soru && s.cevap; });
     var veri = {
       is: 'basvur', gmail: f.gmail.value.trim(), sifre: f.sifre.value, ad: f.ad.value.trim(), aciklama: f.aciklama.value.trim(),
-      platformlar: platformlar, linkler: { android: f.linkAndroid.value.trim(), ios: f.linkIos.value.trim() },
+      platformlar: platformlar, linkler: { android: f.linkAndroid.value.trim(), ios: f.linkIos.value.trim(), web: f.linkWeb.value.trim() },
       istenen: f.istenen.value, sorular: sorular
     };
     if (!platformlar.length) { mesaj(sonuc, hataMetni('tk_platform_yok'), 'hata'); return; }
@@ -146,7 +156,7 @@
                        : '❌ <b>' + esc(s.ad) + '</b>: ' + hataMetni(s.hata);
       }).join('<br>');
       mesaj(sonuc, satir + (r.tamam ? '<br>' + t('Onaylanınca listede görünecek. Başvuranların mail adreslerini <b>Hesabım</b> bölümünde aynı mail adresi ve şifreyle görürsün.', 'Once approved it appears in the list. See applicants’ email addresses under <b>My account</b> with the same email and password.') : ''), r.tamam ? 'tamam' : 'hata');
-      if (r.tamam) { f.ad.value = ''; f.aciklama.value = ''; f.linkAndroid.value = ''; f.linkIos.value = ''; hesapCiz(); }
+      if (r.tamam) { f.ad.value = ''; f.aciklama.value = ''; f.linkAndroid.value = ''; f.linkIos.value = ''; f.linkWeb.value = ''; hesapCiz(); }
     });
   }
 
@@ -179,9 +189,10 @@
       return;
     }
     if ($('tkGiris').dataset.mod === 'katil' && bekleyenKatilim) {   // yalnız mail adresiyle teste katıl
-      var b = bekleyenKatilim;
-      api({ is: 'katil_gmail', gmail: f.gmail.value.trim(), uygulama: b.id }).then(function (r) {
-        if (r.hata && !r.test) { mesaj(kutu, hataMetni(r.hata), 'hata'); return; }
+      var b = bekleyenKatilim, girilen = f.gmail.value.trim();
+      api({ is: 'katil_gmail', gmail: girilen, uygulama: b.id }).then(function (r) {
+        if (r.hata === 'tk_gmail_gecersiz' || r.hata === 'tk_engelli') { mesaj(kutu, hataMetni(r.hata), 'hata'); return; }
+        mailYaz(girilen);
         bekleyenKatilim = null; mesaj(kutu, ''); $('tkGiris').hidden = true;
         katilSonuc(b.id, Promise.resolve(r));
       });
@@ -241,7 +252,7 @@
       }
       if (!r.uygulamalar.length && !aktif.length) html += '<p class="muted">' + t('Henüz uygulaman ya da aktif testin yok. Yukarıdan bir teste katıl ya da uygulamanı ekle!', 'No apps or active tests yet. Join a test above or add your app!') + '</p>';
       kutu.innerHTML = html;
-      $('tkCikis').onclick = function () { jetonYaz(null); hesapCiz(); };
+      $('tkCikis').onclick = function () { jetonYaz(null); mailYaz(null); hesapCiz(); };
     });
   }
 
@@ -268,6 +279,7 @@
 
   // --- olaylar -----------------------------------------------------------------------------------
   document.addEventListener('click', function (e) {
+    if (e.target.closest('[data-mail-degistir]')) { mailYaz(null); mesaj($('tkKatilSonuc'), ''); return; }
     var b = e.target.closest('[data-katil],[data-soru],[data-kopya],#tkSoruEkle');
     if (!b) return;
     if (b.id === 'tkSoruEkle') { soruSatiri(); return; }
@@ -325,7 +337,7 @@
     var kod = new URLSearchParams(location.search).get('sifre');
     if (kod) setTimeout(function () { sifreAc(kod); }, 300);
     for (var i = 0; i < 3; i++) soruSatiri();
-    $('tkPlAndroid').onchange = $('tkPlIos').onchange = platformGoster;
+    $('tkPlAndroid').onchange = $('tkPlIos').onchange = $('tkPlWeb').onchange = platformGoster;
     platformGoster();
     $('tkBasvuru').onsubmit = basvur;
     $('tkGirisForm').onsubmit = giris;

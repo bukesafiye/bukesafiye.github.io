@@ -174,8 +174,10 @@ o dosyadaki tk_ayar / tk_rozet ile aynı olmalı.
     <fieldset><legend><span class="tr">Platform</span><span class="en">Platform</span></legend>
       <label class="tk-secim"><input type="checkbox" id="tkPlAndroid" checked> 🤖 Android</label>
       <label class="tk-secim"><input type="checkbox" id="tkPlIos"> 🍏 iPhone</label>
+      <label class="tk-secim"><input type="checkbox" id="tkPlWeb"> 🌐 Web</label>
     </fieldset>
     <label id="tkLinkAndroid"><span class="tr">Play kapalı test katılım linki</span><span class="en">Play closed-testing opt-in link</span><input name="linkAndroid" type="url" placeholder="https://play.google.com/apps/testing/…"></label>
+    <label id="tkLinkWeb"><span class="tr">Tarayıcıda oynanan sürümün adresi</span><span class="en">Browser version URL</span><input name="linkWeb" type="url" placeholder="https://oyunum.vercel.app"></label>
     <label id="tkLinkIos"><span class="tr">TestFlight herkese açık link</span><span class="en">TestFlight public link</span><input name="linkIos" type="url" placeholder="https://testflight.apple.com/join/…"></label>
     <label><span class="tr">Kaç test kullanıcısı istiyorsun? (1–100)</span><span class="en">How many testers? (1–100)</span><input name="istenen" type="number" min="1" max="100" value="12" required></label>
     <fieldset><legend><span class="tr">Kontrol soruları (en az 3)</span><span class="en">Check questions (at least 3)</span></legend>
