@@ -47,7 +47,7 @@
     tk_test_aktif_degil: ['Bu test artık aktif değil.', 'This test is no longer active.']
   };
   function hataMetni(k) { var m = HATA[k] || ['Bir şeyler ters gitti, tekrar dene.', 'Something went wrong, please try again.']; return t(esc(m[0]), esc(m[1])); }
-  function mesaj(el, html, tur) { el.innerHTML = html ? '<div class="tk-mesaj ' + (tur || '') + '">' + html + '</div>' : ''; }
+  function mesaj(el, html, tur) { if (!el) return; el.innerHTML = html ? '<div class="tk-mesaj ' + (tur || '') + '">' + html + '</div>' : ''; }
 
   // Mail + şifre: hesap varsa giriş, yoksa yeni hesap (ayrı üyelik adımı yok)
   function girVeyaKaydol(gmail, sifre) {
@@ -63,6 +63,7 @@
   // --- 1) Test edilecek uygulamalar (herkese açık) ----------------------------------------------
   function listeCiz() {
     var kutu = $('tkListe');
+    if (!kutu) return;   // liste bölümü sayfadan kaldırıldı (test edenler /test/ rehberine gider)
     api({ is: 'liste' }).then(function (r) {
       if (!r.uygulamalar) { mesaj(kutu, hataMetni(r.hata)); return; }
       var gruplar = [['android', '🤖 Android'], ['ios', '🍏 iPhone'], ['web', '🌐 Web']];
@@ -106,6 +107,7 @@
       if (r.hata === 'oturum') { jetonYaz(null); return katil(id, ''); }
       if (r.jeton) jetonYaz(r.jeton);
       var kutu = $('tkKatilSonuc');
+      if (!kutu) return;
       var kim = mailAl() && !jetonAl() ? '<br><small class="muted">' + esc(mailAl()) + ' · <button type="button" class="tk-link-dugme" data-mail-degistir="1">' + t('farklı mail', 'different email') + '</button></small>' : '';
       if (r.hata) { mesaj(kutu, hataMetni(r.hata) + kim, 'hata'); kutu.scrollIntoView({ block: 'center' }); return; }
       mesaj(kutu, '🎉 ' + t('<b>' + esc(r.ad) + '</b> testine katıldın!', 'You joined <b>' + esc(r.ad) + '</b>!') + '<br>' +
@@ -437,7 +439,7 @@
   }
 
   function basla() {
-    if (!$('tkListe')) return;
+    if (!$('tkHesap')) return;
     $('tkSifreUnuttum').onclick = function () { sifreAc(''); };
     $('tkTakasAc').onclick = function () {
       $('tkTakasAc').hidden = true; $('tkSifreAlan').hidden = false;

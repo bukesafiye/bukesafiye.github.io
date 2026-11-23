@@ -208,13 +208,6 @@ o dosyadaki tk_ayar / tk_rozet ile aynı olmalı.
   </div>
 </section>
 
-<section class="tk-section" id="uygulamalar">
-  <h2><span class="tr">Test edilecek uygulamalar</span><span class="en">Apps waiting for testers</span></h2>
-  <p class="muted"><span class="tr">Birini seç, teste katıl. Test linki katılınca açılır; her gün tek bir kontrol sorusu cevaplarsın.</span><span class="en">Pick one and join. The test link opens once you join; answer one quick question a day.</span></p>
-  <div id="tkKatilSonuc"></div>
-  <div id="tkListe"><p class="muted"><span class="tr">Yükleniyor…</span><span class="en">Loading…</span></p></div>
-</section>
-
 <section class="tk-section tk-kapali" id="basvur">
   <h2 class="tk-katla-bas"><button type="button" class="tk-katla" id="tkKatla" aria-controls="tkBasvuru" aria-expanded="false"><span class="tr">Uygulamanı ekle</span><span class="en">Add your app</span><svg class="tk-ok" width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button></h2>
   <p class="muted"><span class="tr">Formu doldur, ekip onaylayınca listeye girer. Mail adresin ve şifren hesabın olur: sonra aynı bilgilerle girip başvuranların mail adreslerini görürsün. İlk 3 uygulaman için kredi gerekmez.</span><span class="en">Fill in the form; it goes live once approved. Your email and password become your account: sign in later to see applicants' email addresses. Your first 3 apps need no credits.</span></p>
