@@ -443,6 +443,13 @@ ins.adsbygoogle[data-ad-status="unfilled"] { display: none !important; }
 /* Mobilde başlıkta Tester Kulübü kısayolu (geniş ekranda sağdaki yazılı bağlantı var) */
 .tk-nav-pill { display: none; text-decoration: none; }
 .tk-nav-pill:hover { text-decoration: none; }
-@media (max-width: 960px) { .tk-nav-pill { display: inline-flex; align-items: center; justify-content: center; padding-left: 12px; padding-right: 12px; font-size: 17px; } }
+@media (max-width: 960px) { .tk-nav-pill { display: inline-flex; align-items: center; justify-content: center; gap: 5px; padding-left: 11px; padding-right: 12px; } .tk-nav-pill [aria-hidden] { font-size: 15px; } }
 
-@media (max-width: 350px) { .tk-nav-pill { display: none; } }
+/* Dar telefonlarda başlığa Tester düğmesi de sığsın: logo biraz küçük, açılır düğmelerde ok yok, iç boşluk dar */
+@media (max-width: 430px) {
+  .brand img { height: 36px; }
+  .site-header .nav-pill .chev { display: none; }
+  .site-header .nav-pill { padding: 0 11px; }
+  .site-header .nav, .site-header .nav-right { gap: 6px; }
+}
+@media (max-width: 340px) { .tk-nav-pill { display: none; } }
