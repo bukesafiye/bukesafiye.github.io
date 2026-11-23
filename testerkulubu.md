@@ -53,6 +53,31 @@ o dosyadaki tk_ayar / tk_rozet ile aynı olmalı.
   .tk-faq details { padding: 16px 18px; border-radius: 14px; background: var(--surface); border: 1px solid var(--line); margin: 10px 0; }
   .tk-faq summary { cursor: pointer; font-weight: 600; }
   .tk-faq details p { margin: 10px 0 0; color: var(--muted); }
+  .tk-grup { margin: 22px 0 10px; font-size: 18px; }
+  .tk-kartlar { display: grid; gap: 10px; }
+  .tk-kart { display: flex; gap: 14px; align-items: center; justify-content: space-between; padding: 16px 18px; border-radius: 14px; background: var(--surface); border: 1px solid var(--line); margin-bottom: 10px; }
+  .tk-kart p { margin: 4px 0 2px; color: var(--muted); font-size: 14px; }
+  .tk-kart small { color: var(--muted); }
+  .tk-kart .btn { flex-shrink: 0; }
+  .tk-uyg { display: block; }
+  .tk-mailler { margin: 10px 0 4px !important; color: var(--text) !important; }
+  .tk-mail-kod { display: block; padding: 10px 12px; border-radius: 10px; background: var(--bg); border: 1px solid var(--line); font-size: 13px; word-break: break-all; margin-bottom: 8px; }
+  .tk-form label { display: grid; gap: 6px; margin: 0 0 14px; font-weight: 600; }
+  .tk-form label.tk-secim { display: inline-flex; align-items: center; gap: 8px; margin-right: 18px; font-weight: 500; }
+  .tk-form input:not([type=checkbox]), .tk-form textarea { width: 100%; padding: 11px 13px; border-radius: 10px; border: 1px solid var(--line); background: var(--bg); color: var(--text); font: 400 15px/1.4 var(--body); }
+  .tk-form input:focus, .tk-form textarea:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
+  .tk-form fieldset { border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px 6px; margin: 0 0 16px; }
+  .tk-form legend { padding: 0 6px; font-weight: 700; }
+  .tk-ipucu { font-size: 14px; margin: 0 0 12px; }
+  .tk-soru { display: grid; grid-template-columns: 2fr 1fr; gap: 8px; margin-bottom: 8px; }
+  .tk-mesaj { margin: 14px 0; padding: 12px 14px; border-radius: 12px; background: var(--surface); border: 1px solid var(--line); }
+  .tk-mesaj.tamam { border-color: color-mix(in srgb, var(--accent) 60%, transparent); }
+  .tk-mesaj.hata { border-color: rgba(255, 90, 90, .6); }
+  .tk-hesap-ust { display: flex; justify-content: space-between; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 6px; }
+  .tk-yoklama { display: grid; gap: 8px; margin-top: 10px; }
+  .tk-yoklama p { color: var(--text) !important; }
+  #tkGiris { margin-top: 14px; }
+  @media (max-width: 520px) { .tk-kart { flex-direction: column; align-items: stretch; } .tk-soru { grid-template-columns: 1fr; } }
   @media (max-width: 640px) { .tk-vs { grid-template-columns: 1fr; } .tk-hero .tk-lead { font-size: 17px; } }
 </style>
 
@@ -68,7 +93,8 @@ o dosyadaki tk_ayar / tk_rozet ile aynı olmalı.
     {%- if page.telegram != "" %}
     <a class="btn primary" href="{{ page.telegram }}" rel="noopener"><span class="tr">Telegram'da katıl</span><span class="en">Join on Telegram</span></a>
     {%- endif %}
-    <a class="btn" href="#nasil"><span class="tr">Nasıl çalışır?</span><span class="en">How does it work?</span></a>
+    <a class="btn" href="#uygulamalar"><span class="tr">Test et</span><span class="en">Test apps</span></a>
+    <a class="btn" href="#basvur"><span class="tr">Uygulamanı ekle</span><span class="en">Add your app</span></a>
   </div>
 </section>
 
@@ -108,7 +134,7 @@ o dosyadaki tk_ayar / tk_rozet ile aynı olmalı.
     <div class="tk-box">
       <span class="tk-num">1</span>
       <h3><span class="tr">Katıl</span><span class="en">Join</span></h3>
-      <p><span class="tr">Telegram ve Gmail adresinle kaydol. Hoş geldin hediyesi olarak <b>4 kredi</b> al.</span><span class="en">Sign up with Telegram and your Gmail address and get <b>4 credits</b> to start.</span></p>
+      <p><span class="tr">Mail adresinle kaydol. Hoş geldin hediyesi olarak <b>4 kredi</b> al.</span><span class="en">Sign up with your email address and get <b>4 credits</b> to start.</span></p>
     </div>
     <div class="tk-box">
       <span class="tk-num">2</span>
@@ -127,6 +153,57 @@ o dosyadaki tk_ayar / tk_rozet ile aynı olmalı.
     </div>
   </div>
 </section>
+
+<section class="tk-section" id="uygulamalar">
+  <h2><span class="tr">Test edilecek uygulamalar</span><span class="en">Apps waiting for testers</span></h2>
+  <p class="muted"><span class="tr">Birini seç, teste katıl. Test linki katılınca açılır; her gün tek bir kontrol sorusu cevaplarsın.</span><span class="en">Pick one and join. The test link opens once you join; answer one quick question a day.</span></p>
+  <div id="tkKatilSonuc"></div>
+  <div id="tkListe"><p class="muted"><span class="tr">Yükleniyor…</span><span class="en">Loading…</span></p></div>
+</section>
+
+<section class="tk-section" id="basvur">
+  <h2><span class="tr">Uygulamanı ekle</span><span class="en">Add your app</span></h2>
+  <p class="muted"><span class="tr">Formu doldur, ekip onaylayınca listeye girer. Mail adresin ve şifren hesabın olur: sonra aynı bilgilerle girip başvuranların mail adreslerini görürsün. İlk 3 uygulaman için kredi gerekmez.</span><span class="en">Fill in the form; it goes live once approved. Your email and password become your account: sign in later to see applicants' email addresses. Your first 3 apps need no credits.</span></p>
+  <form id="tkBasvuru" class="tk-box tk-form" autocomplete="on">
+    <label><span class="tr">Uygulamanın adı</span><span class="en">App name</span><input name="ad" required minlength="2" maxlength="48"></label>
+    <label><span class="tr">Kısa açıklama (isteğe bağlı)</span><span class="en">Short description (optional)</span><textarea name="aciklama" maxlength="500" rows="2"></textarea></label>
+    <fieldset><legend><span class="tr">Platform</span><span class="en">Platform</span></legend>
+      <label class="tk-secim"><input type="checkbox" id="tkPlAndroid" checked> 🤖 Android</label>
+      <label class="tk-secim"><input type="checkbox" id="tkPlIos"> 🍏 iPhone</label>
+    </fieldset>
+    <label id="tkLinkAndroid"><span class="tr">Play kapalı test katılım linki</span><span class="en">Play closed-testing opt-in link</span><input name="linkAndroid" type="url" placeholder="https://play.google.com/apps/testing/…"></label>
+    <label id="tkLinkIos"><span class="tr">TestFlight herkese açık link</span><span class="en">TestFlight public link</span><input name="linkIos" type="url" placeholder="https://testflight.apple.com/join/…"></label>
+    <label><span class="tr">Kaç test kullanıcısı istiyorsun? (1–100)</span><span class="en">How many testers? (1–100)</span><input name="istenen" type="number" min="1" max="100" value="12" required></label>
+    <fieldset><legend><span class="tr">Kontrol soruları (en az 3)</span><span class="en">Check questions (at least 3)</span></legend>
+      <p class="muted tk-ipucu"><span class="tr">Yalnız uygulamayı açan birinin bilebileceği sorular yaz; cevap kısa olsun (tek kelime ya da sayı). Bot her gün test edenlere bunlardan birini sorar.</span><span class="en">Ask things only someone who opened the app would know; keep answers short (one word or a number). Testers get one of these each day.</span></p>
+      <div id="tkSorular"></div>
+      <button type="button" class="btn" id="tkSoruEkle">+ <span class="tr">Soru ekle</span><span class="en">Add question</span></button>
+    </fieldset>
+    <fieldset><legend><span class="tr">Hesabın</span><span class="en">Your account</span></legend>
+      <label><span class="tr">Mail adresin</span><span class="en">Your email</span><input name="gmail" type="email" required autocomplete="email" placeholder="ornek@mail.com"></label>
+      <label><span class="tr">Şifre (en az 6 karakter)</span><span class="en">Password (min. 6 characters)</span><input name="sifre" type="password" required minlength="6" autocomplete="new-password"></label>
+      <p class="muted tk-ipucu"><span class="tr">Daha önce başvurduysan aynı mail adresi ve şifreyi yaz. Telegram botunda kayıtlıysan önce botta /websifre ile şifre belirle.</span><span class="en">If you applied before, use the same email and password. If you're in the Telegram bot, set a password there first with /websifre.</span></p>
+    </fieldset>
+    <button type="submit" class="btn primary"><span class="tr">Başvur</span><span class="en">Apply</span></button>
+    <div id="tkBasvuruSonuc"></div>
+  </form>
+</section>
+
+<section class="tk-section" id="hesabim">
+  <h2><span class="tr">Hesabım</span><span class="en">My account</span></h2>
+  <div id="tkHesap" class="tk-box"></div>
+  <div id="tkGiris" class="tk-box tk-form" hidden>
+    <p id="tkGirisNot"></p>
+    <form id="tkGirisForm">
+      <label><span class="tr">Mail adresin</span><span class="en">Your email</span><input name="gmail" type="email" required autocomplete="email" placeholder="ornek@mail.com"></label>
+      <label id="tkSifreAlan"><span><span class="tr">Şifre (sadece test ediyorsan boş bırak)</span><span class="en">Password (leave empty if you only test)</span></span><input name="sifre" type="password" autocomplete="current-password"></label>
+      <button type="submit" class="btn primary"><span class="tr">Devam et</span><span class="en">Continue</span></button>
+    </form>
+    <div id="tkGirisSonuc"></div>
+  </div>
+</section>
+
+<script src="{{ '/assets/js/testerkulubu.js' | relative_url }}?v={{ site.time | date: '%s' }}" defer></script>
 
 <section class="tk-section">
   <h2><span class="tr">Rozetler</span><span class="en">Badges</span></h2>
@@ -150,8 +227,8 @@ o dosyadaki tk_ayar / tk_rozet ile aynı olmalı.
     <p><span class="tr">Sorun değil: art arda 2 güne kadar boşluk payın var. Daha uzun ara verirsen test bırakılmış sayılır ve güven puanın düşer.</span><span class="en">That's fine: you can skip up to 2 days in a row. A longer break counts as dropping the test and lowers your trust score.</span></p>
   </details>
   <details>
-    <summary><span class="tr">Neden Gmail adresi istiyorsunuz?</span><span class="en">Why do you need my Gmail address?</span></summary>
-    <p><span class="tr">Google Play kapalı testine yalnız geliştiricinin listesine eklenen Google hesapları katılabilir. Adresini yalnız test ettiğin uygulamanın geliştiricisi görür.</span><span class="en">Only Google accounts on the developer's list can join a Play closed test. Only the developers whose apps you test see your address.</span></p>
+    <summary><span class="tr">Neden mail adresi istiyorsunuz?</span><span class="en">Why do you need my email address?</span></summary>
+    <p><span class="tr">Android kapalı testine, geliştiricinin listesine eklenen mail adresleri katılabilir; bu yüzden Android için Google hesabına bağlı adresini yaz. iPhone testlerinde ise yalnız iletişim içindir. Adresini yalnız test ettiğin uygulamanın geliştiricisi görür.</span><span class="en">Only addresses on the developer's list can join an Android closed test, so use the address linked to your Google account. For iPhone tests it's only for contact. Only the developers whose apps you test see your address.</span></p>
   </details>
   <details>
     <summary><span class="tr">iPhone uygulamaları da var mı?</span><span class="en">Are iPhone apps included?</span></summary>
