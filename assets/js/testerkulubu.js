@@ -301,21 +301,28 @@
     });
   }
 
+  // "Ekledim": sunucuyu beklemeden yeni adresleri hemen "eklenenler"e taşı; ardından hesap arkada yenilenir.
+  function hemenIndir(btn) {
+    var kart = btn.closest('.tk-kart > div');
+    if (!kart) return;
+    var yeniKod = kart.querySelector('.tk-mail-kod:not(.tk-mail-eski)');
+    var yeni = yeniKod ? yeniKod.textContent.split(', ').filter(Boolean) : [];
+    var eskiKod = kart.querySelector('.tk-mail-eski');
+    var eski = eskiKod ? eskiKod.textContent.split(', ').filter(Boolean) : [];
+    var hepsi = eski.concat(yeni.filter(function (m) { return eski.indexOf(m) < 0; }));
+    Array.prototype.slice.call(kart.querySelectorAll('.tk-mailler, .tk-mail-kod, .tk-kopyala, [data-liste-eklendi], [data-play-son], small.muted, p.muted'))
+      .forEach(function (el) { el.remove(); });
+    kart.insertAdjacentHTML('beforeend', '<p class="muted">' + t('Yeni başvuran yok.', 'No new applicants.') + '</p>' +
+      '<p class="tk-mailler">✅ ' + t('Listeye eklenenler', 'Already added') + ' (' + hepsi.length + '):</p><code class="tk-mail-kod tk-mail-eski">' + hepsi.map(esc).join(', ') + '</code>');
+  }
+
   // --- olaylar -----------------------------------------------------------------------------------
   document.addEventListener('click', function (e) {
     if (e.target.closest('[data-mail-degistir]')) { mailYaz(null); mesaj($('tkKatilSonuc'), ''); return; }
     var le = e.target.closest('[data-liste-eklendi]');
-    if (le) {
-      le.disabled = true;
-      api({ is: 'liste_eklendi', jeton: jetonAl(), uygulama: le.dataset.listeEklendi }).then(function () { hesapCiz(); });
-      return;
-    }
+    if (le) { hemenIndir(le); api({ is: 'liste_eklendi', jeton: jetonAl(), uygulama: le.dataset.listeEklendi }).then(function () { hesapCiz(); }); return; }
     var pe = e.target.closest('[data-play-son]');
-    if (pe) {
-      pe.disabled = true;
-      api({ is: 'play_eklendi', jeton: jetonAl(), son: pe.dataset.playSon }).then(function () { hesapCiz(); });
-      return;
-    }
+    if (pe) { hemenIndir(pe); api({ is: 'play_eklendi', jeton: jetonAl(), son: pe.dataset.playSon }).then(function () { hesapCiz(); }); return; }
     var b = e.target.closest('[data-katil],[data-soru],[data-kopya],#tkSoruEkle');
     if (!b) return;
     if (b.id === 'tkSoruEkle') { soruSatiri(); return; }
