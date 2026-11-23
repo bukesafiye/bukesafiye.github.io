@@ -182,9 +182,35 @@
       : t('Şifre (sadece test ediyorsan boş bırak)', 'Password (leave empty if you only test)');
     var si = k.querySelector('input[name=sifre]'); si.value = ''; si.removeAttribute('minlength');
     $('tkGirisNot').innerHTML = not || '';
-    k.scrollIntoView({ block: 'center' });
-    k.querySelector('input[name=gmail]').focus();
+    mesaj($('tkGirisSonuc'), '');
+    $('tkSifre').hidden = true;
+    panelGuncelle();
+    var gi = k.querySelector('input[name=gmail]');
+    if (!gi.value && mailAl()) gi.value = mailAl();
+    gi.focus();
   }
+  function girisKapat() { $('tkGiris').hidden = true; panelGuncelle(); }
+  // Giriş / şifre kutuları ortada açılan bir pencerede (dialog); ikisi de gizliyse pencere kapanır
+  function panelGuncelle() {
+    var d = $('tkPanel');
+    if (!d) return;
+    var giris = !$('tkGiris').hidden, sifre = !$('tkSifre').hidden;
+    $('tkPanelBaslik').innerHTML = sifre ? t('Şifre belirle', 'Set password')
+      : $('tkGiris').dataset.mod === 'katil' ? t('Teste katıl', 'Join the test') : t('Giriş yap', 'Sign in');
+    if ((giris || sifre) && !d.open) { if (d.showModal) d.showModal(); else d.setAttribute('open', ''); }
+    if (!giris && !sifre && d.open) { if (d.close) d.close(); else d.removeAttribute('open'); }
+  }
+  // Başlığın sağındaki hesap düğmesi: girişsizken "Giriş yap", girişliyken baş harf + "Hesabım"
+  function dugmeGuncelle(mail) {
+    var b = $('tkHesapDugme');
+    if (!b) return;
+    b.classList.toggle('is-giris', !mail);
+    b.innerHTML = mail
+      ? '<span class="tk-avatar" aria-hidden="true">' + esc(mail.charAt(0).toUpperCase()) + '</span><span class="tk-hesap-yazi">' + t('Hesabım', 'My account') + '</span>'
+      : IKON_KISI + '<span class="tk-hesap-yazi">' + t('Giriş yap', 'Sign in') + '</span>';
+    b.title = mail || '';
+  }
+  var IKON_KISI = '<svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4" fill="none" stroke="currentColor" stroke-width="2"/><path d="M4 20c1.6-3.6 4.5-5.4 8-5.4s6.4 1.8 8 5.4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>';
   function giris(e) {
     e.preventDefault();
     var f = e.target, kutu = $('tkGirisSonuc');
@@ -192,7 +218,7 @@
       var bt = bekleyenKatilim;
       girVeyaKaydol(f.gmail.value.trim(), f.sifre.value).then(function (r) {
         if (!r.jeton) { mesaj(kutu, hataMetni(r.hata), 'hata'); return; }
-        jetonYaz(r.jeton); f.sifre.value = ''; bekleyenKatilim = null; mesaj(kutu, ''); $('tkGiris').hidden = true;
+        jetonYaz(r.jeton); f.sifre.value = ''; bekleyenKatilim = null; mesaj(kutu, ''); girisKapat();
         hesapCiz(); katil(bt.id, bt.ad);
       });
       return;
@@ -202,14 +228,14 @@
       api({ is: 'katil_gmail', gmail: girilen, uygulama: b.id }).then(function (r) {
         if (r.hata === 'tk_gmail_gecersiz' || r.hata === 'tk_engelli') { mesaj(kutu, hataMetni(r.hata), 'hata'); return; }
         mailYaz(girilen);
-        bekleyenKatilim = null; mesaj(kutu, ''); $('tkGiris').hidden = true;
+        bekleyenKatilim = null; mesaj(kutu, ''); girisKapat();
         katilSonuc(b.id, Promise.resolve(r));
       });
       return;
     }
     girVeyaKaydol(f.gmail.value.trim(), f.sifre.value).then(function (r) {
       if (!r.jeton) { mesaj(kutu, hataMetni(r.hata), 'hata'); return; }
-      jetonYaz(r.jeton); f.sifre.value = ''; mesaj(kutu, ''); $('tkGiris').hidden = true;
+      jetonYaz(r.jeton); f.sifre.value = ''; mesaj(kutu, ''); girisKapat();
       hesapCiz();
       if (bekleyenKatilim) { var b = bekleyenKatilim; bekleyenKatilim = null; katil(b.id, b.ad); }
     });
@@ -235,14 +261,17 @@
   function hesapCiz() {
     var kutu = $('tkHesap');
     if (!jetonAl()) {
-      kutu.innerHTML = '<p>' + t('Uygulamalarını ve başvuranların mail adreslerini görmek, ya da günlük test sorunu cevaplamak için mail adresinle gir (sadece test ediyorsan şifre gerekmez).', 'Sign in with your email to see your apps and applicants’ email addresses, or to answer your daily test question (no password needed if you only test).') + '</p>' +
-        '<button type="button" class="btn primary" id="tkGirisAc">' + t('Giriş yap', 'Sign in') + '</button>';
-      $('tkGirisAc').onclick = function () { girisAc(''); };
+      // Girişsizken Hesabım bölümü görünmez; giriş başlığın sağındaki düğmeden açılır
+      kutu.innerHTML = '';
+      $('hesabim').hidden = true;
+      dugmeGuncelle(null);
       return;
     }
+    $('hesabim').hidden = false;
     api({ is: 'ben', jeton: jetonAl() }).then(function (r) {
       if (r.hata === 'oturum') { jetonYaz(null); return hesapCiz(); }
       if (r.hata) { mesaj(kutu, hataMetni(r.hata), 'hata'); return; }
+      dugmeGuncelle(r.uye.gmail);
       var html = '<div class="tk-hesap-ust"><span>' + t('Giriş yapan', 'Signed in as') + ' <b>' + esc(r.uye.gmail) + '</b></span><button type="button" class="btn" id="tkCikis">' + t('Çıkış', 'Sign out') + '</button></div>';
 
       if (r.play_rehber) {
@@ -416,9 +445,15 @@
   // --- Şifre belirle / şifremi unuttum (maile tek kullanımlık bağlantı) ---------------------------
   function sifreAc(kod) {
     var k = $('tkSifre'); k.hidden = false;
+    $('tkGiris').hidden = true;
     $('tkSifreIsteForm').hidden = !!kod; $('tkSifreBelirleForm').hidden = !kod;
     k.dataset.kod = kod || '';
-    k.scrollIntoView({ block: 'center' });
+    mesaj($('tkSifreSonuc'), '');
+    panelGuncelle();
+    var si = k.querySelector(kod ? '#tkSifreBelirleForm input' : '#tkSifreIsteForm input');
+    var gi = $('tkGiris').querySelector('input[name=gmail]');
+    if (!kod && gi.value) si.value = gi.value;
+    si.focus();
   }
   function sifreIste(e) {
     e.preventDefault();
@@ -436,6 +471,7 @@
       jetonYaz(r.jeton); f.sifre.value = '';
       try { history.replaceState(null, '', location.pathname + '#hesabim'); } catch (x) { /* eski tarayıcı */ }
       $('tkSifre').hidden = true;
+      panelGuncelle();
       mesaj($('tkGirisSonuc'), '');
       hesapCiz();
       mesaj($('tkKatilSonuc'), '');
@@ -445,6 +481,17 @@
   function basla() {
     if (!$('tkHesap')) return;
     $('tkSifreUnuttum').onclick = function () { sifreAc(''); };
+    var d = $('tkPanel');
+    // Esc, kapat düğmesi ya da pencere dışına tıklama: iki kutu da gizlenir, yarım kalan katılım unutulur
+    d.addEventListener('close', function () { $('tkGiris').hidden = true; $('tkSifre').hidden = true; bekleyenKatilim = null; });
+    d.addEventListener('click', function (e) { if (e.target === d || e.target.closest('[data-panel-kapat]')) d.close(); });
+    $('tkHesapDugme') && ($('tkHesapDugme').onclick = function () {
+      if (jetonAl()) $('hesabim').scrollIntoView({ behavior: 'smooth', block: 'start' }); else girisAc('');
+    });
+    // "Testçi listem" gibi #hesabim bağlantıları: girişsizken giriş penceresini açar
+    document.addEventListener('click', function (e) {
+      if (!jetonAl() && e.target.closest('a[href="#hesabim"]')) { e.preventDefault(); girisAc(''); }
+    });
     $('tkTakasAc').onclick = function () {
       $('tkTakasAc').hidden = true; $('tkSifreAlan').hidden = false;
       var i = $('tkGiris').querySelector('input[name=sifre]'); i.setAttribute('minlength', '6'); i.focus();
@@ -453,6 +500,7 @@
     $('tkSifreBelirleForm').onsubmit = sifreBelirle;
     var kod = new URLSearchParams(location.search).get('sifre');
     if (kod) setTimeout(function () { sifreAc(kod); }, 300);
+    else if (location.hash === '#hesabim' && !jetonAl()) setTimeout(function () { girisAc(''); }, 300);
     for (var i = 0; i < 3; i++) soruSatiri();
     $('tkPlAndroid').onchange = $('tkPlIos').onchange = $('tkPlWeb').onchange = platformGoster;
     platformGoster();

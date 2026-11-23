@@ -9,6 +9,8 @@ back_en: Home
 # Telegram grubu açılınca linki buraya yaz; boşken katıl düğmesi gösterilmez.
 telegram: "https://t.me/testerkulubu"
 icon: /assets/img/testerkulubu-icon-128.png
+# Başlığın sağında "Giriş yap / Hesabım" düğmesi (_layouts/default.html)
+tk_hesap: true
 ---
 {%- comment -%}
 Tester Kulübü: MiroGames'ten ayrı bir ürün (karşılıklı uygulama testi). Veritabanı Mahalle Patronu'nun Supabase
@@ -132,27 +134,108 @@ o dosyadaki tk_ayar / tk_rozet ile aynı olmalı.
   .tk-link-dugme { margin-top: 10px; padding: 0; border: 0; background: none; color: var(--accent); font: 500 14px/1.4 var(--body); cursor: pointer; text-decoration: underline; }
   @media (max-width: 520px) { .tk-kart { flex-direction: column; align-items: stretch; } .tk-soru { grid-template-columns: 1fr; } }
   @media (max-width: 640px) { .tk-vs { grid-template-columns: 1fr; } .tk-hero .tk-lead { font-size: 17px; } }
+
+  /* ---- Görünüm: sade, katmanlı kartlar ---- */
+  .tk-hero { position: relative; isolation: isolate; padding: 52px 28px 40px; margin-top: 4px; border-radius: 28px; overflow: hidden;
+    background: radial-gradient(120% 90% at 50% -10%, color-mix(in srgb, var(--accent) 20%, transparent), transparent 60%), var(--surface);
+    border: 1px solid color-mix(in srgb, var(--accent) 18%, var(--line)); }
+  .tk-hero::before { content: ""; position: absolute; inset: 0; z-index: -1; opacity: .5;
+    background-image: linear-gradient(var(--line) 1px, transparent 1px), linear-gradient(90deg, var(--line) 1px, transparent 1px);
+    background-size: 32px 32px; mask-image: radial-gradient(70% 60% at 50% 0%, #000, transparent); -webkit-mask-image: radial-gradient(70% 60% at 50% 0%, #000, transparent); }
+  .tk-logo { width: 76px; height: 76px; border-radius: 20px; margin-bottom: 20px; box-shadow: 0 12px 40px -8px var(--glow), 0 0 0 1px var(--line); }
+  .tk-badge { padding: 7px 14px; border: 1px solid color-mix(in srgb, var(--accent) 30%, transparent); font-size: 12.5px; letter-spacing: .04em; }
+  .tk-badge::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent) 20%, transparent); }
+  .tk-hero h1 { letter-spacing: -.02em; margin: 18px 0 12px; }
+  .tk-hero h1 em { font-style: normal; background: linear-gradient(100deg, var(--accent), color-mix(in srgb, var(--accent) 45%, white)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .tk-hero .tk-lead { font-size: 18px; line-height: 1.6; margin-bottom: 28px; }
+  .tk-hero .tk-lead b { color: var(--text); }
+  .tk-cta .btn { padding-inline: 20px; }
+  .tk-cta .btn.primary { box-shadow: 0 8px 28px -8px var(--glow); }
+  .tk-istat { display: grid; grid-template-columns: repeat(3, 1fr); margin: 34px auto 0; max-width: 560px; border-top: 1px solid var(--line); padding-top: 22px; }
+  .tk-istat div + div { border-left: 1px solid var(--line); }
+  .tk-istat b { display: block; font: 700 28px/1.1 var(--display); letter-spacing: -.01em; }
+  .tk-istat span { font-size: 13px; color: var(--muted); }
+  .tk-section { margin-top: 72px; }
+  .tk-ust { display: block; margin-bottom: 8px; color: var(--accent); font: 700 12px/1 var(--body); letter-spacing: .12em; text-transform: uppercase; }
+  .tk-section > h2, .tk-section h2.tk-katla-bas { margin: 0 0 6px; font-size: clamp(24px, 3.4vw, 30px); letter-spacing: -.01em; }
+  .tk-box { background: linear-gradient(180deg, color-mix(in srgb, var(--surface-2) 70%, var(--surface)), var(--surface)); transition: border-color .2s ease, transform .2s ease; }
+  .tk-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+  .tk-grid .tk-box:hover { border-color: color-mix(in srgb, var(--accent) 35%, var(--line)); transform: translateY(-2px); }
+  .tk-num { width: 36px; height: 36px; border-radius: 11px; border: 1px solid color-mix(in srgb, var(--accent) 30%, transparent); }
+  .tk-vs .tk-box.ours { background: radial-gradient(100% 80% at 100% 0%, color-mix(in srgb, var(--accent) 12%, transparent), transparent 70%), var(--surface); box-shadow: 0 20px 60px -30px var(--glow); }
+  .tk-rozet { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+  .tk-rozet li { padding: 16px; text-align: center; background: var(--surface); }
+  .tk-rozet b { font-size: 16px; margin-bottom: 4px; }
+  .tk-rozet .tk-rozet-ikon { display: block; font-size: 26px; margin-bottom: 6px; }
+  .tk-faq details { padding: 0; transition: border-color .2s ease; }
+  .tk-faq details[open] { border-color: color-mix(in srgb, var(--accent) 30%, var(--line)); }
+  .tk-faq summary { list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 16px 18px; }
+  .tk-faq summary::-webkit-details-marker { display: none; }
+  .tk-faq summary::after { content: "+"; flex-shrink: 0; display: grid; place-items: center; width: 26px; height: 26px; border-radius: 50%; border: 1px solid var(--line); color: var(--muted); font: 500 18px/1 var(--body); transition: transform .2s ease; }
+  .tk-faq details[open] summary::after { transform: rotate(45deg); color: var(--accent); border-color: var(--accent); }
+  .tk-faq details p { margin: 0; padding: 0 18px 16px; }
+  .tk-gizlilik-satir { margin-top: 18px; font-size: 14px; }
+
+  /* Başlıktaki hesap düğmesi (girişsizken dolu renk) */
+  .tk-hesap-pill { gap: 8px; }
+  /* Bu sayfada başlıkta yer açılsın: Test rehberi düğmesi orta genişlikte gizlenir (hero'da "Test etmeye başla" var) */
+  @media (max-width: 1000px) { .site-header .nav-cta { display: none; } }
+  .tk-hesap-pill.is-giris { background: var(--accent); color: #041214; border-color: transparent; }
+  .tk-hesap-pill.is-giris:hover { background: color-mix(in srgb, var(--accent) 88%, white); }
+  .tk-avatar { display: grid; place-items: center; width: 26px; height: 26px; margin-left: -8px; border-radius: 50%; background: var(--accent); color: #041214; font: 700 13px/1 var(--display); }
+  @media (max-width: 430px) { .tk-hesap-pill:not(.is-giris) .tk-hesap-yazi { display: none; } .tk-avatar { margin: 0 -4px; } }
+
+  /* Giriş penceresi */
+  .tk-dialog { width: min(440px, calc(100vw - 32px)); padding: 0; border-radius: 22px; border: 1px solid color-mix(in srgb, var(--accent) 22%, var(--line)); background: var(--surface); color: var(--text); box-shadow: 0 30px 80px -20px rgba(0, 0, 0, .7), 0 0 60px -30px var(--glow); }
+  .tk-dialog::backdrop { background: rgba(3, 6, 8, .66); backdrop-filter: blur(4px); }
+  .tk-dialog[open] { animation: tk-acil .18s ease-out; }
+  @keyframes tk-acil { from { opacity: 0; transform: translateY(8px) scale(.98); } }
+  .tk-dialog-ic { padding: 26px 26px 22px; }
+  .tk-dialog-bas { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; padding-right: 32px; }
+  .tk-dialog-bas img { width: 40px; height: 40px; border-radius: 11px; }
+  .tk-dialog-bas h2 { margin: 0; font-size: 20px; }
+  .tk-dialog-bas small { color: var(--muted); font-size: 13px; }
+  .tk-dialog-kapat { position: absolute; top: 16px; right: 16px; width: 34px; height: 34px; border-radius: 50%; border: 1px solid var(--line); background: transparent; color: var(--muted); font: 400 20px/1 var(--body); cursor: pointer; }
+  .tk-dialog-kapat:hover { color: var(--text); border-color: var(--accent); }
+  .tk-dialog #tkGiris, .tk-dialog #tkSifre { margin: 0; padding: 0; border: 0; background: none; }
+  .tk-dialog #tkGirisNot:empty { display: none; }
+  .tk-dialog #tkGirisNot { margin: 0 0 14px; padding: 10px 12px; border-radius: 10px; background: var(--accent-soft); }
+  .tk-dialog .btn.primary[type=submit] { width: 100%; justify-content: center; }
+  .tk-dialog .tk-link-dugme { display: block; margin: 14px auto 0; }
+  .tk-dialog .tk-takas { margin: -4px 0 14px; }
+  @media (max-width: 640px) {
+    .tk-hero { padding: 36px 18px 28px; border-radius: 22px; }
+    .tk-grid { grid-template-columns: 1fr; }
+    .tk-rozet { grid-template-columns: repeat(2, 1fr); }
+    .tk-istat b { font-size: 22px; }
+    .tk-section { margin-top: 56px; }
+  }
 </style>
 
 <section class="tk-hero">
-  <img class="tk-logo" src="{{ '/assets/img/testerkulubu-icon-128.webp' | relative_url }}" alt="" width="96" height="96">
-  <span class="tk-badge">🧪 <span class="tr">Ücretsiz · Türkiye'den başlıyoruz</span><span class="en">Free · Starting in Türkiye</span></span>
-  <h1>Tester Kulübü</h1>
+  <img class="tk-logo" src="{{ '/assets/img/testerkulubu-icon-128.webp' | relative_url }}" alt="" width="76" height="76">
+  <span class="tk-badge"><span class="tr">Ücretsiz · Türkiye'den başlıyoruz</span><span class="en">Free · Starting in Türkiye</span></span>
+  <h1>Tester <em>Kulübü</em></h1>
   <p class="tk-lead">
     <span class="tr">Google Play'in <b>12 test kullanıcısı / 14 gün</b> kuralı için para ödeme. Sen başkalarının uygulamasını test et, onlar seninkini test etsin. Üstüne gerçek geri bildirim de al.</span>
     <span class="en">Don't pay to clear Google Play's <b>12 testers / 14 days</b> rule. Test other people's apps and they'll test yours, with real feedback on top.</span>
   </p>
   <div class="tk-cta">
+    <a class="btn primary" href="{{ '/test/' | relative_url }}"><span class="tr">Test etmeye başla</span><span class="en">Start testing</span></a>
+    <a class="btn" href="#basvur"><span class="tr">Uygulamanı ekle</span><span class="en">Add your app</span></a>
     {%- if page.telegram != "" %}
     <a class="btn" href="{{ page.telegram }}" rel="noopener"><span class="tr">Telegram'da katıl</span><span class="en">Join on Telegram</span></a>
     {%- endif %}
-    <a class="btn primary" href="{{ '/test/' | relative_url }}"><span class="tr">Test et</span><span class="en">Test apps</span></a>
-    <a class="btn" href="#basvur"><span class="tr">Uygulamanı ekle</span><span class="en">Add your app</span></a>
-    <a class="btn" href="#hesabim"><span class="tr">Testçi listem</span><span class="en">My tester list</span></a>
+  </div>
+  <div class="tk-istat">
+    <div><b>12</b><span><span class="tr">test kullanıcısı</span><span class="en">testers</span></span></div>
+    <div><b>14</b><span><span class="tr">gün</span><span class="en">days</span></span></div>
+    <div><b>0 ₺</b><span><span class="tr">ücret</span><span class="en">cost</span></span></div>
   </div>
 </section>
 
 <section class="tk-section">
+  <span class="tk-ust"><span class="tr">Neden biz</span><span class="en">Why us</span></span>
   <h2><span class="tr">Takasla ücretsiz</span><span class="en">Free, by swapping</span></h2>
   <div class="tk-vs">
     <div class="tk-box paid">
@@ -183,6 +266,7 @@ o dosyadaki tk_ayar / tk_rozet ile aynı olmalı.
 </section>
 
 <section class="tk-section" id="nasil">
+  <span class="tk-ust"><span class="tr">4 adım</span><span class="en">4 steps</span></span>
   <h2><span class="tr">Nasıl çalışır?</span><span class="en">How it works</span></h2>
   <div class="tk-grid">
     <div class="tk-box">
@@ -239,10 +323,20 @@ o dosyadaki tk_ayar / tk_rozet ile aynı olmalı.
   </form>
 </section>
 
-<section class="tk-section" id="hesabim">
+<section class="tk-section" id="hesabim" hidden>
+  <span class="tk-ust"><span class="tr">Panel</span><span class="en">Dashboard</span></span>
   <h2><span class="tr">Hesabım</span><span class="en">My account</span></h2>
   <div id="tkHesap" class="tk-box"></div>
-  <div id="tkGiris" class="tk-box tk-form" hidden>
+</section>
+
+<dialog id="tkPanel" class="tk-dialog" aria-labelledby="tkPanelBaslik">
+  <button type="button" class="tk-dialog-kapat" data-panel-kapat aria-label="Kapat / Close">×</button>
+  <div class="tk-dialog-ic">
+  <div class="tk-dialog-bas">
+    <img src="{{ '/assets/img/testerkulubu-icon-128.webp' | relative_url }}" alt="" width="40" height="40">
+    <div><h2 id="tkPanelBaslik"><span class="tr">Giriş yap</span><span class="en">Sign in</span></h2><small><span class="tr">Sadece test ediyorsan şifre gerekmez</span><span class="en">No password needed if you only test</span></small></div>
+  </div>
+  <div id="tkGiris" class="tk-form" hidden>
     <p id="tkGirisNot"></p>
     <form id="tkGirisForm">
       <label><span class="tr">Mail adresin</span><span class="en">Your email</span><input name="gmail" type="email" required autocomplete="email" placeholder="ornek@mail.com"></label>
@@ -253,7 +347,7 @@ o dosyadaki tk_ayar / tk_rozet ile aynı olmalı.
     <div id="tkGirisSonuc"></div>
     <button type="button" class="tk-link-dugme" id="tkSifreUnuttum"><span class="tr">Şifre belirle / şifremi unuttum</span><span class="en">Set / forgot password</span></button>
   </div>
-  <div id="tkSifre" class="tk-box tk-form" hidden>
+  <div id="tkSifre" class="tk-form" hidden>
     <form id="tkSifreIsteForm">
       <p><span class="tr">Mail adresini yaz; şifreni belirlemen için bir bağlantı gönderelim.</span><span class="en">Enter your email and we'll send you a link to set your password.</span></p>
       <label><span class="tr">Mail adresin</span><span class="en">Your email</span><input name="gmail" type="email" required autocomplete="email"></label>
@@ -266,22 +360,25 @@ o dosyadaki tk_ayar / tk_rozet ile aynı olmalı.
     </form>
     <div id="tkSifreSonuc"></div>
   </div>
-</section>
+  </div>
+</dialog>
 
 <script src="{{ '/assets/js/testerkulubu.js' | relative_url }}?v={{ site.time | date: '%s' }}" defer></script>
 
 <section class="tk-section">
+  <span class="tk-ust"><span class="tr">Güven puanı</span><span class="en">Trust score</span></span>
   <h2><span class="tr">Rozetler</span><span class="en">Badges</span></h2>
-  <p><span class="tr">Tamamladığın her test güven puanını 1 artırır, yarıda bıraktığın her test 2 düşürür. Rozetler bu puana göre verilir.</span><span class="en">Each test you finish adds 1 trust point; each one you abandon takes 2 away. Badges follow your trust score.</span></p>
+  <p class="muted"><span class="tr">Tamamladığın her test güven puanını 1 artırır, yarıda bıraktığın her test 2 düşürür. Rozetler bu puana göre verilir.</span><span class="en">Each test you finish adds 1 trust point; each one you abandon takes 2 away. Badges follow your trust score.</span></p>
   <ul class="tk-rozet">
-    <li><b>🌱 <span class="tr">Yeni</span><span class="en">New</span></b><small>0–2</small></li>
-    <li><b>🥉 <span class="tr">Bronz</span><span class="en">Bronze</span></b><small>3+</small></li>
-    <li><b>🥈 <span class="tr">Gümüş</span><span class="en">Silver</span></b><small>10+</small></li>
-    <li><b>🥇 <span class="tr">Altın</span><span class="en">Gold</span></b><small>25+</small></li>
+    <li><span class="tk-rozet-ikon" aria-hidden="true">🌱</span><b><span class="tr">Yeni</span><span class="en">New</span></b><small><span class="tr">0–2 puan</span><span class="en">0–2 pts</span></small></li>
+    <li><span class="tk-rozet-ikon" aria-hidden="true">🥉</span><b><span class="tr">Bronz</span><span class="en">Bronze</span></b><small><span class="tr">3+ puan</span><span class="en">3+ pts</span></small></li>
+    <li><span class="tk-rozet-ikon" aria-hidden="true">🥈</span><b><span class="tr">Gümüş</span><span class="en">Silver</span></b><small><span class="tr">10+ puan</span><span class="en">10+ pts</span></small></li>
+    <li><span class="tk-rozet-ikon" aria-hidden="true">🥇</span><b><span class="tr">Altın</span><span class="en">Gold</span></b><small><span class="tr">25+ puan</span><span class="en">25+ pts</span></small></li>
   </ul>
 </section>
 
 <section class="tk-section tk-faq">
+  <span class="tk-ust"><span class="tr">Merak edilenler</span><span class="en">Questions</span></span>
   <h2><span class="tr">Sık sorulanlar</span><span class="en">FAQ</span></h2>
   <details>
     <summary><span class="tr">Geliştirici olmam gerekiyor mu?</span><span class="en">Do I need to be a developer?</span></summary>

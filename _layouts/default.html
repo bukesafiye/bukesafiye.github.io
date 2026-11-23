@@ -91,7 +91,9 @@
         <a class="nav-link" href="{{ '/#apps' | relative_url }}"><span class="tr">Uygulamalar</span><span class="en">Apps</span></a>
         {%- endif %}
         <a class="nav-link" href="{{ '/#contact' | relative_url }}"><span class="tr">İletişim</span><span class="en">Contact</span></a>
+        {%- unless page.tk_hesap %}
         <a class="nav-pill tk-nav-pill" href="{{ '/testerkulubu/' | relative_url }}" title="Tester Kulübü"><span aria-hidden="true">🧪</span><span class="tk-nav-yazi">Tester</span></a>
+        {%- endunless %}
         <div class="dropdown" data-dropdown>
           <button type="button" class="nav-pill lang-pill" aria-expanded="false" aria-controls="lang-menu" aria-label="Language / Dil">
             <span class="tr">TR</span><span class="en">EN</span>
@@ -107,6 +109,10 @@
         <a class="nav-cta" href="{{ '/Store/' | append: current.slug | append: '/' | relative_url }}">{% if current_app %}<span class="tr">Uygulamaya Git</span><span class="en">Go to App</span>{% else %}<span class="tr">Oyuna Git</span><span class="en">Go to Game</span>{% endif %}<svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M5 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         {%- else %}
         <a class="nav-cta" href="{{ '/test/' | relative_url }}"><span class="tr">Test rehberi</span><span class="en">Testing guide</span><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M5 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        {%- endif %}
+        {%- if page.tk_hesap %}
+        {%- comment %} Tester Kulübü hesabı: testerkulubu.js "Giriş yap" ya da "Hesabım" olarak doldurur {% endcomment %}
+        <button type="button" class="nav-pill tk-hesap-pill is-giris" id="tkHesapDugme"><span class="tk-hesap-yazi"><span class="tr">Giriş yap</span><span class="en">Sign in</span></span></button>
         {%- endif %}
       </nav>
     </div>
