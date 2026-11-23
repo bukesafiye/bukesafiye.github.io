@@ -377,11 +377,11 @@ html:not([data-platform="ios"]) .promo-set[data-for="ios"], html[data-platform="
 .promo-badge { display: inline-flex; align-items: center; gap: 7px; padding: 5px 11px; border-radius: 99px; font: 600 12px/1 var(--display); letter-spacing: .04em; text-transform: uppercase; color: var(--c); background: color-mix(in srgb, var(--c) 16%, transparent); }
 .promo-badge .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--c); animation: promo-pulse 1.8s infinite; }
 @keyframes promo-pulse { 0% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--c) 70%, transparent); } 70%, 100% { box-shadow: 0 0 0 9px transparent; } }
-.promo-logo { display: flex; align-items: center; justify-content: center; width: 100%; min-height: 110px; }
-.promo-logo img { max-width: 100%; max-height: 160px; height: auto; display: block; filter: drop-shadow(0 8px 20px rgba(0, 0, 0, .45)); transition: transform .2s; }
+.promo-logo { display: flex; align-items: center; justify-content: center; width: 100%; height: 160px; }   /* sabit: logolar farklı boyda olsa da düğmeler aynı hizada */
+.promo-logo img { max-width: 100%; max-height: 100%; width: auto; height: auto; object-fit: contain; display: block; filter: drop-shadow(0 8px 20px rgba(0, 0, 0, .45)); transition: transform .2s; }
 .promo-logo:hover img { transform: scale(1.03); }
-.promo-tag { margin: 0; font-size: 14px; color: color-mix(in srgb, var(--text) 80%, var(--muted)); }
-.doc .promo-btn { width: 100%; justify-content: center; font-size: 17px; padding: 14px 18px; background: var(--c); color: #fff; border-color: transparent; text-shadow: 0 1px 2px rgba(0, 0, 0, .35); box-shadow: 0 8px 24px -6px color-mix(in srgb, var(--c) 70%, transparent); }
+.promo-tag { margin: 0; min-height: 2.6em; display: flex; align-items: center; font-size: 14px; color: color-mix(in srgb, var(--text) 80%, var(--muted)); }
+.doc .promo-btn { margin-top: auto; width: 100%; justify-content: center; font-size: 17px; padding: 14px 18px; background: var(--c); color: #fff; border-color: transparent; text-shadow: 0 1px 2px rgba(0, 0, 0, .35); box-shadow: 0 8px 24px -6px color-mix(in srgb, var(--c) 70%, transparent); }
 .doc .promo-btn:hover { background: color-mix(in srgb, var(--c) 85%, white); }
 .promo-btn small { font-size: 12px; font-weight: 600; opacity: .85; }
 .promo-extra { display: none; }
@@ -393,7 +393,7 @@ html:not([data-platform="ios"]) .promo-set[data-for="ios"], html[data-platform="
   .promo-left { left: calc((100vw - 760px) / 4); translate: -50% 0; }
   .promo-right { right: calc((100vw - 760px) / 4); translate: 50% 0; }
   .promo-col .promo:not(.promo-mini) { padding: 26px 22px 24px; gap: 14px; }
-  .promo-col .promo-logo img { max-height: 230px; }
+  .promo-col .promo-logo { height: 230px; }
   .promo-col .promo-tag { font-size: 16px; }
   .doc .promo-col .promo-btn { font-size: 20px; padding: 16px 20px; }
   .promo-extra { display: flex; }
