@@ -99,6 +99,7 @@ o dosyadaki tk_ayar / tk_rozet ile aynı olmalı.
     {%- endif %}
     <a class="btn" href="#uygulamalar"><span class="tr">Test et</span><span class="en">Test apps</span></a>
     <a class="btn" href="#basvur"><span class="tr">Uygulamanı ekle</span><span class="en">Add your app</span></a>
+    <a class="btn" href="#hesabim"><span class="tr">Testçi listem</span><span class="en">My tester list</span></a>
   </div>
 </section>
 
