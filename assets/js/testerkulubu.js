@@ -220,6 +220,25 @@
       if (r.hata) { mesaj(kutu, hataMetni(r.hata), 'hata'); return; }
       var html = '<div class="tk-hesap-ust"><span>👤 <b>' + esc(r.uye.gmail) + '</b></span><button type="button" class="btn" id="tkCikis">' + t('Çıkış', 'Sign out') + '</button></div>';
 
+      if (r.play_rehber) {
+        // Test rehberinden (/test/) gelen Android adresleri: Play'deki ortak "Kapalı Tester Grubu" listesine eklenecekler
+        var bek = r.play_rehber.filter(function (p) { return !p.eklendi; });
+        var ekl = r.play_rehber.filter(function (p) { return p.eklendi; });
+        html += '<h3>📱 ' + t('Test rehberinden gelen Android testçiler', 'Android testers from the testing guide') + '</h3><div class="tk-kart tk-uyg"><div>';
+        if (bek.length) {
+          var bl = bek.map(function (p) { return esc(p.mail); }).join(', ');
+          var son = Math.max.apply(null, bek.map(function (p) { return p.no; }));
+          html += '<p class="tk-mailler">⏳ ' + t('Listeye eklenmeyi bekleyen', 'Waiting to be added') + ' (' + bek.length + '):</p><code class="tk-mail-kod">' + bl + '</code>' +
+            '<button type="button" class="btn tk-kopyala" data-kopya="' + bl + '">' + t('Listeyi kopyala', 'Copy list') + '</button> ' +
+            '<button type="button" class="btn primary" data-play-son="' + son + '">✅ ' + t('Hepsini ekledim', 'I added them all') + '</button>' +
+            '<small class="muted">' + t('Play Console → Hesabı yönetme → Test kullanıcısı grupları → Kapalı Tester Grubu → yapıştır → Kaydet.', 'Play Console → Manage account → Tester lists → Kapalı Tester Grubu → paste → Save.') + '</small>';
+        } else {
+          html += '<p class="muted">✅ ' + t('Bekleyen adres yok.', 'Nothing waiting.') + '</p>';
+        }
+        if (ekl.length) html += '<p class="tk-mailler">✅ ' + t('Listeye eklenenler', 'Added') + ' (' + ekl.length + '):</p><code class="tk-mail-kod">' + ekl.map(function (p) { return esc(p.mail); }).join(', ') + '</code>';
+        html += '</div></div>';
+      }
+
       if (r.uygulamalar.length) {
         html += '<h3>' + t('Uygulamalarım', 'My apps') + '</h3>';
         r.uygulamalar.forEach(function (a) {
@@ -280,6 +299,12 @@
   // --- olaylar -----------------------------------------------------------------------------------
   document.addEventListener('click', function (e) {
     if (e.target.closest('[data-mail-degistir]')) { mailYaz(null); mesaj($('tkKatilSonuc'), ''); return; }
+    var pe = e.target.closest('[data-play-son]');
+    if (pe) {
+      pe.disabled = true;
+      api({ is: 'play_eklendi', jeton: jetonAl(), son: pe.dataset.playSon }).then(function () { hesapCiz(); });
+      return;
+    }
     var b = e.target.closest('[data-katil],[data-soru],[data-kopya],#tkSoruEkle');
     if (!b) return;
     if (b.id === 'tkSoruEkle') { soruSatiri(); return; }
