@@ -76,8 +76,10 @@ o dosyadaki tk_ayar / tk_rozet ile aynı olmalı.
   .tk-hesap-ust { display: flex; justify-content: space-between; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 6px; }
   .tk-yoklama { display: grid; gap: 8px; margin-top: 10px; }
   .tk-yoklama p { color: var(--text) !important; }
+  .tk-form [hidden], .tk-box[hidden] { display: none !important; }
   #tkGiris { margin-top: 14px; }
   #tkSifre { margin-top: 14px; }
+  .tk-takas { display: block; margin: -4px 0 14px; }
   .tk-link-dugme { margin-top: 10px; padding: 0; border: 0; background: none; color: var(--accent); font: 500 14px/1.4 var(--body); cursor: pointer; text-decoration: underline; }
   @media (max-width: 520px) { .tk-kart { flex-direction: column; align-items: stretch; } .tk-soru { grid-template-columns: 1fr; } }
   @media (max-width: 640px) { .tk-vs { grid-template-columns: 1fr; } .tk-hero .tk-lead { font-size: 17px; } }
@@ -198,7 +200,8 @@ o dosyadaki tk_ayar / tk_rozet ile aynı olmalı.
     <p id="tkGirisNot"></p>
     <form id="tkGirisForm">
       <label><span class="tr">Mail adresin</span><span class="en">Your email</span><input name="gmail" type="email" required autocomplete="email" placeholder="ornek@mail.com"></label>
-      <label id="tkSifreAlan"><span><span class="tr">Şifre (sadece test ediyorsan boş bırak)</span><span class="en">Password (leave empty if you only test)</span></span><input name="sifre" type="password" autocomplete="current-password"></label>
+      <button type="button" class="tk-link-dugme tk-takas" id="tkTakasAc" hidden>🔁 <span class="tr">Ben de uygulamamı test ettirmek istiyorum (takas)</span><span class="en">I want my app tested too (swap)</span></button>
+      <label id="tkSifreAlan"><span id="tkSifreEtiket"></span><input name="sifre" type="password" autocomplete="current-password"></label>
       <button type="submit" class="btn primary"><span class="tr">Devam et</span><span class="en">Continue</span></button>
     </form>
     <div id="tkGirisSonuc"></div>

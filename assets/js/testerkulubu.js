@@ -155,7 +155,13 @@
     var k = $('tkGiris');
     k.hidden = false;
     k.dataset.mod = katilimMi ? 'katil' : 'giris';
+    // Katılımda şifre gizli; takas (kendi uygulamasını da test ettirmek) isteyen açıp şifre belirler
     $('tkSifreAlan').hidden = !!katilimMi;
+    $('tkTakasAc').hidden = !katilimMi;
+    $('tkSifreEtiket').innerHTML = katilimMi
+      ? t('Şifre belirle (en az 6 karakter): sonra bu mail ve şifreyle uygulamanı ekleyebilirsin', 'Set a password (min. 6 characters): then add your app with this email and password')
+      : t('Şifre (sadece test ediyorsan boş bırak)', 'Password (leave empty if you only test)');
+    var si = k.querySelector('input[name=sifre]'); si.value = ''; si.removeAttribute('minlength');
     $('tkGirisNot').innerHTML = not || '';
     k.scrollIntoView({ block: 'center' });
     k.querySelector('input[name=gmail]').focus();
@@ -163,6 +169,15 @@
   function giris(e) {
     e.preventDefault();
     var f = e.target, kutu = $('tkGirisSonuc');
+    if ($('tkGiris').dataset.mod === 'katil' && bekleyenKatilim && f.sifre.value) {   // takas: şifreli hesapla katıl
+      var bt = bekleyenKatilim;
+      girVeyaKaydol(f.gmail.value.trim(), f.sifre.value).then(function (r) {
+        if (!r.jeton) { mesaj(kutu, hataMetni(r.hata), 'hata'); return; }
+        jetonYaz(r.jeton); f.sifre.value = ''; bekleyenKatilim = null; mesaj(kutu, ''); $('tkGiris').hidden = true;
+        hesapCiz(); katil(bt.id, bt.ad);
+      });
+      return;
+    }
     if ($('tkGiris').dataset.mod === 'katil' && bekleyenKatilim) {   // yalnız mail adresiyle teste katıl
       var b = bekleyenKatilim;
       api({ is: 'katil_gmail', gmail: f.gmail.value.trim(), uygulama: b.id }).then(function (r) {
@@ -301,6 +316,10 @@
   function basla() {
     if (!$('tkListe')) return;
     $('tkSifreUnuttum').onclick = function () { sifreAc(''); };
+    $('tkTakasAc').onclick = function () {
+      $('tkTakasAc').hidden = true; $('tkSifreAlan').hidden = false;
+      var i = $('tkGiris').querySelector('input[name=sifre]'); i.setAttribute('minlength', '6'); i.focus();
+    };
     $('tkSifreIsteForm').onsubmit = sifreIste;
     $('tkSifreBelirleForm').onsubmit = sifreBelirle;
     var kod = new URLSearchParams(location.search).get('sifre');
