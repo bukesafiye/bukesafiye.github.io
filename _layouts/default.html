@@ -76,6 +76,8 @@
             <a class="menu-game{% if current and current.slug == g.slug %} is-current{% endif %}" style="--c: {{ g.color }}" href="{{ '/Store/' | append: g.slug | append: '/' | relative_url }}"{% if current and current.slug == g.slug %} aria-current="page"{% endif %}>{% if gl.tr == gl.en %}{{ gl.tr }}{% else %}<span class="tr">{{ gl.tr }}</span><span class="en">{{ gl.en }}</span>{% endif %}</a>
             {%- endfor %}
             {%- endif %}
+            <p class="menu-heading"><span class="tr">Topluluk</span><span class="en">Community</span></p>
+            <a class="menu-game{% if page.url == '/testerkulubu/' %} is-current{% endif %}" style="--c: #2fd6c9" href="{{ '/testerkulubu/' | relative_url }}"{% if page.url == '/testerkulubu/' %} aria-current="page"{% endif %}>Tester Kulübü</a>
           </div>
         </div>
         {%- if current %}
@@ -84,6 +86,7 @@
         {%- endif %}
       </nav>
       <nav class="nav nav-right">
+        <a class="nav-link" href="{{ '/testerkulubu/' | relative_url }}">Tester Kulübü</a>
         {%- if site.data.apps.size > 0 %}
         <a class="nav-link" href="{{ '/#apps' | relative_url }}"><span class="tr">Uygulamalar</span><span class="en">Apps</span></a>
         {%- endif %}
