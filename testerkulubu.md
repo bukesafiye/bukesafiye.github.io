@@ -85,6 +85,8 @@ o dosyadaki tk_ayar / tk_rozet ile aynı olmalı.
   .tk-etiketler { display: inline-flex; flex-wrap: wrap; gap: 4px; font-family: var(--body); }
   .tk-etiket { display: inline-block; padding: 1px 8px; border-radius: 999px; font: 600 11.5px/1.6 var(--body); color: var(--text); background: color-mix(in srgb, var(--accent) 16%, transparent); }
   .tk-etiket-yok { font: 400 12px var(--body); color: var(--muted); }
+  .tk-mail-kod li .tk-satir-sil { flex: none; align-self: center; margin-left: auto; padding: 4px 12px; min-height: 0; font: 600 12.5px/1.4 var(--body); color: #f08a8a; border-color: color-mix(in srgb, #f08a8a 45%, transparent); background: transparent; word-break: normal; }
+  .tk-mail-kod li .tk-satir-sil:hover { background: color-mix(in srgb, #f08a8a 14%, transparent); }
   .tk-tablo-sar { overflow-x: auto; }
   .tk-tablo { width: 100%; border-collapse: collapse; font-size: 14px; }
   .tk-tablo th { text-align: left; font-size: 12px; text-transform: uppercase; letter-spacing: .05em; color: var(--muted); padding: 4px 8px 8px; }

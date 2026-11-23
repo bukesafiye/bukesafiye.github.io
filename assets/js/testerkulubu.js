@@ -242,12 +242,15 @@
   }
   // Mail adresleri alt alta, numaralı; eklenenler soluk. Kopyala düğmesi ayrıca virgüllü tek satırı kopyalar.
   // mailler: metin ya da { mail, tikladi: [oyun adları] } (rehberde "katıl"a bastığı oyunlar etiket olarak görünür)
-  function mailListe(mailler, eski) {
+  // eylem: 'reddet' (bekleyen) | 'sil' (eklenen): satırın sağına test rehberi kaydını silen düğme koyar
+  function mailListe(mailler, eski, eylem) {
     return '<ol class="tk-mail-kod' + (eski ? ' tk-mail-eski' : '') + '">' + mailler.map(function (m) {
       if (typeof m === 'string') return '<li>' + esc(m) + '</li>';
       var et = (m.tikladi || []).map(function (o) { return '<span class="tk-etiket">' + esc(o) + '</span>'; }).join('');
+      var dg = eylem && m.no != null ? '<button type="button" class="btn tk-satir-sil" data-play-sil="' + m.no + '" data-tur="' + eylem + '" data-mail="' + esc(m.mail) + '">' +
+        (eylem === 'reddet' ? t('Reddet', 'Reject') : t('Sil', 'Delete')) + '</button>' : '';
       return '<li><span class="tk-mail-satir"><span>' + esc(m.mail) + '</span>' +
-        (et ? '<span class="tk-etiketler">' + et + '</span>' : '<span class="tk-etiketler tk-etiket-yok">' + t('Henüz katıl’a basmadı', 'No join click yet') + '</span>') + '</span></li>';
+        (et ? '<span class="tk-etiketler">' + et + '</span>' : '<span class="tk-etiketler tk-etiket-yok">' + t('Henüz katıl’a basmadı', 'No join click yet') + '</span>') + '</span>' + dg + '</li>';
     }).join('') + '</ol>';
   }
   var DURUM = { bekliyor: ['Onay bekliyor', 'Awaiting approval'], onayli: ['Testte', 'In testing'], red: ['Reddedildi', 'Rejected'], kapali: ['Kapalı', 'Closed'] };
@@ -282,14 +285,14 @@
         if (bek.length) {
           var bl = bek.map(function (p) { return esc(p.mail); }).join(', ');
           var son = Math.max.apply(null, bek.map(function (p) { return p.no; }));
-          html += grupBas(t('Listeye eklenmeyi bekleyen', 'Waiting to be added'), bek.length, 'bekle') + mailListe(bek, false) +
+          html += grupBas(t('Listeye eklenmeyi bekleyen', 'Waiting to be added'), bek.length, 'bekle') + mailListe(bek, false, 'reddet') +
             '<div class="tk-eylem">' + kopyaDugme(bl) +
             '<button type="button" class="btn primary" data-play-son="' + son + '">' + IKON_TAMAM + '<span>' + t('Hepsini ekledim', 'I added them all') + '</span></button></div>' +
             '<small class="muted tk-ipucu-alt">' + t('Play Console → Hesabı yönetme → Test kullanıcısı grupları → Kapalı Tester Grubu → yapıştır → Kaydet.', 'Play Console → Manage account → Tester lists → Kapalı Tester Grubu → paste → Save.') + '</small>';
         } else {
           html += '<p class="tk-bos">' + t('Bekleyen adres yok.', 'Nothing waiting.') + '</p>';
         }
-        if (ekl.length) html += grupBas(t('Listeye eklenenler', 'Added'), ekl.length, 'eski') + mailListe(ekl, true);
+        if (ekl.length) html += grupBas(t('Listeye eklenenler', 'Added'), ekl.length, 'eski') + mailListe(ekl, true, 'sil');
         html += '</div></div>';
       }
 
@@ -413,6 +416,20 @@
     if (ta) { ta.disabled = true; api({ is: 'teste_al', jeton: jetonAl(), uygulama: ta.dataset.testeAl }).then(function () { hesapCiz(); listeCiz(); }); return; }
     var le = e.target.closest('[data-liste-eklendi]');
     if (le) { hemenIndir(le); api({ is: 'liste_eklendi', jeton: jetonAl(), uygulama: le.dataset.listeEklendi }).then(function () { hesapCiz(); }); return; }
+    var ps = e.target.closest('[data-play-sil]');
+    if (ps) {
+      var red = ps.dataset.tur === 'reddet';
+      if (!window.confirm(red
+        ? t(ps.dataset.mail + ' reddedilsin mi? Kayıt silinir, listeye eklenmez.', 'Reject ' + ps.dataset.mail + '? The entry is deleted and will not be added.')
+        : t(ps.dataset.mail + ' silinsin mi? Kayıt buradan kalkar; Play Console’daki Kapalı Tester Grubu’ndan da elle çıkar.', 'Delete ' + ps.dataset.mail + '? It is removed here; also remove it from the tester list in Play Console.'))) return;
+      ps.disabled = true;
+      var li = ps.closest('li'); if (li) li.style.opacity = '.4';
+      api({ is: 'play_sil', jeton: jetonAl(), no: ps.dataset.playSil, tur: ps.dataset.tur }).then(function (r) {
+        if (r && r.hata) window.alert(hataMetni(r.hata));
+        hesapCiz();
+      });
+      return;
+    }
     var pe = e.target.closest('[data-play-son]');
     if (pe) { hemenIndir(pe); api({ is: 'play_eklendi', jeton: jetonAl(), son: pe.dataset.playSon }).then(function () { hesapCiz(); }); return; }
     var b = e.target.closest('[data-katil],[data-soru],[data-kopya],#tkSoruEkle');
