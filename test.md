@@ -249,7 +249,7 @@ back_en: Home
           if (j.yeni) yaz('Aldık! ' + mail + ' adresini test listesine ekleyince aşağıdaki "Teste katıl" linkleri çalışır. Genelde aynı gün.', 'Got it! Once ' + mail + ' is on the test list, the "Join the test" links below will work. Usually the same day.');
           else yaz(mail + ' zaten listemizde. Aşağıdan "Teste katıl"a dokunabilirsin.', mail + ' is already on our list. Tap "Join the test" below.');
         } else if (j.hata === 'tk_gmail_gecersiz') yaz('Geçerli bir mail adresi yaz.', 'Enter a valid email address.', true);
-        else if (j.hata === 'tk_cok_fazla') yaz('Şu an çok yoğunuz, biraz sonra tekrar dene.', "We're busy right now, try again a little later.", true);
+        else if (j.hata === 'tk_cok_fazla') yaz('Son bir saatte çok fazla kayıt geldi; bir saat içinde tekrar dene.', 'Too many sign-ups in the last hour; please try again within the hour.', true);
         else yaz('Bir sorun oldu, biraz sonra tekrar dene.', 'Something went wrong, try again a little later.', true);
       }).catch(function () {
         yaz('Bağlantı kurulamadı, biraz sonra tekrar dene.', 'Could not connect, try again a little later.', true);
