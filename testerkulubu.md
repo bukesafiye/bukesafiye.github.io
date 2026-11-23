@@ -13,7 +13,7 @@ icon: /assets/img/testerkulubu-icon-128.png
 {%- comment -%}
 Tester Kulübü: MiroGames'ten ayrı bir ürün (karşılıklı uygulama testi). Veritabanı Mahalle Patronu'nun Supabase
 projesinde tk_ tabloları olarak durur (mahallepatronu/supabase/migrations/20261123500001_tk_tester_kulubu.sql).
-Buradaki kurallar (ilk 3 uygulama ücretsiz, 4 hoş geldin kredisi, 14 doğru yoklama günü, 2 gün boşluk payı, rozet eşikleri 3/10/25)
+Buradaki kurallar (ilk 3 uygulama kredisiz, 4 hoş geldin kredisi, 14 doğru yoklama günü, 2 gün boşluk payı, rozet eşikleri 3/10/25)
 o dosyadaki tk_ayar / tk_rozet ile aynı olmalı.
 {%- endcomment %}
 <style>
@@ -104,7 +104,7 @@ o dosyadaki tk_ayar / tk_rozet ile aynı olmalı.
     <div class="tk-box">
       <span class="tk-num">2</span>
       <h3><span class="tr">Uygulamanı ekle</span><span class="en">Add your app</span></h3>
-      <p><span class="tr">Play kapalı test ya da TestFlight linkini ver, uygulamanın içinden cevaplanabilecek 3 kontrol sorusu yaz. Ekip onaylayınca listeye girer. <b>İlk 3 uygulaman tamamen ücretsiz.</b></span><span class="en">Share your Play closed-testing or TestFlight link and write 3 questions only someone inside the app can answer. It goes live once we approve it. <b>Your first 3 apps are completely free.</b></span></p>
+      <p><span class="tr">Play kapalı test ya da TestFlight linkini ver, uygulamanın içinden cevaplanabilecek 3 kontrol sorusu yaz. Ekip onaylayınca listeye girer. <b>İlk 3 uygulaman için kredi gerekmez;</b> sonrakiler için test ederek kredi kazanırsın. Para hiçbir aşamada yok.</span><span class="en">Share your Play closed-testing or TestFlight link and write 3 questions only someone inside the app can answer. It goes live once we approve it. <b>Your first 3 apps need no credits;</b> for later ones you earn credits by testing. No money involved, ever.</span></p>
     </div>
     <div class="tk-box">
       <span class="tk-num">3</span>
