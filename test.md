@@ -241,6 +241,8 @@ back_en: Home
       function yaz(tr, eng, hata) { not.textContent = en ? eng : tr; not.classList.toggle('is-error', !!hata); not.hidden = false; }
       if (!/^[^\s@]+@[^\s@]+\.[a-z]{2,}$/.test(mail)) return yaz('Geçerli bir mail adresi yaz.', 'Enter a valid email address.', true);
       btn.disabled = true;
+      var eski = btn.innerHTML;
+      btn.textContent = en ? 'Adding…' : 'Ekleniyor…';
       fetch('https://wgcrjolzmyvdtunnypgs.supabase.co/functions/v1/tk-web', {
         method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ is: 'play_testci', gmail: mail })
       }).then(function (r) { return r.json(); }).then(function (j) {
@@ -253,7 +255,7 @@ back_en: Home
         else yaz('Bir sorun oldu, biraz sonra tekrar dene.', 'Something went wrong, try again a little later.', true);
       }).catch(function () {
         yaz('Bağlantı kurulamadı, biraz sonra tekrar dene.', 'Could not connect, try again a little later.', true);
-      }).then(function () { btn.disabled = false; });
+      }).then(function () { btn.disabled = false; btn.innerHTML = eski; });
     });
     // Gutter columns are absolutely positioned: keep the footer below the tallest one.
     var doc = document.querySelector('article.doc');
