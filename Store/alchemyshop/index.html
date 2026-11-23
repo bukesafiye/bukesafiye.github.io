@@ -24,7 +24,7 @@ og_image: /assets/img/alchemyshop-icon.png
       </ul>
       <div class="hero-actions">
         {%- include store.html game=g %}
-        {%- unless g.app_store or g.google_play %}
+        {%- unless g.app_store or g.google_play or g.play_test or g.testflight %}
         <span class="btn primary soon"><span class="tr">Yakında App Store'da</span><span class="en">Coming soon to the App Store</span></span>
         {%- endunless %}
         <a class="btn" href="support.html"><span class="tr">Destek</span><span class="en">Support</span></a>

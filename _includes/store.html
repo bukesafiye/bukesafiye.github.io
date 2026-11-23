@@ -3,7 +3,8 @@ Store buttons and QR codes for one game.
   {% include store.html game=g %}            buttons (inside .hero-actions)
   {% include store.html game=g part='qr' %}  QR card (after .hero-actions)
 Links come from the game's google_play / app_store in _data/games.yml. With no link the include renders nothing,
-so the page keeps its "coming soon" button. The QR code points to /Store/<slug>/indir/
+so the page keeps its "coming soon" button. A game not on Google Play yet but in testing
+(play_test / testflight) gets a "Join the test" button to /test/?oyun=<slug> instead. The QR code points to /Store/<slug>/indir/
 (_layouts/store-redirect.html), which picks the store for the phone. It is drawn by
 /assets/js/qrcode.js and only shown on wide screens (on a phone, the button is enough).
 {%- endcomment -%}
@@ -15,6 +16,9 @@ so the page keeps its "coming soon" button. The QR code points to /Store/<slug>/
 {%- endif %}
 {%- if play %}
 <a class="btn primary" href="{{ play }}">Google Play</a>
+{%- elsif include.game.play_test or include.game.testflight %}
+{%- comment -%} Not on Google Play yet: send testers to the steps on /test/, with this game marked (test.md reads ?oyun=). {%- endcomment %}
+<a class="btn primary" href="{{ '/test/' | relative_url }}?oyun={{ include.game.slug }}"><span class="tr">Teste katıl</span><span class="en">Join the test</span></a>
 {%- endif %}
 {%- elsif play or apple %}
 {%- comment -%} One QR for both stores: /indir/ sends each phone to its own store. {%- endcomment -%}

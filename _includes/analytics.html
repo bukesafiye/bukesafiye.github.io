@@ -27,6 +27,7 @@ link_url and link_text. These params are registered as custom dimensions in GA (
           : /apps\.apple\.com/.test(url) ? 'app_store'
           : /^mailto:/.test(href) ? 'email'
           : !local ? 'outbound'
+          : a.pathname === '/test/' && /[?&]oyun=/.test(a.search) ? 'test_join'
           : /\/indir\/$/.test(a.pathname) ? 'store_redirect'
           : /\/privacy\.html$/.test(a.pathname) ? 'privacy'
           : /\/support\.html$/.test(a.pathname) ? 'support'

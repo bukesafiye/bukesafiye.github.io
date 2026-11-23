@@ -30,7 +30,7 @@ Every text field is { tr: "...", en: "..." }.
       </ul>
       <div class="hero-actions">
         {%- include store.html game=g %}
-        {%- unless g.app_store or g.google_play %}
+        {%- unless g.app_store or g.google_play or g.play_test or g.testflight %}
         <span class="btn primary soon"><span class="tr">{{ g.status.tr }}</span><span class="en">{{ g.status.en }}</span></span>
         {%- endunless %}
         <a class="btn" href="support.html"><span class="tr">Destek</span><span class="en">Support</span></a>

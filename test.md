@@ -192,21 +192,35 @@ back_en: Home
     if (start !== 'ios' && start !== 'android') start = /android/i.test(navigator.userAgent) ? 'android' : 'ios';
     show(start);
     // Card "Join the test" buttons: read the steps first. Scroll to them and mark the game in the list below the steps.
+    function goToSteps(platform, slug, name) {
+      var steps = document.getElementById('steps-' + platform);
+      show(platform);
+      document.querySelectorAll('.dev-games li.is-picked').forEach(function (li) { li.classList.remove('is-picked'); });
+      var row = document.querySelector('#panel-' + platform + ' .dev-games li[data-slug="' + slug + '"]');
+      if (row) row.classList.add('is-picked');
+      var notice = document.getElementById('notice-' + platform);
+      notice.querySelectorAll('[data-notice-game]').forEach(function (el) { el.textContent = name; });
+      notice.hidden = false;
+      steps.classList.remove('flash'); void steps.offsetWidth; steps.classList.add('flash');
+      notice.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
     document.querySelectorAll('[data-goto-steps]').forEach(function (b) {
       b.addEventListener('click', function (e) {
         e.preventDefault();
-        var platform = b.getAttribute('data-goto-steps'), steps = document.getElementById('steps-' + platform);
-        show(platform);
-        document.querySelectorAll('.dev-games li.is-picked').forEach(function (li) { li.classList.remove('is-picked'); });
-        var row = document.querySelector('#panel-' + platform + ' .dev-games li[data-slug="' + b.getAttribute('data-slug') + '"]');
-        if (row) row.classList.add('is-picked');
-        var notice = document.getElementById('notice-' + platform), name = b.getAttribute('data-name-' + (document.documentElement.getAttribute('data-lang') === 'en' ? 'en' : 'tr'));
-        notice.querySelectorAll('[data-notice-game]').forEach(function (el) { el.textContent = name; });
-        notice.hidden = false;
-        steps.classList.remove('flash'); void steps.offsetWidth; steps.classList.add('flash');
-        notice.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        goToSteps(b.getAttribute('data-goto-steps'), b.getAttribute('data-slug'), b.getAttribute('data-name-' + (document.documentElement.getAttribute('data-lang') === 'en' ? 'en' : 'tr')));
       });
     });
+    // Game pages' "Join the test" button links here as /test/?oyun=<slug>: open the steps for this phone's
+    // platform (or the other one if the game isn't tested there) and mark the game, like the cards do.
+    var wanted = null;
+    try { wanted = new URLSearchParams(location.search).get('oyun'); } catch (e) {}
+    if (wanted) {
+      var order = start === 'android' ? ['android', 'ios'] : ['ios', 'android'];
+      for (var k = 0; k < order.length; k++) {
+        var hit = document.querySelector('#panel-' + order[k] + ' .dev-games li[data-slug="' + wanted + '"] .dev-game');
+        if (hit) { var plat = order[k]; setTimeout(function () { goToSteps(plat, wanted, hit.innerText.trim()); }, 0); break; }
+      }
+    }
     // A tap anywhere on a featured card does what its button does (join steps / store), not the game page.
     document.querySelectorAll('.promo').forEach(function (card) {
       var btn = card.querySelector('.promo-btn');

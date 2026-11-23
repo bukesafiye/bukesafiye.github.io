@@ -25,7 +25,7 @@ og_image: /assets/img/ghostshift-feature.jpg
       </ul>
       <div class="hero-actions">
         {%- include store.html game=g %}
-        {%- unless g.app_store or g.google_play %}
+        {%- unless g.app_store or g.google_play or g.play_test or g.testflight %}
         <span class="btn primary soon"><span class="tr">Yakında Google Play'de</span><span class="en">Coming soon to Google Play</span></span>
         {%- endunless %}
         <a class="btn" href="support.html"><span class="tr">Destek</span><span class="en">Support</span></a>
