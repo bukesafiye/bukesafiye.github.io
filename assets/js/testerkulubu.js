@@ -334,16 +334,20 @@
       yer.innerHTML = '<form class="tk-yoklama" data-test="' + esc(testId) + '" data-soru="' + esc(r.soru_id) + '">' +
         '<p>❓ ' + esc(r.soru) + '</p><input name="cevap" required maxlength="200" placeholder="' + 'Cevabın' + '" aria-label="Cevap">' +
         '<input name="yorum" maxlength="500" placeholder="Yorum (isteğe bağlı)" aria-label="Yorum">' +
-        '<button class="btn primary" type="submit">' + t('Gönder', 'Send') + '</button><small class="muted">' + t('Tek deneme hakkın var.', 'You get one try.') + '</small></form>';
+        '<button class="btn primary" type="submit">' + t('Gönder', 'Send') + '</button><small class="muted tk-yoklama-not">' + t('Yanlışsa tekrar deneyebilirsin.', 'If it’s wrong, you can try again.') + '</small></form>';
     });
   }
   function yoklamaGonder(f) {
     api({ is: 'yoklama', jeton: jetonAl(), test: f.dataset.test, soru: f.dataset.soru, cevap: f.cevap.value, yorum: f.yorum.value }).then(function (r) {
       var yer = f.parentNode;
       if (r.hata) { mesaj(yer, hataMetni(r.hata), 'hata'); return; }
+      if (r.sonuc === 'yanlis') {   // gün kapanmadı: form kalır, aynı soru tekrar cevaplanır
+        f.querySelector('.tk-yoklama-not').innerHTML = '❌ ' + t('Cevap tutmadı. Uygulamaya bir daha bakıp tekrar dene.', "That didn't match. Check the app again and retry.");
+        f.cevap.value = ''; f.cevap.focus();
+        return;
+      }
       mesaj(yer, r.sonuc === 'tamamlandi' ? '🏆 ' + t('14 günü tamamladın, +1 kredi!', 'You finished 14 days, +1 credit!')
-               : r.sonuc === 'dogru' ? '✅ ' + t('Doğru! Yarın görüşürüz.', 'Correct! See you tomorrow.')
-               : '❌ ' + t('Cevap tutmadı; bu gün sayılmadı. Yarın yeni soru gelir.', "That didn't match; today doesn't count. New question tomorrow."), r.sonuc === 'yanlis' ? 'hata' : 'tamam');
+               : '✅ ' + t('Doğru! Yarın görüşürüz.', 'Correct! See you tomorrow.'), 'tamam');
       setTimeout(hesapCiz, 2500);
     });
   }
