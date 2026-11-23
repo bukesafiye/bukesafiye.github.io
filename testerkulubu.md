@@ -90,8 +90,6 @@ o dosyadaki tk_ayar / tk_rozet ile aynı olmalı.
       <p class="tk-alt"><span class="tr">Sen test ettikçe insanlar da senin uygulamanı test edecek. Para yok, sadece takas.</span><span class="en">The more you test, the more people test your app. No money, just a swap.</span></p>
       <ul>
         <li><span class="tr">Test ettikçe kredi kazan, krediyle test kullanıcısı al</span><span class="en">Earn credits by testing, spend them on testers</span></li>
-        <li><span class="tr">Her gün kontrol sorusuyla doğrulanan gerçek kullanıcılar</span><span class="en">Real people, checked every day with a quick question</span></li>
-        <li><span class="tr">14 günün sonunda Google formuna hazır geri bildirim özeti</span><span class="en">A feedback summary ready for Google's form after 14 days</span></li>
       </ul>
     </div>
   </div>
