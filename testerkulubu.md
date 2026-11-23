@@ -8,6 +8,7 @@ back_tr: Ana sayfa
 back_en: Home
 # Telegram grubu açılınca linki buraya yaz; boşken katıl düğmesi gösterilmez.
 telegram: "https://t.me/testerkulubu"
+icon: /assets/img/testerkulubu-icon-128.png
 ---
 {%- comment -%}
 Tester Kulübü: MiroGames'ten ayrı bir ürün (karşılıklı uygulama testi). Veritabanı Mahalle Patronu'nun Supabase
@@ -17,6 +18,7 @@ o dosyadaki tk_ayar / tk_rozet ile aynı olmalı.
 {%- endcomment %}
 <style>
   .tk-hero { text-align: center; padding: 8px 0 8px; }
+  .tk-logo { display: block; margin: 0 auto 16px; border-radius: 24px; box-shadow: 0 10px 40px var(--glow); }
   .tk-badge { display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px; border-radius: 999px; background: var(--accent-soft); color: var(--accent); font: 600 13px/1 var(--body); letter-spacing: .02em; }
   .tk-hero h1 { font-size: clamp(36px, 7vw, 60px); margin: 18px 0 10px; line-height: 1.05; }
   .tk-hero .tk-lead { font-size: 19px; color: var(--muted); max-width: 640px; margin: 0 auto 26px; }
@@ -52,6 +54,7 @@ o dosyadaki tk_ayar / tk_rozet ile aynı olmalı.
 </style>
 
 <section class="tk-hero">
+  <img class="tk-logo" src="{{ '/assets/img/testerkulubu-icon-128.webp' | relative_url }}" alt="" width="96" height="96">
   <span class="tk-badge">🧪 <span class="tr">Ücretsiz · Türkiye'den başlıyoruz</span><span class="en">Free · Starting in Türkiye</span></span>
   <h1>Tester Kulübü</h1>
   <p class="tk-lead">
