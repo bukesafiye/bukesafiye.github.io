@@ -29,8 +29,17 @@ o dosyadaki tk_ayar / tk_rozet ile aynı olmalı.
   .tk-vs { display: grid; gap: 16px; grid-template-columns: 1fr 1fr; margin: 22px 0 8px; }
   .tk-vs .tk-box.ours { border-color: color-mix(in srgb, var(--accent) 55%, transparent); box-shadow: 0 0 40px var(--glow); }
   .tk-price { font: 700 34px/1.1 var(--display); margin: 6px 0 10px; }
-  .tk-vs ul { margin: 0; padding-left: 18px; color: var(--muted); }
-  .tk-vs li { margin: 4px 0; }
+  .tk-vs ul { margin: 0; padding: 0; list-style: none; color: var(--muted); }
+  .tk-vs li { margin: 8px 0; padding-left: 28px; position: relative; }
+  .tk-vs li::before { position: absolute; left: 0; top: 1px; width: 20px; height: 20px; border-radius: 6px; display: grid; place-items: center; font: 700 12px/1 var(--body); }
+  .tk-vs .paid li::before { content: "✕"; color: #ff7a7a; background: rgba(255, 90, 90, .12); }
+  .tk-vs .ours li::before { content: "✓"; color: var(--accent); background: var(--accent-soft); }
+  .tk-vs .paid { opacity: .78; }
+  .tk-vs .paid h3 { color: var(--muted); }
+  .tk-old { display: inline-block; position: relative; color: var(--muted); text-decoration: none; }
+  .tk-old::after { content: ""; position: absolute; left: -6px; right: -6px; top: 52%; height: 3px; border-radius: 2px; background: #ff5a5a; transform: rotate(-8deg); }
+  .tk-per { font: 500 14px/1.3 var(--body); color: var(--muted); margin-left: 8px; }
+  .tk-free { color: var(--accent); }
   .tk-rozet { display: flex; flex-wrap: wrap; gap: 10px; margin: 18px 0 8px; padding: 0; list-style: none; }
   .tk-rozet li { padding: 10px 16px; border-radius: 12px; background: var(--surface); border: 1px solid var(--line); }
   .tk-rozet b { display: block; font-family: var(--display); }
@@ -62,18 +71,18 @@ o dosyadaki tk_ayar / tk_rozet ile aynı olmalı.
 <section class="tk-section">
   <h2><span class="tr">Takasla ücretsiz</span><span class="en">Free, by swapping</span></h2>
   <div class="tk-vs">
-    <div class="tk-box">
+    <div class="tk-box paid">
       <h3><span class="tr">Ücretli test servisleri</span><span class="en">Paid testing services</span></h3>
-      <div class="tk-price">15–35 $</div>
+      <div class="tk-price"><s class="tk-old" aria-label="15–35 $, ücretli">15–35 $</s><span class="tk-per"><span class="tr">/ uygulama başına</span><span class="en">/ per app</span></span></div>
       <ul>
         <li><span class="tr">Her uygulama için yeniden ödeme</span><span class="en">Pay again for every app</span></li>
         <li><span class="tr">Test kullanıcılarının kim olduğu belirsiz</span><span class="en">Unclear who the testers are</span></li>
-        <li><span class="tr">Geri bildirim ek pakette</span><span class="en">Feedback costs extra</span></li>
+        <li><span class="tr">Daha çok test kullanıcısı = daha pahalı paket</span><span class="en">More testers = a pricier plan</span></li>
       </ul>
     </div>
     <div class="tk-box ours">
       <h3>Tester Kulübü</h3>
-      <div class="tk-price"><span class="tr">0 ₺</span><span class="en">$0</span></div>
+      <div class="tk-price tk-free"><span class="tr">Ücretsiz</span><span class="en">Free</span><span class="tk-per"><span class="tr">/ test ederek kazan</span><span class="en">/ earn it by testing</span></span></div>
       <ul>
         <li><span class="tr">Test ettikçe kredi kazan, krediyle test kullanıcısı al</span><span class="en">Earn credits by testing, spend them on testers</span></li>
         <li><span class="tr">Her gün kontrol sorusuyla doğrulanan gerçek kullanıcılar</span><span class="en">Real people, checked every day with a quick question</span></li>
