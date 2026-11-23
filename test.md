@@ -95,18 +95,21 @@ back_en: Home
     <p><b><span class="tr">Önce aşağıdaki adımları oku.</span><span class="en">Read the steps below first.</span></b> <span class="tr">Adımları sırayla izle; <strong data-notice-game></strong> için katılma linki adımların altındaki listede işaretli.</span><span class="en">Follow them in order; the join link for <strong data-notice-game></strong> is marked in the list under the steps.</span></p>
   </div>
   <ol class="test-steps" id="steps-android">
-    <li class="has-shot">
+    <li>
       <div class="step-text">
-        <h3><span class="tr">Gmail adresini bize gönder</span><span class="en">Send us your Gmail address</span></h3>
-        <p><span class="tr">Google Play kapalı testine yalnızca listeye eklenen hesaplar girebilir. Telefonunda Play Store'da kullandığın <b>Gmail adresini</b> bize yaz; seni test listesine ekleyelim.</span><span class="en">Only accounts on our list can join a Google Play closed test. Send us the <b>Gmail address</b> you use in the Play Store on your phone and we'll add you to the testers list.</span></p>
-        <a class="btn" href="mailto:bukesafiye@gmail.com?subject=Android%20test"><span class="tr">E-posta gönder</span><span class="en">Send email</span></a>
+        <h3><span class="tr">Mail adresini yaz</span><span class="en">Enter your email address</span></h3>
+        <p><span class="tr">Google Play kapalı testine yalnızca listeye eklenen hesaplar girebilir. Telefonunda Play Store'da kullandığın <b>Google hesabının mail adresini</b> yaz; seni tüm Android oyunlarımızın test listesine ekleyelim.</span><span class="en">Only accounts on our list can join a Google Play closed test. Enter the <b>email of the Google account</b> you use in the Play Store on your phone and we'll add you to the test list of all our Android games.</span></p>
+        <form class="play-testci" id="play-testci" novalidate>
+          <input type="email" name="mail" required autocomplete="email" inputmode="email" placeholder="ornek@gmail.com" aria-label="Mail adresi / Email address">
+          <button class="btn" type="submit"><span class="tr">Listeye ekle</span><span class="en">Add me</span></button>
+        </form>
+        <p class="play-testci-not" id="play-testci-not" role="status" hidden></p>
       </div>
-      {% include test/android-1.svg %}
     </li>
     <li class="has-shot">
       <div class="step-text">
         <h3><span class="tr">Test linkini aç ve test kullanıcısı ol</span><span class="en">Open the test link and become a tester</span></h3>
-        <p><span class="tr">Mail adresini eklememizden sonra sayfanın en altında linkler var, oraya git. Listeye eklendiğini haber verdiğimizde, aşağıdan oyunun <b>Teste katıl</b> düğmesine dokun. Açılan sayfada aynı Gmail hesabıyla oturum açık olmalı; <b>Test kullanıcısı ol</b>'a dokun.</span><span class="en">After we add your email, the links are at the very bottom of this page; go there. Once we tell you you're on the list, tap the game's <b>Join the test</b> button below. Make sure you're signed in with the same Gmail account, then tap <b>Become a tester</b>.</span></p>
+        <p><span class="tr">Adresin listeye eklenince (genelde aynı gün) sayfanın altındaki listeden oyunun <b>Teste katıl</b> düğmesine dokun. Açılan sayfada aynı Google hesabıyla oturum açık olmalı; <b>Test kullanıcısı ol</b>'a dokun. "Erişim yok" görürsen biraz sonra tekrar dene.</span><span class="en">Once your address is on the list (usually the same day), tap the game's <b>Join the test</b> button in the list below. Make sure you're signed in with the same Google account, then tap <b>Become a tester</b>. If you see "no access", try again a little later.</span></p>
       </div>
       <img class="shot shot-photo" src="{{ '/assets/img/test-android-optin.webp' | relative_url }}" width="760" height="718" alt="Google Play: Become a tester" loading="lazy">
     </li>
@@ -226,6 +229,31 @@ back_en: Home
       var btn = card.querySelector('.promo-btn');
       if (!btn) return;
       card.addEventListener('click', function (e) { if (!e.target.closest('a, button')) btn.click(); });
+    });
+    // Android 1. adım: mail adresi Tester Kulübü API'sine gider, yöneticiye bildirilir, Play'deki ortak test listesine eklenir.
+    var pf = document.getElementById('play-testci');
+    if (pf) pf.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var en = document.documentElement.getAttribute('data-lang') === 'en';
+      var not = document.getElementById('play-testci-not');
+      var btn = pf.querySelector('button');
+      var mail = pf.mail.value.trim().toLowerCase();
+      function yaz(tr, eng, hata) { not.textContent = en ? eng : tr; not.classList.toggle('is-error', !!hata); not.hidden = false; }
+      if (!/^[^\s@]+@[^\s@]+\.[a-z]{2,}$/.test(mail)) return yaz('Geçerli bir mail adresi yaz.', 'Enter a valid email address.', true);
+      btn.disabled = true;
+      fetch('https://wgcrjolzmyvdtunnypgs.supabase.co/functions/v1/tk-web', {
+        method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ is: 'play_testci', gmail: mail })
+      }).then(function (r) { return r.json(); }).then(function (j) {
+        if (j.tamam) {
+          pf.hidden = true;
+          if (j.yeni) yaz('Aldık! ' + mail + ' adresini test listesine ekleyince aşağıdaki "Teste katıl" linkleri çalışır. Genelde aynı gün.', 'Got it! Once ' + mail + ' is on the test list, the "Join the test" links below will work. Usually the same day.');
+          else yaz(mail + ' zaten listemizde. Aşağıdan "Teste katıl"a dokunabilirsin.', mail + ' is already on our list. Tap "Join the test" below.');
+        } else if (j.hata === 'tk_gmail_gecersiz') yaz('Geçerli bir mail adresi yaz.', 'Enter a valid email address.', true);
+        else if (j.hata === 'tk_cok_fazla') yaz('Şu an çok yoğunuz, biraz sonra tekrar dene.', "We're busy right now, try again a little later.", true);
+        else yaz('Bir sorun oldu, biraz sonra tekrar dene.', 'Something went wrong, try again a little later.', true);
+      }).catch(function () {
+        yaz('Bağlantı kurulamadı, biraz sonra tekrar dene.', 'Could not connect, try again a little later.', true);
+      }).then(function () { btn.disabled = false; });
     });
     // Gutter columns are absolutely positioned: keep the footer below the tallest one.
     var doc = document.querySelector('article.doc');

@@ -454,3 +454,12 @@ ins.adsbygoogle[data-ad-status="unfilled"] { display: none !important; }
 }
 @media (max-width: 340px) { .tk-nav-pill { display: none; } }
 .tk-card .tk-card-baslik { margin: 2px 0 6px; color: var(--accent); font: 700 22px/1.2 var(--display); }
+
+/* Test guide, Android step 1: email form (/test/) */
+.play-testci { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 12px; max-width: 460px; }
+.play-testci input { flex: 1 1 220px; min-width: 0; padding: 11px 13px; border-radius: 10px; border: 1px solid var(--line); background: var(--bg); color: var(--text); font: 400 15px/1.4 var(--body); }
+.play-testci input:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
+.play-testci .btn { margin: 0; }
+.play-testci[hidden], .play-testci-not[hidden] { display: none; }
+.play-testci-not { margin: 12px 0 0; padding: 10px 12px; border-radius: 10px; background: color-mix(in srgb, var(--accent) 14%, transparent); font-weight: 600; }
+.play-testci-not.is-error { background: color-mix(in srgb, #e5484d 16%, transparent); }
