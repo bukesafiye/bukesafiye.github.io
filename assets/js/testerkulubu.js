@@ -33,6 +33,7 @@
     tk_mail_kapali: ['Mail ile şifre belirleme çok yakında açılıyor. Şimdilik Telegram grubumuzdan (t.me/testerkulubu) yazabilirsin.', 'Setting a password by email is coming very soon. For now, message us in the Telegram group (t.me/testerkulubu).'],
     tk_kod_gecersiz: ['Bu bağlantının süresi dolmuş ya da kullanılmış. Yeni bir bağlantı iste.', 'This link has expired or was already used. Request a new one.'],
     tk_soru_az: ['En az 3 kontrol sorusu gerekiyor.', 'At least 3 check questions are required.'],
+    tk_canli_gecersiz: ['Canlı link geçersiz: Android için https://play.google.com/store/apps/details?id=…, iPhone için https://apps.apple.com/…/id… olmalı.', 'Invalid live link: Android needs https://play.google.com/store/apps/details?id=…, iPhone needs https://apps.apple.com/…/id…'],
     tk_link_gecersiz: ['Link geçersiz: Android için https://play.google.com/apps/testing/…, iPhone için https://testflight.apple.com/join/… olmalı.', 'Invalid link: Android needs https://play.google.com/apps/testing/…, iPhone needs https://testflight.apple.com/join/…'],
     tk_ad_gecersiz: ['Uygulama adı 2–48 karakter olmalı.', 'App name must be 2–48 characters.'],
     tk_platform_yok: ['En az bir platform seç.', 'Pick at least one platform.'],
@@ -71,9 +72,15 @@
         if (!liste.length) return;
         html += '<h3 class="tk-grup">' + g[1] + '</h3><div class="tk-kartlar">';
         liste.forEach(function (a) {
+          var magaza = a.canli_link ? '<a class="' + (a.testte ? 'tk-magaza-link' : 'btn primary') + '" href="' + esc(a.canli_link) + '" target="_blank" rel="noopener">' + t('Mağazada aç', 'Open in store') + ' ↗</a>' : '';
+          if (!a.testte) {   // testten çıkmış, yayında
+            html += '<div class="tk-kart"><div><b>' + esc(a.ad) + '</b> <span class="tk-durum tk-durum-yayinda">' + t('Yayında', 'Live') + '</span>' +
+              (a.aciklama ? '<p>' + esc(a.aciklama) + '</p>' : '') + '</div>' + magaza + '</div>';
+            return;
+          }
           html += '<div class="tk-kart"><div><b>' + esc(a.ad) + '</b>' +
             (a.aciklama ? '<p>' + esc(a.aciklama) + '</p>' : '') +
-            '<small>' + a.katilan + '/' + a.istenen + ' ' + t('kişi', 'people') + '</small></div>' +
+            '<small>' + a.katilan + '/' + a.istenen + ' ' + t('kişi', 'people') + '</small>' + magaza + '</div>' +
             (a.dolu ? '<span class="btn soon">' + t('Dolu', 'Full') + '</span>'
                     : '<button type="button" class="btn primary" data-katil="' + esc(a.id) + '" data-ad="' + esc(a.ad) + '">' + t('Teste katıl', 'Join test') + '</button>') +
             '</div>';
@@ -285,6 +292,17 @@
             html += '<p class="tk-bos">' + t(ekl.length ? 'Yeni başvuran yok.' : 'Henüz başvuran yok.', ekl.length ? 'No new applicants.' : 'No applicants yet.') + '</p>';
           }
           if (ekl.length) html += grupBas(t('Listeye eklenenler', 'Already added'), ekl.length, 'eski') + mailListe(ekl, true);
+          // Canlı mağaza linki + testten çıkar / teste geri al
+          html += '<div class="tk-uyg-alt">' +
+            (a.canli_link ? '<a class="btn" href="' + esc(a.canli_link) + '" target="_blank" rel="noopener">' + t('Canlı uygulamayı aç', 'Open live app') + ' ↗</a>' : '') +
+            '<button type="button" class="btn" data-canli-ac="' + esc(a.id) + '">' + (a.canli_link ? t('Linki değiştir', 'Change link') : '+ ' + t('Canlı link ekle', 'Add live link')) + '</button>' +
+            '<span class="tk-bosluk"></span>' +
+            (a.durum === 'kapali' ? '<button type="button" class="btn" data-teste-al="' + esc(a.id) + '">' + t('Teste geri al', 'Back to testing') + '</button>'
+             : a.durum === 'red' ? '' : '<button type="button" class="btn tk-tehlike" data-testten-cikar="' + esc(a.id) + '" data-ad="' + esc(a.ad) + '">' + t('Testten çıkar', 'Remove from testing') + '</button>') +
+            '<form class="tk-canli-form" data-canli-form="' + esc(a.id) + '" hidden><input name="link" type="url" value="' + esc(a.canli_link || '') + '" placeholder="' +
+              (a.platform === 'android' ? 'https://play.google.com/store/apps/details?id=…' : a.platform === 'ios' ? 'https://apps.apple.com/tr/app/…/id…' : 'https://…') + '">' +
+              '<button class="btn primary" type="submit">' + t('Kaydet', 'Save') + '</button><div class="tk-canli-sonuc"></div></form>' +
+            '</div>';
           html += '</div></div>';
         });
       }
@@ -338,13 +356,26 @@
     var hepsi = eski.concat(yeni.filter(function (m) { return eski.indexOf(m) < 0; }));
     Array.prototype.slice.call(kart.querySelectorAll('.tk-grup-bas, .tk-mail-kod, .tk-eylem, .tk-ipucu-alt, .tk-bos'))
       .forEach(function (el) { el.remove(); });
-    kart.insertAdjacentHTML('beforeend', '<p class="tk-bos">' + t('Yeni başvuran yok.', 'No new applicants.') + '</p>' +
+    var alt = kart.querySelector('.tk-uyg-alt');
+    (alt || kart).insertAdjacentHTML(alt ? 'beforebegin' : 'beforeend', '<p class="tk-bos">' + t('Yeni başvuran yok.', 'No new applicants.') + '</p>' +
       grupBas(t('Listeye eklenenler', 'Already added'), hepsi.length, 'eski') + mailListe(hepsi, true));
   }
 
   // --- olaylar -----------------------------------------------------------------------------------
   document.addEventListener('click', function (e) {
     if (e.target.closest('[data-mail-degistir]')) { mailYaz(null); mesaj($('tkKatilSonuc'), ''); return; }
+    var ca = e.target.closest('[data-canli-ac]');
+    if (ca) { var f = document.querySelector('[data-canli-form="' + ca.dataset.canliAc + '"]'); f.hidden = !f.hidden; if (!f.hidden) f.link.focus(); return; }
+    var tc = e.target.closest('[data-testten-cikar]');
+    if (tc) {
+      if (!window.confirm(t(tc.dataset.ad + ' testten çıkarılsın mı? Listeden kalkar, süren testler iptal olur (kimse ceza almaz). İstersen sonra geri alabilirsin.',
+                            'Remove ' + tc.dataset.ad + ' from testing? It leaves the list and running tests are cancelled (no penalties). You can bring it back later.'))) return;
+      tc.disabled = true;
+      api({ is: 'testten_cikar', jeton: jetonAl(), uygulama: tc.dataset.testtenCikar }).then(function () { hesapCiz(); listeCiz(); });
+      return;
+    }
+    var ta = e.target.closest('[data-teste-al]');
+    if (ta) { ta.disabled = true; api({ is: 'teste_al', jeton: jetonAl(), uygulama: ta.dataset.testeAl }).then(function () { hesapCiz(); listeCiz(); }); return; }
     var le = e.target.closest('[data-liste-eklendi]');
     if (le) { hemenIndir(le); api({ is: 'liste_eklendi', jeton: jetonAl(), uygulama: le.dataset.listeEklendi }).then(function () { hesapCiz(); }); return; }
     var pe = e.target.closest('[data-play-son]');
@@ -366,6 +397,14 @@
   });
   document.addEventListener('submit', function (e) {
     if (e.target.classList.contains('tk-yoklama')) { e.preventDefault(); yoklamaGonder(e.target); }
+    var cf = e.target.closest('[data-canli-form]');
+    if (cf) {
+      e.preventDefault();
+      api({ is: 'canli_link', jeton: jetonAl(), uygulama: cf.dataset.canliForm, link: cf.link.value }).then(function (r) {
+        if (r.hata) { mesaj(cf.querySelector('.tk-canli-sonuc'), hataMetni(r.hata), 'hata'); return; }
+        hesapCiz(); listeCiz();
+      });
+    }
   });
 
   // --- Şifre belirle / şifremi unuttum (maile tek kullanımlık bağlantı) ---------------------------

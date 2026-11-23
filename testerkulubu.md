@@ -94,6 +94,16 @@ o dosyadaki tk_ayar / tk_rozet ile aynı olmalı.
   .tk-form-ac { display: none; }
   #basvur.tk-kapali .tk-form-ac { display: inline-flex; }
   #basvur.tk-kapali > form, #basvur.tk-kapali > p.muted { display: none; }
+  .tk-uyg-alt { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--line); }
+  .tk-uyg-alt .btn { display: inline-flex; align-items: center; gap: 6px; padding: 7px 12px; font-size: 13.5px; }
+  .tk-uyg-alt .tk-tehlike { color: #e5484d; border-color: color-mix(in srgb, #e5484d 40%, transparent); }
+  .tk-uyg-alt .tk-bosluk { flex: 1; }
+  .tk-canli-form { display: flex; gap: 8px; flex-wrap: wrap; width: 100%; margin-top: 4px; }
+  .tk-canli-form[hidden] { display: none; }
+  .tk-canli-form input { flex: 1 1 260px; min-width: 0; padding: 9px 12px; border-radius: 10px; border: 1px solid var(--line); background: var(--bg); color: var(--text); font: 400 14px/1.4 var(--body); }
+  .tk-durum-kapali { color: var(--muted); }
+  .tk-durum-yayinda { color: #4cc3ff; border-color: color-mix(in srgb, #4cc3ff 35%, transparent); background: color-mix(in srgb, #4cc3ff 10%, transparent); }
+  .tk-magaza-link { display: inline-block; margin-left: 10px; font-size: 13px; }
   .tk-form label { display: grid; gap: 6px; margin: 0 0 14px; font-weight: 600; }
   .tk-form label.tk-secim { display: inline-flex; align-items: center; gap: 8px; margin-right: 18px; font-weight: 500; }
   .tk-form input:not([type=checkbox]), .tk-form textarea { width: 100%; padding: 11px 13px; border-radius: 10px; border: 1px solid var(--line); background: var(--bg); color: var(--text); font: 400 15px/1.4 var(--body); }
@@ -198,7 +208,7 @@ o dosyadaki tk_ayar / tk_rozet ile aynı olmalı.
   <div id="tkListe"><p class="muted"><span class="tr">Yükleniyor…</span><span class="en">Loading…</span></p></div>
 </section>
 
-<section class="tk-section" id="basvur">
+<section class="tk-section tk-kapali" id="basvur">
   <h2><span class="tr">Uygulamanı ekle</span><span class="en">Add your app</span></h2>
   <p class="muted"><span class="tr">Formu doldur, ekip onaylayınca listeye girer. Mail adresin ve şifren hesabın olur: sonra aynı bilgilerle girip başvuranların mail adreslerini görürsün. İlk 3 uygulaman için kredi gerekmez.</span><span class="en">Fill in the form; it goes live once approved. Your email and password become your account: sign in later to see applicants' email addresses. Your first 3 apps need no credits.</span></p>
   <button type="button" class="btn tk-form-ac" id="tkFormAc"><span class="tr">Formu aç</span><span class="en">Open the form</span></button>
@@ -301,7 +311,8 @@ o dosyadaki tk_ayar / tk_rozet ile aynı olmalı.
     var b = document.getElementById('basvur');
     if (!b) return;
     function kapat(on) { b.classList.toggle('tk-kapali', on); }
-    if (location.hash === '#hesabim') kapat(true);
+    // Form varsayılan olarak kapalı; yalnız "Uygulamanı ekle" bağlantısı (ya da #basvur adresi) ya da "Formu aç" açar
+    if (location.hash === '#basvur') kapat(false);
     document.addEventListener('click', function (e) {
       var a = e.target.closest('a[href="#hesabim"], a[href="#basvur"]');
       if (a) kapat(a.getAttribute('href') === '#hesabim');
