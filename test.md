@@ -109,7 +109,7 @@ back_en: Home
     <li class="has-shot">
       <div class="step-text">
         <h3><span class="tr">Test linkini aç ve test kullanıcısı ol</span><span class="en">Open the test link and become a tester</span></h3>
-        <p><span class="tr">Adresin listeye eklenince (genelde aynı gün) sayfanın altındaki listeden oyunun <b>Teste katıl</b> düğmesine dokun. Açılan sayfada aynı Google hesabıyla oturum açık olmalı; <b>Test kullanıcısı ol</b>'a dokun. "Erişim yok" görürsen biraz sonra tekrar dene.</span><span class="en">Once your address is on the list (usually the same day), tap the game's <b>Join the test</b> button in the list below. Make sure you're signed in with the same Google account, then tap <b>Become a tester</b>. If you see "no access", try again a little later.</span></p>
+        <p><span class="tr">Adresin listeye eklenince (genelde 15 dakika içinde) sayfanın altındaki listeden oyunun <b>Teste katıl</b> düğmesine dokun. Açılan sayfada aynı Google hesabıyla oturum açık olmalı; <b>Test kullanıcısı ol</b>'a dokun. "Erişim yok" görürsen biraz sonra tekrar dene.</span><span class="en">Once your address is on the list (usually within 15 minutes), tap the game's <b>Join the test</b> button in the list below. Make sure you're signed in with the same Google account, then tap <b>Become a tester</b>. If you see "no access", try again a little later.</span></p>
       </div>
       <img class="shot shot-photo" src="{{ '/assets/img/test-android-optin.webp' | relative_url }}" width="760" height="718" alt="Google Play: Become a tester" loading="lazy">
     </li>
@@ -246,7 +246,7 @@ back_en: Home
       }).then(function (r) { return r.json(); }).then(function (j) {
         if (j.tamam) {
           pf.hidden = true;
-          if (j.yeni) yaz('Aldık! ' + mail + ' adresini test listesine ekleyince aşağıdaki "Teste katıl" linkleri çalışır. Genelde aynı gün.', 'Got it! Once ' + mail + ' is on the test list, the "Join the test" links below will work. Usually the same day.');
+          if (j.yeni) yaz('Aldık! ' + mail + ' adresini test listesine ekleyince aşağıdaki "Teste katıl" linkleri çalışır. Genelde 15 dakika içinde.', 'Got it! Once ' + mail + ' is on the test list, the "Join the test" links below will work. Usually within 15 minutes.');
           else yaz(mail + ' zaten listemizde. Aşağıdan "Teste katıl"a dokunabilirsin.', mail + ' is already on our list. Tap "Join the test" below.');
         } else if (j.hata === 'tk_gmail_gecersiz') yaz('Geçerli bir mail adresi yaz.', 'Enter a valid email address.', true);
         else if (j.hata === 'tk_cok_fazla') yaz('Son bir saatte çok fazla kayıt geldi; bir saat içinde tekrar dene.', 'Too many sign-ups in the last hour; please try again within the hour.', true);
