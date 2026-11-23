@@ -82,7 +82,7 @@ back_en: Home
     {%- for g in beta_games %}
     {%- assign url = '/Store/' | append: g.slug | append: '/' %}
     <li style="--c: {{ g.color }}" data-slug="{{ g.slug }}">
-      <a class="dev-game" href="{{ url | relative_url }}"><img src="{{ g.icon | relative_url }}" alt="" width="40" height="40" loading="lazy">{% if g.name.tr == g.name.en %}{{ g.name.tr }}{% else %}<span class="tr">{{ g.name.tr }}</span><span class="en">{{ g.name.en }}</span>{% endif %}</a>
+      <a class="dev-game" href="{{ url | relative_url }}"><img src="{{ g.icon | replace: '.png', '-128.webp' | relative_url }}" alt="" width="40" height="40" loading="lazy">{% if g.name.tr == g.name.en %}{{ g.name.tr }}{% else %}<span class="tr">{{ g.name.tr }}</span><span class="en">{{ g.name.en }}</span>{% endif %}</a>
       <a class="btn" href="{{ g.testflight }}" rel="noopener"><span class="tr">TestFlight'ta katıl</span><span class="en">Join on TestFlight</span></a>
     </li>
     {%- endfor %}
@@ -137,7 +137,7 @@ back_en: Home
     {%- for g in test_games %}
     {%- assign url = '/Store/' | append: g.slug | append: '/' %}
     <li style="--c: {{ g.color }}" data-slug="{{ g.slug }}">
-      {% if g.page == false %}<span class="dev-game"><img src="{{ g.icon | relative_url }}" alt="" width="40" height="40" loading="lazy">{% if g.name.tr == g.name.en %}{{ g.name.tr }}{% else %}<span class="tr">{{ g.name.tr }}</span><span class="en">{{ g.name.en }}</span>{% endif %}</span>{% else %}<a class="dev-game" href="{{ url | relative_url }}"><img src="{{ g.icon | relative_url }}" alt="" width="40" height="40" loading="lazy">{% if g.name.tr == g.name.en %}{{ g.name.tr }}{% else %}<span class="tr">{{ g.name.tr }}</span><span class="en">{{ g.name.en }}</span>{% endif %}</a>{% endif %}
+      {% if g.page == false %}<span class="dev-game"><img src="{{ g.icon | replace: '.png', '-128.webp' | relative_url }}" alt="" width="40" height="40" loading="lazy">{% if g.name.tr == g.name.en %}{{ g.name.tr }}{% else %}<span class="tr">{{ g.name.tr }}</span><span class="en">{{ g.name.en }}</span>{% endif %}</span>{% else %}<a class="dev-game" href="{{ url | relative_url }}"><img src="{{ g.icon | replace: '.png', '-128.webp' | relative_url }}" alt="" width="40" height="40" loading="lazy">{% if g.name.tr == g.name.en %}{{ g.name.tr }}{% else %}<span class="tr">{{ g.name.tr }}</span><span class="en">{{ g.name.en }}</span>{% endif %}</a>{% endif %}
       <a class="btn" href="https://play.google.com/apps/testing/{{ g.play_test }}" rel="noopener"><span class="tr">Teste katıl</span><span class="en">Join the test</span></a>
     </li>
     {%- endfor %}
@@ -150,7 +150,7 @@ back_en: Home
     {%- for g in live_games %}
     {%- assign url = '/Store/' | append: g.slug | append: '/' %}
     <li style="--c: {{ g.color }}" data-slug="{{ g.slug }}">
-      <a class="dev-game" href="{{ url | relative_url }}"><img src="{{ g.icon | relative_url }}" alt="" width="40" height="40" loading="lazy">{% if g.name.tr == g.name.en %}{{ g.name.tr }}{% else %}<span class="tr">{{ g.name.tr }}</span><span class="en">{{ g.name.en }}</span>{% endif %}</a>
+      <a class="dev-game" href="{{ url | relative_url }}"><img src="{{ g.icon | replace: '.png', '-128.webp' | relative_url }}" alt="" width="40" height="40" loading="lazy">{% if g.name.tr == g.name.en %}{{ g.name.tr }}{% else %}<span class="tr">{{ g.name.tr }}</span><span class="en">{{ g.name.en }}</span>{% endif %}</a>
       <a class="btn" href="{{ g.google_play }}" rel="noopener"><span class="tr">Google Play'de aç</span><span class="en">Open on Google Play</span></a>
     </li>
     {%- endfor %}
@@ -206,6 +206,12 @@ back_en: Home
         steps.classList.remove('flash'); void steps.offsetWidth; steps.classList.add('flash');
         notice.scrollIntoView({ behavior: 'smooth', block: 'start' });
       });
+    });
+    // A tap anywhere on a featured card does what its button does (join steps / store), not the game page.
+    document.querySelectorAll('.promo').forEach(function (card) {
+      var btn = card.querySelector('.promo-btn');
+      if (!btn) return;
+      card.addEventListener('click', function (e) { if (!e.target.closest('a, button')) btn.click(); });
     });
     // Gutter columns are absolutely positioned: keep the footer below the tallest one.
     var doc = document.querySelector('article.doc');

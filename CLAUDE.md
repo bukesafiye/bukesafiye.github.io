@@ -12,6 +12,8 @@ color theme are generated from `_data/games.yml`, so step 2 does most of the wor
 
 1. **Assets** (ask the user for anything missing; never invent store screenshots):
    - `assets/img/<slug>-icon.png`: app icon, 256×256, square
+   - `assets/img/<slug>-icon-128.webp`: small copy for lists and cards (`cwebp -resize 128 128 -q 86 -alpha_q 100 -m 6 in.png -o out.webp`);
+     /test/ and the home page cards load `<icon>.png` → `<icon>-128.webp`, so it must exist (the 256 px PNGs are ~150 KB each).
    - `assets/img/<slug>-logo.webp`: logo with a transparent background, trimmed, ~900 px wide,
      made from the PNG with `cwebp -q 88 -alpha_q 100 -m 6 in.png -o out.webp` (PNG logos are ~1 MB).
      If the logo differs per language, add `<slug>-logo-tr.webp` and `<slug>-logo-en.webp`.
@@ -66,6 +68,6 @@ hero icon from `_data/games.yml`. New games use `layout: game`.
 ## Caching
 
 GitHub Pages sends `max-age=600` and that can't be changed, so `sw.js` (a service worker,
-registered in `_layouts/default.html`) keeps `/assets/img/` and `/assets/fonts/` in the browser:
+registered in `_layouts/default.html`) keeps `/assets/img/`, `/assets/fonts/`, `/assets/css/` and `/assets/js/` in the browser:
 a cached file is shown at once and refreshed in the background. A replaced image therefore
 shows on the visit after it is published. Bump `CACHE` in `sw.js` to drop every cached file.

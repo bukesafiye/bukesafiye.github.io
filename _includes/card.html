@@ -17,7 +17,7 @@ Home page card for one game or app (index.html):
   </a>
   <div class="card-body">
     <div class="card-title">
-      <img src="{{ g.icon | relative_url }}" alt="" width="48" height="48">
+      <img src="{{ g.icon | replace: '.png', '-128.webp' | relative_url }}" alt="" width="48" height="48">
       <h3>{% if g.name.tr == g.name.en %}{{ g.name.tr }}{% else %}<span class="tr">{{ g.name.tr }}</span><span class="en">{{ g.name.en }}</span>{% endif %}<small><span class="tr">{{ g.tagline.tr }}</span><span class="en">{{ g.tagline.en }}</span></small></h3>
     </div>
     <p>
