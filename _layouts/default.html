@@ -106,7 +106,7 @@
         {%- assign current_app = site.data.apps | where: 'slug', current.slug | first %}
         <a class="nav-cta" href="{{ '/Store/' | append: current.slug | append: '/' | relative_url }}">{% if current_app %}<span class="tr">Uygulamaya Git</span><span class="en">Go to App</span>{% else %}<span class="tr">Oyuna Git</span><span class="en">Go to Game</span>{% endif %}<svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M5 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         {%- else %}
-        <a class="nav-cta" href="{{ '/#games' | relative_url }}"><span class="tr">Oyunları Keşfet</span><span class="en">Explore Games</span><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M5 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <a class="nav-cta" href="{{ '/test/' | relative_url }}"><span class="tr">Test rehberi</span><span class="en">Testing guide</span><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M5 3l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         {%- endif %}
       </nav>
     </div>
