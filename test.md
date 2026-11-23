@@ -104,6 +104,7 @@ back_en: Home
           <button class="btn" type="submit"><span class="tr">Listeye ekle</span><span class="en">Add me</span></button>
         </form>
         <p class="play-testci-not" id="play-testci-not" role="status" hidden></p>
+        <p class="play-testci-gizlilik"><small><span class="tr">Adresin yalnızca test listesine eklenmek için kullanılır. <a href="{{ '/testerkulubu/gizlilik/' | relative_url }}">Gizlilik</a></span><span class="en">Your address is only used to add you to the test list. <a href="{{ '/testerkulubu/gizlilik/' | relative_url }}">Privacy</a></span></small></p>
       </div>
     </li>
     <li class="has-shot">

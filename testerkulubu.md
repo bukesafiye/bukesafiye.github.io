@@ -305,6 +305,7 @@ o dosyadaki tk_ayar / tk_rozet ile aynı olmalı.
     <summary><span class="tr">Bu Google'ın kurallarına uygun mu?</span><span class="en">Is this within Google's rules?</span></summary>
     <p><span class="tr">Tester Kulübü sahte etkileşim değil, gerçek kişilerin gerçek testidir: puan ya da yorum istemiyoruz, yükleme karşılığı ödül vermiyoruz. Her gün uygulamayı açıp kullanman bekleniyor.</span><span class="en">Tester Kulübü is real people really testing, not fake engagement: we never ask for ratings or reviews and never reward installs. You're expected to open and use the app every day.</span></p>
   </details>
+  <p class="muted tk-gizlilik-satir"><span class="tr">Hangi bilgileri neden topladığımızı <a href="{{ '/testerkulubu/gizlilik/' | relative_url }}">Gizlilik</a> sayfasında anlattık.</span><span class="en">What we collect and why: see our <a href="{{ '/testerkulubu/gizlilik/' | relative_url }}">Privacy</a> page.</span></p>
 </section>
 
 <script>
