@@ -31,6 +31,9 @@ o dosyadaki tk_ayar / tk_rozet ile aynı olmalı.
   .tk-vs { display: grid; gap: 16px; grid-template-columns: 1fr 1fr; margin: 22px 0 8px; }
   .tk-vs .tk-box.ours { border-color: color-mix(in srgb, var(--accent) 55%, transparent); box-shadow: 0 0 40px var(--glow); }
   .tk-price { font: 700 34px/1.1 var(--display); margin: 6px 0 10px; }
+  .tk-alt { margin: 0 0 14px; color: var(--text); }
+  .tk-oyuncu { display: flex; gap: 16px; align-items: flex-start; margin-top: 16px; background: color-mix(in srgb, var(--accent) 7%, var(--surface)); }
+  .tk-oyuncu-ikon { font-size: 30px; line-height: 1; }
   .tk-vs ul { margin: 0; padding: 0; list-style: none; color: var(--muted); }
   .tk-vs li { margin: 8px 0; padding-left: 28px; position: relative; }
   .tk-vs li::before { position: absolute; left: 0; top: 1px; width: 20px; height: 20px; border-radius: 6px; display: grid; place-items: center; font: 700 12px/1 var(--body); }
@@ -83,12 +86,20 @@ o dosyadaki tk_ayar / tk_rozet ile aynı olmalı.
     </div>
     <div class="tk-box ours">
       <h3>Tester Kulübü</h3>
-      <div class="tk-price tk-free"><span class="tr">Ücretsiz</span><span class="en">Free</span><span class="tk-per"><span class="tr">/ test ederek kazan</span><span class="en">/ earn it by testing</span></span></div>
+      <div class="tk-price tk-free"><span class="tr">Gel, tester ol!</span><span class="en">Come be a tester!</span></div>
+      <p class="tk-alt"><span class="tr">Sen test ettikçe insanlar da senin uygulamanı test edecek. Para yok, sadece takas.</span><span class="en">The more you test, the more people test your app. No money, just a swap.</span></p>
       <ul>
         <li><span class="tr">Test ettikçe kredi kazan, krediyle test kullanıcısı al</span><span class="en">Earn credits by testing, spend them on testers</span></li>
         <li><span class="tr">Her gün kontrol sorusuyla doğrulanan gerçek kullanıcılar</span><span class="en">Real people, checked every day with a quick question</span></li>
         <li><span class="tr">14 günün sonunda Google formuna hazır geri bildirim özeti</span><span class="en">A feedback summary ready for Google's form after 14 days</span></li>
       </ul>
+    </div>
+  </div>
+  <div class="tk-box tk-oyuncu">
+    <span class="tk-oyuncu-ikon" aria-hidden="true">🎮</span>
+    <div>
+      <h3><span class="tr">Uygulaman yok mu? Sorun değil!</span><span class="en">No app of your own? No problem!</span></h3>
+      <p><span class="tr">Sadece yeni oyunları ve uygulamaları herkesten önce denemek istiyorsan da kapımız açık. Gel, istediğini test et; düşüncelerin geliştiricilere ilham olsun. Topladığın kredilerle rozet kazanır, istersen bir geliştiriciye hediye edersin. 💚</span><span class="en">If you just want to try new games and apps before anyone else, you're welcome too. Come test whatever you like and let your thoughts inspire the developers. Your credits earn you badges, or you can gift them to a developer. 💚</span></p>
     </div>
   </div>
 </section>
