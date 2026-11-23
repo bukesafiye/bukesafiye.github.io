@@ -62,6 +62,9 @@ o dosyadaki tk_ayar / tk_rozet ile aynı olmalı.
   .tk-uyg { display: block; }
   .tk-mailler { margin: 10px 0 4px !important; color: var(--text) !important; }
   .tk-mail-kod { display: block; padding: 10px 12px; border-radius: 10px; background: var(--bg); border: 1px solid var(--line); font-size: 13px; word-break: break-all; margin-bottom: 8px; }
+  .tk-form-ac { display: none; }
+  #basvur.tk-kapali .tk-form-ac { display: inline-flex; }
+  #basvur.tk-kapali > form, #basvur.tk-kapali > p.muted { display: none; }
   .tk-form label { display: grid; gap: 6px; margin: 0 0 14px; font-weight: 600; }
   .tk-form label.tk-secim { display: inline-flex; align-items: center; gap: 8px; margin-right: 18px; font-weight: 500; }
   .tk-form input:not([type=checkbox]), .tk-form textarea { width: 100%; padding: 11px 13px; border-radius: 10px; border: 1px solid var(--line); background: var(--bg); color: var(--text); font: 400 15px/1.4 var(--body); }
@@ -169,6 +172,7 @@ o dosyadaki tk_ayar / tk_rozet ile aynı olmalı.
 <section class="tk-section" id="basvur">
   <h2><span class="tr">Uygulamanı ekle</span><span class="en">Add your app</span></h2>
   <p class="muted"><span class="tr">Formu doldur, ekip onaylayınca listeye girer. Mail adresin ve şifren hesabın olur: sonra aynı bilgilerle girip başvuranların mail adreslerini görürsün. İlk 3 uygulaman için kredi gerekmez.</span><span class="en">Fill in the form; it goes live once approved. Your email and password become your account: sign in later to see applicants' email addresses. Your first 3 apps need no credits.</span></p>
+  <button type="button" class="btn tk-form-ac" id="tkFormAc"><span class="tr">Formu aç</span><span class="en">Open the form</span></button>
   <form id="tkBasvuru" class="tk-box tk-form" autocomplete="on">
     <label><span class="tr">Uygulamanın adı</span><span class="en">App name</span><input name="ad" required minlength="2" maxlength="48"></label>
     <label><span class="tr">Kısa açıklama (isteğe bağlı)</span><span class="en">Short description (optional)</span><textarea name="aciklama" maxlength="500" rows="2"></textarea></label>
@@ -261,3 +265,22 @@ o dosyadaki tk_ayar / tk_rozet ile aynı olmalı.
     <p><span class="tr">Tester Kulübü sahte etkileşim değil, gerçek kişilerin gerçek testidir: puan ya da yorum istemiyoruz, yükleme karşılığı ödül vermiyoruz. Her gün uygulamayı açıp kullanman bekleniyor.</span><span class="en">Tester Kulübü is real people really testing, not fake engagement: we never ask for ratings or reviews and never reward installs. You're expected to open and use the app every day.</span></p>
   </details>
 </section>
+
+<script>
+  // "Testçi listem" ile Hesabım'a gidilince uzun "Uygulamanı ekle" formu küçülür; "Uygulamanı ekle" ya da "Formu aç" yeniden açar.
+  (function () {
+    var b = document.getElementById('basvur');
+    if (!b) return;
+    function kapat(on) { b.classList.toggle('tk-kapali', on); }
+    if (location.hash === '#hesabim') kapat(true);
+    document.addEventListener('click', function (e) {
+      var a = e.target.closest('a[href="#hesabim"], a[href="#basvur"]');
+      if (a) kapat(a.getAttribute('href') === '#hesabim');
+    });
+    document.getElementById('tkFormAc').addEventListener('click', function () {
+      kapat(false);
+      var f = document.getElementById('tkBasvuru');
+      if (f && f.elements[0]) f.elements[0].focus();
+    });
+  })();
+</script>
