@@ -453,3 +453,4 @@ ins.adsbygoogle[data-ad-status="unfilled"] { display: none !important; }
   .site-header .nav, .site-header .nav-right { gap: 6px; }
 }
 @media (max-width: 340px) { .tk-nav-pill { display: none; } }
+.tk-card .tk-card-baslik { margin: 2px 0 6px; color: var(--accent); font: 700 22px/1.2 var(--display); }
