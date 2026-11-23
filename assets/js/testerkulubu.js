@@ -9,6 +9,8 @@
   function $(id) { return document.getElementById(id); }
   function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
   function t(tr, en) { return '<span class="tr">' + tr + '</span><span class="en">' + (en || tr) + '</span>'; }
+  // confirm / alert gibi düz metin isteyen yerler için: sayfanın o anki dili
+  function td(tr, en) { return document.documentElement.getAttribute('data-lang') === 'en' ? (en || tr) : tr; }
   function jetonAl() { try { return localStorage.getItem(JETON); } catch (e) { return null; } }
   function mailAl() { try { return localStorage.getItem(MAIL); } catch (e) { return null; } }
   function mailYaz(m) { try { m ? localStorage.setItem(MAIL, m) : localStorage.removeItem(MAIL); } catch (e) { /* özel pencere */ } }
@@ -406,7 +408,7 @@
     if (ca) { var f = document.querySelector('[data-canli-form="' + ca.dataset.canliAc + '"]'); f.hidden = !f.hidden; if (!f.hidden) f.link.focus(); return; }
     var tc = e.target.closest('[data-testten-cikar]');
     if (tc) {
-      if (!window.confirm(t(tc.dataset.ad + ' testten çıkarılsın mı? Listeden kalkar, süren testler iptal olur (kimse ceza almaz). İstersen sonra geri alabilirsin.',
+      if (!window.confirm(td(tc.dataset.ad + ' testten çıkarılsın mı? Listeden kalkar, süren testler iptal olur (kimse ceza almaz). İstersen sonra geri alabilirsin.',
                             'Remove ' + tc.dataset.ad + ' from testing? It leaves the list and running tests are cancelled (no penalties). You can bring it back later.'))) return;
       tc.disabled = true;
       api({ is: 'testten_cikar', jeton: jetonAl(), uygulama: tc.dataset.testtenCikar }).then(function () { hesapCiz(); listeCiz(); });
@@ -420,12 +422,12 @@
     if (ps) {
       var red = ps.dataset.tur === 'reddet';
       if (!window.confirm(red
-        ? t(ps.dataset.mail + ' reddedilsin mi? Kayıt silinir, listeye eklenmez.', 'Reject ' + ps.dataset.mail + '? The entry is deleted and will not be added.')
-        : t(ps.dataset.mail + ' silinsin mi? Kayıt buradan kalkar; Play Console’daki Kapalı Tester Grubu’ndan da elle çıkar.', 'Delete ' + ps.dataset.mail + '? It is removed here; also remove it from the tester list in Play Console.'))) return;
+        ? td(ps.dataset.mail + ' reddedilsin mi? Kayıt silinir, listeye eklenmez.', 'Reject ' + ps.dataset.mail + '? The entry is deleted and will not be added.')
+        : td(ps.dataset.mail + ' silinsin mi? Kayıt buradan kalkar; Play Console’daki Kapalı Tester Grubu’ndan da elle çıkar.', 'Delete ' + ps.dataset.mail + '? It is removed here; also remove it from the tester list in Play Console.'))) return;
       ps.disabled = true;
       var li = ps.closest('li'); if (li) li.style.opacity = '.4';
       api({ is: 'play_sil', jeton: jetonAl(), no: ps.dataset.playSil, tur: ps.dataset.tur }).then(function (r) {
-        if (r && r.hata) window.alert(hataMetni(r.hata));
+        if (r && r.hata) { var hm = HATA[r.hata]; window.alert(hm ? td(hm[0], hm[1]) : td('Bir şeyler ters gitti, tekrar dene.', 'Something went wrong, please try again.')); }
         hesapCiz();
       });
       return;
