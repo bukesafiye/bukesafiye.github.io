@@ -62,6 +62,7 @@ o dosyadaki tk_ayar / tk_rozet ile aynı olmalı.
   .tk-uyg { display: block; }
   .tk-mailler { margin: 10px 0 4px !important; color: var(--text) !important; }
   .tk-mail-kod { display: block; padding: 10px 12px; border-radius: 10px; background: var(--bg); border: 1px solid var(--line); font-size: 13px; word-break: break-all; margin-bottom: 8px; }
+  .tk-mail-eski { opacity: .6; user-select: text; }
   .tk-form-ac { display: none; }
   #basvur.tk-kapali .tk-form-ac { display: inline-flex; }
   #basvur.tk-kapali > form, #basvur.tk-kapali > p.muted { display: none; }

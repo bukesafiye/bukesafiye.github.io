@@ -243,16 +243,21 @@
         html += '<h3>' + t('Uygulamalarım', 'My apps') + '</h3>';
         r.uygulamalar.forEach(function (a) {
           var d = DURUM[a.durum] || [a.durum, a.durum];
+          var ekl = a.eklenenler || [];
           html += '<div class="tk-kart tk-uyg"><div><b>' + esc(a.ad) + '</b> <small>' + t(d[0], d[1]) + ' · ' +
-            a.basvuranlar.length + '/' + a.istenen + ' ' + t('kişi', 'people') + ' · 👆 ' + (a.tiklama || 0) + ' ' + t('tıklama', 'clicks') + '</small>';
+            (a.basvuranlar.length + ekl.length) + '/' + a.istenen + ' ' + t('kişi', 'people') + ' · 👆 ' + (a.tiklama || 0) + ' ' + t('tıklama', 'clicks') + '</small>';
+          var yer = a.platform === 'android' ? t('Play Console → Kapalı test → Test kullanıcıları listesine yapıştır.', 'Paste into Play Console → Closed testing → Testers.')
+                  : a.platform === 'ios' ? t('App Store Connect → TestFlight → Harici test grubuna ekle.', 'Add to App Store Connect → TestFlight → external group.') : '';
           if (a.basvuranlar.length) {
             var liste = a.basvuranlar.map(esc).join(', ');
-            html += '<p class="tk-mailler">' + t('Başvuranlar', 'Applicants') + ':</p><code class="tk-mail-kod">' + liste + '</code>' +
-              '<button type="button" class="btn tk-kopyala" data-kopya="' + liste + '">' + t('Listeyi kopyala', 'Copy list') + '</button>';
-            if (a.platform === 'android') html += '<small class="muted">' + t('Play Console → Kapalı test → Test kullanıcıları listesine yapıştır.', 'Paste into Play Console → Closed testing → Testers.') + '</small>';
+            html += '<p class="tk-mailler">🆕 ' + t('Yeni başvuranlar', 'New applicants') + ' (' + a.basvuranlar.length + '):</p><code class="tk-mail-kod">' + liste + '</code>' +
+              '<button type="button" class="btn tk-kopyala" data-kopya="' + liste + '">' + t('Listeyi kopyala', 'Copy list') + '</button> ' +
+              '<button type="button" class="btn primary" data-liste-eklendi="' + esc(a.id) + '">✅ ' + t('Ekledim', 'Added') + '</button>' +
+              (yer ? '<small class="muted">' + yer + ' ' + t('Sonra "Ekledim"e bas; adresler aşağıya iner.', 'Then tap "Added"; they move below.') + '</small>' : '');
           } else {
-            html += '<p class="muted">' + t('Henüz başvuran yok.', 'No applicants yet.') + '</p>';
+            html += '<p class="muted">' + t(ekl.length ? 'Yeni başvuran yok.' : 'Henüz başvuran yok.', ekl.length ? 'No new applicants.' : 'No applicants yet.') + '</p>';
           }
+          if (ekl.length) html += '<p class="tk-mailler">✅ ' + t('Listeye eklenenler', 'Already added') + ' (' + ekl.length + '):</p><code class="tk-mail-kod tk-mail-eski">' + ekl.map(esc).join(', ') + '</code>';
           html += '</div></div>';
         });
       }
@@ -299,6 +304,12 @@
   // --- olaylar -----------------------------------------------------------------------------------
   document.addEventListener('click', function (e) {
     if (e.target.closest('[data-mail-degistir]')) { mailYaz(null); mesaj($('tkKatilSonuc'), ''); return; }
+    var le = e.target.closest('[data-liste-eklendi]');
+    if (le) {
+      le.disabled = true;
+      api({ is: 'liste_eklendi', jeton: jetonAl(), uygulama: le.dataset.listeEklendi }).then(function () { hesapCiz(); });
+      return;
+    }
     var pe = e.target.closest('[data-play-son]');
     if (pe) {
       pe.disabled = true;
