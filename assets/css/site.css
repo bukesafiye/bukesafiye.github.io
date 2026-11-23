@@ -437,3 +437,12 @@ ins.adsbygoogle[data-ad-status="unfilled"] { display: none !important; }
 /* Ana sayfa: Tester Kulübü kartı (iletişim kartının düzenini kullanır) */
 .tk-card { border-color: color-mix(in srgb, var(--accent) 45%, transparent); box-shadow: 0 0 48px var(--glow); }
 .tk-card .tk-card-badge { display: inline-block; margin: 0 0 10px; padding: 5px 12px; border-radius: 999px; background: var(--accent-soft); color: var(--accent); font: 600 13px/1.2 var(--body); }
+
+/* Oyunlar menüsü uzun: kısa ekranda kendi içinde kaysın (alttaki Topluluk / Tester Kulübü görünür kalsın) */
+.games-menu { max-height: calc(100dvh - 96px); overflow-y: auto; overscroll-behavior: contain; }
+/* Mobilde başlıkta Tester Kulübü kısayolu (geniş ekranda sağdaki yazılı bağlantı var) */
+.tk-nav-pill { display: none; text-decoration: none; }
+.tk-nav-pill:hover { text-decoration: none; }
+@media (max-width: 960px) { .tk-nav-pill { display: inline-flex; align-items: center; justify-content: center; padding-left: 12px; padding-right: 12px; font-size: 17px; } }
+
+@media (max-width: 350px) { .tk-nav-pill { display: none; } }
