@@ -205,6 +205,18 @@ o dosyadaki tk_ayar / tk_rozet ile aynı olmalı.
   .tk-dialog .btn.primary[type=submit] { width: 100%; justify-content: center; }
   .tk-dialog .tk-link-dugme { display: block; margin: 14px auto 0; }
   .tk-dialog .tk-takas { margin: -4px 0 14px; }
+  .tk-onay { width: min(400px, calc(100vw - 32px)); text-align: center; }
+  .tk-onay .tk-dialog-ic { padding: 28px 24px 22px; }
+  .tk-onay-ikon { width: 56px; height: 56px; margin: 0 auto 14px; border-radius: 50%; display: grid; place-items: center; color: var(--accent); background: color-mix(in srgb, var(--accent) 14%, transparent); }
+  .tk-onay-tehlike .tk-onay-ikon { color: #f08a8a; background: color-mix(in srgb, #f08a8a 14%, transparent); }
+  .tk-onay h2 { margin: 0 0 12px; font-size: 20px; }
+  .tk-onay-vurgu { margin: 0 auto 12px; padding: 8px 12px; border-radius: 10px; background: var(--bg); border: 1px solid var(--line); font: 500 14px/1.4 ui-monospace, SFMono-Regular, Menlo, monospace; word-break: break-all; }
+  .tk-onay p { margin: 0 0 6px; color: var(--muted); font-size: 14.5px; line-height: 1.5; }
+  .tk-onay .tk-onay-not { margin-top: 10px; padding: 8px 12px; border-radius: 10px; background: var(--accent-soft); color: var(--text); font-size: 13.5px; }
+  .tk-onay-dugmeler { display: flex; gap: 10px; margin-top: 20px; }
+  .tk-onay-dugmeler .btn { flex: 1; justify-content: center; }
+  .tk-onay-tehlike .btn.primary { background: #e26d6d; color: #fff; }
+  .tk-onay-tehlike .btn.primary:hover { background: #ec8080; }
   @media (max-width: 640px) {
     .tk-hero { padding: 36px 18px 28px; border-radius: 22px; }
     .tk-grid { grid-template-columns: 1fr; }

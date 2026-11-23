@@ -11,6 +11,31 @@
   function t(tr, en) { return '<span class="tr">' + tr + '</span><span class="en">' + (en || tr) + '</span>'; }
   // confirm / alert gibi düz metin isteyen yerler için: sayfanın o anki dili
   function td(tr, en) { return document.documentElement.getAttribute('data-lang') === 'en' ? (en || tr) : tr; }
+  // Sitenin stilinde onay penceresi (window.confirm yerine). o: { baslik, metin, vurgu, not, evet, tehlike, tekDugme } — metinler t() ile.
+  // Promise<boolean> döner: Evet → true; Vazgeç / Esc / dışına tıklama → false.
+  function onayla(o) {
+    return new Promise(function (coz) {
+      var d = document.createElement('dialog');
+      d.className = 'tk-dialog tk-onay' + (o.tehlike ? ' tk-onay-tehlike' : '');
+      d.innerHTML = '<div class="tk-dialog-ic"><div class="tk-onay-ikon" aria-hidden="true">' + (o.tehlike ? IKON_SIL : IKON_UYARI) + '</div>' +
+        '<h2>' + o.baslik + '</h2>' + (o.vurgu ? '<div class="tk-onay-vurgu">' + esc(o.vurgu) + '</div>' : '') +
+        (o.metin ? '<p>' + o.metin + '</p>' : '') + (o.not ? '<p class="tk-onay-not">' + o.not + '</p>' : '') +
+        '<div class="tk-onay-dugmeler">' + (o.tekDugme ? '' : '<button type="button" class="btn" data-onay="0">' + t('Vazgeç', 'Cancel') + '</button>') +
+        '<button type="button" class="btn primary" data-onay="1">' + (o.evet || t('Tamam', 'OK')) + '</button></div></div>';
+      document.body.appendChild(d);
+      var bitti = false;
+      function kapat(v) { if (bitti) return; bitti = true; try { d.close(); } catch (e) {} d.remove(); coz(v); }
+      d.addEventListener('click', function (e) {
+        var b = e.target.closest('[data-onay]');
+        if (b) kapat(b.dataset.onay === '1');
+        else if (e.target === d) kapat(false);   // arka plana tıklama
+      });
+      d.addEventListener('cancel', function (e) { e.preventDefault(); kapat(false); });
+      if (d.showModal) d.showModal(); else d.setAttribute('open', '');
+      var odak = d.querySelector(o.tekDugme || !o.tehlike ? '[data-onay="1"]' : '[data-onay="0"]');
+      if (odak) odak.focus();
+    });
+  }
   function jetonAl() { try { return localStorage.getItem(JETON); } catch (e) { return null; } }
   function mailAl() { try { return localStorage.getItem(MAIL); } catch (e) { return null; } }
   function mailYaz(m) { try { m ? localStorage.setItem(MAIL, m) : localStorage.removeItem(MAIL); } catch (e) { /* özel pencere */ } }
@@ -257,6 +282,8 @@
   }
   var DURUM = { bekliyor: ['Onay bekliyor', 'Awaiting approval'], onayli: ['Testte', 'In testing'], red: ['Reddedildi', 'Rejected'], kapali: ['Kapalı', 'Closed'] };
   var IKON_KOPYA = '<svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M5 15V6.5A2.5 2.5 0 0 1 7.5 4H15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>';
+  var IKON_SIL = '<svg width="26" height="26" viewBox="0 0 24 24"><path d="M4 7h16M10 11v6M14 11v6M6 7l1 12a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2l1-12M9 7V4.5A1.5 1.5 0 0 1 10.5 3h3A1.5 1.5 0 0 1 15 4.5V7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+  var IKON_UYARI = '<svg width="26" height="26" viewBox="0 0 24 24"><path d="M12 8v5M12 16.5v.5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/><circle cx="12" cy="12" r="9.5" fill="none" stroke="currentColor" stroke-width="2"/></svg>';
   var IKON_TAMAM = '<svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>';
   // Liste başlığı: küçük etiket + sayı rozeti (tur: yeni | eski | bekle)
   function grupBas(etiket, n, tur) { return '<div class="tk-grup-bas"><span>' + etiket + '</span><span class="tk-sayi tk-sayi-' + tur + '">' + n + '</span></div>'; }
@@ -408,10 +435,13 @@
     if (ca) { var f = document.querySelector('[data-canli-form="' + ca.dataset.canliAc + '"]'); f.hidden = !f.hidden; if (!f.hidden) f.link.focus(); return; }
     var tc = e.target.closest('[data-testten-cikar]');
     if (tc) {
-      if (!window.confirm(td(tc.dataset.ad + ' testten çıkarılsın mı? Listeden kalkar, süren testler iptal olur (kimse ceza almaz). İstersen sonra geri alabilirsin.',
-                            'Remove ' + tc.dataset.ad + ' from testing? It leaves the list and running tests are cancelled (no penalties). You can bring it back later.'))) return;
-      tc.disabled = true;
-      api({ is: 'testten_cikar', jeton: jetonAl(), uygulama: tc.dataset.testtenCikar }).then(function () { hesapCiz(); listeCiz(); });
+      onayla({ baslik: t('Testten çıkarılsın mı?', 'Remove from testing?'), vurgu: tc.dataset.ad,
+        metin: t('Listeden kalkar, süren testler iptal olur (kimse ceza almaz).', 'It leaves the list and running tests are cancelled (no penalties).'),
+        not: t('İstersen sonra geri alabilirsin.', 'You can bring it back later.'), evet: t('Testten çıkar', 'Remove'), tehlike: true }).then(function (ok) {
+        if (!ok) return;
+        tc.disabled = true;
+        api({ is: 'testten_cikar', jeton: jetonAl(), uygulama: tc.dataset.testtenCikar }).then(function () { hesapCiz(); listeCiz(); });
+      });
       return;
     }
     var ta = e.target.closest('[data-teste-al]');
@@ -421,14 +451,20 @@
     var ps = e.target.closest('[data-play-sil]');
     if (ps) {
       var red = ps.dataset.tur === 'reddet';
-      if (!window.confirm(red
-        ? td(ps.dataset.mail + ' reddedilsin mi? Kayıt silinir, listeye eklenmez.', 'Reject ' + ps.dataset.mail + '? The entry is deleted and will not be added.')
-        : td(ps.dataset.mail + ' silinsin mi? Kayıt buradan kalkar; Play Console’daki Kapalı Tester Grubu’ndan da elle çıkar.', 'Delete ' + ps.dataset.mail + '? It is removed here; also remove it from the tester list in Play Console.'))) return;
-      ps.disabled = true;
-      var li = ps.closest('li'); if (li) li.style.opacity = '.4';
-      api({ is: 'play_sil', jeton: jetonAl(), no: ps.dataset.playSil, tur: ps.dataset.tur }).then(function (r) {
-        if (r && r.hata) { var hm = HATA[r.hata]; window.alert(hm ? td(hm[0], hm[1]) : td('Bir şeyler ters gitti, tekrar dene.', 'Something went wrong, please try again.')); }
-        hesapCiz();
+      onayla(red
+        ? { baslik: t('Bu adres reddedilsin mi?', 'Reject this address?'), vurgu: ps.dataset.mail,
+            metin: t('Kayıt silinir, Play listesine eklenmez.', 'The entry is deleted and will not be added to the Play list.'), evet: t('Reddet', 'Reject'), tehlike: true }
+        : { baslik: t('Bu adres silinsin mi?', 'Delete this address?'), vurgu: ps.dataset.mail,
+            metin: t('Kayıt bu listeden kalkar.', 'The entry is removed from this list.'),
+            not: t('Play Console → Kapalı Tester Grubu’ndan da elle çıkarmayı unutma.', 'Also remove it from the tester list in Play Console.'), evet: t('Sil', 'Delete'), tehlike: true }
+      ).then(function (ok) {
+        if (!ok) return;
+        ps.disabled = true;
+        var li = ps.closest('li'); if (li) li.style.opacity = '.4';
+        api({ is: 'play_sil', jeton: jetonAl(), no: ps.dataset.playSil, tur: ps.dataset.tur }).then(function (r) {
+          if (r && r.hata) onayla({ baslik: t('Olmadı', 'Something went wrong'), metin: hataMetni(r.hata), tekDugme: true });
+          hesapCiz();
+        });
       });
       return;
     }
