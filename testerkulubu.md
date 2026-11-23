@@ -6,13 +6,13 @@ permalink: /testerkulubu/
 back: /
 back_tr: Ana sayfa
 back_en: Home
-# Telegram grubu açılınca linki buraya yaz; boşken düğme "Yakında" gösterir.
+# Telegram grubu açılınca linki buraya yaz; boşken katıl düğmesi gösterilmez.
 telegram: ""
 ---
 {%- comment -%}
 Tester Kulübü: MiroGames'ten ayrı bir ürün (karşılıklı uygulama testi). Veritabanı Mahalle Patronu'nun Supabase
 projesinde tk_ tabloları olarak durur (mahallepatronu/supabase/migrations/20261123500001_tk_tester_kulubu.sql).
-Buradaki kurallar (4 hoş geldin kredisi, 14 doğru yoklama günü, 2 gün boşluk payı, rozet eşikleri 3/10/25)
+Buradaki kurallar (ilk 3 uygulama ücretsiz, 4 hoş geldin kredisi, 14 doğru yoklama günü, 2 gün boşluk payı, rozet eşikleri 3/10/25)
 o dosyadaki tk_ayar / tk_rozet ile aynı olmalı.
 {%- endcomment %}
 <style>
@@ -61,8 +61,6 @@ o dosyadaki tk_ayar / tk_rozet ile aynı olmalı.
   <div class="tk-cta">
     {%- if page.telegram != "" %}
     <a class="btn primary" href="{{ page.telegram }}" rel="noopener"><span class="tr">Telegram'da katıl</span><span class="en">Join on Telegram</span></a>
-    {%- else %}
-    <span class="btn primary soon"><span class="tr">Çok yakında açılıyor</span><span class="en">Opening very soon</span></span>
     {%- endif %}
     <a class="btn" href="#nasil"><span class="tr">Nasıl çalışır?</span><span class="en">How does it work?</span></a>
   </div>
@@ -103,7 +101,7 @@ o dosyadaki tk_ayar / tk_rozet ile aynı olmalı.
     <div class="tk-box">
       <span class="tk-num">2</span>
       <h3><span class="tr">Uygulamanı ekle</span><span class="en">Add your app</span></h3>
-      <p><span class="tr">Play kapalı test ya da TestFlight linkini ver, uygulamanın içinden cevaplanabilecek 3 kontrol sorusu yaz. Ekip onaylayınca listeye girer.</span><span class="en">Share your Play closed-testing or TestFlight link and write 3 questions only someone inside the app can answer. It goes live once we approve it.</span></p>
+      <p><span class="tr">Play kapalı test ya da TestFlight linkini ver, uygulamanın içinden cevaplanabilecek 3 kontrol sorusu yaz. Ekip onaylayınca listeye girer. <b>İlk 3 uygulaman tamamen ücretsiz.</b></span><span class="en">Share your Play closed-testing or TestFlight link and write 3 questions only someone inside the app can answer. It goes live once we approve it. <b>Your first 3 apps are completely free.</b></span></p>
     </div>
     <div class="tk-box">
       <span class="tk-num">3</span>
@@ -113,7 +111,7 @@ o dosyadaki tk_ayar / tk_rozet ile aynı olmalı.
     <div class="tk-box">
       <span class="tk-num">4</span>
       <h3><span class="tr">Kazan</span><span class="en">Earn</span></h3>
-      <p><span class="tr">14 günü tamamladığın her uygulama <b>1 kredi</b> getirir. 12 kredi = senin uygulaman için 12 test kullanıcısı.</span><span class="en">Every app you test for 14 days earns <b>1 credit</b>. 12 credits = 12 testers for your app.</span></p>
+      <p><span class="tr">14 günü tamamladığın her uygulama <b>1 kredi</b> getirir. 4. uygulamandan itibaren 1 kredi = 1 test kullanıcısı.</span><span class="en">Every app you test for 14 days earns <b>1 credit</b>. From your 4th app on, 1 credit = 1 tester.</span></p>
     </div>
   </div>
 </section>
