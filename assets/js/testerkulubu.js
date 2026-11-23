@@ -209,7 +209,13 @@
   function mailListe(mailler, eski) {
     return '<ol class="tk-mail-kod' + (eski ? ' tk-mail-eski' : '') + '">' + mailler.map(function (m) { return '<li>' + esc(m) + '</li>'; }).join('') + '</ol>';
   }
-  var DURUM = { bekliyor: ['⏳ Onay bekliyor', '⏳ Awaiting approval'], onayli: ['🟢 Testte', '🟢 In testing'], red: ['❌ Reddedildi', '❌ Rejected'], kapali: ['⚪ Kapalı', '⚪ Closed'] };
+  var DURUM = { bekliyor: ['Onay bekliyor', 'Awaiting approval'], onayli: ['Testte', 'In testing'], red: ['Reddedildi', 'Rejected'], kapali: ['Kapalı', 'Closed'] };
+  var IKON_KOPYA = '<svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M5 15V6.5A2.5 2.5 0 0 1 7.5 4H15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>';
+  var IKON_TAMAM = '<svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+  // Liste başlığı: küçük etiket + sayı rozeti (tur: yeni | eski | bekle)
+  function grupBas(etiket, n, tur) { return '<div class="tk-grup-bas"><span>' + etiket + '</span><span class="tk-sayi tk-sayi-' + tur + '">' + n + '</span></div>'; }
+  function kopyaDugme(liste) { return '<button type="button" class="btn tk-kopyala" data-kopya="' + liste + '">' + IKON_KOPYA + '<span>' + t('Listeyi kopyala', 'Copy list') + '</span></button>'; }
+  function durumEt(durum) { var d = DURUM[durum] || [durum, durum]; return '<span class="tk-durum tk-durum-' + esc(durum) + '">' + t(d[0], d[1]) + '</span>'; }
 
   function hesapCiz() {
     var kutu = $('tkHesap');
@@ -222,46 +228,45 @@
     api({ is: 'ben', jeton: jetonAl() }).then(function (r) {
       if (r.hata === 'oturum') { jetonYaz(null); return hesapCiz(); }
       if (r.hata) { mesaj(kutu, hataMetni(r.hata), 'hata'); return; }
-      var html = '<div class="tk-hesap-ust"><span>👤 <b>' + esc(r.uye.gmail) + '</b></span><button type="button" class="btn" id="tkCikis">' + t('Çıkış', 'Sign out') + '</button></div>';
+      var html = '<div class="tk-hesap-ust"><span>' + t('Giriş yapan', 'Signed in as') + ' <b>' + esc(r.uye.gmail) + '</b></span><button type="button" class="btn" id="tkCikis">' + t('Çıkış', 'Sign out') + '</button></div>';
 
       if (r.play_rehber) {
         // Test rehberinden (/test/) gelen Android adresleri: Play'deki ortak "Kapalı Tester Grubu" listesine eklenecekler
         var bek = r.play_rehber.filter(function (p) { return !p.eklendi; });
         var ekl = r.play_rehber.filter(function (p) { return p.eklendi; });
-        html += '<h3>📱 ' + t('Test rehberinden gelen Android testçiler', 'Android testers from the testing guide') + '</h3><div class="tk-kart tk-uyg"><div>';
+        html += '<h3>' + t('Test rehberinden gelen Android testçiler', 'Android testers from the testing guide') + '</h3><div class="tk-kart tk-uyg"><div>';
         if (bek.length) {
           var bl = bek.map(function (p) { return esc(p.mail); }).join(', ');
           var son = Math.max.apply(null, bek.map(function (p) { return p.no; }));
-          html += '<p class="tk-mailler">⏳ ' + t('Listeye eklenmeyi bekleyen', 'Waiting to be added') + ' (' + bek.length + '):</p>' + mailListe(bek.map(function (p) { return p.mail; }), false) +
-            '<button type="button" class="btn tk-kopyala" data-kopya="' + bl + '">' + t('Listeyi kopyala', 'Copy list') + '</button> ' +
-            '<button type="button" class="btn primary" data-play-son="' + son + '">✅ ' + t('Hepsini ekledim', 'I added them all') + '</button>' +
-            '<small class="muted">' + t('Play Console → Hesabı yönetme → Test kullanıcısı grupları → Kapalı Tester Grubu → yapıştır → Kaydet.', 'Play Console → Manage account → Tester lists → Kapalı Tester Grubu → paste → Save.') + '</small>';
+          html += grupBas(t('Listeye eklenmeyi bekleyen', 'Waiting to be added'), bek.length, 'bekle') + mailListe(bek.map(function (p) { return p.mail; }), false) +
+            '<div class="tk-eylem">' + kopyaDugme(bl) +
+            '<button type="button" class="btn primary" data-play-son="' + son + '">' + IKON_TAMAM + '<span>' + t('Hepsini ekledim', 'I added them all') + '</span></button></div>' +
+            '<small class="muted tk-ipucu-alt">' + t('Play Console → Hesabı yönetme → Test kullanıcısı grupları → Kapalı Tester Grubu → yapıştır → Kaydet.', 'Play Console → Manage account → Tester lists → Kapalı Tester Grubu → paste → Save.') + '</small>';
         } else {
-          html += '<p class="muted">✅ ' + t('Bekleyen adres yok.', 'Nothing waiting.') + '</p>';
+          html += '<p class="tk-bos">' + t('Bekleyen adres yok.', 'Nothing waiting.') + '</p>';
         }
-        if (ekl.length) html += '<p class="tk-mailler">✅ ' + t('Listeye eklenenler', 'Added') + ' (' + ekl.length + '):</p>' + mailListe(ekl.map(function (p) { return p.mail; }), true);
+        if (ekl.length) html += grupBas(t('Listeye eklenenler', 'Added'), ekl.length, 'eski') + mailListe(ekl.map(function (p) { return p.mail; }), true);
         html += '</div></div>';
       }
 
       if (r.uygulamalar.length) {
         html += '<h3>' + t('Uygulamalarım', 'My apps') + '</h3>';
         r.uygulamalar.forEach(function (a) {
-          var d = DURUM[a.durum] || [a.durum, a.durum];
           var ekl = a.eklenenler || [];
-          html += '<div class="tk-kart tk-uyg"><div><b>' + esc(a.ad) + '</b> <small>' + t(d[0], d[1]) + ' · ' +
-            (a.basvuranlar.length + ekl.length) + '/' + a.istenen + ' ' + t('kişi', 'people') + ' · 👆 ' + (a.tiklama || 0) + ' ' + t('tıklama', 'clicks') + '</small>';
+          html += '<div class="tk-kart tk-uyg"><div><div class="tk-uyg-bas"><b>' + esc(a.ad) + '</b>' + durumEt(a.durum) + '</div>' +
+            '<small class="tk-meta">' + (a.basvuranlar.length + ekl.length) + '/' + a.istenen + ' ' + t('kişi', 'people') + ' · ' + (a.tiklama || 0) + ' ' + t('tıklama', 'clicks') + '</small>';
           var yer = a.platform === 'android' ? t('Play Console → Kapalı test → Test kullanıcıları listesine yapıştır.', 'Paste into Play Console → Closed testing → Testers.')
                   : a.platform === 'ios' ? t('App Store Connect → TestFlight → Harici test grubuna ekle.', 'Add to App Store Connect → TestFlight → external group.') : '';
           if (a.basvuranlar.length) {
             var liste = a.basvuranlar.map(esc).join(', ');
-            html += '<p class="tk-mailler">🆕 ' + t('Yeni başvuranlar', 'New applicants') + ' (' + a.basvuranlar.length + '):</p>' + mailListe(a.basvuranlar, false) +
-              '<button type="button" class="btn tk-kopyala" data-kopya="' + liste + '">' + t('Listeyi kopyala', 'Copy list') + '</button> ' +
-              '<button type="button" class="btn primary" data-liste-eklendi="' + esc(a.id) + '">✅ ' + t('Ekledim', 'Added') + '</button>' +
-              (yer ? '<small class="muted">' + yer + ' ' + t('Sonra "Ekledim"e bas; adresler aşağıya iner.', 'Then tap "Added"; they move below.') + '</small>' : '');
+            html += grupBas(t('Yeni başvuranlar', 'New applicants'), a.basvuranlar.length, 'yeni') + mailListe(a.basvuranlar, false) +
+              '<div class="tk-eylem">' + kopyaDugme(liste) +
+              '<button type="button" class="btn primary" data-liste-eklendi="' + esc(a.id) + '">' + IKON_TAMAM + '<span>' + t('Ekledim', 'Added') + '</span></button></div>' +
+              (yer ? '<small class="muted tk-ipucu-alt">' + yer + ' ' + t('Sonra "Ekledim"e bas; adresler aşağıya iner.', 'Then tap "Added"; they move below.') + '</small>' : '');
           } else {
-            html += '<p class="muted">' + t(ekl.length ? 'Yeni başvuran yok.' : 'Henüz başvuran yok.', ekl.length ? 'No new applicants.' : 'No applicants yet.') + '</p>';
+            html += '<p class="tk-bos">' + t(ekl.length ? 'Yeni başvuran yok.' : 'Henüz başvuran yok.', ekl.length ? 'No new applicants.' : 'No applicants yet.') + '</p>';
           }
-          if (ekl.length) html += '<p class="tk-mailler">✅ ' + t('Listeye eklenenler', 'Already added') + ' (' + ekl.length + '):</p>' + mailListe(ekl, true);
+          if (ekl.length) html += grupBas(t('Listeye eklenenler', 'Already added'), ekl.length, 'eski') + mailListe(ekl, true);
           html += '</div></div>';
         });
       }
@@ -273,7 +278,7 @@
           html += '<div class="tk-kart"><div><b>' + esc(x.ad) + '</b> <small>' + x.dogru_gun + '/14 ' + t('gün', 'days') + '</small> ' +
             '<a href="' + esc(x.link) + '" target="_blank" rel="noopener">' + t('Test linki', 'Test link') + ' ↗</a>' +
             '<div id="tkYok-' + esc(x.id) + '"></div></div>' +
-            (x.bugun_yapildi ? '<span class="btn soon">✅ ' + t('Bugün tamam', 'Done today') + '</span>'
+            (x.bugun_yapildi ? '<span class="btn soon tk-eylem">' + IKON_TAMAM + '<span>' + t('Bugün tamam', 'Done today') + '</span></span>'
                              : '<button type="button" class="btn primary" data-soru="' + esc(x.id) + '">' + t('Günün sorusu', "Today's question") + '</button>') +
             '</div>';
         });
@@ -313,10 +318,10 @@
     var yeni = oku('.tk-mail-kod:not(.tk-mail-eski)');
     var eski = oku('.tk-mail-eski');
     var hepsi = eski.concat(yeni.filter(function (m) { return eski.indexOf(m) < 0; }));
-    Array.prototype.slice.call(kart.querySelectorAll('.tk-mailler, .tk-mail-kod, .tk-kopyala, [data-liste-eklendi], [data-play-son], small.muted, p.muted'))
+    Array.prototype.slice.call(kart.querySelectorAll('.tk-grup-bas, .tk-mail-kod, .tk-eylem, .tk-ipucu-alt, .tk-bos'))
       .forEach(function (el) { el.remove(); });
-    kart.insertAdjacentHTML('beforeend', '<p class="muted">' + t('Yeni başvuran yok.', 'No new applicants.') + '</p>' +
-      '<p class="tk-mailler">✅ ' + t('Listeye eklenenler', 'Already added') + ' (' + hepsi.length + '):</p>' + mailListe(hepsi, true));
+    kart.insertAdjacentHTML('beforeend', '<p class="tk-bos">' + t('Yeni başvuran yok.', 'No new applicants.') + '</p>' +
+      grupBas(t('Listeye eklenenler', 'Already added'), hepsi.length, 'eski') + mailListe(hepsi, true));
   }
 
   // --- olaylar -----------------------------------------------------------------------------------
@@ -334,7 +339,10 @@
     else if (b.dataset.kopya) {
       var metin = b.dataset.kopya;
       (navigator.clipboard ? navigator.clipboard.writeText(metin) : Promise.reject()).then(function () {
-        b.innerHTML = '✓ ' + t('Kopyalandı', 'Copied');
+        var once = b.innerHTML;
+        b.innerHTML = IKON_TAMAM + '<span>' + t('Kopyalandı', 'Copied') + '</span>';
+        b.classList.add('is-ok');
+        setTimeout(function () { b.innerHTML = once; b.classList.remove('is-ok'); }, 1800);
       }).catch(function () { window.prompt('Kopyala / Copy', metin); });
     }
   });

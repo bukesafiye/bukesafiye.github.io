@@ -61,6 +61,23 @@ o dosyadaki tk_ayar / tk_rozet ile aynı olmalı.
   .tk-kart .btn { flex-shrink: 0; }
   .tk-uyg { display: block; }
   .tk-mailler { margin: 10px 0 4px !important; color: var(--text) !important; }
+  .tk-uyg-bas { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+  .tk-meta { display: block; margin-top: 2px; font-size: 13px; }
+  .tk-durum { display: inline-flex; align-items: center; gap: 6px; padding: 2px 10px; border-radius: 999px; font-size: 12px; font-weight: 600; border: 1px solid var(--line); color: var(--muted); }
+  .tk-durum::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: currentColor; }
+  .tk-durum-onayli { color: #3ecf8e; border-color: color-mix(in srgb, #3ecf8e 35%, transparent); background: color-mix(in srgb, #3ecf8e 10%, transparent); }
+  .tk-durum-bekliyor { color: #f5a524; border-color: color-mix(in srgb, #f5a524 35%, transparent); background: color-mix(in srgb, #f5a524 10%, transparent); }
+  .tk-durum-red { color: #e5484d; border-color: color-mix(in srgb, #e5484d 35%, transparent); }
+  .tk-grup-bas { display: flex; align-items: center; gap: 8px; margin: 16px 0 8px; font-size: 12px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+  .tk-uyg > div > .tk-grup-bas:first-child { margin-top: 2px; }
+  .tk-sayi { min-width: 22px; padding: 1px 7px; border-radius: 999px; font-size: 12px; letter-spacing: 0; text-align: center; background: color-mix(in srgb, var(--muted, #8a9399) 18%, transparent); color: var(--text); }
+  .tk-sayi-yeni { background: color-mix(in srgb, var(--accent) 22%, transparent); }
+  .tk-sayi-bekle { background: color-mix(in srgb, #f5a524 22%, transparent); }
+  .tk-bos { margin: 14px 0 0 !important; font-size: 14px; color: var(--muted); }
+  .tk-eylem { display: flex; gap: 8px; flex-wrap: wrap; }
+  .tk-eylem .btn, .tk-kopyala { display: inline-flex; align-items: center; gap: 8px; }
+  .tk-kopyala.is-ok { color: #3ecf8e; border-color: color-mix(in srgb, #3ecf8e 45%, transparent); }
+  .tk-ipucu-alt { display: block; margin-top: 8px; font-size: 12.5px; }
   .tk-mail-kod { list-style: none; counter-reset: m; margin: 0 0 10px; padding: 4px 0; border-radius: 10px; background: var(--bg); border: 1px solid var(--line); font: 500 14px/1.4 ui-monospace, SFMono-Regular, Menlo, monospace; max-height: 320px; overflow: auto; }
   .tk-mail-kod li { counter-increment: m; display: flex; gap: 10px; padding: 7px 12px; word-break: break-all; }
   .tk-mail-kod li + li { border-top: 1px solid var(--line); }
