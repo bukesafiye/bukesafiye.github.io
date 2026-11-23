@@ -20,7 +20,7 @@ Mahalle Patronu, MiroGames tarafından geliştirilmiştir. Oyunda analiz aracı 
 
 - Hesap kimliği; Apple, Google ya da e-postayla girdiysen ve paylaşmayı seçtiysen e-posta adresin. Apple'da e-postanı gizleyebilirsin.
 - Oyunda seçtiğin takma ad ve dükkân adı.
-- Bulut kaydın: oyun ilerlemen, böylece cihaz değiştirdiğinde kaldığın yerden devam edebilirsin.
+- Bulut kaydın: oyun ilerlemen, böylece cihaz değiştirdiğinde kaldığın yerden devam edebilirsin. Kaydın yanında oynadığın cihazın türü de tutulur (platform, marka ve model, işletim sistemi ve uygulama sürümü; ör. "android · Xiaomi 2502FRA65G · 16 · v1.0.12"): hataları cihaza göre bulmak ve destek vermek için. Telefon numarası, IMEI gibi cihaz kimlikleri alınmaz.
 - Sıralama, ortak hal piyasası, ihale ve ortaklık kayıtları: skorların, alım-satım işlemlerin, tekliflerin.
 - Sohbet mesajların, parti üyeliğin ve başvuruların, oyların, kurduğun futbol kulübü, sponsorlukların. O an kaç oyuncunun çevrimiçi olduğu sayılır ama bu kayıt tutulmaz.
 - Sohbet, parti ve seçimler: Sohbet mesajları diğer oyuncular tarafından görülür. Hakaret ve gerçek siyasi parti ya da kişi adları otomatik olarak filtrelenir; şikâyet edilen mesajlar moderasyon için incelenir. Partiler ve seçimler tamamen kurgusaldır.
@@ -58,7 +58,7 @@ Neighboss (Mahalle Patronu) is made by MiroGames. The game has no analytics tool
 
 - Your account identifier and, if you signed in with Apple, Google or email and chose to share it, your email address. With Apple you can hide your email.
 - The nickname and shop name you choose in the game.
-- Your cloud save: your game progress, so you can continue on another device.
+- Your cloud save: your game progress, so you can continue on another device. Alongside it we keep the type of device you play on (platform, brand and model, operating system and app version, e.g. "android · Xiaomi 2502FRA65G · 16 · v1.0.12") to track down device-specific bugs and help you. No device identifiers such as phone number or IMEI are collected.
 - Leaderboard, shared market, tender and partnership records: your scores, trades and bids.
 - Your chat messages, party membership and applications, votes, the football club you founded and your sponsorships. The number of players online right now is counted, but not stored.
 - Chat, parties and elections: Chat messages are visible to other players. Insults and the names of real political parties or people are filtered automatically; reported messages are reviewed for moderation. Parties and elections are entirely fictional.
