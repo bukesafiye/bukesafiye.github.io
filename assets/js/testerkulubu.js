@@ -264,12 +264,12 @@
 
       if (r.rehber_tik && r.rehber_tik.length) {
         // Test rehberindeki "TestFlight'ta katıl" / "Teste katıl" tıklamaları: farklı kişi ve toplam tıklama
-        html += '<h3>' + t('Test rehberi tıklamaları', 'Testing guide clicks') + '</h3><div class="tk-kart tk-uyg"><div><table class="tk-tablo"><thead><tr><th>' +
+        html += '<h3>' + t('Test rehberi tıklamaları', 'Testing guide clicks') + '</h3><div class="tk-kart tk-uyg"><div><div class="tk-tablo-sar"><table class="tk-tablo"><thead><tr><th>' +
           t('Oyun', 'Game') + '</th><th>' + t('Kişi', 'People') + '</th><th>' + t('Tıklama', 'Clicks') + '</th><th>' + t('Bilinen mail', 'Known email') + '</th></tr></thead><tbody>' +
           r.rehber_tik.map(function (x) {
             return '<tr><td>' + esc(x.ad || x.oyun) + ' <span class="tk-etiket">' + (x.platform === 'ios' ? 'iPhone' : 'Android') + '</span></td><td><b>' + x.kisi + '</b></td><td>' + x.tiklama + '</td><td>' +
               (x.mailler.length ? x.mailler.map(esc).join('<br>') : '<span class="muted">—</span>') + '</td></tr>';
-          }).join('') + '</tbody></table><small class="muted tk-ipucu-alt">' +
+          }).join('') + '</tbody></table></div><small class="muted tk-ipucu-alt">' +
           t('Kişi: aynı tarayıcıdan gelen tıklamalar bir kişi sayılır. Mail yalnız kişi rehberde ya da kulüpte kendi yazdıysa görünür.', 'People: clicks from the same browser count once. Email shows only if the person typed it in the guide or the club.') +
           '</small></div></div>';
       }

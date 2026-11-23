@@ -55,6 +55,7 @@ o dosyadaki tk_ayar / tk_rozet ile aynı olmalı.
   .tk-faq details p { margin: 10px 0 0; color: var(--muted); }
   .tk-grup { margin: 22px 0 10px; font-size: 18px; }
   .tk-kartlar { display: grid; gap: 10px; }
+  .tk-kart > div { min-width: 0; }
   .tk-kart { display: flex; gap: 14px; align-items: center; justify-content: space-between; padding: 16px 18px; border-radius: 14px; background: var(--surface); border: 1px solid var(--line); margin-bottom: 10px; }
   .tk-kart p { margin: 4px 0 2px; color: var(--muted); font-size: 14px; }
   .tk-kart small { color: var(--muted); }
@@ -82,6 +83,7 @@ o dosyadaki tk_ayar / tk_rozet ile aynı olmalı.
   .tk-etiketler { display: inline-flex; flex-wrap: wrap; gap: 4px; font-family: var(--body); }
   .tk-etiket { display: inline-block; padding: 1px 8px; border-radius: 999px; font: 600 11.5px/1.6 var(--body); color: var(--text); background: color-mix(in srgb, var(--accent) 16%, transparent); }
   .tk-etiket-yok { font: 400 12px var(--body); color: var(--muted); }
+  .tk-tablo-sar { overflow-x: auto; }
   .tk-tablo { width: 100%; border-collapse: collapse; font-size: 14px; }
   .tk-tablo th { text-align: left; font-size: 12px; text-transform: uppercase; letter-spacing: .05em; color: var(--muted); padding: 4px 8px 8px; }
   .tk-tablo td { padding: 9px 8px; border-top: 1px solid var(--line); vertical-align: top; word-break: break-word; }
@@ -137,9 +139,9 @@ o dosyadaki tk_ayar / tk_rozet ile aynı olmalı.
   </p>
   <div class="tk-cta">
     {%- if page.telegram != "" %}
-    <a class="btn primary" href="{{ page.telegram }}" rel="noopener"><span class="tr">Telegram'da katıl</span><span class="en">Join on Telegram</span></a>
+    <a class="btn" href="{{ page.telegram }}" rel="noopener"><span class="tr">Telegram'da katıl</span><span class="en">Join on Telegram</span></a>
     {%- endif %}
-    <a class="btn" href="#uygulamalar"><span class="tr">Test et</span><span class="en">Test apps</span></a>
+    <a class="btn primary" href="#uygulamalar"><span class="tr">Test et</span><span class="en">Test apps</span></a>
     <a class="btn" href="#basvur"><span class="tr">Uygulamanı ekle</span><span class="en">Add your app</span></a>
     <a class="btn" href="#hesabim"><span class="tr">Testçi listem</span><span class="en">My tester list</span></a>
   </div>
