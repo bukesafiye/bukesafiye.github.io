@@ -6,4 +6,5 @@
   color: "#f2b632"
   icon: /assets/img/dottwar-icon.png
   play_test: com.mirogames.dottwar
+  beta: 10
   page: false

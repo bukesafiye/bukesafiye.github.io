@@ -28,7 +28,7 @@ back_en: Home
     <div class="promo-col promo-left">
       <p class="promo-col-title"><span class="tr">Testte</span><span class="en">In testing</span></p>
       {%- assign n = 0 %}
-      {%- for g in and_pool %}{% if g.play_test %}{% assign n = n | plus: 1 %}{% if n > 2 %}{% include test-promo.html g=g platform="android" extra=true %}{% else %}{% include test-promo.html g=g platform="android" %}{% endif %}{% endif %}{% endfor %}
+      {%- for g in and_pool %}{% if g.play_test %}{% assign n = n | plus: 1 %}{% if n > 3 %}{% include test-promo.html g=g platform="android" extra=true %}{% else %}{% include test-promo.html g=g platform="android" %}{% endif %}{% endif %}{% endfor %}
     </div>
     <div class="promo-col promo-right">
       <p class="promo-col-title"><span class="tr">Google Play'de yayında</span><span class="en">Live on Google Play</span></p>
