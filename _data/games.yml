@@ -90,7 +90,7 @@
   icon: /assets/img/cuppa-icon.png
   google_play: https://play.google.com/store/apps/details?id=com.mirogames.cuppa
   testflight: https://testflight.apple.com/join/5CHhqN9Q
-  beta: 3
+  beta: 4
   logo: { tr: /assets/img/cuppa-logo.webp, en: /assets/img/cuppa-logo.webp }
 
 - slug: dedektifbros
@@ -111,7 +111,7 @@
   icon: /assets/img/dedektifbros-icon.png
   google_play: https://play.google.com/store/apps/details?id=com.mirogames.dedektifbros
   testflight: https://testflight.apple.com/join/StEhQSc7
-  beta: 6
+  beta: 3
   logo: { tr: /assets/img/dedektifbros-logo.webp, en: /assets/img/dedektifbros-logo.webp }
 
 - slug: kafamatik
@@ -154,7 +154,7 @@
   icon: /assets/img/linestank-icon.png
   google_play: https://play.google.com/store/apps/details?id=com.mirogames.linestank
   testflight: https://testflight.apple.com/join/Uq4zgg1J
-  beta: 5
+  beta: 6
   logo: { tr: /assets/img/linestank-logo.webp, en: /assets/img/linestank-logo.webp }
 
 - slug: robogallery
@@ -176,7 +176,7 @@
   icon: /assets/img/robogallery-icon.png
   google_play: https://play.google.com/store/apps/details?id=com.mirogames.robogallery
   testflight: https://testflight.apple.com/join/FzdX67Gr
-  beta: 4
+  beta: 5
   logo: { tr: /assets/img/robogallery-logo.webp, en: /assets/img/robogallery-logo.webp }
 
 - slug: mahallepatronu

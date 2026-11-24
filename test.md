@@ -33,16 +33,16 @@ back_en: Home
     <div class="promo-col promo-right">
       <p class="promo-col-title"><span class="tr">Google Play'de yayında</span><span class="en">Live on Google Play</span></p>
       {%- assign n = 0 %}
-      {%- for g in and_pool %}{% if g.google_play %}{% assign n = n | plus: 1 %}{% if n > 2 %}{% include test-promo.html g=g platform="android" live=true extra=true %}{% else %}{% include test-promo.html g=g platform="android" live=true %}{% endif %}{% endif %}{% endfor %}
+      {%- for g in and_pool %}{% if g.google_play %}{% assign n = n | plus: 1 %}{% if n > 3 %}{% include test-promo.html g=g platform="android" live=true extra=true %}{% else %}{% include test-promo.html g=g platform="android" live=true %}{% endif %}{% endif %}{% endfor %}
     </div>
   </div>
   <div class="promo-set" data-for="ios">
     {%- assign tf = site.data.games | where_exp: "g", "g.testflight" | sort: "beta" %}
     <div class="promo-col promo-left">
-      {%- for g in tf %}{% assign m = forloop.index | modulo: 2 %}{% if m == 0 %}{% if forloop.index > 3 %}{% include test-promo.html g=g platform="ios" extra=true %}{% else %}{% include test-promo.html g=g platform="ios" %}{% endif %}{% endif %}{% endfor %}
+      {%- for g in tf %}{% assign m = forloop.index | modulo: 2 %}{% if m == 0 %}{% if forloop.index > 4 %}{% include test-promo.html g=g platform="ios" extra=true %}{% else %}{% include test-promo.html g=g platform="ios" %}{% endif %}{% endif %}{% endfor %}
     </div>
     <div class="promo-col promo-right">
-      {%- for g in tf %}{% assign m = forloop.index | modulo: 2 %}{% if m == 1 %}{% if forloop.index > 3 %}{% include test-promo.html g=g platform="ios" extra=true %}{% else %}{% include test-promo.html g=g platform="ios" %}{% endif %}{% endif %}{% endfor %}
+      {%- for g in tf %}{% assign m = forloop.index | modulo: 2 %}{% if m == 1 %}{% if forloop.index > 4 %}{% include test-promo.html g=g platform="ios" extra=true %}{% else %}{% include test-promo.html g=g platform="ios" %}{% endif %}{% endif %}{% endfor %}
     </div>
   </div>
 </aside>
