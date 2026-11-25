@@ -221,7 +221,16 @@ h1, h2, h3 { font-family: var(--display); line-height: 1.15; margin: 0 0 .5em; l
 }
 .card-qr .qr svg { display: block; width: 100%; height: 100%; }
 .card-qr figcaption { margin-top: 6px; font-size: 11px; font-weight: 600; color: var(--muted); letter-spacing: .02em; }
-@media (max-width: 860px) { .card-qr { display: none; } }
+/* Phones: a smaller QR beside the chips, buttons on their own row below. */
+@media (max-width: 860px) {
+  .card-foot { display: grid; grid-template-columns: 1fr auto; grid-template-areas: "chips qr" "links links"; align-items: center; gap: 14px 12px; }
+  .card-foot-main { display: contents; }
+  .card-foot .chips { grid-area: chips; }
+  .card-foot .card-links { grid-area: links; padding-top: 0; }
+  .card-qr { grid-area: qr; }
+  .card-qr .qr { width: 68px; height: 68px; padding: 5px; border-radius: 9px; }
+  .card-qr figcaption { font-size: 10px; margin-top: 4px; }
+}
 .status {
   position: absolute; top: 14px; right: 14px;
   font: 600 12px/1 var(--body); letter-spacing: .04em;
