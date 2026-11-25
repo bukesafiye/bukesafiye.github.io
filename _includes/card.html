@@ -24,6 +24,9 @@ Home page card for one game or app (index.html):
       <span class="tr">{{ g.summary.tr }}</span>
       <span class="en">{{ g.summary.en }}</span>
     </p>
+    {%- assign has_store = false %}{% if g.google_play or g.app_store %}{% assign has_store = true %}{% endif %}
+    <div class="card-foot">
+    <div class="card-foot-main">
     <ul class="chips">
       {%- for c in g.chips %}
       <li>{% if c.tr == c.en %}{{ c.tr }}{% else %}<span class="tr">{{ c.tr }}</span><span class="en">{{ c.en }}</span>{% endif %}</li>
@@ -38,6 +41,15 @@ Home page card for one game or app (index.html):
       {%- unless g.privacy == false %}
       <a class="btn" href="{{ url | append: 'privacy.html' | relative_url }}"><span class="tr">Gizlilik</span><span class="en">Privacy</span></a>
       {%- endunless %}
+    </div>
+    </div>
+    {%- if has_store %}
+    {%- comment -%} One QR for both stores, in the empty space beside chips and buttons: /indir/ sends each phone to its own store (see store.html). {%- endcomment %}
+    <figure class="card-qr">
+      <div class="qr" data-qr="{{ url | append: 'indir/' | relative_url }}"></div>
+      <figcaption><span class="tr">Telefonla okut</span><span class="en">Scan to get</span></figcaption>
+    </figure>
+    {%- endif %}
     </div>
   </div>
 </article>
