@@ -3,6 +3,7 @@ layout: default
 title: Test rehberi / Testing guide
 description: MiroGames oyunlarını iPhone (TestFlight) ve Android'de (Google Play kapalı test) test etmek için adımlar — How to test MiroGames games on iPhone (TestFlight) and Android (Google Play closed testing).
 permalink: /test/
+og_image: /assets/img/mahallepatronu-icon.png
 back: /
 back_tr: Ana sayfa
 back_en: Home
