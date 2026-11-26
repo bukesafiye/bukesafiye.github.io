@@ -133,7 +133,7 @@
   icon: /assets/img/kafamatik-icon.png
   google_play: https://play.google.com/store/apps/details?id=com.mirogames.kafamatik
   testflight: https://testflight.apple.com/join/X72RPvKQ
-  beta: 1
+  beta: 2
   logo: { tr: /assets/img/kafamatik-logo.webp, en: /assets/img/kafamatik-logo.webp }
 
 - slug: linestank
@@ -199,4 +199,4 @@
   testflight: https://testflight.apple.com/join/9nTwMHXt
   web: https://mahallepatronu.vercel.app/   # tarayıcıda oynanır (paylaşım sayfası /mahalle/)
   play_test: com.mirogames.mahallepatronu
-  beta: 2
+  beta: 1
