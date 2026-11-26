@@ -32,19 +32,21 @@ og_image: /assets/img/alchemyshop-icon.png
       {%- include store.html game=g part='qr' %}
     </div>
     <div class="phone">
-      <img src="{{ '/assets/img/shots/alch-02-shop.jpg' | relative_url }}" alt="Simyacının Dükkânı dükkân ekranı">
+      <img class="tr" src="{{ '/assets/img/shots/alchemyshop-tr-01.jpg' | relative_url }}" alt="Simyacının Dükkânı kazan ekranı">
+      <img class="en" src="{{ '/assets/img/shots/alchemyshop-en-01.jpg' | relative_url }}" alt="Alchemist's Shop cauldron screen">
     </div>
   </div>
 </section>
 
 <section class="section">
   <div class="wrap">
-    <div class="section-head"><h2>Ekranlar</h2></div>
+    <div class="section-head"><h2><span class="tr">Ekranlar</span><span class="en">Screens</span></h2></div>
     <div class="shots">
-      {% assign shots = "alch-01-menu,alch-02-shop,alch-03-brew,alch-04-garden,alch-05-market" | split: "," %}
+      {% assign shots = "01,02,03,04,05,06" | split: "," %}
       {% for s in shots %}
       <figure>
-        <img src="{{ '/assets/img/shots/' | append: s | append: '.jpg' | relative_url }}" alt="Simyacının Dükkânı ekran görüntüsü" loading="lazy">
+        <img class="tr" src="{{ '/assets/img/shots/alchemyshop-tr-' | append: s | append: '.jpg' | relative_url }}" alt="Simyacının Dükkânı ekran görüntüsü" loading="lazy">
+        <img class="en" src="{{ '/assets/img/shots/alchemyshop-en-' | append: s | append: '.jpg' | relative_url }}" alt="Alchemist's Shop screenshot" loading="lazy">
       </figure>
       {% endfor %}
     </div>
