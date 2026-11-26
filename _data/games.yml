@@ -54,21 +54,21 @@
 
 - slug: alchemyshop
   name: { tr: "Simyacının Dükkânı", en: "Alchemist’s Shop" }
-  tagline: { tr: "Her iksirin bir müşterisi var", en: "Every potion has a customer" }
+  tagline: { tr: "Ateşi ayarla, karışımı dengele", en: "Tune the fire, balance the brew" }
   summary:
-    tr: "Müşterilerin siparişlerini hazırla, iksirleri üret, bahçeni büyüt ve pazarda ticaret yap."
-    en: "Fill customer orders, brew potions, grow your garden and trade at the market."
-  status: { tr: "Yakında", en: "Coming soon" }
+    tr: "Malzemeleri element, ısı ve dengeye göre birleştir, kazanın ateşini ayarla ve grimuardaki 25 iksiri keşfet."
+    en: "Combine ingredients by element, heat and balance, tune the cauldron's fire and discover 25 potions in the grimoire."
+  status: { tr: "Google Play'de", en: "On Google Play" }
   chips:
+    - { tr: "Bulmaca", en: "Puzzle" }
     - { tr: "Simülasyon", en: "Simulation" }
-    - { tr: "Yönetim", en: "Management" }
     - { tr: "Reklamsız", en: "No ads" }
   color: "#c9a2ff"
   glow: "rgba(201, 162, 255, .3)"
   theme: { glow: "rgba(150, 100, 230, .28)" }
   icon: /assets/img/alchemyshop-potion.png
+  google_play: https://play.google.com/store/apps/details?id=com.mirogames.simyacininDukkani
   testflight: https://testflight.apple.com/join/1Yh37113
-  play_test: com.mirogames.simyacininDukkani
   beta: 9
   logo: { tr: /assets/img/alchemyshop-logo.webp, en: /assets/img/alchemyshop-logo-en.webp }
 
