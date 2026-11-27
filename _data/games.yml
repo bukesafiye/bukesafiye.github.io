@@ -201,8 +201,8 @@
   play_test: com.mirogames.mahallepatronu
   beta: 1
 
-- slug: apartman-yoneticisi
-  name: { tr: "Apartman Yöneticisi", en: "Apartman Yöneticisi" }
+- slug: apartman-simulatoru
+  name: { tr: "Apartman Simülatörü", en: "Apartman Simülatörü" }
   tagline: { tr: "Komşuların derdi, senin kararın", en: "Your neighbors' problems, your call" }
   summary:
     tr: "Bir İstanbul apartmanının yöneticisi ol: komşuların dertlerini kart kaydırarak çöz, iyi yönettikçe yan apartmanlar seni yönetici seçsin, ofisini büyüt."
@@ -215,6 +215,6 @@
   color: "#e0714f"
   glow: "rgba(224, 113, 79, .3)"
   theme: { glow: "rgba(120, 110, 200, .26)", button_text: "#1c1206" }
-  card_bg: "linear-gradient(180deg, rgba(16, 20, 29, .25), rgba(16, 20, 29, .78)), url(/assets/img/apartman-yoneticisi-bina.webp) center 22% / cover, #10141d"
-  icon: /assets/img/apartman-yoneticisi-icon.png
-  logo: { tr: /assets/img/apartman-yoneticisi-logo.webp, en: /assets/img/apartman-yoneticisi-logo.webp }
+  card_bg: "linear-gradient(180deg, rgba(16, 20, 29, .25), rgba(16, 20, 29, .78)), url(/assets/img/apartman-simulatoru-bina.webp) center 22% / cover, #10141d"
+  icon: /assets/img/apartman-simulatoru-icon.png
+  logo: { tr: /assets/img/apartman-simulatoru-logo.webp, en: /assets/img/apartman-simulatoru-logo.webp }

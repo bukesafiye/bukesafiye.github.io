@@ -1,12 +1,12 @@
 ---
-title: Apartman Yöneticisi — Support
-game: apartman-yoneticisi
-back: /Store/apartman-yoneticisi/
-back_tr: Apartman Yöneticisi
-back_en: Apartman Yöneticisi
+title: Apartman Simülatörü — Support
+game: apartman-simulatoru
+back: /Store/apartman-simulatoru/
+back_tr: Apartman Simülatörü
+back_en: Apartman Simülatörü
 ---
 <div class="tr" markdown="1">
-# Destek — Apartman Yöneticisi
+# Destek — Apartman Simülatörü
 
 Soru, hata ya da önerilerin için **[bukesafiye@gmail.com](mailto:bukesafiye@gmail.com)** adresine yazabilirsin. Lütfen cihaz modelini ve oyun sürümünü de ekle.
 
@@ -24,7 +24,7 @@ Soru, hata ya da önerilerin için **[bukesafiye@gmail.com](mailto:bukesafiye@gm
 </div>
 
 <div class="en" markdown="1">
-# Support — Apartman Yöneticisi
+# Support — Apartman Simülatörü
 
 Questions, bugs or ideas? Write to **[bukesafiye@gmail.com](mailto:bukesafiye@gmail.com)**. Please add your device model and the game version.
 
