@@ -1,9 +1,9 @@
 ---
-title: Apartman Simülatörü — Support
+title: Apartman Simülatörü (Apartment Simulator) — Support
 game: apartman-simulatoru
 back: /Store/apartman-simulatoru/
 back_tr: Apartman Simülatörü
-back_en: Apartman Simülatörü
+back_en: Apartment Simulator
 ---
 <div class="tr" markdown="1">
 # Destek — Apartman Simülatörü
@@ -24,7 +24,7 @@ Soru, hata ya da önerilerin için **[bukesafiye@gmail.com](mailto:bukesafiye@gm
 </div>
 
 <div class="en" markdown="1">
-# Support — Apartman Simülatörü
+# Support — Apartment Simulator
 
 Questions, bugs or ideas? Write to **[bukesafiye@gmail.com](mailto:bukesafiye@gmail.com)**. Please add your device model and the game version.
 

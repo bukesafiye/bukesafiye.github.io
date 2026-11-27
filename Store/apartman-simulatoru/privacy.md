@@ -1,9 +1,9 @@
 ---
-title: Apartman Simülatörü — Privacy
+title: Apartman Simülatörü (Apartment Simulator) — Privacy
 game: apartman-simulatoru
 back: /Store/apartman-simulatoru/
 back_tr: Apartman Simülatörü
-back_en: Apartman Simülatörü
+back_en: Apartment Simulator
 ---
 <div class="tr" markdown="1">
 # Gizlilik Politikası — Apartman Simülatörü
@@ -26,11 +26,11 @@ Bilerek çocuklardan bilgi toplamayız. Bu politika değişirse yeni hâli bu sa
 </div>
 
 <div class="en" markdown="1">
-# Privacy Policy — Apartman Simülatörü
+# Privacy Policy — Apartment Simulator
 
 *Last updated: 27 November 2026*
 
-Apartman Simülatörü is made by MiroGames. The game runs fully offline: there are no accounts, ads, analytics tools or third-party services, and no data is sent to our servers. We do not collect or sell your personal data.
+Apartment Simulator is made by MiroGames. The game runs fully offline: there are no accounts, ads, analytics tools or third-party services, and no data is sent to our servers. We do not collect or sell your personal data.
 
 **Stored on your device:** Your player name, your game progress (buildings, meters, decisions, staff) and your tone, language, sound and notification settings are stored only on your device. Uninstalling the app deletes this data.
 
@@ -38,7 +38,7 @@ Apartman Simülatörü is made by MiroGames. The game runs fully offline: there 
 
 ## Deleting your data
 
-Just uninstall Apartman Simülatörü; we hold no data about you. For questions, email [bukesafiye@gmail.com](mailto:bukesafiye@gmail.com).
+Just uninstall Apartment Simulator; we hold no data about you. For questions, email [bukesafiye@gmail.com](mailto:bukesafiye@gmail.com).
 
 We do not knowingly collect information from children. If this policy changes, the new version will be published on this page.
 
