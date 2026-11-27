@@ -1,16 +1,16 @@
 ---
-title: Apartman Simülatörü (Apartment Simulator) — Privacy
+title: "Apartman Simülatörü: Komşular (Apartment Simulator: Neighbors) — Privacy"
 game: apartman-simulatoru
 back: /Store/apartman-simulatoru/
-back_tr: Apartman Simülatörü
-back_en: Apartment Simulator
+back_tr: "Apartman Simülatörü: Komşular"
+back_en: "Apartment Simulator: Neighbors"
 ---
 <div class="tr" markdown="1">
-# Gizlilik Politikası — Apartman Simülatörü
+# Gizlilik Politikası — Apartman Simülatörü: Komşular
 
 *Son güncelleme: 27 Kasım 2026*
 
-Apartman Simülatörü, MiroGames tarafından geliştirilmiştir. Oyun tamamen çevrimdışı çalışır: hesap, reklam, analiz aracı ya da üçüncü taraf hizmet yoktur ve hiçbir veri sunucularımıza gönderilmez. Kişisel verilerini toplamayız ve satmayız.
+Apartman Simülatörü: Komşular, MiroGames tarafından geliştirilmiştir. Oyun tamamen çevrimdışı çalışır: hesap, reklam, analiz aracı ya da üçüncü taraf hizmet yoktur ve hiçbir veri sunucularımıza gönderilmez. Kişisel verilerini toplamayız ve satmayız.
 
 **Cihazında tutulanlar:** Oyuncu adın, oyun ilerlemen (binalar, göstergeler, kararların, personelin) ile ton, dil, ses ve bildirim tercihlerin yalnızca cihazında saklanır. Uygulamayı sildiğinde bu veriler de silinir.
 
@@ -18,7 +18,7 @@ Apartman Simülatörü, MiroGames tarafından geliştirilmiştir. Oyun tamamen �
 
 ## Verilerini silme
 
-Apartman Simülatörü'nü cihazından kaldırman yeterli; bizde senden kalan bir veri yoktur. Sorun için [bukesafiye@gmail.com](mailto:bukesafiye@gmail.com) adresine yazabilirsin.
+Apartman Simülatörü: Komşular oyununu cihazından kaldırman yeterli; bizde senden kalan bir veri yoktur. Sorun için [bukesafiye@gmail.com](mailto:bukesafiye@gmail.com) adresine yazabilirsin.
 
 Bilerek çocuklardan bilgi toplamayız. Bu politika değişirse yeni hâli bu sayfada yayınlanır.
 
@@ -26,11 +26,11 @@ Bilerek çocuklardan bilgi toplamayız. Bu politika değişirse yeni hâli bu sa
 </div>
 
 <div class="en" markdown="1">
-# Privacy Policy — Apartment Simulator
+# Privacy Policy — Apartment Simulator: Neighbors
 
 *Last updated: 27 November 2026*
 
-Apartment Simulator is made by MiroGames. The game runs fully offline: there are no accounts, ads, analytics tools or third-party services, and no data is sent to our servers. We do not collect or sell your personal data.
+Apartment Simulator: Neighbors is made by MiroGames. The game runs fully offline: there are no accounts, ads, analytics tools or third-party services, and no data is sent to our servers. We do not collect or sell your personal data.
 
 **Stored on your device:** Your player name, your game progress (buildings, meters, decisions, staff) and your tone, language, sound and notification settings are stored only on your device. Uninstalling the app deletes this data.
 
@@ -38,7 +38,7 @@ Apartment Simulator is made by MiroGames. The game runs fully offline: there are
 
 ## Deleting your data
 
-Just uninstall Apartment Simulator; we hold no data about you. For questions, email [bukesafiye@gmail.com](mailto:bukesafiye@gmail.com).
+Just uninstall Apartment Simulator: Neighbors; we hold no data about you. For questions, email [bukesafiye@gmail.com](mailto:bukesafiye@gmail.com).
 
 We do not knowingly collect information from children. If this policy changes, the new version will be published on this page.
 

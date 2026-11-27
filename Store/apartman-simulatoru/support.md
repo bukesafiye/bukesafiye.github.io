@@ -1,12 +1,12 @@
 ---
-title: Apartman Simülatörü (Apartment Simulator) — Support
+title: "Apartman Simülatörü: Komşular (Apartment Simulator: Neighbors) — Support"
 game: apartman-simulatoru
 back: /Store/apartman-simulatoru/
-back_tr: Apartman Simülatörü
-back_en: Apartment Simulator
+back_tr: "Apartman Simülatörü: Komşular"
+back_en: "Apartment Simulator: Neighbors"
 ---
 <div class="tr" markdown="1">
-# Destek — Apartman Simülatörü
+# Destek — Apartman Simülatörü: Komşular
 
 Soru, hata ya da önerilerin için **[bukesafiye@gmail.com](mailto:bukesafiye@gmail.com)** adresine yazabilirsin. Lütfen cihaz modelini ve oyun sürümünü de ekle.
 
@@ -24,7 +24,7 @@ Soru, hata ya da önerilerin için **[bukesafiye@gmail.com](mailto:bukesafiye@gm
 </div>
 
 <div class="en" markdown="1">
-# Support — Apartment Simulator
+# Support — Apartment Simulator: Neighbors
 
 Questions, bugs or ideas? Write to **[bukesafiye@gmail.com](mailto:bukesafiye@gmail.com)**. Please add your device model and the game version.
 

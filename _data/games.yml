@@ -202,7 +202,8 @@
   beta: 1
 
 - slug: apartman-simulatoru
-  name: { tr: "Apartman Simülatörü", en: "Apartment Simulator" }
+  name: { tr: "Apartman Simülatörü: Komşular", en: "Apartment Simulator: Neighbors" }
+  nav_name: { tr: "Apartman Simülatörü", en: "Apartment Simulator" }
   tagline: { tr: "Komşuların derdi, senin kararın", en: "Your neighbors' problems, your call" }
   summary:
     tr: "Bir İstanbul apartmanının yöneticisi ol: komşuların dertlerini kart kaydırarak çöz, iyi yönettikçe yan apartmanlar seni yönetici seçsin, ofisini büyüt."

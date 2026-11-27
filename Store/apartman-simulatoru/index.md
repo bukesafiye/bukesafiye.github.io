@@ -1,7 +1,7 @@
 ---
 layout: game
 game: apartman-simulatoru
-title: Apartman Simülatörü (Apartment Simulator)
+title: "Apartman Simülatörü: Komşular (Apartment Simulator: Neighbors)"
 description: Become the manager of an Istanbul apartment building, swipe to solve your neighbors' problems and grow your own management office.
 lead:
   tr: "Önceki yönetici aidatlarla birlikte ortadan kaybolunca genel kurul seni acil yönetici seçti. Gül Apartmanı'nın dertleri artık senin: sızan tavan, gece top oynayan çocuk, aidata itiraz eden komşu. Kartı sola ya da sağa kaydır, kasayı, huzuru ve binayı dengede tut; iyi yönettikçe yan apartmanlar da seni yönetici seçsin."
