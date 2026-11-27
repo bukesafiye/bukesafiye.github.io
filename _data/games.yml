@@ -219,3 +219,5 @@
   card_bg: "linear-gradient(180deg, rgba(16, 20, 29, 0), rgba(16, 20, 29, .35)), url(/assets/img/apartman-simulatoru-deniz.webp) center / cover, #1e284f"
   icon: /assets/img/apartman-simulatoru-icon.png
   logo: { tr: /assets/img/apartman-simulatoru-logo-tr.webp, en: /assets/img/apartman-simulatoru-logo-en.webp }
+  play_test: com.mirogames.apartmansimulator
+  beta: 0
