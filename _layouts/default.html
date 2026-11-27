@@ -18,7 +18,7 @@
   <meta property="og:site_name" content="MiroGames">
   <meta property="og:locale" content="tr_TR">
   <meta property="og:locale:alternate" content="en_US">
-  <meta name="twitter:card" content="summary">
+  <meta name="twitter:card" content="{{ page.twitter_card | default: "summary" }}">
   <link rel="icon" type="image/png" href="{{ page.icon | default: game.icon | default: '/assets/img/favicon.png' | relative_url }}">
   <link rel="apple-touch-icon" href="{{ '/assets/img/apple-touch-icon.png' | relative_url }}">
   <meta name="theme-color" content="#07090c">
