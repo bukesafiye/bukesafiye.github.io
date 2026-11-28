@@ -127,6 +127,8 @@ o dosyadaki tk_ayar / tk_rozet ile aynı olmalı.
   .tk-mesaj.tamam { border-color: color-mix(in srgb, var(--accent) 60%, transparent); }
   .tk-mesaj.hata { border-color: rgba(255, 90, 90, .6); }
   .tk-hesap-ust { display: flex; justify-content: space-between; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 6px; }
+  .tk-bas-sat h3 { margin: 0; }
+  .tk-bas-sat { margin: 18px 0 10px; }
   .tk-yoklama { display: grid; gap: 8px; margin-top: 10px; }
   .tk-yoklama p { color: var(--text) !important; }
   .tk-form [hidden], .tk-box[hidden] { display: none !important; }

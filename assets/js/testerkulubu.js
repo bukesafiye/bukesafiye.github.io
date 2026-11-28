@@ -310,7 +310,8 @@
         // Test rehberinden (/test/) gelen Android adresleri: Play'deki ortak "Kapalı Tester Grubu" listesine eklenecekler
         var bek = r.play_rehber.filter(function (p) { return !p.eklendi; });
         var ekl = r.play_rehber.filter(function (p) { return p.eklendi; });
-        html += '<h3>' + t('Test rehberinden gelen Android testçiler', 'Android testers from the testing guide') + '</h3><div class="tk-kart tk-uyg"><div>';
+        html += '<div class="tk-hesap-ust tk-bas-sat"><h3>' + t('Test rehberinden gelen Android testçiler', 'Android testers from the testing guide') + '</h3>' +
+          '<button type="button" class="btn" id="tkYenile">' + t('Yenile', 'Refresh') + '</button></div><div class="tk-kart tk-uyg"><div>';
         if (bek.length) {
           var bl = bek.map(function (p) { return esc(p.mail); }).join(', ');
           var son = Math.max.apply(null, bek.map(function (p) { return p.no; }));
@@ -385,6 +386,8 @@
       if (!r.uygulamalar.length && !aktif.length) html += '<p class="muted">' + t('Henüz uygulaman ya da aktif testin yok. Yukarıdan bir teste katıl ya da uygulamanı ekle!', 'No apps or active tests yet. Join a test above or add your app!') + '</p>';
       kutu.innerHTML = html;
       $('tkCikis').onclick = function () { jetonYaz(null); mailYaz(null); hesapCiz(); };
+      var yb = $('tkYenile');
+      if (yb) yb.onclick = function () { yb.disabled = true; yb.innerHTML = t('Yenileniyor…', 'Refreshing…'); hesapCiz(); };
     });
   }
 
