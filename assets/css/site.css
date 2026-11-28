@@ -490,7 +490,6 @@ ins.adsbygoogle[data-ad-status="unfilled"] { display: none !important; }
 .play-testci[hidden], .play-testci-not[hidden] { display: none; }
 .play-testci-not { margin: 12px 0 0; padding: 10px 12px; border-radius: 10px; background: color-mix(in srgb, var(--accent) 14%, transparent); font-weight: 600; }
 .play-testci-not.is-error { background: color-mix(in srgb, #e5484d 16%, transparent); }
-.play-testci-baska { display: inline; margin-left: 4px; padding: 0; border: 0; background: none; color: var(--accent); font: inherit; font-weight: 600; text-decoration: underline; cursor: pointer; }
 
 /* Whole site: no sideways panning on phones (clip keeps the sticky header working) and in-page links
    (#section) land below the sticky header instead of under it. */

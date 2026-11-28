@@ -256,21 +256,7 @@ back_en: Home
     });
     // Android 1. adım: mail adresi Tester Kulübü API'sine gider, yöneticiye bildirilir, Play'deki ortak test listesine eklenir.
     var pf = document.getElementById('play-testci');
-    // Bu tarayıcıdan daha önce mail eklendiyse formu gizle, "daha önce eklendi" de; başka adres için form geri açılabilir.
-    var oncekiMail = sakla('mg-test-mail');
-    if (pf && oncekiMail) {
-      var pnot = document.getElementById('play-testci-not');
-      var m = oncekiMail.replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; });
-      pf.hidden = true;
-      pnot.classList.remove('is-error');
-      pnot.innerHTML = '<span class="tr"><b>' + m + '</b> adresini daha önce ekledin; listemizde. Aşağıdan "Teste katıl"a dokunabilirsin.</span>' +
-        '<span class="en">You already added <b>' + m + '</b>; it\'s on our list. Tap "Join the test" below.</span> ' +
-        '<button type="button" class="play-testci-baska"><span class="tr">Başka adres ekle</span><span class="en">Add another address</span></button>';
-      pnot.hidden = false;
-      pnot.querySelector('.play-testci-baska').addEventListener('click', function () {
-        pnot.hidden = true; pf.hidden = false; pf.mail.focus();
-      });
-    }
+    // Form hep açık kalır: kişi farklı adresler ekleyebilir. Yazılan adres listede varsa sunucu yeni:false döner → "daha önce eklendi".
     if (pf) pf.addEventListener('submit', function (e) {
       e.preventDefault();
       var en = document.documentElement.getAttribute('data-lang') === 'en';
@@ -287,9 +273,9 @@ back_en: Home
       }).then(function (r) { return r.json(); }).then(function (j) {
         if (j.tamam) {
           sakla('mg-test-mail', mail);
-          pf.hidden = true;
+          pf.mail.value = '';
           if (j.yeni) yaz('Aldık! ' + mail + ' adresini test listesine ekleyince aşağıdaki "Teste katıl" linkleri çalışır. Genelde 15 dakika içinde.', 'Got it! Once ' + mail + ' is on the test list, the "Join the test" links below will work. Usually within 15 minutes.');
-          else yaz(mail + ' zaten listemizde. Aşağıdan "Teste katıl"a dokunabilirsin.', mail + ' is already on our list. Tap "Join the test" below.');
+          else yaz(mail + ' daha önce eklendi; listemizde. Aşağıdan "Teste katıl"a dokunabilirsin.', mail + ' was already added; it\'s on our list. Tap "Join the test" below.');
         } else if (j.hata === 'tk_gmail_gecersiz') yaz('Geçerli bir mail adresi yaz.', 'Enter a valid email address.', true);
         else if (j.hata === 'tk_cok_fazla') yaz('Bu bağlantıdan son bir saatte çok fazla adres eklendi; biraz sonra tekrar dene.', 'Too many addresses from this connection in the last hour; please try again later.', true);
         else yaz('Bir sorun oldu, biraz sonra tekrar dene.', 'Something went wrong, try again a little later.', true);
