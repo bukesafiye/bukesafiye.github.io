@@ -220,4 +220,4 @@
   icon: /assets/img/apartman-simulatoru-icon.png
   logo: { tr: /assets/img/apartman-simulatoru-logo-tr.webp, en: /assets/img/apartman-simulatoru-logo-en.webp }
   play_test: com.mirogames.apartmansimulator
-  beta: 1
+  beta: 2.5   # iOS'ta Kafamatik (2) ile Dedektif (3) arası; Android test sütununda Mahalle'den sonra
