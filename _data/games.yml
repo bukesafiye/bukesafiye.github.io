@@ -199,7 +199,7 @@
   testflight: https://testflight.apple.com/join/9nTwMHXt
   web: https://mahallepatronu.vercel.app/   # tarayıcıda oynanır (paylaşım sayfası /mahalle/)
   play_test: com.mirogames.mahallepatronu
-  beta: 1
+  beta: 0
 
 - slug: apartman-simulatoru
   name: { tr: "Apartman Simülatörü: Komşular", en: "Apartment Simulator: Neighbors" }
@@ -220,4 +220,4 @@
   icon: /assets/img/apartman-simulatoru-icon.png
   logo: { tr: /assets/img/apartman-simulatoru-logo-tr.webp, en: /assets/img/apartman-simulatoru-logo-en.webp }
   play_test: com.mirogames.apartmansimulator
-  beta: 0
+  beta: 1

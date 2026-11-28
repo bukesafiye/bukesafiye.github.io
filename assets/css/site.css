@@ -394,6 +394,10 @@ h1, h2, h3 { font-family: var(--display); line-height: 1.15; margin: 0 0 .5em; l
 /* Dar ekranda sütunlar tek akış (önce sol, sonra sağ): sağ sütunun ilk kartı (iOS'ta 1. sıradaki test) en üste çıkar,
    sol sütunun ilk kartıyla yer değiştirmiş olur */
 .promo-right > .promo-col-title + .promo, .promo-right > .promo:first-child { order: -1; }   /* :is() yok: eski iOS Safari de uygular */
+/* Android dar ekran: ilk iki test (Mahalle, Apartman), sonra ilk yayındaki (Kafamatik), sonra diğer testler ve yayındakiler */
+.promo-set[data-for="android"] .promo-right > .promo { order: 2; }
+.promo-set[data-for="android"] .promo-right > .promo-col-title + .promo { order: 0; }   /* ilk 2 testten sonra 3. sırada */
+.promo-set[data-for="android"] .promo-left > .promo:nth-child(n+4) { order: 1; }   /* 3. test kartı ve sonrası (1. çocuk başlık) */
 html:not([data-platform="ios"]) .promo-set[data-for="ios"], html[data-platform="ios"] .promo-set[data-for="android"] { display: none; }
 .promo { position: relative; display: flex; flex-direction: column; align-items: center; gap: 12px; padding: 22px 18px 20px; border-radius: 20px; text-align: center; background: var(--promo-bg); border: 1px solid color-mix(in srgb, var(--c) 45%, transparent); box-shadow: 0 0 0 1px rgba(0, 0, 0, .2), 0 18px 50px -12px color-mix(in srgb, var(--c) 45%, transparent); }
 .promo { cursor: pointer; }   /* the whole card does what its button does (test.md) */
