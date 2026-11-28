@@ -23,7 +23,7 @@ back_en: Home
   </button>
 </div>
 
-{%- comment -%} Featured tests: per platform, a left and a right column. iOS: every TestFlight game in beta order, 1st on the right, 2nd on the left, then alternating; wide screens show them all in the page gutters, narrower screens the first five above the tabs in plain beta order (ord → CSS order). {%- endcomment %}
+{%- comment -%} Featured tests: per platform, a left and a right column. iOS: every TestFlight game in beta order, 1st on the right, 2nd on the left, then alternating; wide screens show them all in the page gutters, narrower screens all of them above the tabs in plain beta order (ord → CSS order). {%- endcomment %}
 <aside class="test-promos" aria-label="Öne çıkan testler / Featured tests">
   <div class="promo-set" data-for="android">
     {%- assign and_pool = site.data.games | concat: site.data.apps | concat: site.data.test_only | sort: "beta", "last" %}
@@ -41,10 +41,10 @@ back_en: Home
   <div class="promo-set" data-for="ios">
     {%- assign tf = site.data.games | where_exp: "g", "g.testflight" | sort: "beta" %}
     <div class="promo-col promo-left">
-      {%- for g in tf %}{% assign m = forloop.index | modulo: 2 %}{% if m == 0 %}{% if forloop.index > 5 %}{% include test-promo.html g=g platform="ios" extra=true ord=forloop.index %}{% else %}{% include test-promo.html g=g platform="ios" ord=forloop.index %}{% endif %}{% endif %}{% endfor %}
+      {%- for g in tf %}{% assign m = forloop.index | modulo: 2 %}{% if m == 0 %}{% include test-promo.html g=g platform="ios" ord=forloop.index %}{% endif %}{% endfor %}
     </div>
     <div class="promo-col promo-right">
-      {%- for g in tf %}{% assign m = forloop.index | modulo: 2 %}{% if m == 1 %}{% if forloop.index > 5 %}{% include test-promo.html g=g platform="ios" extra=true ord=forloop.index %}{% else %}{% include test-promo.html g=g platform="ios" ord=forloop.index %}{% endif %}{% endif %}{% endfor %}
+      {%- for g in tf %}{% assign m = forloop.index | modulo: 2 %}{% if m == 1 %}{% include test-promo.html g=g platform="ios" ord=forloop.index %}{% endif %}{% endfor %}
     </div>
   </div>
 </aside>
